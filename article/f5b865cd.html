@@ -1,0 +1,608 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/muzihuaner/deng@main/deng.css">
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/old/F.png">
+  <link rel="icon" type="image/png" href="/img/old/F.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="工具人•小方">
+  <meta name="keywords" content="">
+  <title>JAVA中的常见类 - 工具人小方的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/atelier-cave-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"fxhstudy.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"https://hm.baidu.com/hm.js?2c3982f360efc29d0de4a57e127e3cb9","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz","app_key":"r20xk8AR5pft8xGRQlWKYoin","server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  <script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.13/js/linkcard.js"></script>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="工具人小方的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>工具人小方的博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://gss0.baidu.com/70cFfyinKgQFm2e88IuM_a/baike/pic/item/a08b87d6277f9e2f0d91258e1f30e924b999f38b.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="JAVA中的常见类">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-10-18 18:37" pubdate>
+        October 18, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      39
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JAVA中的常见类</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：a month ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>最近在学JAVA,以后还是想往JAVA后端发展的，大二开始学习还是有点晚了，所以要多付出一点才可以。<br>现在大概学习到了有关JAVA类的学习了，但是发现缺少代码的累计，我怕后面可能会忘记一些小细节或者某些简单的类中的方法使用，这里记录一下，以便后面可以及时复习。由于初学JAVA，所以一些标准语法可能说的不是很准确。这里也仅仅只是简单的记录一下，不会涉及太深，比较初学，由浅入深嘛</p>
+<a id="more"></a>
+
+<h2 id="Scanner类"><a href="#Scanner类" class="headerlink" title="Scanner类"></a>Scanner类</h2><p>Scanner类可以实现键盘的输入，到程序当中去。</p>
+<p>nextInt():获取键盘输入数字;<br>next():获取键盘输入字符串;</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/*<br>Scanner类的功能：可以实现键盘输入，到程序当中去。<br><br>引用类型的一般使用步骤：<br><br>1. 导包<br>import 包路径.类名称<br>如果需要使用的目标类，和当前类位于同一个包下，则可以省略导包语句不写。<br>只有java.lang包下的内容不需要导包，其他的包都需要import语句<br><br>2. 创建<br>类名称 对象名 = new 类名称();<br><br>3. 使用<br>对象名.成员方法名()<br> */</span><br><br><span class="hljs-keyword">import</span> java.util.Scanner  	<span class="hljs-comment">//1. 导包</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo01Scanner</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-comment">//2. 创建</span><br>        <span class="hljs-comment">//备注： System.in代表从键盘进行输入</span><br>        Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);<br><br>        <span class="hljs-comment">//3. 获取键盘输入数字</span><br>        <span class="hljs-keyword">int</span> num = sc.nextInt();<br>        System.out.println(<span class="hljs-string">"输入的数字是："</span> + num);	<br><br>        <span class="hljs-comment">//4. 获取键盘输入字符串</span><br>        String str = sc.next();<br>        System.out.println(<span class="hljs-string">"输入的字符串是："</span> + str);<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>输出显示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs code">04<br>输入的数字是：4<br>admin<br>输入的字符串是：admin<br></code></pre></div></td></tr></table></figure>
+
+
+<p>再贴出两个小例子</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/*<br>题目：<br>键盘输入两个int数字，并且求和<br> */</span><br><br><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo02ScannerSum</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);<br><br>        System.out.println(<span class="hljs-string">"请输入第一个数字："</span>);<br>        <span class="hljs-keyword">int</span> a = sc.nextInt();<br>        System.out.println(<span class="hljs-string">"请输入第二个数字："</span>);<br>        <span class="hljs-keyword">int</span> b = sc.nextInt();<br><br>        <span class="hljs-keyword">int</span> result = a + b;<br>        System.out.println(<span class="hljs-string">"结果是："</span> + result);<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>输出显示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs code">请输入第一个数字：<br>23<br>请输入第二个数字：<br>45<br>结果是：68<br></code></pre></div></td></tr></table></figure>
+
+
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/*<br>题目：<br>键盘输入三个int数字，然后求出其中的最大值<br><br> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo03ScannerMax</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);<br><br>        System.out.println(<span class="hljs-string">"请输入第一个数字"</span>);<br>        <span class="hljs-keyword">int</span> a = sc.nextInt();<br>        System.out.println(<span class="hljs-string">"请输入第二个数字"</span>);<br>        <span class="hljs-keyword">int</span> b = sc.nextInt();<br>        System.out.println(<span class="hljs-string">"请输入第三个数字"</span>);<br>        <span class="hljs-keyword">int</span> c = sc.nextInt();<br><br>        <span class="hljs-keyword">int</span> temp = a &gt; b ? a : b;<br>        <span class="hljs-keyword">int</span> max = temp &gt; c ? temp : c;<br>        System.out.println(<span class="hljs-string">"最大值为："</span> + max);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>输出显示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs code">请输入第一个数字<br>23<br>请输入第二个数字<br>43<br>请输入第三个数字<br>67<br>最大值为：67<br></code></pre></div></td></tr></table></figure>
+
+
+<h2 id="ArrayList类"><a href="#ArrayList类" class="headerlink" title="ArrayList类"></a>ArrayList类</h2><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/*<br>数组的长度不可以发生改变。<br>但是ArrayList集合的长度是可以随意变化的。<br><br>对于ArrayList来说，有一个尖括号&lt;E&gt;代表泛型<br>泛型：也就是装在集合中的所有元素，全都是统一的什么类型<br>注意：泛型只能是引用类型，不能是基础类型。<br><br>注意事项：<br>对于ArrayList集合来说，直接打印得到的不是地址值，而是内容。<br>如果内容为空，得到的是空的中括号：[]<br> */</span><br><span class="hljs-keyword">import</span> java.util.ArrayList;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo02ArrayList</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        ArrayList&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        System.out.println(list);<br><br>        <span class="hljs-comment">//向集合当中添加一些数据，需要用到add方法。</span><br>        list.add(<span class="hljs-string">"小方①号"</span>);<br>        System.out.println(list);<br><br>        list.add(<span class="hljs-string">"小方②号"</span>);<br>        list.add(<span class="hljs-string">"小方③号"</span>);<br>        list.add(<span class="hljs-string">"小方④号"</span>);<br>        System.out.println(list);<br><br><span class="hljs-comment">//        list.add(100);    //错误写法！因为创建的时候尖括号泛型已经说了是字符串，添加进去的元素就必须都是字符串才行</span><br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>这里介绍一下ArrayList中常见的方法，主要有添加，查找，删除和获取长度</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.ArrayList;<br><br><span class="hljs-comment">/*<br>ArrayList 当中的常用方法有：<br><br>public boolean add(E e):向集合当中添加元素，参数的类型和泛型一致。返回值代表添加成功。<br>备注：对于ArrayList集合来说，add添加动作一定是成功的，所以返回值可用可不用<br>但是对于其他集合(今后学习)来说，add添加动作不一定成功。<br><br>public E get(int index):从集合当中获取元素，参数是索引编号，返回值就是对应位置的元素<br><br>public E remove(int index):从集合当中删除元素，参数是索引编号，返回值就是被删除掉的元素。<br><br>public int size():获取集合的尺寸长度，返回值是集合中包含的元素个数。<br> */</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo03ArrayListMethod</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        ArrayList&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        System.out.println(list);   <span class="hljs-comment">//[]</span><br><br>        <span class="hljs-comment">//向集合中添加元素：add</span><br>        <span class="hljs-keyword">boolean</span> success = list.add(<span class="hljs-string">"小方①号"</span>);<br>        System.out.println(<span class="hljs-string">"添加是否成功："</span> + success);<br>        System.out.println(list);<br><br>        list.add(<span class="hljs-string">"小方②号"</span>);<br>        list.add(<span class="hljs-string">"小方③号"</span>);<br>        list.add(<span class="hljs-string">"小方④号"</span>);<br>        System.out.println(list);<br><br>        <span class="hljs-comment">// 从集合中获取元素：get。索引值从0开始</span><br>        String name = list.get(<span class="hljs-number">2</span>);<br>        System.out.println(<span class="hljs-string">"第②号索引位置："</span> + name);<br><br>        <span class="hljs-comment">// 从集合中删除元素：remove。索引值从0开始</span><br>        String whoRemove = list.remove(<span class="hljs-number">3</span>);<br>        System.out.println(<span class="hljs-string">"被删除的人是："</span> + whoRemove);<br>        System.out.println(list);<br><br>        <span class="hljs-comment">//获取集合的长度尺寸，也就是其中元素的个数</span><br>        <span class="hljs-keyword">int</span> size = list.size();<br>        System.out.println(<span class="hljs-string">"集合的长度是："</span> + size);<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs code">[]<br>添加是否成功：true<br>[小方①号]<br>[小方①号, 小方②号, 小方③号, 小方④号]<br>第②号索引位置：小方③号<br>被删除的人是：小方④号<br>[小方①号, 小方②号, 小方③号]<br>集合的长度是：3<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.ArrayList;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo04ArrayListEach</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        ArrayList&lt;String&gt; list= <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        list.add(<span class="hljs-string">"小方①号"</span>);<br>        list.add(<span class="hljs-string">"小方②号"</span>);<br>        list.add(<span class="hljs-string">"小方③号"</span>);<br><br>        <span class="hljs-comment">//遍历集合 list.fori</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; list.size(); i++) &#123;<br>            System.out.println(list.get(i));<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="基本类型存储"><a href="#基本类型存储" class="headerlink" title="基本类型存储"></a>基本类型存储</h3><p>上面我们提到了，泛型只能是引用类型，不能是基础类型。那我们如何实现基本类型的存储呢？<br>如果希望向集合ArrayList当中存储基本类型数据，必须使用基础数据类型对于的”包装类”。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-comment">/*<br>如果希望向集合ArrayList当中存储基本类型数据，必须使用基本数据类型对于的"包装类"。<br><br>基本类型     包装类(引用类型，包装类都位于java，lang包下)<br>byte        Byte<br>short       Short<br>int         Integer    [特殊]<br>float       Float<br>double      Double<br>char        character  [特殊]<br>boolean     Boolean<br><br>从JDK 1.5+开始，支持自动装箱、自动拆箱<br><br>自动装箱：基本类型 --&gt; 包装类型<br>自动拆箱：包装类型 --&gt; 基本类型<br> */</span><br><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo05ArrayListBasic</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        ArrayList&lt;String&gt; ListC = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-comment">//错误写法！泛型只能是引用类型，不能是基本类型</span><br><span class="hljs-comment">//        ArrayList&lt;int&gt; ListB = new ArrayList&lt;&gt;();</span><br><br>        ArrayList&lt;Integer&gt; listA = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        listA.add(<span class="hljs-number">100</span>);<br>        listA.add(<span class="hljs-number">200</span>);<br>        System.out.println(listA);	<span class="hljs-comment">//打印集合</span><br><br>        <span class="hljs-keyword">int</span> num = listA.get(<span class="hljs-number">1</span>);<br>        System.out.println(<span class="hljs-string">"第一号元素是："</span> + num);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs code">[100, 200]<br>第一号元素是：200<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="Random类"><a href="#Random类" class="headerlink" title="Random类"></a>Random类</h2><p>Random类用来生成随机数字。使用其实也是三个步骤,导包-&gt;创建-&gt;使用。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/*<br>1. 导包<br>import java.util.Random;<br><br>2. 创建<br>Random r = new Random();    //小括号当中留空即可<br><br>3. 使用<br>获取一个随机的int数字(范围是int所有范围，有正负两种)：int num = r.nextInt()<br> */</span><br><span class="hljs-keyword">import</span> java.util.Random;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo01Random</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Random r = <span class="hljs-keyword">new</span> Random();<br><br>        <span class="hljs-keyword">int</span> num = r.nextInt();<br>        System.out.println(<span class="hljs-string">"随机数是："</span> + num);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs code">随机数是：2128661138<br></code></pre></div></td></tr></table></figure>
+
+<p>Random也可以实现在给定的范围内，获取随机数字，如代码实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/*<br>题目要求：<br>根据int变量n的值，来获取随机数字，范围是[1,n], 可以取到1也可以取到n。<br> */</span><br><span class="hljs-keyword">import</span> java.util.Random;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo03Random</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> n = <span class="hljs-number">5</span>;<br><br>        Random r = <span class="hljs-keyword">new</span> Random();<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            <span class="hljs-keyword">int</span> result = r.nextInt(n) + <span class="hljs-number">1</span>;	<span class="hljs-comment">//循环100遍</span><br>            System.out.println(result);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>玩个游戏,电脑实现随机产生一个数字，你来猜测，如果你输入的值相比于随机产生的值偏大了，电脑反馈太大了，如果你输入的值相比于随机产生的值偏小了，电脑反馈太小了，如果相等，退出游戏。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Random;<br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo04RandomGame</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Random r = <span class="hljs-keyword">new</span> Random();<br>        <span class="hljs-keyword">int</span> randomNum = r.nextInt(<span class="hljs-number">100</span>) + <span class="hljs-number">1</span>;<br>        Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);<br><br>        <span class="hljs-keyword">while</span>( <span class="hljs-keyword">true</span> ) &#123;<br>            System.out.println(<span class="hljs-string">"请输入你猜测的数:"</span>);<br>            <span class="hljs-keyword">int</span> guessNum = sc.nextInt();<br><br>            <span class="hljs-keyword">if</span> ( guessNum &lt; randomNum ) &#123;<br>                System.out.println(<span class="hljs-string">"太小了，请重试"</span>);<br>            &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( guessNum &gt; randomNum ) &#123;<br>                System.out.println(<span class="hljs-string">"太大了，请重试"</span>);<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                System.out.println(<span class="hljs-string">"恭喜你，猜对了"</span>);<br>                <span class="hljs-keyword">break</span>;  <span class="hljs-comment">//如果猜中，退出</span><br>            &#125;<br>        &#125;<br><br>        System.out.println(<span class="hljs-string">"游戏结束。"</span>);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>贴出一个小例子</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/*题目：<br>用一个大集合存入20个随机数字，然后筛选其中的偶数，放到小集合当中。<br>要求使用自定义的方法来实现筛选。<br> */</span><br><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.Random;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo04ArrayListReturn</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        ArrayList&lt;Integer&gt; bigList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        Random r = <span class="hljs-keyword">new</span> Random();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">20</span>; i++) &#123;<br>            <span class="hljs-keyword">int</span> num = r.nextInt(<span class="hljs-number">10</span>) + <span class="hljs-number">1</span>;<br>            bigList.add(num);<br><span class="hljs-comment">//            bigList.add(r.nextInt(10) + 1);</span><br>        &#125;<br>        System.out.println(bigList);<br><br>        ArrayList&lt;Integer&gt; smallList = getSmallList(bigList);<br><br>        System.out.println(<span class="hljs-string">"偶数总共有："</span> + smallList.size() + <span class="hljs-string">"个"</span>);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; smallList.size(); i++) &#123;<br>            System.out.println(smallList.get(i));<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// 这个方法，接收大集合参数，返回小集合结果</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> ArrayList&lt;Integer&gt; <span class="hljs-title">getSmallList</span><span class="hljs-params">(ArrayList&lt;Integer&gt; bigList)</span></span>&#123;<br>        <span class="hljs-comment">// 创建一个小集合，用来装偶数结果</span><br>        ArrayList&lt;Integer&gt; smallList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; bigList.size(); i++) &#123;<br>            <span class="hljs-keyword">int</span> num = bigList.get(i);<br>            <span class="hljs-keyword">if</span> ( bigList.get(i) % <span class="hljs-number">2</span> == <span class="hljs-number">0</span> )&#123;<br><span class="hljs-comment">//                smallList.add(bigList.get(i));</span><br>                smallList.add(num);<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> smallList;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs code">[5, 5, 4, 1, 10, 1, 6, 9, 3, 7, 6, 2, 3, 9, 2, 4, 10, 1, 9, 1]<br>偶数总共有：8个<br>4<br>10<br>6<br>6<br>2<br>2<br>4<br>10<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h2><p>字符串特点：</p>
+<ol>
+<li>字符串的内容永不可变;</li>
+<li>正是因为字符串不可改变，所以字符串是可以共享使用的;</li>
+<li>字符串效果上相当于是char[]字符数组，但是底层原理是byte[]字节数组。</li>
+</ol>
+<p>创建字符串的常见3+1种方式。<br>三种构造方式：<br>public String():创建一个空白字符串，不含有任何内容<br>public String(char[] array):根据字符数组的内容，来创建对应的字符串。<br>public String(byte[] array):根据字符数组的内容，来创建对应的字符串。<br>一种直接创建：<br>String str[] = “Hello”;     //右边直接用双引号</p>
+<p>注意：直接写上双引号，就是字符串对象</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo01String</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-comment">// 使用空参构造</span><br>        String str1 = <span class="hljs-keyword">new</span> String();<br>        System.out.println(<span class="hljs-string">"第①个字符串："</span> + str1);<br><br>        <span class="hljs-comment">// 根据字符数组创建字符串</span><br>        <span class="hljs-keyword">char</span>[] charArray = &#123; <span class="hljs-string">'A'</span>, <span class="hljs-string">'B'</span>, <span class="hljs-string">'C'</span> &#125;;<br>        String str2 = <span class="hljs-keyword">new</span> String(charArray);<br>        System.out.println(<span class="hljs-string">"第②个字符串:"</span> + str2);<br><br>        <span class="hljs-comment">//根据字节数组创建字符串</span><br>        <span class="hljs-keyword">byte</span>[] byteArray = &#123; <span class="hljs-number">97</span>, <span class="hljs-number">98</span>, <span class="hljs-number">99</span> &#125;;<br>        String str3 = <span class="hljs-keyword">new</span> String(byteArray);<br>        System.out.println(<span class="hljs-string">"第③个字符串:"</span> + str3);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">第①个字符串：<br>第②个字符串:ABC<br>第③个字符串:abc<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="字符串常量池"><a href="#字符串常量池" class="headerlink" title="字符串常量池"></a>字符串常量池</h3><p>字符串常量池：程序当中直接写上的双引号字符串，就在字符串常量池中。</p>
+<p>对于基本类型来说，==是进行数值的比较<br>对于引用类型来说，==是进行[地址值]的比较</p>
+<p>举个栗子：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo02StringPool</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        String str1 = <span class="hljs-string">"abc"</span>;<br>        String str2 = <span class="hljs-string">"abc"</span>;<br><br>        <span class="hljs-keyword">char</span>[] charArray = &#123; <span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span> &#125;;<br>        String str3 = <span class="hljs-keyword">new</span> String(charArray);<br><br>        System.out.println(str1 == str2);   <span class="hljs-comment">//true</span><br>        System.out.println(str2 == str3);   <span class="hljs-comment">//false</span><br>        System.out.println(str2 == str3);   <span class="hljs-comment">//false</span><br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">true</span><br><span class="hljs-keyword">false</span><br><span class="hljs-keyword">false</span><br></code></pre></div></td></tr></table></figure>
+
+<h3 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h3><p>前面，我们在实现比较的时候，发现，对于引用类型，使用 <code>==</code> 是进行[地址值]的比较，而不是我们想要的字符串内容的比较。。。<br>而通过转化成数组一个一个比较，太费力了。<br>这是java中提供了可以实现String比较的方法，</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/">程序猿</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/JAVA/">JAVA</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/65c9acdf.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">re学习笔记(1)--[BJDCTF 2nd]8086</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/9161a619.html">
+                        <span class="hidden-mobile">攻防世界--reverse</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz",
+          app_key: "r20xk8AR5pft8xGRQlWKYoin",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fxhstudy" target="_blank" rel="nofollow noopener"><span>xFxF</span></a>
+
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?https://hm.baidu.com/hm.js?2c3982f360efc29d0de4a57e127e3cb9";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

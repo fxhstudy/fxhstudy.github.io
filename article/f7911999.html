@@ -1,0 +1,557 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/muzihuaner/deng@main/deng.css">
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/old/F.png">
+  <link rel="icon" type="image/png" href="/img/old/F.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="工具人•小方">
+  <meta name="keywords" content="">
+  <title>CTF密码学常见的加解密总结[转载] - 工具人小方的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/atelier-cave-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"fxhstudy.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"https://hm.baidu.com/hm.js?2c3982f360efc29d0de4a57e127e3cb9","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz","app_key":"r20xk8AR5pft8xGRQlWKYoin","server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  <script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.13/js/linkcard.js"></script>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="工具人小方的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>工具人小方的博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://qiniuyun.fxhstudy.com/CTF%E5%AF%86%E7%A0%81%E5%AD%A6%E5%B8%B8%E8%A7%81%E7%9A%84%E5%8A%A0%E8%A7%A3%E5%AF%86%E6%80%BB%E7%BB%93%5B%E8%BD%AC%E8%BD%BD%5D.jpg?imageslim') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="CTF密码学常见的加解密总结[转载]">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-03-25 23:19" pubdate>
+        March 25, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      44
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">CTF密码学常见的加解密总结[转载]</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：a month ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <blockquote>
+    原文链接:<a href="https://blog.csdn.net/qq_40836553/article/details/79383488" target="_blank" rel="noopener">https://blog.csdn.net/qq_40836553/article/details/79383488</a>
+</blockquote>
+<br>
+
+<p>这几天在看CTF涉及到的有关密码学的知识，找到了一些视频资料，但是发现涉及的有点深了，所以这里转载了一篇关于CTF密码学的加密解密总结,不过好像没有涉及到md5。</p>
+<a id="more"></a>
+
+
+<article class="baidu_pl">
+         <div id="article_content" class="article_content clearfix">
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-833878f763.css">
+                            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-833878f763.css">
+                <div class="htmledit_views" id="content_views">
+                </p><h4>1.base64编码</h4><p>&nbsp;<span style="font-size:14px;">&nbsp;&nbsp;&nbsp; Base64是网络上最常见的用于传输8Bit<a href="https://baike.baidu.com/item/%E5%AD%97%E8%8A%82%E7%A0%81" target="_blank" rel="nofollow noopener">字节码</a>的编码方式之一，base64就是一种基于64个可打印字符来表示二进制数据的表示方法。由于2的6次方等于64，所以每6个比特为一个单元，对应某个可打印字符。三个字节有24个比特，对应4个base64单元，即3个字节可表示4个可打印字符。它可用来作为电子邮件的传输编码。在base64中的可打印字符包括字母A-Z、a-z、数字0-9，这样共有62个字符，此外两个可打印符号在不同系统中而不同。</span></p><p><span style="font-size:14px;"></span></p><div><span style="font-size:14px;">例如：编码‘Man'</span></div><div><img alt="" src="https://img-blog.csdn.net/20170721181142080?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcGRzdTE2MTUzMDI0Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" srcset="/img/loading.gif"><br></div><div><span style="font-size:14px;">在此例中，base64算法将3个字符编码转为4个字符</span></div><div><span style="font-size:14px;">base64索引表：</span></div><div><img alt="" src="https://img-blog.csdn.net/20170721181527589?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcGRzdTE2MTUzMDI0Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" srcset="/img/loading.gif"><br></div><div><span style="font-size:14px;">如果要编码的字节数不能被3整除，最后会多出1个或2个字节，那么可以使用下面的方法进行处理：先使用0字节值在末尾补足，使其能够被3整除，然后再进行base64的编码。在编码后的base64文本后加上一个或两个“=”号，代表补足的字节数。也就是说，当最后剩余一个八位字节（一个byte）时，最后6位的base64字节块有四位是0值，最后附加上两个等号；如果最后剩余两个八位字节（2byte）时，最后一个6位的base字节块有两位是0值，最后附加一个等号</span></div><div><span style="font-size:14px;">例如：</span></div><div><img alt="" src="https://img-blog.csdn.net/20170721182105652?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcGRzdTE2MTUzMDI0Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" srcset="/img/loading.gif"><br><span style="color:#CC66CC;">当看到==号的加密方式时，可以考虑base64。例：cTZ1NQ==解码之后为q5u5。</span><br></div><div><br></div><div><span style="font-size:12px;">关于base32：<br><span>base32中只有大写字母（A-Z）和数字234567</span></span><br></div><p><span style="font-size:14px;"><span style="font-size:12px;"><span><img alt="" src="https://img-blog.csdn.net/20170921171542852?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcGRzdTE2MTUzMDI0Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" srcset="/img/loading.gif"></span></span><br></span></p><p></p><div><span style="font-size:12px;"><span>关于base16：</span></span></div><div><span style="font-size:12px;">base16中只有数字0-9以及大写字母ABCDEF<br></span></div><div><span style="font-size:12px;"><img alt="" src="https://img-blog.csdn.net/20170921171647346?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcGRzdTE2MTUzMDI0Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" srcset="/img/loading.gif"><br></span></div><div><div><a href="http://blog.csdn.net/pdsu161530247/article/details/74840422" target="_blank" rel="noopener">用python3使用base64、base32、base16编码</a></div><a href="http://tool.chinaz.com/tools/base64.aspx" target="_blank" rel="nofollow noopener">base64在线解密</a>&nbsp;&nbsp; 摘自：<a href="http://blog.csdn.net/pdsu161530247/article/details/75667218" target="_blank" rel="noopener"> CTF中Crypty（密码类）入门必看 </a><br><h4>2.凯撒密码</h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 凯撒密码作为一种最为古老的对称加密体制，在古罗马的时候都已经很流行，他的基本思想是：通过把字母移动一定的位数来实现加密和解密。明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。例如，当偏移量是3的时候，所有的字母A将被替换成D，B变成E，以此类推X将变成A，Y变成B，Z变成C。由此可见，位数就是凯撒密码加密和解密的密钥。现今又叫“移位密码”，只不过移动的位数不一定是3位而已。<br><div class="para">下面我们总结一下：</div><div class="para">明密对照表：</div><div class="para">明文：ABCDEFGHIJKLMNOPQRSTUVWXYZ</div><div class="para">密文：TUVWXYZABCDEFGHIJKLMNOPQRS</div><div class="para">注：广义上的凯撒是位移的。</div><div class="para">凯撒是没有密匙的，即使没有密匙也能将它破解出来，因为凯撒移位密码只有25种密匙，最多就是将这25种可能性挨个检测一下可以了，这就是我们所说的暴力破解法。也可在用软件破解，不过我提倡用人工的。</div>(有关凯撒密码的我了解还不是很详细，后续。。。）<br><h4>3.栅栏密码</h4>&nbsp;<div><span style="font-family:'微软雅黑', Times, serif;"><span style="font-family:'微软雅黑', Times, serif;"><span style="font-size:14px;">栅栏密码(Rail-fence Cipher)就是把要加密的明文分成N个一组，然后把每组的第1个字符组合，每组第2个字符组合…每组的第N(最后一个分组可能不足N个)个字符组合，最后把他们全部连接起来就是密文，这里以2栏栅栏加密为例。</span></span></span></div><div><span style="font-family:'微软雅黑', 'Times New Roman', Times, serif;color:#222222;"><span style="font-family:'微软雅黑', Times, serif;"><span style="font-size:14px;"><br></span></span></span></div><div><span style="font-size:14px;">明文：The quick brown fox jumps over the lazy dog</span></div><div><span style="font-size:14px;"><br>去空格：Thequickbrownfoxjumpsoverthelazydog</span></div><div><span style="font-size:14px;"><br>分组：Th eq ui ck br ow nf ox ju mp so ve rt he la zy do g</span></div><div><span style="font-size:14px;"><br>第一组：Teucbonojmsvrhlzdg</span></div><div><span style="font-size:14px;"><br>第二组：hqikrwfxupoeteayo</span></div><div><span style="font-size:14px;"><br>密文：Teucbonojmsvrhlzdghqikrwfxupoeteayo<br></span></div><div><a href="http://www.practicalcryptography.com/ciphers/classical-era/rail-fence/" target="_blank" rel="nofollow noopener"><span style="font-size:14px;">在线栅栏密码解密链接</span></a></div>例：<span style="color:#CC66CC;"><span class="chal-desc"></span></span><p><span style="color:#CC66CC;">一只小羊翻过了2个栅栏KYsd3js2E{a2jda}解密后为KEY{sad23jjdsa2}</span></p><h4>4.摩斯密码</h4><span style="font-size:14px;">摩尔斯电码（英语：Morse code）是一种时通时断的信号代码，通过不同的排列顺序来表达不同的英文字母、数字和标点符号。是由美国人艾尔菲德·维尔（Alfred Lewis Vail）与萨缪尔·摩尔斯（Samuel Finley Breese Morse）在1836年发明。<br>摩尔斯电码是一种早期的数字化通信形式，但是它不同于现代只使用0和1两种状态的二进制代码，它的代码包括五种：</span><p style="line-height:inherit;font-family:sans-serif;"><span style="font-size:14px;">1.点（.）</span></p><p style="line-height:inherit;font-family:sans-serif;"><span style="font-size:14px;">2.划（-）</span></p><p style="line-height:inherit;font-family:sans-serif;"><span style="font-size:14px;">3.每个字符间短的停顿（在点和划之间的停顿）</span></p><p style="line-height:inherit;font-family:sans-serif;"><span style="font-size:14px;">4.每个词之间中等的停顿</span></p><p style="line-height:inherit;font-family:sans-serif;"><span style="font-size:14px;">5.以及句子之间长的停顿</span></p><span style="font-size:14px;">摩尔斯电码字母与数字对应表：</span><div style="font-family:'Microsoft YaHei', '微软雅黑', '宋体', sans-serif;"><img alt="" src="https://img-blog.csdn.net/20170721202830370?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcGRzdTE2MTUzMDI0Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" srcset="/img/loading.gif"><br></div><div style="font-family:'Microsoft YaHei', '微软雅黑', '宋体', sans-serif;"><span style="font-size:14px;">例如：</span></div><div style="font-family:'Microsoft YaHei', '微软雅黑', '宋体', sans-serif;"><span style="font-size:14px;color:#CC66CC;">原文本：I LOVE YOU TOO&nbsp;</span></div><div style="font-family:'Microsoft YaHei', '微软雅黑', '宋体', sans-serif;"><span style="font-size:14px;color:#CC66CC;">加密后：<span style="font-family:'微软雅黑', sans-serif;"><strong>../.-../---/...-/./-.--/---/..-/-/---/---<br></strong></span></span><h3><a name="t1"></a><br></h3></div><h4>5.ASCII编码</h4><div><span style="font-size:14px;">ASCII码大致可以分为三部分组成：</span></div><div><span style="font-size:14px;">第一部分是：ASCII非打印控制字符</span></div><div><span style="font-size:14px;">第二部分是：ASCII打印字符；</span></div><div><span style="font-size:14px;">第三部分是：扩展ASCII打印字符。</span></div><div><a href="http://www.ab126.com/goju/1711.html" target="_blank" rel="nofollow noopener"><span style="font-size:14px;">在线ASCII码与进制互相转换</span><br></a></div><div><img alt="" src="https://img-blog.csdn.net/20170721171817958?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcGRzdTE2MTUzMDI0Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" srcset="/img/loading.gif"><br></div><div><br></div><div>例：<p><span style="font-family:Lato, sans-serif;color:#CC33CC;"><span style="font-size:14px;">突然天上一道雷电gndk€rlqhmtkwwp}z分析<span style="font-family:Lato, sans-serif;font-size:14px;">gndk€rlqhmtkwwp}z这个格式有点像flag{*******}?</span><br></span></span></p><p><span style="font-family:Lato, sans-serif;color:#CC33CC;"><span style="font-size:14px;"><span style="font-family:Lato, sans-serif;font-size:14px;">我们比较一下"gndk"与"flag"的ASCII码</span></span></span></p><p><span style="font-family:Lato, sans-serif;color:#CC33CC;"><span style="font-size:14px;"><span style="font-family:Lato, sans-serif;font-size:14px;">gndk的10进制的ASCII码分别是：103 110 100 107</span></span></span></p><p><span style="color:#CC33CC;"><span style="font-family:Lato, sans-serif;"><span style="font-size:14px;"><span style="font-family:Lato, sans-serif;font-size:14px;"><span style="font-family:Lato, sans-serif;font-size:14px;">flag的<span style="font-family:Lato, sans-serif;font-size:14px;">10进制的</span><span style="font-family:Lato, sans-serif;font-size:14px;">ASCII码分别是&nbsp; ：102 108&nbsp; 97&nbsp; 103</span></span><br></span></span></span></span></p><p><span style="color:rgb(51,51,51);font-family:Lato, sans-serif;"><span style="font-size:14px;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="color:#CC33CC;">发现ASCII以此减少 1 2 3 4，所以以此类推解密得flag{lei_ci_jiami}</span></span></span></span></span></span></p><h3><a name="t2"></a><a name="t2"></a><span style="color:rgb(51,51,51);font-family:Lato, sans-serif;"><span style="font-size:14px;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="color:#CC33CC;"><span style="color:#333333;">6.Brainfuck/Ook!编码</span></span></span></span></span></span></span></h3><p><span style="color:rgb(51,51,51);font-family:Lato, sans-serif;"><span style="font-size:14px;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="color:#CC33CC;"><span style="color:#333333;">例：<span class="chal-desc"></span></span></span></span></span></span></span></span></p><p>Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook.<br>Ook. Ook. Ook. Ook. Ook. Ook! Ook? Ook! Ook! Ook. Ook? Ook. Ook. Ook. Ook.<br>Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook.<br>Ook. Ook? Ook. Ook? Ook! Ook. Ook? Ook. Ook. Ook. Ook. Ook! Ook. Ook. Ook.<br>Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook. Ook? Ook. Ook.<br>Ook. Ook. Ook. Ook. Ook. Ook! Ook? Ook! Ook! Ook. Ook? Ook! Ook! Ook! Ook!<br>Ook! Ook! Ook? Ook. Ook? Ook! Ook. Ook? Ook! Ook! Ook! Ook! Ook! Ook. Ook.<br>Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook. Ook? Ook.<br>Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook? Ook! Ook! Ook. Ook? Ook.<br>Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook? Ook. Ook? Ook! Ook. Ook? Ook. Ook.<br>Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook. Ook? Ook. Ook. Ook. Ook. Ook. Ook.<br>Ook. Ook! Ook? Ook! Ook! Ook. Ook? Ook! Ook! Ook! Ook! Ook! Ook! Ook? Ook.<br>Ook? Ook! Ook. Ook? Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook. Ook! Ook! Ook!<br>Ook! Ook! Ook! Ook! Ook! Ook! Ook. Ook? Ook. Ook. Ook. Ook. Ook. Ook. Ook.<br>Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook? Ook! Ook! Ook. Ook? Ook!<br>Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook? Ook.<br>Ook? Ook! Ook. Ook? Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook!<br>Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook!<br>Ook! Ook. Ook? Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook.<br>Ook. Ook. Ook. Ook! Ook? Ook! Ook! Ook. Ook? Ook. Ook. Ook. Ook. Ook. Ook.<br>Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook? Ook. Ook? Ook! Ook. Ook? Ook.<br>Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook. Ook? Ook. Ook. Ook.<br>Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook? Ook! Ook! Ook. Ook? Ook. Ook. Ook.<br>Ook. Ook. Ook. Ook. Ook. Ook? Ook. Ook? Ook! Ook. Ook? Ook. Ook. Ook! Ook.<br>Ook? Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook? Ook! Ook! Ook. Ook? Ook!<br>Ook! Ook! Ook! Ook! Ook! Ook? Ook. Ook? Ook! Ook. Ook? Ook! Ook! Ook! Ook!<br>Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook. Ook? Ook. Ook. Ook. Ook. Ook. Ook.<br>Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook? Ook! Ook! Ook. Ook?<br>Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook?<br>Ook. Ook? Ook! Ook. Ook? Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook!<br>Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook.<br>Ook. Ook! Ook. Ook. Ook. Ook! Ook. Ook. Ook. Ook! Ook. Ook. Ook. Ook! Ook.<br>Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook!<br>Ook. Ook? Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook.<br>Ook. Ook. Ook! Ook? Ook! Ook! Ook. Ook? Ook. Ook. Ook. Ook. Ook. Ook. Ook.<br>Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook? Ook. Ook? Ook! Ook. Ook? Ook. Ook.<br>Ook. Ook. Ook. Ook. Ook! Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook. Ook.<br>Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook.<br>Ook. Ook. Ook! Ook. Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook. Ook.<br>Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook. Ook? Ook. Ook. Ook.<br>Ook. Ook. Ook. Ook. Ook! Ook? Ook! Ook! Ook. Ook? Ook. Ook. Ook. Ook. Ook.<br>Ook. Ook? Ook. Ook? Ook! Ook. Ook? Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook.<br>Ook. Ook. Ook. Ook. Ook! Ook. Ook? Ook. </p><span style="color:#CC33CC;">&nbsp;为Ook!编码，在线转文本后为flag{ok-ctf-1234-admin}</span></div><p><span style="color:rgb(51,51,51);font-family:Lato, sans-serif;"><span style="font-size:14px;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="color:#CC33CC;"><span style="color:#333333;"></span></span></span></span></span></span></span></p><div class="hljs code-wrapper"><pre class="hljs xml" name="code"><code class="hljs xml"><ol class="hljs-ln"><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">+++++ +++++ [-&gt;++ +++++ +++<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">]</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag"> &gt;</span></span></span>++.+ +++++ .<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">+++</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag"> [</span></span><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">-</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag">&gt;</span></span></span>-- -<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">]</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag">&gt;</span></span></span>- -.+++ +++.<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span></span></span></div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">++++[ </span><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">-</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag">&gt;</span></span>+++ +<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">]</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag">&gt;</span></span></span>+ +++.<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt; +++[</span></span><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">-</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag"> &gt;</span></span></span>---<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt; ]&gt;</span></span></span>--- .---- .<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">+++</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag"> ++++[ </span></span><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">-</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag">&gt;</span></span></span>--- ----<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span></span></span></div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">]&gt;</span>--- ----- ----- .<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">+++</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag"> ++++[ </span></span><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">-</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag">&gt;</span></span></span>+++ ++++<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt; ]&gt;</span></span></span>+++ ++.<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">+</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag"> +++++ +[</span></span><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">-</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag">&gt;</span></span></span>- -----</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">-<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">]</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag">&gt;</span></span></span>. <span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">++++</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag"> ++++[ </span></span><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">-</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag">&gt;</span></span></span>+++ +++++ <span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">]</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag">&gt;</span></span></span>++ .<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">+++</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag"> [</span></span><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">-</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag">&gt;</span></span></span>-- -<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">]</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag">&gt;</span></span></span>- ----. <span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">++++</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag"> +++[</span></span><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">-</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag"></span></span></span></div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">&gt;---- ---<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">]</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag"> &gt;</span></span></span>---- ----. +++++ +..++ +++.+ .<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">+++</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag"> [</span></span><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">-</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag">&gt;</span></span></span>-- -<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">]</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag">&gt;</span></span></span>- --.<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">+</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag"> +++++</span></span></span></span></div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">+[</span><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">-</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag">&gt;</span></span>+ +++++ +<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">]</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag">&gt;</span></span></span>+ ++.++ +.+++ +++++ +.--- -.+++ ++.<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">+</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag"> ++[</span></span><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">-</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag">&gt;</span></span></span> +++<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">]</span></span></span></span></span><span class="hljs-tag"><span class="hljs-tag"> &gt;</span></span></span>++++</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">++.<span class="hljs-tag"><span class="hljs-tag"><span class="hljs-tag">&lt;</span></span></span></div></div></li></ol></code><div class="hljs-button {2}" data-title="复制" onclick="hljs.copyCode(event)"></div></pre></div>这个为brainfuck，在线解码网站解码即可。<p><span style="color:#333333;">附上链接：<a href="https://www.splitbrain.org/services/ook" target="_blank" rel="nofollow noopener">Brainfuck/Ook!在线编码解码</a></span><span style="color:rgb(51,51,51);font-family:Lato, sans-serif;"><span style="font-size:14px;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="color:#CC33CC;"><br></span></span></span></span></span></span></p><p><span style="color:rgb(51,51,51);font-family:Lato, sans-serif;"><span style="font-size:14px;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="color:#CC33CC;"><span style="color:#333333;">&nbsp;还有许多类型的编码，请参照：<a href="http://blog.csdn.net/pdsu161530247/article/details/74640746" target="_blank" rel="noopener">一段base64的解体过程</a></span><br></span></span></span></span></span></span></p><p><span style="color:rgb(51,51,51);font-family:Lato, sans-serif;"><span style="font-size:14px;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="font-family:Lato, sans-serif;font-size:14px;color:#333333;"><span style="color:#CC33CC;"><br></span></span></span></span></span></span></p><h4>7.当铺密码</h4></div><p>&nbsp; &nbsp; &nbsp;当铺密码就是一种将中文和<a href="https://www.33iq.com/index/link?url=https://wapbaike.baidu.com/item/%E6%95%B0%E5%AD%97/6204" target="_blank" rel="nofollow noopener">数字</a>进行转化的<a href="https://www.33iq.com/index/link?url=https://wapbaike.baidu.com/item/%E5%AF%86%E7%A0%81/65553" target="_blank" rel="nofollow noopener">密码</a>，<a href="https://www.33iq.com/index/link?url=https://wapbaike.baidu.com/item/%E7%AE%97%E6%B3%95" target="_blank" rel="nofollow noopener">算法</a>相当简单:当前汉字有多少笔画出头，就是转化成数字几。例如：</p><h4 class="topic-context"></h4><p dir="ltr">王夫 井工 夫口 由中人 井中 夫夫 由中大：67 84 70 123 82 77 125&nbsp; 丰富一下知识面2333.。。</p><h4>8.培根密码</h4><p>&nbsp; &nbsp; &nbsp;培根密码中的ab,代表的是数学二进制中的0和1.通过下列的密码表进行加密和解密：<br>第一种方式：<br>A aaaaa B aaaab C aaaba D aaabb E aabaa F aabab G aabba H aabbb I abaaa J abaab<br>K ababa L ababb M abbaa N abbab O abbba P abbbb Q baaaa R baaab S baaba T baabb<br>U babaa V babab W babba X babbb Y bbaaa Z bbaab<br>第二种方式<br>a AAAAA g AABBA n ABBAA t BAABA<br>b AAAAB h AABBB o ABBAB u-v BAABB<br>c AAABA i-j ABAAA p ABBBA w BABAA<br>d AAABB k ABAAB q ABBBB x BABAB<br>e AABAA l ABABA r BAAAA y BABBA<br></p><p>f AABAB m ABABB s BAAAB z BABBB</p><p>感兴趣的可以参考大牛的文章：<a href="http://www.360doc.com/content/15/0222/14/21874787_450056531.shtml" target="_blank" rel="nofollow noopener">培根密码</a></p><h4>9.猪圈密码</h4><p>&nbsp; &nbsp; &nbsp;&nbsp;<strong>猪圈密码</strong>(亦称<strong>朱高密码</strong>、<strong>共济会密码</strong>或<strong>共济会员密码</strong>)，是一种以格子为基础的简单替代式密码。即使使用符号，也不会影响<a href="https://baike.so.com/doc/6264154-6477575.html" target="_blank" rel="nofollow noopener">密码分析</a>，亦可用在其它替代式的方法。</p><p></p><div><span style="font-family:'微软雅黑', 'Times New Roman', Times, serif;"><span style="font-size:14px;"><a href="https://en.wikipedia.org/wiki/Pigpen_cipher" target="_blank" rel="nofollow noopener"></a>明文字母和对应密文：<br></span></span></div><div><span style="font-family:'微软雅黑', 'Times New Roman', Times, serif;"><span style="font-size:14px;"><img alt="" src="https://img-blog.csdn.net/20170722102101792?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcGRzdTE2MTUzMDI0Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" srcset="/img/loading.gif"><br></span></span></div><div><span style="font-family:'微软雅黑', 'Times New Roman', Times, serif;"><span style="font-size:14px;">明文：THE QUICK BROWN FPX JUMPS OVER THE LAZY DOG</span></span></div><div><span style="font-family:'微软雅黑', 'Times New Roman', Times, serif;font-size:14px;">密文：</span></div><div><span style="font-family:'微软雅黑', 'Times New Roman', Times, serif;font-size:14px;"><img alt="" src="https://img-blog.csdn.net/20170722100908723?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcGRzdTE2MTUzMDI0Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" srcset="/img/loading.gif"></span></div><p>&nbsp;</p><h4>10.unicode编码</h4><p>例如：<span style="font-size:14px;">原文本：You had me at hello</span></p><div><span style="font-size:14px;">编码后\u0059\u006f\u0075\u0020\u0068\u0061\u0064\u0020\u006d\u0065\u0020\u0061\u0074\u0020\u0068\u0065\u006c\u006c\u006f</span></div><p></p><div><br></div><h5>11.URL编码</h5><p>&nbsp; &nbsp;<span style="font-family:'微软雅黑', 'Times New Roman', Times, serif;">url编码又叫百分号编码，是统一资源定位(URL)编码方式。URL地址（常说网址）规定了常用地数字，字母可以直接使用，另外一批作为特殊用户字符也可以直接用（/,:@等），剩下的其它所有字符必须通过%xx编码处理。 现在已经成为一种规范了，基本所有程序语言都有这种编码，如js：有encodeURI、encodeURIComponent，PHP有 urlencode、urldecode等。编码方法很简单，在该字节ascii码的的16进制字符前面加%. 如 空格字符，ascii码是32，对应16进制是’20’，那么urlencode编码结果是:%20。</span></p><h5><span style="font-family:'微软雅黑', 'Times New Roman', Times, serif;">12.ROT5/13/18/47编码</span></h5><p>&nbsp; &nbsp;&nbsp;</p><p><u>ROT5、ROT13、ROT18、ROT47</u> 编码是一种简单的码元位置顺序替换暗码。此类编码具有可逆性，可以自我解密，主要用于应对快速浏览，或者是机器的读取，而不让其理解其意。</p><p>ROT5 是 rotate by 5 places 的简写，意思是旋转5个位置，其它皆同。下面分别说说它们的编码方式：<br><strong>ROT5</strong>：只对数字进行编码，用当前数字往前数的第5个数字替换当前数字，例如当前为0，编码后变成5，当前为1，编码后变成6，以此类推顺序循环。<br><strong>ROT13</strong>：只对字母进行编码，用当前字母往前数的第13个字母替换当前字母，例如当前为A，编码后变成N，当前为B，编码后变成O，以此类推顺序循环。<br><strong>ROT18</strong>：这是一个异类，本来没有，它是将ROT5和ROT13组合在一起，为了好称呼，将其命名为ROT18。<br></p><p><strong>ROT47</strong>：对数字、字母、常用符号进行编码，按照它们的ASCII值进行位置替换，用当前字符ASCII值往前数的第47位对应字符替换当前字符，例如当前为小写字母z，编码后变成大写字母K，当前为数字0，编码后变成符号_。用于ROT47编码的字符其ASCII值范围是33－126</p><p><strong>例：Good Day经过ROT47加密后为v@@5 s2JP&nbsp;<a href="http://www.qqxiuzi.cn/bianma/ROT5-13-18-47.php" target="_blank" rel="nofollow noopener">ROT5/13/18/47在线加解密</a></strong></p><h5>13.Rabbit加密</h5><p><span style="font-size:14px;">&nbsp; &nbsp; &nbsp; 就给出几个例子参考下好了。。。</span></p><p><span style="font-size:14px;">明文I Love You小可爱无密匙加密后密文为U2FsdGVkX1/ouFei55jKdzY1fWNS4jxHVNf/AfKWjnBrOGY=</span></p><p><span style="font-size:14px;">明文I Love You 521无密匙加密后密文为U2FsdGVkX19DvuEo5PvBA8TuLrM2t+EZBvUkzlAa</span></p><p><span style="font-size:14px;">明文I Love You 521密匙为666加密后密文为U2FsdGVkX18w6vxXxux/ivRVwo3xMzTxmUyk7cHz</span></p><p><span style="font-size:14px;"><a href="http://www.sojson.com/encrypt_rabbit.html" target="_blank" rel="nofollow noopener">Rabbit在线加解密</a></span></p><h5>14.跳舞的小人</h5><p>&nbsp; &nbsp; &nbsp;来自夏洛克福尔摩斯在《归来记》中侦探案件使用的一种加密方式。</p><p><img alt="" src="https://img-blog.csdn.net/20180309143806697" srcset="/img/loading.gif"><br></p><p>&nbsp; &nbsp; &nbsp;对应的明文是</p><div class="hljs code-wrapper"><pre class="replay-info-txt answer_con" name="code">AT ELRIGES （住在埃尔里奇） 　　COME ELSIE （来吧 埃尔茜） 　　NEVER （决不） 　　ELSIE PREPARE TO MEET THY GOD （埃尔茜 准备见上帝吧） </pre></div><p></p><h4>&nbsp;15.QWE加密</h4><div>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 从电脑键盘上的字母从Q开始数，顺序是Q W E R T Y U I。。。对应的字母顺序依次是A B C D E F G H 也就是说Q=A,W=B,E=C，依次类推。</div><p>&nbsp; &nbsp; &nbsp; &nbsp; </p><p></p><p></p><p></p>                                    </div>
+                                                <div class="more-toolbox">
+                <div class="left-toolbox">
+                    <ul class="toolbox-list">
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%80%BB%E7%BB%93/">总结</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%BD%AC%E8%BD%BD/">转载</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/">渗透学习</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/c3c48e53.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">YCTF线上大赛--赛后总结</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/f976d484.html">
+                        <span class="hidden-mobile">渗透测试工具实战技巧合集[转载]</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz",
+          app_key: "r20xk8AR5pft8xGRQlWKYoin",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fxhstudy" target="_blank" rel="nofollow noopener"><span>xFxF</span></a>
+
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?https://hm.baidu.com/hm.js?2c3982f360efc29d0de4a57e127e3cb9";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

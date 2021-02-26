@@ -1,0 +1,814 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/muzihuaner/deng@main/deng.css">
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/old/F.png">
+  <link rel="icon" type="image/png" href="/img/old/F.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="工具人•小方">
+  <meta name="keywords" content="">
+  <title>飞机大战 - 工具人小方的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/atelier-cave-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"fxhstudy.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"https://hm.baidu.com/hm.js?2c3982f360efc29d0de4a57e127e3cb9","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz","app_key":"r20xk8AR5pft8xGRQlWKYoin","server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  <script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.13/js/linkcard.js"></script>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="工具人小方的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>工具人小方的博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://w.wallha.com/ws/7/CWJV9LTM.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="飞机大战">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-06-22 14:27" pubdate>
+        June 22, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      18
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">飞机大战</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：a month ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>这几天一直在学习Python，跟着做了一个游戏，飞机大战，以前微信小程序挺火的那个</p>
+<p>这里放上源码，图片我就不放了</p>
+<a id="more"></a>
+
+<p>plane_main.py</p>
+<blockquote>
+
+<div class="hljs code-wrapper"><pre><code>import os
+import pygame
+from plane_sprites import *
+
+class PlaneGame(object):
+    &quot;&quot;&quot;飞机大战主游戏&quot;&quot;&quot;
+
+    def __init__(self):
+        print(&quot;游戏初始化...&quot;)
+
+        # 创建游戏窗口
+        self.screen = pygame.display.set_mode(SCREEN_RECT.size)
+
+        # 创建游戏时间
+        self.clock = pygame.time.Clock()
+
+        # 调用私有方法，精灵和精灵组的创建
+        self.__create_sprites()
+
+        # 设置定时器事件 - 创建敌机 1s
+        pygame.time.set_timer(CREATE_ENEMY_EVENT, 1000)
+        pygame.time.set_timer(HERO_FIRE_EVENT, 500)
+
+    def __create_sprites(self):
+
+        # 创建背景精灵和精灵组
+        bg1 = Background()
+        bg2 = Background(True)
+
+        self.back_group = pygame.sprite.Group(bg1, bg2)
+
+        # 创建敌机的精灵组
+        self.enemy_group = pygame.sprite.Group()
+
+        # 创建英雄地精灵组
+        self.hero = Hero()
+        self.hero_group = pygame.sprite.Group(self.hero)
+
+    def start_game(self):
+        print(&quot;游戏开始了...&quot;)
+
+        while True:
+            # 1. 设置刷新帧率
+            self.clock.tick(FRAME_PER_SEC)
+            # 2. 事件监听
+            self.__event_hander()
+            # 3. 碰撞检测
+            self.__check_collide()
+            # 4. 更新/绘制精灵组
+            self.__update_sprites()
+            # 5. 更新显示
+            pygame.display.update()
+
+    def __event_hander(self):
+        for event in pygame.event.get():
+
+            # 判断是否退出游戏了
+            if event.type == pygame.QUIT:
+                PlaneGame.__game_over()
+            elif event.type == CREATE_ENEMY_EVENT:
+                # 创建敌机精灵
+                enemy = Enemy()
+
+                # 将敌机精灵添加到敌机精灵组
+                self.enemy_group.add(enemy)
+            elif event.type == HERO_FIRE_EVENT:
+                self.hero.Fire()
+            # elif event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
+            #     print(&quot;向右移动...&quot;)
+
+        # 使用键盘提供的方法获取键盘按键 - 按键元组
+        keys_pressed = pygame.key.get_pressed()
+        # 判断元组中对应得按键索引值 1
+        if keys_pressed[pygame.K_RIGHT]:
+            self.hero.speed = 2
+        elif keys_pressed[pygame.K_LEFT]:
+            self.hero.speed = -2
+        else:
+            self.hero.speed = 0
+
+    def __check_collide(self):
+        # 1. 子弹摧毁敌机
+        pygame.sprite.groupcollide(
+            self.hero.bullets, self.enemy_group, True, True)
+
+        # 2. 敌机撞毁英雄
+        enemies = pygame.sprite.spritecollide(
+            self.hero, self.enemy_group, True)
+
+        # 判断列表是否有内容
+        if len(enemies) &gt; 0:
+
+            # 让英雄牺牲
+            self.hero.kill()
+
+            # 结束游戏
+            PlaneGame.__game_over()
+
+    def __update_sprites(self):
+
+        self.back_group.update()
+        self.back_group.draw(self.screen)
+
+        self.enemy_group.update()
+        self.enemy_group.draw(self.screen)
+
+        self.hero_group.update()
+        self.hero_group.draw(self.screen)
+
+        self.hero.bullets.update()
+        self.hero.bullets.draw(self.screen)
+
+    @staticmethod
+    def __game_over():
+        print(&quot;游戏结束...&quot;)
+
+        pygame.quit()
+        os._exit(1)
+
+
+if __name__ == &apos;__main__&apos;:
+
+    # 创建游戏对象
+    game = PlaneGame()
+
+    # 启动游戏
+    game.start_game()</code></pre></div></blockquote>
+
+
+<p>plane_sprites.py</p>
+<blockquote>
+
+<div class="hljs code-wrapper"><pre><code>import random
+import pygame
+
+# 屏幕大小的常量
+SCREEN_RECT = pygame.Rect(0, 0, 480, 852)
+# 刷新的频率
+FRAME_PER_SEC = 60
+# 创建敌机的定时器常量
+CREATE_ENEMY_EVENT = pygame.USEREVENT
+# 英雄发射子弹事件
+HERO_FIRE_EVENT = pygame.USEREVENT + 1
+
+
+class GameSprite(pygame.sprite.Sprite):
+
+    def __init__(self, image_name, speed=1):
+
+        # 调用父类的初始化方法
+        super().__init__()
+
+        # 定义对象的属性
+        self.image = pygame.image.load(image_name)
+        self.rect = self.image.get_rect()
+        self.speed = speed
+
+    def update(self):
+
+        # 在屏幕的垂直方向上移动
+        self.rect.y += self.speed
+
+
+class Background(GameSprite):
+    &quot;&quot;&quot;游戏背景精灵&quot;&quot;&quot;
+
+    def __init__(self, is_alt=False):
+
+        # 1. 调用父类方法实现精灵的创建(feiji/background)
+        super().__init__(&quot;./feiji/Background.png&quot;)
+
+        # 2. 判断是否是交替图像，如果是，需要设置初始化图像
+        if is_alt:
+            self.rect.y = -self.rect.height
+
+    def update(self):
+
+        # 1. 调用父类的方法实现
+        super().update()
+
+        # 2. 判断是否移除屏幕，如果移除屏幕， 将图像设置到屏幕的上方
+        if self.rect.y &gt;= SCREEN_RECT.height:
+            self.rect.y = -self.rect.height
+
+
+class Enemy(GameSprite):
+    &quot;&quot;&quot;敌机精灵&quot;&quot;&quot;
+
+    def __init__(self):
+        # 1. 调用父类方法， 创建敌机精灵， 同时指定敌机图片
+        super().__init__(&quot;./feiji/enemy0.png&quot;)
+
+        # 2. 指定敌机的初始速度 1~3
+        self.speed = random.randint(1, 3)
+
+        # 3. 指定敌机的初始随机位置
+        self.rect.bottom = 0
+
+        max_x = SCREEN_RECT.width - self.rect.width
+        self.rect.x = random.randint(0, max_x)
+        pass
+
+    def update(self):
+
+        # 1. 调用父类方法， 保持垂直方向的飞行
+        super().update()
+
+        # 2. 判断是否飞出屏幕， 如果是， 需要从精灵组删除敌机
+        if self.rect.y &gt;= SCREEN_RECT.height:
+            # kill方法可以将精灵从所有精灵组移出， 精灵就会被自动销毁
+            self.kill()
+
+    def __del__(self):
+        # print(&quot;敌机挂了 %s &quot; % self.rect)
+        pass
+
+
+class Hero(GameSprite):
+    &quot;&quot;&quot;英雄精灵&quot;&quot;&quot;
+
+    def __init__(self):
+
+        # 1. 调用父类方法， 设置imgae&amp;speed
+        super().__init__(&quot;./feiji/hero1.png&quot;, 0)
+
+        # 2. 设置英雄的初始位置
+        self.rect.centerx = SCREEN_RECT.centerx
+        self.rect.bottom = SCREEN_RECT.bottom - 120
+
+        # 3. 创建子弹精灵组
+        self.bullets = pygame.sprite.Group()
+
+    def update(self):
+
+        # 英雄在水平方向移动
+        self.rect.x += self.speed
+
+        # 控制英雄不能离开屏幕
+        if self.rect.x &lt; 0:
+            self.rect.x = 0
+        elif self.rect.right &gt; SCREEN_RECT.right:
+            self.rect.right = SCREEN_RECT.right
+
+    def Fire(self):
+        # print(&quot;发射子弹...&quot;)
+
+        for i in (0, 1, 2):
+            # 1. 创建子弹精灵
+            bullet = Bullet()
+
+            # 2. 设置精灵位置
+            bullet.rect.bottom = self.rect.y - i * 20
+            bullet.rect.centerx = self.rect.centerx
+
+            # 3. 将精灵添加到精灵组
+            self.bullets.add(bullet)
+
+
+class Bullet(GameSprite):
+    &quot;&quot;&quot;子弹精灵&quot;&quot;&quot;
+
+    def __init__(self):
+        # 调用父类方法， 设置子弹图片， 设置初始速度
+        super().__init__(&quot;./feiji/bullet.png&quot;, -2)
+
+    def update(self):
+
+        # 调用父类方法， 让子弹沿垂直方向飞行
+        super().update()
+
+        # 判断子弹是否飞出屏幕
+        if self.rect.bottom &lt; 0:
+            self.kill()
+
+    def __del__(self):
+        # print(&quot;子弹被销毁...&quot;)
+        pass</code></pre></div></blockquote>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/2526b7ad.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">原码反码和补码</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/69be526e.html">
+                        <span class="hidden-mobile">飞机大战中遇到的Python【基础】</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz",
+          app_key: "r20xk8AR5pft8xGRQlWKYoin",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fxhstudy" target="_blank" rel="nofollow noopener"><span>xFxF</span></a>
+
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?https://hm.baidu.com/hm.js?2c3982f360efc29d0de4a57e127e3cb9";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,593 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/muzihuaner/deng@main/deng.css">
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/old/F.png">
+  <link rel="icon" type="image/png" href="/img/old/F.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="工具人•小方">
+  <meta name="keywords" content="">
+  <title>攻防世界 MISC基础题 - 工具人小方的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/atelier-cave-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"fxhstudy.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"https://hm.baidu.com/hm.js?2c3982f360efc29d0de4a57e127e3cb9","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz","app_key":"r20xk8AR5pft8xGRQlWKYoin","server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  <script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.13/js/linkcard.js"></script>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="工具人小方的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>工具人小方的博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://qiniuyun.fxhstudy.com/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%20MISC%E5%9F%BA%E7%A1%80%E9%A2%98.jpg?imageslim') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="攻防世界 MISC基础题">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-05-25 18:02" pubdate>
+        May 25, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">攻防世界 MISC基础题</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：20 days ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>因为要参加比赛，我们小组制定了计划，这周是misc的基础题，这里写下wp</p>
+<h3 id="this-is-flag"><a href="#this-is-flag" class="headerlink" title="this_is_flag"></a>this_is_flag</h3><p>第一题不说了，题目描述中给出了答案</p>
+<a id="more"></a>
+<h3 id="pdf"><a href="#pdf" class="headerlink" title="pdf"></a>pdf</h3><p>这一题我知道要移开图片才能看到里面的flag，但wps打开，编辑图片还要会员，摸索了一阵，我发现在点击滑动图片的时候，有一块阴影的地方<br><img src="https://qiniuyun.fxhstudy.com/pdf.png" srcset="/img/loading.gif"  alt="1" /><br>话不多说，直接CTRL+C，拿到flag</p>
+<h3 id="gif"><a href="#gif" class="headerlink" title="gif"></a>gif</h3><p>这一题不多说，这么多黑白黑白照片，基本上能才得到是密码，但是是什么密码呢？没错，就是二进制，白代表0，黑色代表1<br>我是靠手写的，最近在学py，所以努力下次能自己写出脚本</p>
+<h3 id="如来十三掌"><a href="#如来十三掌" class="headerlink" title="如来十三掌"></a>如来十三掌</h3><p>文件下载完了之后是一串佛文，直接搜与佛论禅，这是一种加密了的信息，<br>记住解密的时候，文字之前加“佛曰：”，<br><img src="https://qiniuyun.fxhstudy.com/%E5%A6%82%E6%9D%A5%E5%8D%81%E4%B8%89%E6%8E%8C1.png" srcset="/img/loading.gif"  alt="1" /></p>
+<p>解密之后是这样的，开始还比较开心，以为是base64，但解出来是一段乱码，看了前人的wp之后才发现<br>是<a href="https://baike.baidu.com/item/ROT13/7086083?fr=aladdin" target="_blank" rel="noopener"> ROT13</a>，这个加密方式我之前转载的文章中有介绍，这里不多介绍了</p>
+<img src="https://qiniuyun.fxhstudy.com/%E5%A6%82%E6%9D%A5%E5%8D%81%E4%B8%89%E6%8E%8C2.png" srcset="/img/loading.gif"  alt="1" />
+
+<p>解码得到base64编码，继续解码，得到flag</p>
+<img src="https://qiniuyun.fxhstudy.com/%E5%A6%82%E6%9D%A5%E5%8D%81%E4%B8%89%E6%8E%8C3.png" srcset="/img/loading.gif"  alt="1" />
+
+<h3 id="give-you-flag"><a href="#give-you-flag" class="headerlink" title="give_you_flag"></a>give_you_flag</h3><p>这题是个gif动态图，可以发现，其中有一张图包含了二维码，但是一扫而过，我用到了Stegsolve这个工具<br>用工具打开动态图–&gt;Analyse–&gt;Frame Browser,一张一张的看，第五十张看到含有flag的图片<br>，但是发现和平常的QR code不一样，</p>
+<img src="https://qiniuyun.fxhstudy.com/give_you_flag.bmp" srcset="/img/loading.gif"  alt="1" />
+
+<p>缺少定位符，然后各凭本事弄上去，扫一下，得到flag</p>
+<h3 id="SimpleRAR"><a href="#SimpleRAR" class="headerlink" title="SimpleRAR"></a>SimpleRAR</h3><p>这一题可复杂了啊，先了解一下rar每个块的开头吧<br></br><br><img src="https://qiniuyun.fxhstudy.com/simpleRAR1.png?attname=" srcset="/img/loading.gif"  alt="1" /><br></br><br><img src="https://qiniuyun.fxhstudy.com/simpleRAR2.png?attname=" srcset="/img/loading.gif"  alt="1" /><br></br><br>在来看题目，发现附件解压出来的是flag.txt,但是没有flag值，用winhex打开附件，<br></br><br><img src="https://qiniuyun.fxhstudy.com/simpleRAR3.png?attname=" srcset="/img/loading.gif"  alt="1" /><br></br><br>发现还有存在secret.png,就要运用上面给到的知识点了，我们要的是文件头部，而不是子块<br>讲圈起来的7A改为74，然后解压。<br>解压之后发现是一张空白的照片，用WinHex打开，发现其实它是一个gif，然后我就想到用StegSolve打开gif，<br>发现两个照片，保存下来。再用StegSolve分别打开两张图片，多次尝试之后发现<br></br><br><img src="https://qiniuyun.fxhstudy.com/simpleRAR4.png?attname=" srcset="/img/loading.gif"  alt="1" /><br></br><br>这就好办了，然后凭自己的本事，拼接定位符，扫码，得到flag值<br>其实从这题我们就可以看出，CTF就需要不断地尝试一切可能，这个方法不行，就换一种方法，执着于一种方法可能不太行</p>
+<h3 id="坚持60s"><a href="#坚持60s" class="headerlink" title="坚持60s"></a>坚持60s</h3><p>这个是一个小游戏，要求坚持60s，60s？60s是不可能的，这辈子都不可能超过10s的。<br>这题主要考察对jar文件的反编译能力，虽然没学过java，但一直到反编译是个什么东西，去看一下这个 <a href="https://www.cnblogs.com/the-tops/p/6207191.html" target="_blank" rel="noopener">将JAR包反编译，修改后重新打包</a></p>
+<img src="https://qiniuyun.fxhstudy.com/%E5%9D%9A%E6%8C%8160s.png?attname=" srcset="/img/loading.gif"  alt="1" />
+
+<p>flag里面的还需要解码一下（base64）</p>
+<h3 id="掀桌子"><a href="#掀桌子" class="headerlink" title="掀桌子"></a>掀桌子</h3><p>这个我开始是以为base16，发现失败了，两位十六进制可表示一个字节，但两两一组转化为十进制都超过了128，众所周知，ASCII是0-127，<br>减去128(看wp的)，再转化成ASCII码，直接写脚本，这个还是比较好写的</p>
+<blockquote><li>cc = '\xc8\xe9\xac\xa0\xc6\xf2\xe5\xf3\xe8\xc4\xef\xe7\xa1\xa0\xd4\xe8\xe5\xa0\xe6\xec\xe1\xe7\xa0\xe9\xf3\xba\xa0\xe8\xea\xfa\xe3\xf9\xe4\xea\xfa\xe2\xea\xe4\xe3\xea\xeb\xfa\xeb\xe3\xf5\xe7\xe9\xf3\xe4\xe3\xe8\xea\xf9\xea\xf3\xe2\xe4\xe6\xf2'</li>
+    <li>cd = ''</li>
+    <li>for i in cc:</br>
+        &nbsp &nbsp &nbsp &nbsp &nbsp cd += chr(ord(i) - 128)</li>
+    <li>print(cd)</li>
+</blockquote>
+
+<h3 id="base64stego"><a href="#base64stego" class="headerlink" title="base64stego"></a>base64stego</h3><p>做题之前先了解一下什么是zip伪加密<a href="https://blog.csdn.net/ETF6996/article/details/51946250" target="_blank" rel="noopener">zip伪加密</a><br>伪加密还是很好解决的，开始以为只考了这一个知识点，刚刚准备窃喜，打开解压出的TXT文件一看，当场暴毙，这多少个base64加密信息啊<br>想一个一个试，失败了。实在没辙了，看了大佬的wp之后，最后觉得这位大佬介绍的最详细，以我现在python的水平，还写不出来这种脚本。<br>难受，放上大佬文章<a href="https://www.tr0y.wang/2017/06/14/Base64steg/" target="_blank" rel="noopener">神奇的 Base64 隐写 </a></p>
+<h3 id="ext3"><a href="#ext3" class="headerlink" title="ext3"></a>ext3</h3><p>题目提示ext3，EXT3是第三代扩展文件系统（英语：Third extended filesystem，缩写为ext3），是一个日志文件系统，常用于Linux操作系统。<br>先用WinHex打开，找到了flag.txt的路径，</p>
+<img src="https://qiniuyun.fxhstudy.com/ext3-1.png?attname=" srcset="/img/loading.gif"  alt="1" />
+
+<p>接着挂载到linux上，看图</p>
+<img src="https://qiniuyun.fxhstudy.com/ext3-2.png?attname=" srcset="/img/loading.gif"  alt="1" />
+
+<p>最后再解码，得到flag</p>
+<h3 id="stegano"><a href="#stegano" class="headerlink" title="stegano"></a>stegano</h3><p>打开附件，摸索了一阵，发现了这个，</p>
+<img src="https://qiniuyun.fxhstudy.com/stegano1.png" srcset="/img/loading.gif"  alt="1" />
+
+<p>ctrl+c，接着在最下面发现了这么一串文字</p>
+<img src="https://qiniuyun.fxhstudy.com/stegano2.png" srcset="/img/loading.gif"  alt="1" />
+
+<p>开始以为是培根密码，但其中还有BBB BA…这种，然后就意识到不是培根密码了，灵光一闪，摩斯密码<br>唉，看来要好好学写脚本了，手工太耗时间了</p>
+<img src="https://qiniuyun.fxhstudy.com/stegano3.png" srcset="/img/loading.gif"  alt="1" />
+
+<h3 id="功夫再高也怕菜刀"><a href="#功夫再高也怕菜刀" class="headerlink" title="功夫再高也怕菜刀"></a>功夫再高也怕菜刀</h3><p>这题是看wp的，唉，菜啊，小方！</p>
+<p>先foremost分离文件，得到加密的一个zip，没办法，既然是.pcapng文件，那就用wireshark打开分析，<br>查找有没有有关flag关键字</p>
+<img src="https://qiniuyun.fxhstudy.com/%E5%8A%9F%E5%A4%AB%E5%86%8D%E9%AB%98%E4%B9%9F%E6%80%95%E8%8F%9C%E5%88%80.png" srcset="/img/loading.gif"  alt="1" />
+
+<p>找到了，flag关键字，还发现存在6666.jpg，于是通过追踪TCP流，我们重新复原图片，从FFD8复制到FFD9，</p>
+<img src="https://qiniuyun.fxhstudy.com/%E5%8A%9F%E5%A4%AB%E5%86%8D%E9%AB%98%E4%B9%9F%E6%80%95%E8%8F%9C%E5%88%801.png" srcset="/img/loading.gif"  alt="1" />
+<img src="https://qiniuyun.fxhstudy.com/%E5%8A%9F%E5%A4%AB%E5%86%8D%E9%AB%98%E4%B9%9F%E6%80%95%E8%8F%9C%E5%88%802.png" srcset="/img/loading.gif"  alt="1" />
+
+<p>到WinHex里面粘贴一下，注意粘贴格式是ASCII Hex,<br>保存为.jpg格式，打开得到一张图片，以为就是flag值，但是提交了几次发现错了，这时又想到了开始分离出来的加密的.zip文件，把密码输入解压，<br>成功得到flag.txt。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/CTF/">CTF</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/CTF/">CTF</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/69be526e.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">飞机大战中遇到的Python【基础】</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/2e60da58.html">
+                        <span class="hidden-mobile">如何教你看懂复杂的正则表达式[转载]</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz",
+          app_key: "r20xk8AR5pft8xGRQlWKYoin",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fxhstudy" target="_blank" rel="nofollow noopener"><span>xFxF</span></a>
+
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?https://hm.baidu.com/hm.js?2c3982f360efc29d0de4a57e127e3cb9";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

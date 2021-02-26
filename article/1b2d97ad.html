@@ -1,0 +1,649 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/muzihuaner/deng@main/deng.css">
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/old/F.png">
+  <link rel="icon" type="image/png" href="/img/old/F.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="工具人•小方">
+  <meta name="keywords" content="">
+  <title>Yilia的一些新功能的添加方法 - 工具人小方的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/atelier-cave-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"fxhstudy.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"https://hm.baidu.com/hm.js?2c3982f360efc29d0de4a57e127e3cb9","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz","app_key":"r20xk8AR5pft8xGRQlWKYoin","server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  <script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.13/js/linkcard.js"></script>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="工具人小方的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>工具人小方的博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.pixabay.com/photo/2021/01/21/16/49/books-5937823_960_720.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Yilia的一些新功能的添加方法">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-03-02 21:16" pubdate>
+        March 2, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Yilia的一些新功能的添加方法</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：a month ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1>前言</h1><br>
+这里介绍一下关于博客的一些高级配置，都是比较有用的设置。这些设置具体查起来比较烦，所以这里总结一下。
+一方面让后来人可以方便一点，另一方面防止自己以后忘记怎么操作了，可以回来看看。
+（注意这里不仔细讲解，只做总结，都是直接放链接的，自己去原作者那里去看）
+<br>
+
+<a id="more"></a>
+
+<h2>1、页面的一些操作</h2>
+
+<p>这里讲一些页面的小操作，让读者在浏览的时候可以跟方便一些<br><br></p>
+<h3>1、如何分类和归档</h3>
+归档和分类可以让读者很快地找到自己想要的文章
+<img src="http://q6expveix.bkt.clouddn.com/QQ%E5%9B%BE%E7%89%8720200302214146.jpg" srcset="/img/loading.gif"  alt="" />
+<img src="http://q6expveix.bkt.clouddn.com/QQ%E5%9B%BE%E7%89%8720200302214154.jpg" srcset="/img/loading.gif" alt="" />
+<br>
+
+<p>这里我直接放上大佬的文章👉<a href="https://juejin.im/post/5db9830e6fb9a020270852b0" target="_blank" rel="nofollow">原文地址</a><br><br></p>
+<h3>2、头像/图标设置</h3>
+1、存放位置
+头像、图标图片的存放位置是<code>/themes/yilia/source/</code>下任意位置，可以自己新建一个文件夹存放，我存放在assets文件夹下。
+
+<p>2、配置设置<br>配置文件为<code>/themes/yilia/_config.yml</code>。<br></p>
+<p>设置头像为配置文件中<code>avatar</code>一项<br><br>设置图标为配置文件中<code>favicon</code>一项<br><br>由于设置路径的根目录<code>/themes/yilia/source/</code>，因此，我的头像存放的地址是<code> /themes/yilia/source/assets/me.png </code>，设置则为<code> avatar: /assets/me.png </code>。<br><br></p>
+<h3>3、左侧添加背景</h3>
+这个还可以，但是我用手机看了一下，基本上手机上显示的就是一片空白了，所以就没弄那个了，<br>
+不过还是可以的，这里写下来，也是为了记录一下，以后万一要改呢？<br>👉<a href="https://qianlei6148.github.io/2018/09/30/hexo%E6%A8%A1%E7%89%88yilia%E5%B7%A6%E4%BE%A7%E6%B7%BB%E5%8A%A0%E8%83%8C%E6%99%AF/" target="_blank" rel="nofollow">hexo模版yilia左侧添加背景</a>
+<br>
+
+<h3>4、添加版权信息&&URL持久化</h3>
+版权这个东西还是很重要的，所以建议在建博客的时候加上这一点。<br>
+<img src="http://q6expveix.bkt.clouddn.com/%E7%89%88%E6%9D%83.jpg" srcset="/img/loading.gif" alt="" /><br>
+👉<a href="https://blog.zscself.com/posts/ee4d9ecb/" target="_blank" rel="nofollow">在Hexo中自动为Yilia主题增加版权声明</a>
+
+<p>我们所写的文章地址路径很长，其中包括了年月日，url结构超过了三层不利于搜索爬虫，url持久化可以解决这个问题。<br><br>并且我们生成的版权信息中中文字会被编码，形成的链接又臭又长，极其难看，你同样可以利用这个办法来解决，是不是非常客来碗儿呢！<br><br>👉<a href="http://yansheng836.coding.me/article/faa5d14.html" target="_blank" rel="nofollow">hexo+yilia添加URL持久化</a><br><br></p>
+<h3>5、添加页面访问量</h3>
+这个可以实现网站访问量和文章访问量，作者把网站访问量添加到页脚的右侧，这里我是放到了头像的下面。
+👉<a href="https://blog.csdn.net/dta0502/article/details/89607895" target="_blank" rel="nofollow">八、添加页面访问量</a>
+<br>
+
+<h3>6、字数、阅读时长添加</h3>
+这个小细节我本人还是很喜欢的，可以看到一篇博文的文字和阅读时长，看起来很舒服。
+👉<a href="https://blog.csdn.net/dta0502/article/details/89607895" target="_blank" rel="nofollow">十、字数、阅读时长添加</a>
+<br>
+
+<h3>7、侧边栏添加音乐&&可爱的看板娘</h3>
+这个我没有添加，感觉有点多余了，现在听音乐太容易了，而且占空间，别人是来看你的文章的，<br>
+而不是来花里胡哨的。这里还是放上链接👉<a href="https://blog.csdn.net/dta0502/article/details/89607895" target="_blank" rel="nofollow">七、侧边栏添加音乐</a>
+至于看板娘嘛，二次元的应该喜欢，看了别人弄的，感觉也很占地方，所以也没弄了，感兴趣的话可以去看看<br>👉<a href="https://qianlei6148.github.io/2018/10/11/hexo%E6%A8%A1%E7%89%88yilia%E6%B7%BB%E5%8A%A0%E5%8F%AF%E7%88%B1%E7%9A%84%E7%9C%8B%E6%9D%BF%E5%A8%98/" target="_blank" rel="nofollow">hexo模版yilia添加可爱的看板娘</a>
+
+
+<hr>
+<br>
+
+<h2>2、实现文章评论</h2>
+
+<p>这个我实际操作的时候花了点功夫，反正不太难，就是繁琐，遇到的问题也很多，不过最终还是解决了<br><br>这里我放上两个链接，一个是怎么实现GitHub评论，还有一个是后续可能出现的的一些问题，总结的还是很全的<br><br>👉<a href="https://blog.csdn.net/qq_37513473/article/details/88617281" target="_blank" rel="nofollow">5、引入GITMENT评论</a>(这篇文章中还涉及到主页文章过长的解决办法)<br>👉<a href="https://www.jianshu.com/p/57afa4844aaa" target="_blank" rel="nofollow">Gitment评论功能接入踩坑教程</a></p>
+<hr>
+<br>
+
+<h2>3、实现文章目录</h2>
+
+<p>这个其实本来主题就自带的，不过我还是改了一下，更清晰一点，可以让读者一目了然<br>👉<a href="http://www.lawlite.me/2017/04/17/Hexo-yilia%E4%B8%BB%E9%A2%98%E5%AE%9E%E7%8E%B0%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95%E5%92%8C%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91/" target="_blank" rel="nofollow">Hexo + yilia主题实现文章目录和添加视频</a>(感觉视频的话，没什么用，个人看法，不喜勿喷)<br><br><img src="http://q6expveix.bkt.clouddn.com/%E7%9B%AE%E5%BD%95.jpg" srcset="/img/loading.gif" alt="" /><br><br></p>
+<p>下面这个是主题自带的文章目录，也记录一下:<br><br>增加文章目录 TOC ( table of content )，方便阅读文章，在 <code>themes/yilia/_config.yml </code>中进行配置 <code>toc: 2 </code>即可，它会将你<code> Markdown </code>语法的标题，生成目录，目录查看在右下角。</p>
+<hr>
+<br>
+
+<h2>4、其他的一些操作</h2>
+<br>
+
+<h3>1、博客插入图片</h3>
+博客内容最麻烦的就是插入图片，我们可以使用七牛云提供的 10G 的免费存储空间，将图片上传上去，然后生成外链，使用 Markdown 的图片引用方法即可，这样文章就脱离了图片编辑，转为在线了。同样一份文章，你部署在 csdn 等其他网页时，直接复制粘贴即可。<br>
+上传图片到七牛云
+<blockquote>
+    •注册，并完成支付宝实名认证，实名认证后有10G的免费空间，认证免费额度<br>
+    •添加文件。步骤为添加 对象存储, 新建一个存储空间，进入到该空间，点击 内容管理,点击上传文件<br>
+</blockquote>
+<img src="http://q6expveix.bkt.clouddn.com/3_6_qiniu_1.png" srcset="/img/loading.gif" alt="" />
+<blockquote>
+    •生成外链插入到文章中
+</blockquote>
+<img src="http://q6expveix.bkt.clouddn.com/3_6_qiniu_2.png" srcset="/img/loading.gif" alt="" /><br>
+这里放一下原文👉<a href="https://cloudy-liu.github.io/2018/04/07/Hexo_yilia_%E4%B8%BB%E9%A2%98%E4%B8%80%E6%8F%BD%E5%AD%90%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88/" target="_blank" rel="nofollow">七牛云图床</a>
+
+<hr>
+<br>
+
+<h3>2、部署</h3>
+<blockquote>
+    hexo clean<br>
+    hexo g<br>
+    hexo d<br>
+</blockquote>
+
+
+<hr>
+<br>
+
+<h1>结语</h1>
+最后再放上一首老歌《粉红的回忆》，<br>
+每次听到这首歌我都会想起《唐探2》里面王宝强那一段，hh
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=243611&auto=0&height=66"></iframe>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">搭建博客</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%B5%B7%E7%82%B9/">起点</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/85765e1f.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">最近的一些思考和疑惑</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/83307d05.html">
+                        <span class="hidden-mobile">如何搭建属于自己的静态博客</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz",
+          app_key: "r20xk8AR5pft8xGRQlWKYoin",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fxhstudy" target="_blank" rel="nofollow noopener"><span>xFxF</span></a>
+
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?https://hm.baidu.com/hm.js?2c3982f360efc29d0de4a57e127e3cb9";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

