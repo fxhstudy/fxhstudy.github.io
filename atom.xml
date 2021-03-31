@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fxhstudy.com/"/>
-  <updated>2021-03-31T15:39:19.876Z</updated>
+  <updated>2021-03-31T16:04:06.221Z</updated>
   <id>https://fxhstudy.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最近的事</title>
+    <link href="https://fxhstudy.com/article/1695c184.html"/>
+    <id>https://fxhstudy.com/article/1695c184.html</id>
+    <published>2021-03-31T15:42:39.000Z</published>
+    <updated>2021-03-31T16:04:06.221Z</updated>
+    
+    <content type="html"><![CDATA[<p><font color="#856363" size="4" face="Open Sans"><b>终于把该记录的文章都写完了，来说一说最近的事情吧。<br>最近参加了计算机设计大赛，可以说是忙了整整一个多月，跟着老师做项目，直到今天校赛才比完(不出意外的话，校赛一等奖了，小窃喜)。</p><p>u1s1,灰常灰常累，但是不得不说，成长得很快(被迫成长，没有足够的知识去支持你做项目，但是老师给了你任务，你就必须逼迫着你去学习新知)，虽然是被迫成长，但是确实很大进步，如果按我之前的学习进度来，学到我现在的程度，大概要学到暑假还不一定能够学完。</p><p>总得来说，很幸苦，但是真的真的学到了很多东西，不管是技术方面还是与队友如何交流合作方面，都学到了很多。这真的是我没想到的。</p><p>也正是因为这个项目，博客也停滞了比较久，之后可能更得比较少，由于学校的名额原因，我们直接进入到了省赛，接下来可以说更忙了，不下于这个月。如果省赛取得了二等奖以及二等奖以上的成绩，那就还要参加国赛，到时候就不是和省里面的大学比赛了，可以接触到更高的层次了，想想就激动。</p><p>多说无益，接下来的省赛要好好努力了,争取拿个好一点名次，加油!</p></b></font>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;font color=&quot;#856363&quot; size=&quot;4&quot; face=&quot;Open Sans&quot;&gt;&lt;b&gt;终于把该记录的文章都写完了，来说一说最近的事情吧。&lt;br&gt;最近参加了计算机设计大赛，可以说是忙了整整一个多月，跟着老师做项目，直到今天校赛才比完(不出意外的话，校赛一等奖了
+      
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="https://fxhstudy.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="个人" scheme="https://fxhstudy.com/tags/%E4%B8%AA%E4%BA%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>Junit单元测试</title>
@@ -39,9 +65,9 @@
       <category term="程序猿" scheme="https://fxhstudy.com/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"/>
     
     
-      <category term="IDEA" scheme="https://fxhstudy.com/tags/IDEA/"/>
-    
       <category term="Java" scheme="https://fxhstudy.com/tags/Java/"/>
+    
+      <category term="IDEA" scheme="https://fxhstudy.com/tags/IDEA/"/>
     
   </entry>
   
@@ -96,9 +122,9 @@
       <category term="程序猿" scheme="https://fxhstudy.com/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"/>
     
     
-      <category term="IDEA" scheme="https://fxhstudy.com/tags/IDEA/"/>
-    
       <category term="Java" scheme="https://fxhstudy.com/tags/Java/"/>
+    
+      <category term="IDEA" scheme="https://fxhstudy.com/tags/IDEA/"/>
     
   </entry>
   
@@ -176,9 +202,9 @@
       <category term="程序猿" scheme="https://fxhstudy.com/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"/>
     
     
-      <category term="IDEA" scheme="https://fxhstudy.com/tags/IDEA/"/>
-    
       <category term="Java" scheme="https://fxhstudy.com/tags/Java/"/>
+    
+      <category term="IDEA" scheme="https://fxhstudy.com/tags/IDEA/"/>
     
   </entry>
   
@@ -255,9 +281,9 @@
       <category term="程序猿" scheme="https://fxhstudy.com/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"/>
     
     
-      <category term="Tomcat" scheme="https://fxhstudy.com/tags/Tomcat/"/>
-    
       <category term="IDEA" scheme="https://fxhstudy.com/tags/IDEA/"/>
+    
+      <category term="Tomcat" scheme="https://fxhstudy.com/tags/Tomcat/"/>
     
   </entry>
   
@@ -340,9 +366,9 @@
       <category term="程序猿" scheme="https://fxhstudy.com/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"/>
     
     
-      <category term="IDEA" scheme="https://fxhstudy.com/tags/IDEA/"/>
-    
       <category term="Java" scheme="https://fxhstudy.com/tags/Java/"/>
+    
+      <category term="IDEA" scheme="https://fxhstudy.com/tags/IDEA/"/>
     
   </entry>
   
@@ -373,9 +399,9 @@
       <category term="程序猿" scheme="https://fxhstudy.com/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"/>
     
     
-      <category term="Tomcat" scheme="https://fxhstudy.com/tags/Tomcat/"/>
-    
       <category term="IDEA" scheme="https://fxhstudy.com/tags/IDEA/"/>
+    
+      <category term="Tomcat" scheme="https://fxhstudy.com/tags/Tomcat/"/>
     
   </entry>
   
@@ -429,9 +455,9 @@
       <category term="程序猿" scheme="https://fxhstudy.com/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"/>
     
     
-      <category term="IDEA" scheme="https://fxhstudy.com/tags/IDEA/"/>
-    
       <category term="Java" scheme="https://fxhstudy.com/tags/Java/"/>
+    
+      <category term="IDEA" scheme="https://fxhstudy.com/tags/IDEA/"/>
     
   </entry>
   
@@ -522,37 +548,6 @@ The solution set must not contain duplicate triplets.&lt;/font&gt;
     
     
       <category term="算法" scheme="https://fxhstudy.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>为什么祖传代码会被称为屎山[转载]</title>
-    <link href="https://fxhstudy.com/article/f9c169d9.html"/>
-    <id>https://fxhstudy.com/article/f9c169d9.html</id>
-    <published>2020-12-28T08:13:18.000Z</published>
-    <updated>2021-02-05T06:45:56.038Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>    原文链接:<a href="https://juejin.cn/post/6896312475390574599" target="_blank" rel="noopener">https://juejin.cn/post/6896312475390574599</a></blockquote><br><img src="https://qiniuyun.fxhstudy.com/%E4%B8%BA%E4%BB%80%E4%B9%88%E7%A5%96%E4%BC%A0%E4%BB%A3%E7%A0%81%E4%BC%9A%E8%A2%AB%E7%A7%B0%E4%B8%BA%E5%B1%8E%E5%B1%B1%5B%E8%BD%AC%E8%BD%BD%5D1.jpg" srcset="/img/loading.gif"><br><br><p><font color="#856363" size="4" face="Open Sans"><b>有一天，有几条虫子，干扰了老板赚钱，老板希望你能抓住它们。</b></p></font><a id="more"></a><p><font color="#856363" size="4" face="Open Sans">你带着年轻的锐气，青春的活力，学艺多年积累的程序设计艺术，打开了公司的代码仓库。</p><p>远看，似乎一个运转的机器，巨大的代码堆积在一起形成了大致的轮廓，蠕动着前进。</p><p>凑近了一看，在不净的框架中，乱码般的语句在运转，像生了麻风病的蛞蝓一样在喷吐，粘稠的水在流动，而穿着格子衫的人群则在焰柱旁围成了一个半圆，这就是码农的仪式。</p><p>他们环绕着那不可名状植物，不断的伸手进去拨弄，又不断的掏出一些东西填上去，使他堆积的更高，为了防止到他，又掏出黏糊糊的糊糊，用力的涂抹，试图把它们黏在一起。</p><p>这是一个前人留下的屎堆起来的一个克苏鲁缝合怪，看起来摇摇欲坠，有无数的虫子爬来爬去。但勉强堆起了山一样的形体，蠕动着为老板赚钱。</p><div align="center"><img src="https://qiniuyun.fxhstudy.com/%E4%B8%BA%E4%BB%80%E4%B9%88%E7%A5%96%E4%BC%A0%E4%BB%A3%E7%A0%81%E4%BC%9A%E8%A2%AB%E7%A7%B0%E4%B8%BA%E5%B1%8E%E5%B1%B1%5B%E8%BD%AC%E8%BD%BD%5D.jpg" srcset="/img/loading.gif"></div><p>你满心热血，要对这座山进行清理，使它成为一个鲁棒的钢铁巨兽，可以随时更换最新的部件，奔腾如飞，坚固异常，带着兄弟们走向人生巅峰。</p><p>你经过缜密的分析，顺着虫子留下的痕迹，终于找到了问题的源头，发现一坨很多年前某码农因为时代局限或者水平有限拉的陈年旧屎。</p><p>你觉得只要对它改良一下，梳理清楚结构，加强判断与容错，就可以变化成一个钢铁部件，让这坨怪物离巨兽更近一步。</p><p>你用力的挖掘其中的信息，却发现，事情没有那么简单.</p><p>这一坨实际上不是孤立的一坨，而是和整个山体融合在一起。</p><p>或者说，这座山实际上是一坨坨粘稠滑腻的克苏鲁，通过无数的触角和粘液连接在了一起，这些克苏鲁伸出无数的触角，伸进这座山体中未知的角落。</p><p>有看起来结构相同，但是出现了几十上百次的重复逻辑。</p><p>有无数道不知道伸向何处的判断分支。</p><p>有七零八落到处都是又无法解释的神秘数字。</p><p>有从表面直接伸向最底层的神秘调用。</p><p>还有猜不出，看不懂，无法预计什么时候会触发，什么时候会爆发的无数定时器。</p><p>还有无数神秘的线程在独立的挂在那里，猜不出哪个什么时候会忽然启动，什么时候会忽然挂起，什么时候会忽然互相抢资源而死锁，哪些资源会莫名其妙的被改动。</p><p>神秘的链接，神秘的任务队列，神秘的池，神秘的环形缓存，神秘的堆栈。</p><p>他们耦合在一起，互相支撑，构成了一坨更大的克苏鲁屎怪，缓慢的蠕动。</p><p>你极其困难的清理和修改了其中的一点点内容，让这一点点的内容脱离出耦合态，看起来清晰一点。</p><p>结果，忽然屎山对面十万八千行外，你永远意想不到的一块功能，忽然挂了。</p><p>一个你完全在工作上没接触过的同事，通过他的盘查，发现是他维护的一个函数/方法、类、线程、内存块，池，和你改动的部分是深度耦合的，你的解耦导致了难以理解的错误使他们的部分产生了错误。</p><p>于是你被骂了.</p><p>你只能再退一步，在一个更小的范围内进行调整，但是发现，虫子不止是由这一块构成的，于是你追踪者虫子的足迹，去改良一个一个的模块。</p><p>在经历了一轮又一轮的批评，几乎结识了全公司所有模块的负责人之后，你终于抓住了一条虫子。</p><p>但是在这个漫长的过程中，你早已忘却初心。在无数次的赶工加班熬夜的迷糊中，被同事老板挨骂后的愤懑中，表白失败/和女朋友吵架/发现自己头顶有点绿的低落中；</p><p>无数次当做临时代码写下，计划单元测试完成后就重写却忘记的过程中，因为偷懒或者不舍得打断思路而而懒得抽出轮子而产生的超大代码块中。</p><p>留下了无数看起来结构相同，但是出现了几十上百次的重复逻辑。无数道不知道伸向何处的判断分支。大量的无法解释的神秘数字。从表面直接伸向最底层的神秘调用。</p><p>猜不出，看不懂，无法预计什么时候会触发，什么时候会爆发的无数定时器。</p><p>无数猜不出哪个什么时候会忽然启动，什么时候会忽然挂起，什么时候会忽然互相抢资源而死锁，莫名其妙改动资源的神秘线程。</p><p>神秘的链接，神秘的任务队列，神秘的池，神秘的环形缓存，神秘的堆栈。</p><p>你要抓的哪条虫子确实抓出来了。</p><p>然而，在你没看到的地方，随着运转，更多的新的虫子正在茁壮的成长。</p><p>这时，你突然发现你的脚抽不出来了，几条触手顺着你的腿向上攀延，你的手被深深地吸入泥沼一样的屎山，你使尽全力想要抽出胳膊，但越是挣扎，陷得越深，仿佛屎山中心有一个冰冷的黑洞，要将所有接近的物体吞噬殆尽。</p><p>你的精气在一点点流失，一种极度的疲惫，但是又释然的感觉涌了上来。</p><p>此刻，你觉得舒适又满足，渐渐地闭上了双眼，你甘愿奉献头发与生命，将自己化作一块补丁，维系着系统的苟延残喘。</p><p>再也没法离开你了，你和你的头发，成了它的一部分。</p><p>不知道过了多久……</p><p>终于又有一条虫子在运行中暴露，干扰了老板赚钱。</p><p>老板又安排了一个年轻人来抓住这条虫子。这个年轻人带着锐气，青春和活力来到这座山前。</p><p>看到这摇摇欲坠的克苏鲁大山，不仅倒吸一口冷气。</font></p><p><font size="5"><div align="center"><span style="max-width: 100%;color: rgb(254, 106, 0);">“oh shit ! shit mountain !”</span></div></font></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-    原文链接:&lt;a href=&quot;https://juejin.cn/post/6896312475390574599&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://juejin.cn/post/6896312475390574599&lt;/a&gt;
-&lt;/blockquote&gt;
-&lt;br&gt;
-
-
-&lt;img src=&quot;https://qiniuyun.fxhstudy.com/%E4%B8%BA%E4%BB%80%E4%B9%88%E7%A5%96%E4%BC%A0%E4%BB%A3%E7%A0%81%E4%BC%9A%E8%A2%AB%E7%A7%B0%E4%B8%BA%E5%B1%8E%E5%B1%B1%5B%E8%BD%AC%E8%BD%BD%5D1.jpg&quot; srcset=&quot;/img/loading.gif&quot;&gt;
-
-&lt;br&gt;
-&lt;br&gt;
-
-&lt;p&gt;&lt;font color=&quot;#856363&quot; size=&quot;4&quot; face=&quot;Open Sans&quot;&gt;&lt;b&gt;有一天，有几条虫子，干扰了老板赚钱，老板希望你能抓住它们。&lt;/b&gt;&lt;/p&gt;
-&lt;/font&gt;
-    
-    </summary>
-    
-    
     
   </entry>
   
