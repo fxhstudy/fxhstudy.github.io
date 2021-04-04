@@ -4,6 +4,38 @@
   
   
   <entry>
+    <title>SpringMVC执行原理</title>
+    <link href="/article/7a197da5.html"/>
+    <url>/article/7a197da5.html</url>
+    
+    <content type="html"><![CDATA[<p><font color="#856363" size="4" face="Open Sans"><b></p><p><img src="https://qiniuyun.fxhstudy.com/SpringMVC%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%861.png" srcset="/img/loading.gif"><br></p><p>图为SpringbootMVC的一个较为完整的流程图，实线表示SpringMVC框架提供的技术，不需要开发者实现，虚线表示需要开发者实现。</p><h3 id="简要分析执行流程"><a href="#简要分析执行流程" class="headerlink" title="简要分析执行流程"></a>简要分析执行流程</h3><ol type="1" start="1">    <li><code>DispatcherServlet</code>表示前置控制器，是整个<code>SpringMVC</code>的控制中心。用户发出请求，<code>DispatcherServlet</code>接收请求并拦截请求。<br>    我们假设请求的url为:http://localhost:8080/springMVC/hello<br><br>    <b>如上url拆分成成三部分</b><br>    http://localhost:8080服务器域名<br>    <code>SpringMVC</code>部署在服务器上的web站点<br>    <code>hello</code>表示控制器<br>    通过分析，如上url表示为：请求位于服务器localhost:8080上的<code>SpringMVC</code>站点的<code>hello</code>控制器。</li>    <li><code>HandlerMapping</code>为处理器映射。<code>DispatcherServlet</code>调用<br><code>HandlerMapping</code>,<code>HandlerMapping</code>根据请求url查找<code>Handler</code>。</li>    <li><code>HandlerExecution</code>表示具体的<code>Handler</code>,其主要作用是根据url查找控制器，如上url被查找控制器为：<code>hello</code>。</li>    <li><code>HandlerExecution</code>将解析后的信息传递给<code>DispatcherServlet</code>,如解析控制器映射等。</li>    <li><code>HandlerAdapter</code>表示处理器适配器，其按照特定的规则去执行<code>Handler</code>。</li>    <li><code>Handler</code>让具体的<code>Controller</code>执行。</li>    <li><code>Controller</code>将具体的执行信息返回给<code>HandlerAdapter</code>,如<code>ModelAndView</code>。</li>    <li><code>HandlerAdapter</code>将视图逻辑名或模型传递给<code>DispatcherServlet</code>。</li>    <li><code>DispatcherServlet</code>调用视图解析器(ViewResolver)来解析<code>HandlerAdapter</code>传递的逻辑视图名。</li>    <li>视图解析器将解析的逻辑视图名传给<code>DispatcherServlet</code>。</li>    <li><code>DispatcherServlet</code>根据视图解析器解析的视图结果，调用具体的视图。</li>    <li>最终视图呈现给用户。</li></ol></b></font>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>一些小分享</title>
+    <link href="/article/39d7a96.html"/>
+    <url>/article/39d7a96.html</url>
+    
+    <content type="html"><![CDATA[<font color="#856363" size="4" face="Open Sans">好像没有写过分享类的文章，这里分享一些我jio得可以收藏一波的小东西。<h3 id="周杰伦至今所有的专辑"><a href="#周杰伦至今所有的专辑" class="headerlink" title="周杰伦至今所有的专辑"></a>周杰伦至今所有的专辑</h3><p>哈哈，很久就想分享这个了，(我是杰伦粉(狂喜)，等疫情结束了，那我必要去看杰伦的演唱会)几乎包含了杰伦所有专辑上的所有的歌，一共分享了149首。<br><br>这里没有很系统地将所有专辑分类，其中还有一些翻唱。<br><br>另外，分享的这些基本上都是.wav格式，基本上每首歌都是在30~50M之间。<br><br>我用的是某易云，但是由于某易云的版权原因，基本上听不到Jay的歌，所以我都是上传到某易云云盘中去听，可以试试。但是分享的这些，随便一首歌就很大，如果在惜流量的话，建议还是不要这样做。<br><br>后续如果收集到.mp3格式的话，后续会加进来。<br><br>链接：<a href="https://pan.baidu.com/s/1vcwdETI_2-WBhswRJpLhmQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1vcwdETI_2-WBhswRJpLhmQ</a><br>提取码：2333<br></font></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>最近的事</title>
     <link href="/article/1695c184.html"/>
     <url>/article/1695c184.html</url>

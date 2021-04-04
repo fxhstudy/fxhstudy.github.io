@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fxhstudy.com/"/>
-  <updated>2021-03-31T16:17:04.957Z</updated>
+  <updated>2021-04-04T15:37:12.926Z</updated>
   <id>https://fxhstudy.com/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringMVC执行原理</title>
+    <link href="https://fxhstudy.com/article/7a197da5.html"/>
+    <id>https://fxhstudy.com/article/7a197da5.html</id>
+    <published>2021-04-04T13:58:26.000Z</published>
+    <updated>2021-04-04T15:37:12.926Z</updated>
+    
+    <content type="html"><![CDATA[<p><font color="#856363" size="4" face="Open Sans"><b></p><p><img src="https://qiniuyun.fxhstudy.com/SpringMVC%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%861.png" srcset="/img/loading.gif"><br></p><p>图为SpringbootMVC的一个较为完整的流程图，实线表示SpringMVC框架提供的技术，不需要开发者实现，虚线表示需要开发者实现。</p><h3 id="简要分析执行流程"><a href="#简要分析执行流程" class="headerlink" title="简要分析执行流程"></a>简要分析执行流程</h3><ol type="1" start="1">    <li><code>DispatcherServlet</code>表示前置控制器，是整个<code>SpringMVC</code>的控制中心。用户发出请求，<code>DispatcherServlet</code>接收请求并拦截请求。<br>    我们假设请求的url为:http://localhost:8080/springMVC/hello<br><br>    <b>如上url拆分成成三部分</b><br>    http://localhost:8080服务器域名<br>    <code>SpringMVC</code>部署在服务器上的web站点<br>    <code>hello</code>表示控制器<br>    通过分析，如上url表示为：请求位于服务器localhost:8080上的<code>SpringMVC</code>站点的<code>hello</code>控制器。</li>    <li><code>HandlerMapping</code>为处理器映射。<code>DispatcherServlet</code>调用<br><code>HandlerMapping</code>,<code>HandlerMapping</code>根据请求url查找<code>Handler</code>。</li>    <li><code>HandlerExecution</code>表示具体的<code>Handler</code>,其主要作用是根据url查找控制器，如上url被查找控制器为：<code>hello</code>。</li>    <li><code>HandlerExecution</code>将解析后的信息传递给<code>DispatcherServlet</code>,如解析控制器映射等。</li>    <li><code>HandlerAdapter</code>表示处理器适配器，其按照特定的规则去执行<code>Handler</code>。</li>    <li><code>Handler</code>让具体的<code>Controller</code>执行。</li>    <li><code>Controller</code>将具体的执行信息返回给<code>HandlerAdapter</code>,如<code>ModelAndView</code>。</li>    <li><code>HandlerAdapter</code>将视图逻辑名或模型传递给<code>DispatcherServlet</code>。</li>    <li><code>DispatcherServlet</code>调用视图解析器(ViewResolver)来解析<code>HandlerAdapter</code>传递的逻辑视图名。</li>    <li>视图解析器将解析的逻辑视图名传给<code>DispatcherServlet</code>。</li>    <li><code>DispatcherServlet</code>根据视图解析器解析的视图结果，调用具体的视图。</li>    <li>最终视图呈现给用户。</li></ol></b></font>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;font color=&quot;#856363&quot; size=&quot;4&quot; face=&quot;Open Sans&quot;&gt;&lt;b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://qiniuyun.fxhstudy.com/SpringMVC%E6%89%A7%E8%A1%8C%E5%8E%9F%E
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一些小分享</title>
+    <link href="https://fxhstudy.com/article/39d7a96.html"/>
+    <id>https://fxhstudy.com/article/39d7a96.html</id>
+    <published>2021-04-02T02:28:33.000Z</published>
+    <updated>2021-04-04T15:40:30.773Z</updated>
+    
+    <content type="html"><![CDATA[<font color="#856363" size="4" face="Open Sans">好像没有写过分享类的文章，这里分享一些我jio得可以收藏一波的小东西。<h3 id="周杰伦至今所有的专辑"><a href="#周杰伦至今所有的专辑" class="headerlink" title="周杰伦至今所有的专辑"></a>周杰伦至今所有的专辑</h3><p>哈哈，很久就想分享这个了，(我是杰伦粉(狂喜)，等疫情结束了，那我必要去看杰伦的演唱会)几乎包含了杰伦所有专辑上的所有的歌，一共分享了149首。<br><br>这里没有很系统地将所有专辑分类，其中还有一些翻唱。<br><br>另外，分享的这些基本上都是.wav格式，基本上每首歌都是在30~50M之间。<br><br>我用的是某易云，但是由于某易云的版权原因，基本上听不到Jay的歌，所以我都是上传到某易云云盘中去听，可以试试。但是分享的这些，随便一首歌就很大，如果在惜流量的话，建议还是不要这样做。<br><br>后续如果收集到.mp3格式的话，后续会加进来。<br><br>链接：<a href="https://pan.baidu.com/s/1vcwdETI_2-WBhswRJpLhmQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1vcwdETI_2-WBhswRJpLhmQ</a><br>提取码：2333<br></font></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;font color=&quot;#856363&quot; size=&quot;4&quot; face=&quot;Open Sans&quot;&gt;
+好像没有写过分享类的文章，这里分享一些我jio得可以收藏一波的小东西。
+
+
+&lt;h3 id=&quot;周杰伦至今所有的专辑&quot;&gt;&lt;a href=&quot;#周杰伦至今所有的专辑&quot; class=&quot;head
+      
+    
+    </summary>
+    
+    
+      <category term="日常" scheme="https://fxhstudy.com/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>最近的事</title>
@@ -502,52 +553,6 @@
     </summary>
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>The End of The Fucking 2020</title>
-    <link href="https://fxhstudy.com/article/4a6b1db1.html"/>
-    <id>https://fxhstudy.com/article/4a6b1db1.html</id>
-    <published>2020-12-31T13:15:12.000Z</published>
-    <updated>2021-01-28T16:40:20.000Z</updated>
-    
-    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">  <script id="hbeData" type="hbeData" data-hmacdigest="c24685e0c051f91b735a0828c0e017d650bebf16e2fae2c50ec697939714ddf3">d8cd019511c7f3543a104e8f05f74c58cebf7f20e37ce0071ceeb73c03a3799a136157916055c2fe489111828ee8bd7f6562b1be6761d135b550911f06812e0c7ea916aa7e23699c0a4fccd277fe083f995820f6bb64eb69b826ea80d0ecfdb10d59477916173eb2df9289285a738fc449c63f36fcfdf927ee821fd4d186ebd93886ad26d35179105bfd38996f73910005c89d880d9059ff836c4c87ca9cf6f9f4e9a5aee4596d7e0515e158367f5ba342b7e4a8913d7691eea0d79a8709fcd249dce89cf8855b2c40ac1702810f959ab4cb0dc41ab1c3bb6f035cec320cf128b8e1a4c14c224983b9475d9ccba8d79c968bcfcc35a1ccf1b59be30caaa3977680b2bafb132942f1ea2d0838719e732ff85eeff6650a54b91fb8fe7800995eb1581f71b113baf0b951bca0915421e5d446676ad2114052598d5240b99273d00d8577aea2290af8e649ef5af3136a8ce19aeda5704a85d148a8b1c4cdbd12f8480b71fdd82d4187307abb4ff8fd8510bc9bcdfedef7a55bc801cadb85bd8699c214d4dde73c73792bcf8d1424041f674d6204bde14e1f25ccf0acb7f8191f18fc29e2b750c0105c8e67a4b0963b062fb3cbb3f256927c82414b4cbd0a7f33be49a60dffae749b0969b1989898bc2a2f3346e5c4e314d19fbd7d07e7ebaa98ab178bfeea4f6f097d48a9ba36ca0bf723599e406381de603288055175f6b0205e187b698369be7bd90b9bb6227f1fa2001bf95494de186a1245b98d6deb3bee7b57f5fa6acfa23ea199dcadc68cde28ccb24663ab4882f5aedc8691598ade6055cdc34d9a4660c8313d1d2943d9bead2b4b36dbc7c51f104d64849cac6d8792065d004e71fb0bfa2c4f22cc20ad3fdb2437c3f4965b1f76cbcdb5758038d0555ceb5a92484c03fd4e3ca362fb50ab647a77f3981a0a251a0efd792f1fa7061c5f020bc527333a535da002c761232bf7050839d205cce6029da19bcedf3a34e93d5e5c654c481af5273a7de9f2604e8e23320d1ec19de2980b7008cc8be09bb12817bf28b61b7cf41ee1db2cf397a56d02d31baf2ecd6cae1a751fac62dbb431507ff6db3c7feab2fa735e7690c5606f646d774a46a01d3a244e079a514a49927d321bbed614a137f09c20b7f88244288a110ec0364d4324893798cf151ea2353bf20baa83d333c6de247323b5ff7e3ab61e53c44834beafb17f856a73c7f0ed7c25d3ff347374f95b038c3e35cb5e3f499edf2f81a570a7bec5c566a6bd687a90a9a0c90c7b264f1cb886bc9f5dd104dba40ec2261092e5d158b13430ebfa12a07270cad8ddb8128162b6caeb349b074e54439b68936af2f526cd774491fb7894267bac174748b3f447f2e67a8939a069d57b55d0deb10b353770bd676152fe1e7311ee826a94648c1aa422fe3cfb058daba84fba467bd89ff9e0053c0c4a947a8cde6e1909173561b4938905f9be48e63c18e11742dfe2b185574e0faf7ddad5f4d67dc2f15131ae826ab80085e67428bc3da4dd70a5d0b7a203d3e4f680769d7e04109e2c49c43e4a99b8497548dbc5c8c315774cd8fcff4018793e2f397eb3815c7fef027e743f84f73150dfded1217ee1cab843ef3ac804a6516923b7bc991b1df3eb3a27c541cacd52f5d46a238456399fd189a7e334e89eaa6f055bd1fedb</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-xray">      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">您好, 这里需要密码.</span>      </label>      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>      </svg>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-    
-    <summary type="html">
-    
-      有东西被加密了, 请输入密码查看.
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode-15-3Sum</title>
-    <link href="https://fxhstudy.com/article/c0eaf67c.html"/>
-    <id>https://fxhstudy.com/article/c0eaf67c.html</id>
-    <published>2020-12-29T15:31:02.000Z</published>
-    <updated>2021-02-02T06:28:46.209Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><font color="#856363" size="4" face="Open Sans">Given an array <span class="label label-primary">nums</span> of n integers, are there elements a, b, c in <span class="label label-primary">nums</span> such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.</p><br><font size="4" face="Open Sans"><b>Notice</b></font> <br>The solution set must not contain duplicate triplets.</font><a id="more"></a><p><font size="4" face="Open Sans"><b>Notice</b></font><br><br></p><figure class="highlight angelscript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs angelscript">Given <span class="hljs-built_in">array</span> nums = [<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">-4</span>],<br>A solution <span class="hljs-keyword">set</span> <span class="hljs-keyword">is</span>:<br>[<br> [<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>],<br> [<span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">2</span>]<br>]<br></code></pre></div></td></tr></table></figure><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p><font size="4" face="Open Sans">给定一个数组，要求在这个数组中找到3个数之和为0的所有组合。</font></p><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><font size="4" face="Open Sans">    <font size="4" face="Open Sans"><b>排序 + 双指针</b></font>     <br>    <br>    大体的思路是先将给定的数组进行排序(排序的目的是实现在循环中内层的循环就不需要从比first值开始了，因为 [-1, 0, 1]、[0, -1, 1]和[0, 1, -1] 都是同一组)，接着正常分析的话，可以看出这是一个三层循环，时间复杂度是O(N³)，但是其中 [-1, 0, 1]、[0, -1, 1]和[0, 1, -1] 都是一种情况，所以后续我们需要通过哈希表来进行去重的操作。但其实是可以通过指针的方法将复杂度转化为O(N²)，因为题目要求我们实现三个数加起来为0，所以其实只要满足first=-(second+third)，<font size="4" face="Open Sans"><b> 即第二重循环和第三重循环实际上是并列的关系</b></font>。此时我们就可以使用双指针法，将second和third放在一层循环中。</font><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> leetcode;<br><br><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.Arrays;<br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">D15_3Sum</span> </span>&#123;<br><br>    <span class="hljs-keyword">public</span> List&lt;List&lt;Integer&gt;&gt; threeSum(<span class="hljs-keyword">int</span>[] nums) &#123;<br>        <span class="hljs-keyword">int</span> n = nums.length;<br>        Arrays.sort(nums);<br>        List&lt;List&lt;Integer&gt;&gt; ans = <span class="hljs-keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();<br>        <span class="hljs-comment">//枚举</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> first = <span class="hljs-number">0</span>; first &lt; n; ++first) &#123;<br>            <span class="hljs-comment">// 要求和上一次的枚举不同</span><br>            <span class="hljs-keyword">if</span> (first &gt; <span class="hljs-number">0</span> &amp;&amp; nums[first] == nums[first - <span class="hljs-number">1</span>]) &#123;<br>                <span class="hljs-keyword">continue</span>;<br>            &#125;<br>            <span class="hljs-comment">// third初始值始终是最右端</span><br>            <span class="hljs-keyword">int</span> third = n - <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">int</span> target = -nums[first];<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> second = first + <span class="hljs-number">1</span>; second &lt; n; second++) &#123;<br>                <span class="hljs-comment">// 需要和上一次枚举的数不相同</span><br>                <span class="hljs-keyword">if</span> (second &gt; first+<span class="hljs-number">1</span> &amp;&amp; nums[second] == nums[second - <span class="hljs-number">1</span>]) &#123;<br>                    <span class="hljs-keyword">continue</span>;<br>                &#125;<br>                <span class="hljs-comment">//需要保证second在third的左侧</span><br>                <span class="hljs-keyword">while</span> (second &lt; third &amp;&amp; nums[second] + nums[third] &gt; target) &#123;<br>                    --third;<br>                &#125;<br>                <span class="hljs-comment">//当指针重合时，结束循环</span><br>                <span class="hljs-keyword">if</span> (second == third) &#123;<br>                    <span class="hljs-keyword">break</span>;<br>                &#125;<br>                <span class="hljs-keyword">if</span> (nums[second] + nums[third] == target) &#123;<br>                    List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>                    list.add(nums[first]);<br>                    list.add(nums[second]);<br>                    list.add(nums[third]);<br>                    ans.add(list);<br>                &#125;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure><h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p><font size="4" face="Open Sans">  * 时间复杂度：</font><font size="5" face="Open Sans"><b>O(N²)</b></font><font size="4" face="Open Sans"> N代表的是nums数组的长度。</font><br><font size="4" face="Open Sans">  * 空间复杂度：</font><font size="5" face="Open Sans"><b>O(log(N))</b></font><font size="4" face="Open Sans"> 这里就是排序所需要的空间复杂度。</font></p><h2 id="收获与总结"><a href="#收获与总结" class="headerlink" title="收获与总结"></a>收获与总结</h2><font size="4" face="Open Sans"><p>当我们需要枚举数组中的两个元素时，如果我们发现随着第一个元素的递增，第二个元素是递减的，那么就可以使用双指针的方法，将枚举的时间复杂度从 O(N²) 减少至 O(N)。为什么是 O(N) 呢？这是因为在枚举的过程每一步中，「左指针」会向右移动一个位置（也就是题目中的 bb），而「右指针」会向左移动若干个位置，这个与数组的元素有关，但我们知道它一共会移动的位置数为 O(N)，均摊下来，每次也向左移动一个位置，因此时间复杂度为 O(N)。</p></font>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;&lt;font color=&quot;#856363&quot; size=&quot;4&quot; face=&quot;Open Sans&quot;&gt;Given an array &lt;span class=&quot;label label-primary&quot;&gt;nums&lt;/span&gt; of n integers, are there elements a, b, c in &lt;span class=&quot;label label-primary&quot;&gt;nums&lt;/span&gt; such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.&lt;/p&gt;
-&lt;br&gt;
-&lt;font size=&quot;4&quot; face=&quot;Open Sans&quot;&gt;&lt;b&gt;Notice&lt;/b&gt;&lt;/font&gt; 
-&lt;br&gt;
-The solution set must not contain duplicate triplets.&lt;/font&gt;
-    
-    </summary>
-    
-    
-      <category term="LeetCode" scheme="https://fxhstudy.com/categories/LeetCode/"/>
-    
-    
-      <category term="算法" scheme="https://fxhstudy.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

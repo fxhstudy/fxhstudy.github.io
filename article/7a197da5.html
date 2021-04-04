@@ -18,9 +18,25 @@
   <meta name="description" content="">
   <meta name="author" content="工具人•小方">
   <meta name="keywords" content="">
-  <title>Archives - 工具人小方的博客</title>
+  <title>SpringMVC执行原理 - 工具人小方的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/atelier-cave-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -50,7 +66,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -144,14 +160,51 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://qiniuyun.fxhstudy.com/oryx.png') no-repeat center center;
+         style="background: url('https://qiniuyun.fxhstudy.com/BannerImg.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Archive">
+            <span class="h2" id="subtitle" title="SpringMVC执行原理">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-04-04 21:58" pubdate>
+        April 4, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      354 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      3
+       分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -164,40 +217,137 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">66 posts in total.</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/article/609fdf0c.html" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">攻防世界 MISC基础题</span>
-      <time style="float: right;">05-25</time>
-    </a>
-  
-</div>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">SpringMVC执行原理</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：4 minutes ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p><font color="#856363" size="4" face="Open Sans"><b></p>
+<p><img src="https://qiniuyun.fxhstudy.com/SpringMVC%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%861.png" srcset="/img/loading.gif"><br></p>
+<p>图为SpringbootMVC的一个较为完整的流程图，实线表示SpringMVC框架提供的技术，不需要开发者实现，虚线表示需要开发者实现。</p>
+<h3 id="简要分析执行流程"><a href="#简要分析执行流程" class="headerlink" title="简要分析执行流程"></a>简要分析执行流程</h3><ol type="1" start="1">
+    <li><code>DispatcherServlet</code>表示前置控制器，是整个<code>SpringMVC</code>的控制中心。用户发出请求，<code>DispatcherServlet</code>接收请求并拦截请求。<br>
+    我们假设请求的url为:http://localhost:8080/springMVC/hello<br><br>
+    <b>如上url拆分成成三部分</b><br>
+    http://localhost:8080服务器域名<br>
+    <code>SpringMVC</code>部署在服务器上的web站点<br>
+    <code>hello</code>表示控制器<br>
+    通过分析，如上url表示为：请求位于服务器localhost:8080上的<code>SpringMVC</code>站点的<code>hello</code>控制器。</li>
+    <li><code>HandlerMapping</code>为处理器映射。<code>DispatcherServlet</code>调用<br><code>HandlerMapping</code>,<code>HandlerMapping</code>根据请求url查找<code>Handler</code>。</li>
+    <li><code>HandlerExecution</code>表示具体的<code>Handler</code>,其主要作用是根据url查找控制器，如上url被查找控制器为：<code>hello</code>。</li>
+    <li><code>HandlerExecution</code>将解析后的信息传递给<code>DispatcherServlet</code>,如解析控制器映射等。</li>
+    <li><code>HandlerAdapter</code>表示处理器适配器，其按照特定的规则去执行<code>Handler</code>。</li>
+    <li><code>Handler</code>让具体的<code>Controller</code>执行。</li>
+    <li><code>Controller</code>将具体的执行信息返回给<code>HandlerAdapter</code>,如<code>ModelAndView</code>。</li>
+    <li><code>HandlerAdapter</code>将视图逻辑名或模型传递给<code>DispatcherServlet</code>。</li>
+    <li><code>DispatcherServlet</code>调用视图解析器(ViewResolver)来解析<code>HandlerAdapter</code>传递的逻辑视图名。</li>
+    <li>视图解析器将解析的逻辑视图名传给<code>DispatcherServlet</code>。</li>
+    <li><code>DispatcherServlet</code>根据视图解析器解析的视图结果，调用具体的视图。</li>
+    <li>最终视图呈现给用户。</li>
+</ol>
+
+</b>
+</font>
 
 
 
 
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/39d7a96.html">
+                        <span class="hidden-mobile">一些小分享</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz",
+          app_key: "r20xk8AR5pft8xGRQlWKYoin",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -302,9 +452,15 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 
