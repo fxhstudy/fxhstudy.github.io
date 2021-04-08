@@ -18,7 +18,7 @@
   <meta name="description" content="">
   <meta name="author" content="工具人•小方">
   <meta name="keywords" content="">
-  <title>一些小东西 - 工具人小方的博客</title>
+  <title>补码的深入理解 - 工具人小方的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -160,12 +160,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.pixabay.com/photo/2021/01/19/19/28/street-5932230_960_720.jpg') no-repeat center center;
+         style="background: url('https://qiniuyun.fxhstudy.com/BannerImg.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="一些小东西">
+            <span class="h2" id="subtitle" title="补码的深入理解">
               
             </span>
 
@@ -175,8 +175,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-30 18:39" pubdate>
-        January 30, 2021 pm
+      <time datetime="2021-04-07 22:12" pubdate>
+        April 7, 2021 pm
       </time>
     </span>
   
@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      9 字
+      895 字
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      9
        分钟
     </span>
   
@@ -227,41 +227,52 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">一些小东西</h1>
+            <h1 style="display: none">补码的深入理解</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 months ago
+                  本文最后更新于：a minute ago
                 
               </p>
             
             <div class="markdown-body">
-              <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="c4fcc878c427d19fb6cb7c23ce7e9c08480f1c681410a71972cf254a284f8e32">d8cd019511c7f3543a104e8f05f74c583d90ab80bb96d1b4fb6600fafc197cb7aa238994b1b729f5122a18e909c5215b47177b1bc89012c095dc3b5d5d7125842b6db3e3a14d190265299d0dddddc05c2b41860817c30148119d2718b10626e7d902366afd31b6fcc9fb4560abcec5e7210b880f8e0815e15ffc0e279dd61e4cf403fee6ca732d3f283d96c9b984b7e6d6f394048bdf65c7aff489c810f0f42ae420ee966c375638525422c8a628f7c13499eac3c27a85245215cad8b8ca55055c4a9bad3d4a7429a373a3c7e2ec103add69ea557208dac88395894cb07d6bf59d7bc01c01a0764b90a745bddba4d4d8205db8e7d679fd451f6133d3a10de1c6bbfd06c1a61ccfb0ce4e475a467519e11c8cc8252b3fd60ab8ef3909441d6a02ad75d03fc94bd9bc291a43aba05a33bafb7093f45072881aa235dea2d954e94c84f817a6f230b568c3fdd746a95acb862c404dea48ccca813dd4a5bdb2db212137b396977c3430e47ace74090502d000876ac0cbfc819f8a3e763eaccd45ed222b7ba52c75042c26160e3bb79e2c97a573543b76e103015296cb2b5ed3b78034000f42c29bc8772cdf437948194c2b3cbe57106dca4f078ca319327341b58438637b5c71e8de40aaf3c8a604962db946ae753279f8af9a8e69560c79b97495dd189dd80c40e6a2cb9f7020bb0893fe2bd8bd8dd5033549e0519832a1c923dc32c7b5e40da6d0f49a95d12cf0401da4debd176da73c80dfa6f1e8b43412d1e9377584e5bbdd86468d3af00474acb4d21a2a70eef148ee8f3ba6465c1e0e72d2cb20cc8d795c1727c06ab7710c418ab009c4392ba4cbc809454d7ff3225d00da0fc0862b636b80765c32d8519cd442042458c3cc43bf6bd6b8736143d7eb6eff45adb8f02f6119fdf8623e68f47077af9bac27fedfb6970e276eea057f1550ea508c0a325159e98e326c3d3a53c7506b1a1ef4c7293a4a2218d9098c033196c1a4c86c4b162dae94cb21f8bb60bbabfe0ab249b86df8edeab04169b6c64b64bdcba314b0db2018293c9dd95887d3c0fe2c68a9d5a9ca391216acade47d6d8dc282c78521a68007e7cca417e1d592b22ac44ece0d0d45e598611df55e9b08957e04bbc71ed1aabcf44eddb9d2323285556d802c683a2f720409c5ec811eac6d847f7bb6dfd0b37d04484c787aa50b00813a0eb5c9846b7c15f7c87b156109a4344bd2ab282570bde5b454de469973643b2162d3568bce753d964cff6a8e049744d4b6b0b70f466fe67e4290d3719a23f4570edd28b5b7b05bfaa665c2366ce7c78dcd8f8d06fc87bfa232cf6d69535e82a26889c19fe11aa7c931846d544902abaa52371cf50849ca6cd12120bd76f1cd1b721d7d5418c14044a45901eb6b6ab84352c1128068196acc8da0cb67b702351e949925362818d44c5697ff8bf2394783f976a430f191030885c666974f008bacf7a4729e470f23c8ee7ca07195ffdc922d2def6502433c59502cb4d4c3e9384854aa4e35cd1a14bf3dd5f1ff15cfa41ae93ea263e69f07b0b7580881af15d436c17d820822dd74a5888e969587e72fefeaefc36e0e31603b55cc4a75586265f7f2671df4516adb48bc11e2b1d88d8f50e2c88c7e166bba9f9fd21ac6d33f7619eb336a52ae9a3e04b61aec15119704c332d76c92cf5a8418276e903484bd6a75bc0a4b6d48fbf7cda2c27c1242ef2ce5fee67e24f56190401e4e6fefdedb13b6bd228f10ab14575122618194f519ee08d5db51d26b3db926411d26a2b437f4992d6ad9f16673d10111aeb4790c3caaadba54c733a800bc042d404862752d784cd58307e2c34f3c364ec8108b1e0b0a6a73be0d4fc07f78dcf03cda486238b39242d0962d262a1f13039bd5d46eaf69e6571b7ad64059bd60749fd352c6ec2a6f65a73041d3f913803f332edfdab4a98dcc09b7b0ceb80c1f3d1f110b0fd144f13f1ba46f9da5f62611622973bc84d83f8c516145086222ca03840788736fa87e9395fbf7f8a0cb457aefda0ab80170b5e51e1c1d229b6ea32abf68cf92499ea57c85de3d07e75dd97c326c5578b3750ff2a7470c946dbfe8651bf2be3e56fb599fc186a3a389e54c7310060f23bc66abe0dd66b9872e2fd84b2698abe522d2830596b1fc73479449da220452c6c24b4884df0ea20b33c87a8f3e1ebbc5414baaae835c5a48426c7df6ec90a2fcd13f72d1ad3624d709fe26659cca3a1f10e7a4faaeb6e41c9b267354dfa54b1bc329def70c0ef6fc0de42511eddd332b5b4e8989ff04214800b5633871a5db559b019b04fc14bd3023dfdc93d030ba5523482864083f0e05807922aa3b5f7c92228efc65028ab0e3ce3f4ee9804ce7e237392c0bf9de500a79f7c6b6f673f37480a2119e9e0c62f9dbf8bbbde4675dac28db07f86b0aacf7eaac13a54212bdb7911fd3f8ec399908d74793c3a574277de3cf5fbb3a489a6b02815792801be5fab83a7e26e6611fb78caa44fdc0f247ea2c4099328277c5df6880f0157e171349e39829ad7a71907d3d3812504d49fef011b2b974dfc3bb3bf7d1bb9e5735c5dbb531d86b4bf2bdfd2205b9b3f63864e47dc2e9c91f1d34eb5b8bb52f0b7e079319c8c1927197521cd37ed99abab49ec61f61bd4f9a6f42333e5b327923ae2d857dab1c8651660a837fb1cc63adb24d2007b0ae7a41f9376d9eeb9621875d57af8518f45c756757f7c84881f043238a13ef0515152f23e030bf5cc0e9205f93dee382723e86a6a7ed744684ff1d13b7e258196ab0cb434a6aaed5d8040d17109c94ab7d83b6e67848886ce089ada873198af46a72c0beabef365b61863f9356ac79903d6b2a1ae918d07d5980ebb66c83d348b62a8e558023389c97eacfaff593d5e8415d065b5edccfdaeb8f258289f3af64c6d81a452c8f38b5c19b010f69559b319b5c498035f6129c3cd016aa7c34d2a3452c402ecfdf2e42a597bb29e17c9c77c1d7b3df0f1ec2b021fd21d56dce2c2680ff7f449c7160540a7eefc7d000812b5021532f8e52e684551134f0958614ac0f46b506de8d79ae4dfb64d244c1657a0a9535b773ac9c718fbe7d8a9b888dc9bc14bc2d649f461ac1c922cb2818f73fade64a36e8193f69837dc6ac7a18ef94f52d873b2e51630e4709ebd3d68f2649d6698ecc035881a64e41d785461797ab27ad95e91d6bce2643b607cf59fc42a1db0ca4c111312a697790e806509119426b06727c1bd06044d369c3d9c020bc86f18f28faf9c6c754084e3bd6a96412474149ba0cd6ef869d53999859d13abf4747fb6845bf52337e71cb1c48efcc4287663d4d697cb6834f09d53d06525ecd330e99c1d5240a1030bc183315747401156f5daa6b21383a72f4f1dc8699f160a8f44e347a5af3b8148f3c5e307f3fecc44e6c40b29fda108cf34d514baf467ce1407a9ef274a7ba79b802a3d5d686c340d1ff880e115450aaaeb640d47b6e71ced25a4c0a7b595db6dfe4809fa90fc5784a07da325bef977fac17d6fa5d627eee62cf836af59a70d65195cddd49e9fa1d1dbce0b0fe997d56c624a08dda004363683b265b30e63cc59814106c2b613a5d8f6ede11df421c72028b3f1de1de2cf06b2e352de2ad6ca6cacf09f00082dc3521077c2eb3ff6dccd6731a68d66e980133879d219eb7510d9597e6c4d9ded8e9bf415e977fabd6087c8a8a719005513942a6e8947234aeb46bc5a0ac932143cb3121a5c9c058ed3f2278d1641b2a59401b4bb2d39d61905d73dfd595addb0345fc</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-xray">
-      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">您好, 这里需要密码.</span>
-      </label>
-      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
-        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
-        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>
-      </svg>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+              <p><font color="#856363" size="4" face="Open Sans"><b></p>
+<p>之前我有写过关于原码补码和反码的文章，</p>
+<p><a href="https://fxhstudy.com/article/2526b7ad.html" class="LinkCard">原码反码和补码</a></p>
+<p>但是都是大概介绍了一下如何定义以及如何计算，并没有深究。</p>
+<p>这段时间在看《深入理解计算机系统》时，正好看到关于补码的介绍，介绍得非常得详细。这里想记录关于补码的一些深度理解。</p>
+<h3 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入"></a>问题引入</h3><p>在刚学C语言时，学习到关于数据类型Int时，我们会发现书上给的Int类型的取值范围是在<br><font color="#9400D3" size="3" face="Open Sans">-2 147 483 648 ~ 2 147 483 647</font><br>你有没有思考过这么一个问题，为什么取值的正负值不是对称的呢？我们会发现|Min|=|Max|+1，有人可能会考虑0，但是，0在其中起到什么作用呢？</p>
+<p>其实，这就和我们接下来要说的补码有关系了。(本想从数学上来更深入讨论补码的原理，但确实很多符号打不出来，就放弃从原理层面来介绍了。)</p>
+<h3 id="补码编码"><a href="#补码编码" class="headerlink" title="补码编码"></a>补码编码</h3><p>我们知道，在计算机中，分为有符号数和无符号数，C语言默认是有符号数，用unsigned来表示无符号数(Java只支持有符号数)。<br>其中最常见的有符号数的计算机表示方式就是补码(two’s-complement)形式。在计算机系统中，数值一律用补码来表示和存储。补码可以将符号位和数值域统一处理；同时，加法和减法也可以统一处理。</p>
+<p>我们知道，其实在计算机中的所以的一切，都是由二进制组成的。<br>在程序中，我们给变量赋的值，不论多大的数，在计算机底层其实都是由0和1组成的。<br>比如，short类型的<font color="#FFB6C1" size="3" face="Open Sans">12345</font>的十六进制是<font color="#FFB6C1" size="3" face="Open Sans">0x3039</font>,转化为二进制就是<font color="#FFB6C1" size="3" face="Open Sans"> [0011 0000 0011 1001] </font></p>
+<p>而short类型的<font color="#FFB6C1" size="3" face="Open Sans">-12345</font>转化为二进制是<font color="#FFB6C1" size="3" face="Open Sans"> [1011 0000 0011 1001] </font></p>
+<p>我们可以发现，<font color="#FFB6C1" size="3" face="Open Sans">12345</font>和<font color="#FFB6C1" size="3" face="Open Sans">-12345</font>的二进制，其实就是最高位一个是0，一个是1。</p>
+<p>在计算机中，我们将最高有效位称之为符号位，0即代表这个数为正数，而1，代表这个数为负数。</p>
+<p>所以这里我们可以发现，补码中，符号位为0时，数的取值范围为<br><font color="#9400D3" size="3" face="Open Sans">0 ~ 2 147 483 647</font></p>
+<p>而符号位为1时，数的取值范围为<br><font color="#9400D3" size="3" face="Open Sans">-2 147 483 648 ~ 0</font></p>
+<p>正数的补码就是其原码，而负数的原码则是其反码+1。<br>所以<font color="#FFB6C1" size="3" face="Open Sans">12345</font>在计算机存储中就是按照原码来存储的，其补码等于原码。而我们所看到的<font color="#FFB6C1" size="3" face="Open Sans">-12345</font>，它的原码是<font color="#FFB6C1" size="3" face="Open Sans"> [1011 0000 0011 1001] </font>，但在存储中是按照补码来的，也就是说存储在计算机中其实是<font color="#FFB6C1" size="3" face="Open Sans"> [1100 1111 1100 0111] </font>转化为十进制是<font color="#FFB6C1" size="3" face="Open Sans">53191</font>。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>结合以上知识，之所以会有这样的不对称性，是因为一半的位模式(符号位设置为1的数)表示负数，而另一半是(符号位设置为0的数)表示非负数。因为0是非负数，也就意味着能表示的整数比负数少一个。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>其实并不是很深入地理解，本想从数学角度来讨论补码的，但确实很多数学符号不好表示，所以就比较简单地介绍了一下补码。<br>如果真的想要了解数学原理，可以去看看《深入理解计算机系统》这本书，里面介绍得真的很详细。<br></b></font></p>
+
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/">程序猿</a>
+                    
+                  </div>
                 
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/">小知识点</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/">计算机原理</a>
                     
                   </div>
                 
@@ -274,18 +285,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/2f4c50c2.html">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">启动tomcat时,端口占用的解决办法</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/daba9d83.html">
-                        <span class="hidden-mobile">几个小概念</span>
+                      <a href="/article/7a197da5.html">
+                        <span class="hidden-mobile">SpringMVC执行原理</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
