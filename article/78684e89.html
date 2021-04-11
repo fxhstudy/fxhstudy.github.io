@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      895 字
+      888 字
     </span>
   
 
@@ -231,7 +231,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：a minute ago
+                  本文最后更新于：3 days ago
                 
               </p>
             
@@ -248,7 +248,7 @@
 <p>而short类型的<font color="#FFB6C1" size="3" face="Open Sans">-12345</font>转化为二进制是<font color="#FFB6C1" size="3" face="Open Sans"> [1011 0000 0011 1001] </font></p>
 <p>我们可以发现，<font color="#FFB6C1" size="3" face="Open Sans">12345</font>和<font color="#FFB6C1" size="3" face="Open Sans">-12345</font>的二进制，其实就是最高位一个是0，一个是1。</p>
 <p>在计算机中，我们将最高有效位称之为符号位，0即代表这个数为正数，而1，代表这个数为负数。</p>
-<p>所以这里我们可以发现，补码中，符号位为0时，数的取值范围为<br><font color="#9400D3" size="3" face="Open Sans">0 ~ 2 147 483 647</font></p>
+<p>所以对于补码，符号位为0时，数的取值范围为<br><font color="#9400D3" size="3" face="Open Sans">0 ~ 2 147 483 647</font></p>
 <p>而符号位为1时，数的取值范围为<br><font color="#9400D3" size="3" face="Open Sans">-2 147 483 648 ~ 0</font></p>
 <p>正数的补码就是其原码，而负数的原码则是其反码+1。<br>所以<font color="#FFB6C1" size="3" face="Open Sans">12345</font>在计算机存储中就是按照原码来存储的，其补码等于原码。而我们所看到的<font color="#FFB6C1" size="3" face="Open Sans">-12345</font>，它的原码是<font color="#FFB6C1" size="3" face="Open Sans"> [1011 0000 0011 1001] </font>，但在存储中是按照补码来的，也就是说存储在计算机中其实是<font color="#FFB6C1" size="3" face="Open Sans"> [1100 1111 1100 0111] </font>转化为十进制是<font color="#FFB6C1" size="3" face="Open Sans">53191</font>。</p>
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>结合以上知识，之所以会有这样的不对称性，是因为一半的位模式(符号位设置为1的数)表示负数，而另一半是(符号位设置为0的数)表示非负数。因为0是非负数，也就意味着能表示的整数比负数少一个。</p>
