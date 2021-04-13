@@ -18,7 +18,7 @@
   <meta name="description" content="">
   <meta name="author" content="工具人•小方">
   <meta name="keywords" content="">
-  <title>LeetCode-11-ContainerWithMostWater - 工具人小方的博客</title>
+  <title>我眼中985、211与本科的差距 - 工具人小方的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -160,12 +160,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://qiniuyun.fxhstudy.com/rhino.png') no-repeat center center;
+         style="background: url('https://qiniuyun.fxhstudy.com/%E6%88%91%E7%9C%BC%E4%B8%AD985%E3%80%81211%E4%B8%8E%E6%9C%AC%E7%A7%91%E7%9A%84%E5%B7%AE%E8%B7%9D.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="LeetCode-11-ContainerWithMostWater">
+            <span class="h2" id="subtitle" title="我眼中985、211与本科的差距">
               
             </span>
 
@@ -175,8 +175,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-22 10:44" pubdate>
-        December 22, 2020 am
+      <time datetime="2021-04-13 23:32" pubdate>
+        April 13, 2021 pm
       </time>
     </span>
   
@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      459 字
+      900 字
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      9
        分钟
     </span>
   
@@ -227,64 +227,27 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">LeetCode-11-ContainerWithMostWater</h1>
+            <h1 style="display: none">我眼中985、211与本科的差距</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：3 months ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><font color="#856363" size="4" face="Open Sans">Given n non-negative integers a1, a2, …, an , where each represents a point at coordinate (i, ai). nvertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines,<br>which together with x-axis forms a container, such that the container contains the most water.</font></p>
-<p><font color="#856363" size="4" face="Open Sans"><b>Notice</b> that you may not slant the container.</font></p>
-<a id="more"></a>
-
-<hr>
-<font size="4" face="Open Sans"><b>Example1</b></font>
-<br>
-<img src="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/07/25/question_11.jpg" srcset="/img/loading.gif">
-
-<figure class="highlight angelscript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs angelscript">Input: height = [<span class="hljs-number">1</span>,<span class="hljs-number">8</span>,<span class="hljs-number">6</span>,<span class="hljs-number">2</span>,<span class="hljs-number">5</span>,<span class="hljs-number">4</span>,<span class="hljs-number">8</span>,<span class="hljs-number">3</span>,<span class="hljs-number">7</span>]<br>Output: <span class="hljs-number">49</span><br>Explanation: The above vertical lines are represented by <span class="hljs-built_in">array</span> [<span class="hljs-number">1</span>,<span class="hljs-number">8</span>,<span class="hljs-number">6</span>,<span class="hljs-number">2</span>,<span class="hljs-number">5</span>,<span class="hljs-number">4</span>,<span class="hljs-number">8</span>,<span class="hljs-number">3</span>,<span class="hljs-number">7</span>]. In <span class="hljs-keyword">this</span> <span class="hljs-keyword">case</span>, the max area of water (blue section) the container can contain <span class="hljs-keyword">is</span> <span class="hljs-number">49.</span><br></code></pre></div></td></tr></table></figure>
-
-<p><font size="4" face="Open Sans"><b>Example2</b></font></p>
-<figure class="highlight angelscript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs angelscript">Input: height = [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]<br>Output: <span class="hljs-number">1</span><br></code></pre></div></td></tr></table></figure>
-
-<p><font size="4" face="Open Sans"><b>Example3</b></font></p>
-<figure class="highlight angelscript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs angelscript">Input: height = [<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">4</span>]<br>Output: <span class="hljs-number">16</span><br></code></pre></div></td></tr></table></figure>
-
-<p><font size="4" face="Open Sans"><b>Example4</b></font></p>
-<figure class="highlight angelscript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs angelscript">Input: height = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>]<br>Output: <span class="hljs-number">2</span><br></code></pre></div></td></tr></table></figure>
-
-<h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p><font size="4" face="Open Sans">给出一个非负整数数组a1,a2,a3,……an,没个整数标识一个竖立在坐标轴x位置的一堵高度为ai的墙，选择两堵墙，和x轴构成的容器可以容纳最多的谁。</font></p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h3 id="方法一：暴力枚举"><a href="#方法一：暴力枚举" class="headerlink" title="方法一：暴力枚举"></a>方法一：暴力枚举</h3><p><font size="4" face="Open Sans">暴力枚举每一种可能性，然后比较。</font></p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> leetcode;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">D11_ContainerWithMostWater</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">maxArea</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] height)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> len = height.length;<br>        <span class="hljs-keyword">int</span> maxArea = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i + <span class="hljs-number">1</span>; j &lt; len; j++) &#123;<br>                <span class="hljs-keyword">int</span> minNumber = Math.min(height[i],height[j]);<br>                <span class="hljs-keyword">if</span>(maxArea &lt; minNumber * (j - i)) &#123;<br>                    maxArea = minNumber * (j - i);<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> maxArea;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-<h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><p><font size="4" face="Open Sans">  * 时间复杂度：</font><font size="5" face="Open Sans"><b>O(N²)</b></font><font size="4" face="Open Sans">,两层嵌套循环。</font><br><font size="4" face="Open Sans">  * 空间复杂度：</font><font size="5" face="Open Sans"><b>O(1)</b></font><font size="4" face="Open Sans">。</font></p>
-<h3 id="方法二：双指针"><a href="#方法二：双指针" class="headerlink" title="方法二：双指针"></a>方法二：双指针</h3><p><font size="4" face="Open Sans">这一题也是对撞指针的思路。首尾分别2个指针，每次移动以后都分别判断长宽的乘积是否最大。</font></p>
-<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> leetcode;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">D11_02ContainerWithMostWater</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">maxArea</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] height)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, j = height.length - <span class="hljs-number">1</span>, maxArea = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (i &lt; j) &#123;<br>            maxArea = height[i] &gt; height[j] ?<br>                    Math.max(maxArea, (j - i) * height[j--]) :<br>                    Math.max(maxArea, (j - i) * height[i++]);<br>        &#125;<br>        <span class="hljs-keyword">return</span> maxArea;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-<h4 id="复杂度分析-1"><a href="#复杂度分析-1" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><p><font size="4" face="Open Sans">  * 时间复杂度：</font><font size="5" face="Open Sans"><b>O(N)</b></font><font size="4" face="Open Sans">,双指针遍历一次底边宽度N。</font><br><font size="4" face="Open Sans">  * 空间复杂度：</font><font size="5" face="Open Sans"><b>O(1)</b></font><font size="4" face="Open Sans">指针使用常数额外空间。</font></p>
+              <p><font color="#856363" size="4" face="Open Sans"><b><br>有很多人说，计算机这个专业其实对于你的学历是没有什么要求的。<br>这也是我一开始的想法，事实也确实是这样的。<br>但是随着慢慢深入学习计算机这门专业，但和我所想并不相同。<br>我认为计算机这门专业很看重”学历”;这个学历我要打上双引号。</p>
+<p>前一段时间竞赛和学长学姐在讨论未来发展的时候，在谈论到Java后端程序员时，学长说其实Java后端开发，简单地来说就是调用一些api，然后完成你的需求。我觉得这很对，也和我所想的一样，我现在写的一些小项目其实都是，调用一些方法，然后来完成自己的需求。但对于怎样实现的，我们根本不了解，Java程序员也不用去了解底层是怎样实现的。我觉得这也客观地反映了一些问题。只要会用一些框架，然后掌握基本的方法，有一定的项目经验，你就可以从事Java开发，拿到比较客观的工资。事实就是这样，这也是人们为什么说计算机这门专业不看学历的原因。</p>
+<p>但，事实是这样吗？如果这是事实，那么那些进大厂，从事Java开发的人为什么985、211占多数，而大厂也通常会在这些学校招生呢?这其中也是看”学历”的。</p>
+<p>为什么我将”学历”打上双引号呢?这里的学历我觉得并不是简历上的学历，是你的综合素质–计算机领域的综合素质。综合素质就是985、211学生与普本学生之间的差距。<br>举个例子，在我看到的视野里，一些比较厉害的学长学姐，他们的发展方向大都是朝着Java后端开发，毕竟火热嘛。<br>于是，学习各种框架，学习各种技术成为了他们的主要目标。<br>这有错吗?这没错;方向是对的吗?方向是对的。<br>但我觉得这就是本科和985、211学生最大的差别。他们学什么，他们的重点是什么?计算机原理，计算机系统;我们的重点是什么，如何运用别人写好的东西去开发，我觉得这就是差距。把计算机底层的东西弄懂了，知道它在运行时，底层是怎么操作的，我觉得不论是开发，还是从事其他计算机的工作，上手简直是易如反掌的事情。<br>开发中遇到bug很常见，有句话在程序员中很著名”一杯茶一根烟，一个Bug改一天”。但是不同水平的人解决Bug的速度不一样，真正懂原理的人，很容易找出Bug在那里，而从培训班出生、只会调用api来码代码的人，浮于表层，真的就是一个Bug改一天。这就是为什么大厂找985、211学生居多，他们综合素质摆在那里。</p>
+<p>我这里想指出的是，其实很多人在学计算机这门专业的时候，真的就是浮于表层，我觉得应该往深处去研究。并不是说从事Java开发多不好，我以后也是往Java开发发展的，但我觉得，身为从事计算机的人来说，我们应该掌握多一些计算机底层的东西，最好不要停留在表面。</p>
+<p></b></font></p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/LeetCode/">LeetCode</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
-                    
-                  </div>
                 
               </div>
               
@@ -295,18 +258,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/a1590bf.html">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode-13-RomanToInteger</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/f69c6c8d.html">
-                        <span class="hidden-mobile">LeetCode-09-PalindromeNumber</span>
+                      <a href="/article/78684e89.html">
+                        <span class="hidden-mobile">补码的深入理解</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
