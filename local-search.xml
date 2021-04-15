@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>常见依赖</title>
+    <link href="/article/96aaf1b0.html"/>
+    <url>/article/96aaf1b0.html</url>
+    
+    <content type="html"><![CDATA[<p><font color="#856363" size="4" face="Open Sans"><b></p><p class="note note-secondary">thymeleaf依赖</p><figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- thymeleaf依赖 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.thymeleaf<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>thymeleaf-spring5<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.thymeleaf.extras<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>thymeleaf-extras-java8time<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></div></td></tr></table></figure><p class="note note-secondary">Spring 日志依赖</p><figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--日志--&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>log4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>log4j<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.2.14<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>   <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></div></td></tr></table></figure><p class="note note-secondary">junit单元测试依赖</p><figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--junit单元测试--&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.12<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>   <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></div></td></tr></table></figure><p class="note note-secondary">Spring test依赖</p><figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--Spring测试模块--&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.3.7.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>   <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></div></td></tr></table></figure><p class="note note-secondary">lombok依赖</p><figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--lombok插件--&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.16.18<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>provided<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br>   <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></div></td></tr></table></figure><p></b></font></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>程序猿</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>Spring</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>我眼中985、211与本科的差距</title>
     <link href="/article/6fca8bfb.html"/>
     <url>/article/6fca8bfb.html</url>
@@ -11,6 +38,18 @@
     <content type="html"><![CDATA[<p><font color="#856363" size="4" face="Open Sans"><b><br>有很多人说，计算机这个专业其实对于你的学历是没有什么要求的。<br>这也是我一开始的想法，事实也确实是这样的。<br>但是随着慢慢深入学习计算机这门专业，但和我所想并不相同。<br>我认为计算机这门专业很看重”学历”;这个学历我要打上双引号。</p><p>前一段时间竞赛和学长学姐在讨论未来发展的时候，在谈论到Java后端程序员时，学长说其实Java后端开发，简单地来说就是调用一些api，然后完成你的需求。我觉得这很对，也和我所想的一样，我现在写的一些小项目其实都是，调用一些方法，然后来完成自己的需求。但对于怎样实现的，我们根本不了解，Java程序员也不用去了解底层是怎样实现的。我觉得这也客观地反映了一些问题。只要会用一些框架，然后掌握基本的方法，有一定的项目经验，你就可以从事Java开发，拿到比较客观的工资。事实就是这样，这也是人们为什么说计算机这门专业不看学历的原因。</p><p>但，事实是这样吗？如果这是事实，那么那些进大厂，从事Java开发的人为什么985、211占多数，而大厂也通常会在这些学校招生呢?这其中也是看”学历”的。</p><p>为什么我将”学历”打上双引号呢?这里的学历我觉得并不是简历上的学历，是你的综合素质–计算机领域的综合素质。综合素质就是985、211学生与普本学生之间的差距。<br>举个例子，在我看到的视野里，一些比较厉害的学长学姐，他们的发展方向大都是朝着Java后端开发，毕竟火热嘛。<br>于是，学习各种框架，学习各种技术成为了他们的主要目标。<br>这有错吗?这没错;方向是对的吗?方向是对的。<br>但我觉得这就是本科和985、211学生最大的差别。他们学什么，他们的重点是什么?计算机原理，计算机系统;我们的重点是什么，如何运用别人写好的东西去开发，我觉得这就是差距。把计算机底层的东西弄懂了，知道它在运行时，底层是怎么操作的，我觉得不论是开发，还是从事其他计算机的工作，上手简直是易如反掌的事情。<br>开发中遇到bug很常见，有句话在程序员中很著名”一杯茶一根烟，一个Bug改一天”。但是不同水平的人解决Bug的速度不一样，真正懂原理的人，很容易找出Bug在那里，而从培训班出生、只会调用api来码代码的人，浮于表层，真的就是一个Bug改一天。这就是为什么大厂找985、211学生居多，他们综合素质摆在那里。</p><p>我这里想指出的是，其实很多人在学计算机这门专业的时候，真的就是浮于表层，我觉得应该往深处去研究。并不是说从事Java开发多不好，我以后也是往Java开发发展的，但我觉得，身为从事计算机的人来说，我们应该掌握多一些计算机底层的东西，最好不要停留在表面。</p><p></b></font></p>]]></content>
     
     
+    <categories>
+      
+      <category>生活</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>个人</tag>
+      
+    </tags>
     
   </entry>
   
@@ -131,9 +170,9 @@
     
     <tags>
       
-      <tag>IDEA</tag>
-      
       <tag>Java</tag>
+      
+      <tag>IDEA</tag>
       
     </tags>
     
@@ -185,9 +224,9 @@
     
     <tags>
       
-      <tag>IDEA</tag>
-      
       <tag>Java</tag>
+      
+      <tag>IDEA</tag>
       
     </tags>
     
@@ -244,9 +283,9 @@
     
     <tags>
       
-      <tag>IDEA</tag>
-      
       <tag>Java</tag>
+      
+      <tag>IDEA</tag>
       
     </tags>
     
@@ -311,9 +350,9 @@
     
     <tags>
       
-      <tag>Tomcat</tag>
-      
       <tag>IDEA</tag>
+      
+      <tag>Tomcat</tag>
       
     </tags>
     
@@ -390,9 +429,9 @@
     
     <tags>
       
-      <tag>IDEA</tag>
-      
       <tag>Java</tag>
+      
+      <tag>IDEA</tag>
       
     </tags>
     
@@ -417,9 +456,9 @@
     
     <tags>
       
-      <tag>Tomcat</tag>
-      
       <tag>IDEA</tag>
+      
+      <tag>Tomcat</tag>
       
     </tags>
     
@@ -465,9 +504,9 @@
     
     <tags>
       
-      <tag>IDEA</tag>
-      
       <tag>Java</tag>
+      
+      <tag>IDEA</tag>
       
     </tags>
     
@@ -950,7 +989,7 @@
     
     <tags>
       
-      <tag>个人感悟</tag>
+      <tag>个人</tag>
       
     </tags>
     
@@ -1239,7 +1278,7 @@
     
     <tags>
       
-      <tag>个人感悟</tag>
+      <tag>个人</tag>
       
     </tags>
     
@@ -1412,7 +1451,7 @@
     
     <tags>
       
-      <tag>个人感悟</tag>
+      <tag>个人</tag>
       
     </tags>
     
