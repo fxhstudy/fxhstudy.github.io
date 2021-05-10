@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fxhstudy.com/"/>
-  <updated>2021-04-15T15:10:34.616Z</updated>
+  <updated>2021-05-10T15:51:07.067Z</updated>
   <id>https://fxhstudy.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>这一个月的事</title>
+    <link href="https://fxhstudy.com/article/84d810d0.html"/>
+    <id>https://fxhstudy.com/article/84d810d0.html</id>
+    <published>2021-05-10T14:48:37.000Z</published>
+    <updated>2021-05-10T15:51:07.067Z</updated>
+    
+    <content type="html"><![CDATA[<p><font color="#856363" size="4" face="Open Sans"><b></p><p>之前也有说过，上次的计算机设计大赛进入到了省赛，这段时间也一直在准备，今天才提交了作品。算起来，从有想法，到开始做，到做成，最后提交作品，前前后后加起来有将近两个月了。</p><p>这两个月我学到了很多东西，不论是从技术上，还是人际交往上，都有着很大的收获。</p><p>忙碌了两个月，怎说呢，开始很迷茫，觉得自己啥都不会，很害怕老师提出的要求自己做不到。但现在看来，其实和我想象的那种并不相同，反而到后来得心应手，</p><p>可能这算是马后炮，确实现在来看如果没有当时的那种压力，自己可能也不会学那么快吧！总得看来，一个项目确实能够让一个人快速成长起来。</p><p>忙完了这段时间，接下来还有一个ACM比赛，这个比赛并不抱着拿奖的心态，毕竟这段时间花费了很多精力在设计大赛上。但是合肥一日游，车费报销，还是很香的鸭。</p><p>再说一说其他的，时间过得真快，转眼间我已经到了大二下，下学期来我也就是大三了，也就要把考研提上日程了。我打算大三上减少花在竞赛上的时间了，一项竞赛就好，最好在大三上把英语和数学的基础打好一点。</p><p>仔细想想，很快我们就要进入社会了，不论是考研还是进入社会工作，我们终将是需要进入社会的，那时的我们可能会成功，可能会失败，会憧憬，也会彷徨。</p><p>但那也是以后的事了，现在我们所需要做的就是珍惜在学校的时光，珍惜这最后作为学生的时光，把那些想做的、未做的事，都做了吧，不要在走出校门的那一刻，去后悔未做的事。</p><p>我很喜欢一首歌，它是电影《中国合伙人》的主题曲，由黄晓明、邓超和佟大为演唱。这部电影我看了三遍，对于每部电影，每个人都有不同的感受，这里我不多评价，但还是可以推一下。</p><p align="center">然后，祝好!</p><p align="center"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26361010&auto=0&height=66"></iframe></p></b></font>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;font color=&quot;#856363&quot; size=&quot;4&quot; face=&quot;Open Sans&quot;&gt;&lt;b&gt;&lt;/p&gt;
+&lt;p&gt;之前也有说过，上次的计算机设计大赛进入到了省赛，这段时间也一直在准备，今天才提交了作品。算起来，从有想法，到开始做，到做成，最后提交作品，前前后后加起来有将
+      
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="https://fxhstudy.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="个人" scheme="https://fxhstudy.com/tags/%E4%B8%AA%E4%BA%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>常见依赖</title>
@@ -546,33 +573,6 @@
       <category term="IDEA" scheme="https://fxhstudy.com/tags/IDEA/"/>
     
       <category term="Tomcat" scheme="https://fxhstudy.com/tags/Tomcat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何在Github中精准搜索以及几个实用网站</title>
-    <link href="https://fxhstudy.com/article/8d187994.html"/>
-    <id>https://fxhstudy.com/article/8d187994.html</id>
-    <published>2021-02-04T10:11:06.000Z</published>
-    <updated>2021-02-05T10:24:08.686Z</updated>
-    
-    <content type="html"><![CDATA[<p>只有真正接触使用了Github，你才知道，其实他真的是一座宝藏，你可以在其中发现很多有趣的东西，不仅仅是程序员的一些项目。<br>这里记录一些Github精准搜索的一些技巧，便于查找和学习</p><h3 id="精准查找"><a href="#精准查找" class="headerlink" title="精准查找"></a>精准查找</h3><h4 id="1-收藏量-Stars"><a href="#1-收藏量-Stars" class="headerlink" title="1. 收藏量-Stars:"></a>1. 收藏量-Stars:</h4><p class="note note-primary">例：输入<b> start:>=500 </b>,意为匹配收藏数量超过500的项目;</p><h4 id="2-复刻量-forks"><a href="#2-复刻量-forks" class="headerlink" title="2. 复刻量-forks:"></a>2. 复刻量-forks:</h4><p class="note note-primary">例：输入<b> forks:>=500 </b>,意为匹配复刻数量超过500的项目;</p><h4 id="3-关注者-followers"><a href="#3-关注者-followers" class="headerlink" title="3. 关注者-followers:"></a>3. 关注者-followers:</h4><p class="note note-primary">例：输入<b> followers:>=500 </b>,意为匹配关注者数量超过500的项目;</p><h4 id="4-计算机语言-language"><a href="#4-计算机语言-language" class="headerlink" title="4. 计算机语言-language:"></a>4. 计算机语言-language:</h4><p class="note note-primary">例：输入<b> language:Python </b>,意为匹配用Python语言完成的项目;</p><h4 id="5-地域-location"><a href="#5-地域-location" class="headerlink" title="5. 地域-location:"></a>5. 地域-location:</h4><p class="note note-primary">例：输入<b> location:china </b>,意为匹配地址在China的用户;</p><h4 id="6-姓名搜索-in-fullname"><a href="#6-姓名搜索-in-fullname" class="headerlink" title="6. 姓名搜索-in:fullname"></a>6. 姓名搜索-in:fullname</h4><p class="note note-primary">例：输入<b> Ben in:fullname </b>,意为搜索名字里包含Ben的开发者;</p><p>以上就是在Github中搜索可以采取的精准搜索方式，对于我这样的新手来说还是很有帮助的。我认为善于自己寻找资源也是我们从事这一行所必须掌握的技能。</p><h3 id="实用网站"><a href="#实用网站" class="headerlink" title="实用网站"></a>实用网站</h3><h4 id="1-表情包的博物馆-Github最有毒的仓库-中国表情包大集合-聚欢乐"><a href="#1-表情包的博物馆-Github最有毒的仓库-中国表情包大集合-聚欢乐" class="headerlink" title="1.表情包的博物馆, Github最有毒的仓库, 中国表情包大集合, 聚欢乐~"></a>1.表情包的博物馆, Github最有毒的仓库, 中国表情包大集合, 聚欢乐~</h4><p><a href="https://github.com/zhaoolee/ChineseBQB" target="_blank" rel="noopener">https://github.com/zhaoolee/ChineseBQB</a></p><p>在这你能找到很多表情包，如果你对收集表情包有兴趣可以康一康。</p><h4 id="2-🌈谷粒-Chrome插件英雄榜"><a href="#2-🌈谷粒-Chrome插件英雄榜" class="headerlink" title="2.🌈谷粒-Chrome插件英雄榜"></a>2.🌈谷粒-Chrome插件英雄榜</h4><p><a href="https://github.com/zhaoolee/ChromeAppHeroes" target="_blank" rel="noopener">https://github.com/zhaoolee/ChromeAppHeroes</a></p><p>91款Chrome插件(目前为止，还在持续更新)，真的巨有用!如果你使用的是Chrome浏览器，强烈安利，真的很多插件巨有用。</p><h4 id="3-Bilibili-公开课目录"><a href="#3-Bilibili-公开课目录" class="headerlink" title="3.Bilibili 公开课目录"></a>3.Bilibili 公开课目录</h4><p><a href="https://github.com/elder-frog/OpenCourseCatalog" target="_blank" rel="noopener">https://github.com/elder-frog/OpenCourseCatalog</a></p><p>多的不说，这个真的封神了，这是一份公开课的目录，这里的视频大多来自 YouTube 等国内无法访问的网站，为了方便国内的朋友观看，作者将这些视频搬运到了 Bilibili。这个真的很厉害了，很多名校的课都可以看到，包括剑桥、麻省理工、斯坦福。。。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;只有真正接触使用了Github，你才知道，其实他真的是一座宝藏，你可以在其中发现很多有趣的东西，不仅仅是程序员的一些项目。&lt;br&gt;这里记录一些Github精准搜索的一些技巧，便于查找和学习&lt;/p&gt;
-&lt;h3 id=&quot;精准查找&quot;&gt;&lt;a href=&quot;#精准查找&quot; class=&quot;h
-      
-    
-    </summary>
-    
-    
-    
-      <category term="小技巧" scheme="https://fxhstudy.com/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
-    
-      <category term="Github" scheme="https://fxhstudy.com/tags/Github/"/>
     
   </entry>
   
