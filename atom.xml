@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fxhstudy.com/"/>
-  <updated>2021-05-10T15:51:07.067Z</updated>
+  <updated>2021-05-15T11:58:29.485Z</updated>
   <id>https://fxhstudy.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue-router路由</title>
+    <link href="https://fxhstudy.com/article/b42bbf94.html"/>
+    <id>https://fxhstudy.com/article/b42bbf94.html</id>
+    <published>2021-05-15T09:35:56.000Z</published>
+    <updated>2021-05-15T11:58:29.485Z</updated>
+    
+    <content type="html"><![CDATA[<p class="note note-success">说明</p><font color="#856363" size="4" face="Open Sans">    学习的时候，尽量的打开官方文档    Vue Router 是 Vue.js 官方的路由管理器。 它和Vue.js的核心深度集成，让构建单页面应用变得简单。包含的功能有：    <li>嵌套的路由/视图表</li>    <li>模块化的、基于组件的路由配置</li>    <li>路由参数、查询、通配符</li>    <li>基于Vue.js过渡系统的视图过渡效果</li>    <li>细粒度的导航控制</li>    <li>带有自动激活的CSS class 的链接</li>    <li>HTML5 历史模式或hash 模式，在IE9中自动降级</li>    <li>自定义的滚动条行为</li></font><br><br><p class="note note-success">安装</p><font color="#856363" size="4" face="Open Sans">    <b>基于第一个`vue-cli`进行测试学习；先查看node_modules中是否存在 vue-router </b><br>    vue-router 是一个插件包，所以我们还是需要用npm/cnpm来进行安装。打开命令行工具，进入你的项目目录，输入下面命令。</font><br><br><figure class="highlight cmd"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cmd">npm install vue-router --save-dev<br></code></pre></div></td></tr></table></figure><font color="#856363" size="4" face="Open Sans">    如果一个模块化工程中使用它，必须要通过Vue.use()明确地安装路由功能：</font><br><br><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span><br><span class="hljs-keyword">import</span> VueRouter <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-router'</span><br><br>Vue.use(VueRouter);<br></code></pre></div></td></tr></table></figure><br><br><p class="note note-info">测试</p><font color="#856363" size="4" face="Open Sans"><p>1、先删除没有用的东西<br></p><p>2、<code>component</code> 目录下存放我们自己编写的组件<br></p><p>3、定义一个 <code>Content.vue</code> 的组件</p><figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>内容<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">"Content"</span><br>&#125;<br></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br></code></pre></div></td></tr></table></figure><p><b>4、安装路由，在src目录下，新建一个文件夹: <code>router</code>，专门存放路由</b></p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">"vue"</span><br><span class="hljs-comment">//导入路由插件</span><br><span class="hljs-keyword">import</span> VueRouter <span class="hljs-keyword">from</span> <span class="hljs-string">"vue-router"</span><br><br><span class="hljs-comment">//导入上面定义的插件</span><br><span class="hljs-keyword">import</span> Main <span class="hljs-keyword">from</span> <span class="hljs-string">'../components/Main'</span><br><span class="hljs-keyword">import</span> Content <span class="hljs-keyword">from</span> <span class="hljs-string">'../components/Content'</span><br><br><span class="hljs-comment">//安装路由</span><br>Vue.use(VueRouter);<br><br><span class="hljs-comment">//配置导出路由</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> VueRouter(&#123;<br>  <span class="hljs-attr">routes</span>: [<br>    &#123;<br>      <span class="hljs-comment">//路由路径</span><br>      <span class="hljs-attr">path</span>: <span class="hljs-string">'/content'</span>,<br>      <span class="hljs-comment">//路由名称</span><br>      <span class="hljs-attr">name</span>: <span class="hljs-string">'content'</span>,<br>      <span class="hljs-comment">//跳转的组件</span><br>      <span class="hljs-attr">component</span>: Content<br>    &#125;,<br>    &#123;<br>      <span class="hljs-comment">//路由路径</span><br>      <span class="hljs-attr">path</span>: <span class="hljs-string">'/main'</span>,<br>      <span class="hljs-comment">//路由名称</span><br>      <span class="hljs-attr">name</span>: <span class="hljs-string">'content'</span>,<br>      <span class="hljs-comment">//跳转的组件</span><br>      <span class="hljs-attr">component</span>: Main<br>    &#125;<br>  ]<br>&#125;);<br></code></pre></div></td></tr></table></figure><p>5、在 <code>main.js</code> 中配置路由</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span><br><span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App'</span><br><br><span class="hljs-comment">//导入上面创建的路由配置目录</span><br><span class="hljs-keyword">import</span> router <span class="hljs-keyword">from</span> <span class="hljs-string">'./router'</span> <span class="hljs-comment">//自动扫描里面的路由配置</span><br><br><span class="hljs-comment">//来关闭生产模式下给出的提示</span><br>Vue.config.productionTip = <span class="hljs-literal">false</span><br><br><span class="hljs-keyword">new</span> Vue(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,<br>  <span class="hljs-comment">//路由配置</span><br>  router,<br>  <span class="hljs-attr">components</span>: &#123; App &#125;,<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;App/&gt;'</span><br>&#125;);<br></code></pre></div></td></tr></table></figure><p>6、在 <code>App.vue</code> 中使用路由</p><figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--<br>      router-link: 默认会被渲染成一个 &lt;a&gt; 标签，to属性为指定链接<br>      router-view：用于渲染路由匹配到的组件<br>    --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Vue-Router<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/main"</span>&gt;</span>主页<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/content"</span>&gt;</span>内容页<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">router-view</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">router-view</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><br><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">'App'</span>,<br><br>&#125;<br></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure></font>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p class=&quot;note note-success&quot;&gt;说明&lt;/p&gt;
+
+&lt;font color=&quot;#856363&quot; size=&quot;4&quot; face=&quot;Open Sans&quot;&gt;
+    学习的时候，尽量的打开官方文档
+    Vue Router 是 Vue.js 官方的路由管理器。 
+      
+    
+    </summary>
+    
+    
+      <category term="程序猿" scheme="https://fxhstudy.com/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"/>
+    
+    
+      <category term="Vue" scheme="https://fxhstudy.com/tags/Vue/"/>
+    
+      <category term="框架" scheme="https://fxhstudy.com/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>这一个月的事</title>
@@ -540,39 +572,6 @@
       <category term="Java" scheme="https://fxhstudy.com/tags/Java/"/>
     
       <category term="IDEA" scheme="https://fxhstudy.com/tags/IDEA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IDEA报错:inStream parameter is null</title>
-    <link href="https://fxhstudy.com/article/f472fef5.html"/>
-    <id>https://fxhstudy.com/article/f472fef5.html</id>
-    <published>2021-02-06T08:59:37.000Z</published>
-    <updated>2021-02-09T15:55:29.727Z</updated>
-    
-    <content type="html"><![CDATA[<p>先放图</p><img src="https://qiniuyun.fxhstudy.com/inStream%20parameter%20is%20null.png" srcset="/img/loading.gif"><br><br><p><font color="#FF6B68">错误: inStream parameter is null</font></p><p>连不上数据库，挺烦人的，查了好几篇资料，原因是.properties配置文件放置的路径不对，导致了在加载配置文件的时候，没有获取输入流。</p><p>知道原理就好办了，但是IDEA更新后，和之前放置.properties配置文件的包不一样了</p><p>之前是放在src包下即可，现在不行了，<br><font color="#FF6B68">这里在新版本的IDEA中放在resources包下即可成功获取输入流。</font></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;先放图&lt;/p&gt;
-&lt;img src=&quot;https://qiniuyun.fxhstudy.com/inStream%20parameter%20is%20null.png&quot; srcset=&quot;/img/loading.gif&quot;&gt;
-&lt;br&gt;
-&lt;br&gt;
-
-&lt;p&gt;&lt;font colo
-      
-    
-    </summary>
-    
-    
-      <category term="程序猿" scheme="https://fxhstudy.com/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"/>
-    
-    
-      <category term="IDEA" scheme="https://fxhstudy.com/tags/IDEA/"/>
-    
-      <category term="Tomcat" scheme="https://fxhstudy.com/tags/Tomcat/"/>
     
   </entry>
   
