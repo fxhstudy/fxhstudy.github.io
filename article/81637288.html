@@ -1,0 +1,565 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/muzihuaner/deng@main/deng.css">
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/old/F.png">
+  <link rel="icon" type="image/png" href="/img/old/F.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="工具人•小方">
+  <meta name="keywords" content="">
+  <title>CommonUtil-常用的json工具类 - 工具人小方的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/tomorrow-night.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"fxhstudy.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"2c3982f360efc29d0de4a57e127e3cb9","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz","app_key":"r20xk8AR5pft8xGRQlWKYoin","server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  <script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.13/js/linkcard.js"></script>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="工具人小方的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>工具人小方的博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://qiniuyun.fxhstudy.com/CommonUtil-%E5%B8%B8%E7%94%A8%E7%9A%84json%E5%B7%A5%E5%85%B7%E7%B1%BB1.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="CommonUtil-常用的json工具类">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-20 20:53" pubdate>
+        May 20, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      26
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">CommonUtil-常用的json工具类</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：a few seconds ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <font size="4" face="FangSong_GB2312">
+这里介绍一下常用的json工具类，在我们后端开发的时候直接拿来用就可以了，会便捷很多。
+
+<h3 id="successJson"><a href="#successJson" class="headerlink" title="successJson"></a>successJson</h3><p>首先是正常返回时，我们返回成功的json</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**<br>     * 返回一个info为空对象的成功消息的json<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> JSONObject <span class="hljs-title">successJson</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> successJson(<span class="hljs-keyword">new</span> JSONObject());<br>    &#125;<br><br>    <span class="hljs-comment">/**<br>     * 返回一个返回码为100的json<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> JSONObject <span class="hljs-title">successJson</span><span class="hljs-params">(Object info)</span> </span>&#123;<br>        JSONObject resultJson = <span class="hljs-keyword">new</span> JSONObject();<br>        resultJson.put(<span class="hljs-string">"code"</span>, Constants.SUCCESS_CODE);<br>        resultJson.put(<span class="hljs-string">"msg"</span>, Constants.SUCCESS_MSG);<br>        resultJson.put(<span class="hljs-string">"info"</span>, info);<br>        <span class="hljs-keyword">return</span> resultJson;<br>    &#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="errorJson"><a href="#errorJson" class="headerlink" title="errorJson"></a>errorJson</h3><p>当非正常返回时，例如报错,则返回错误信息JSON</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**<br>     * 返回错误信息JSON<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> JSONObject <span class="hljs-title">errorJson</span><span class="hljs-params">(ErrorEnum errorEnum)</span> </span>&#123;<br>        JSONObject resultJson = <span class="hljs-keyword">new</span> JSONObject();<br>        resultJson.put(<span class="hljs-string">"code"</span>, errorEnum.getErrorCode());<br>        resultJson.put(<span class="hljs-string">"msg"</span>, errorEnum.getErrorMsg());<br>        resultJson.put(<span class="hljs-string">"info"</span>, <span class="hljs-keyword">new</span> JSONObject());<br>        <span class="hljs-keyword">return</span> resultJson;<br>    &#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="查询分页"><a href="#查询分页" class="headerlink" title="查询分页"></a>查询分页</h3><p>前端实现数据展示时，可能有上万行数据，所以查询分页是很有必要的。</p>
+<h4 id="默认展示行数"><a href="#默认展示行数" class="headerlink" title="默认展示行数"></a>默认展示行数</h4><p>分页查询之前的处理参数,没有传pageRow参数时,默认每页10条:</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fillPageParam</span><span class="hljs-params">(<span class="hljs-keyword">final</span> JSONObject paramObject)</span> </span>&#123;<br>    fillPageParam(paramObject, <span class="hljs-number">10</span>);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="添加查询条件"><a href="#添加查询条件" class="headerlink" title="添加查询条件"></a>添加查询条件</h4><p>在分页查询之前,为查询条件里加上分页参数</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**<br>     * <span class="hljs-doctag">@param</span> paramObject    查询条件json<br>     * <span class="hljs-doctag">@param</span> defaultPageRow 默认的每页条数,即前端不传pageRow参数时的每页条数<br>     * 每页需要显示的结果数量pageRow（这里是10），然后根据当前页的索引pageNum（从1开始）<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fillPageParam</span><span class="hljs-params">(<span class="hljs-keyword">final</span> JSONObject paramObject, <span class="hljs-keyword">int</span> defaultPageRow)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> pageNum = paramObject.getIntValue(<span class="hljs-string">"pageNum"</span>);<br>        pageNum = pageNum == <span class="hljs-number">0</span> ? <span class="hljs-number">1</span> : pageNum;<br>        <span class="hljs-keyword">int</span> pageRow = paramObject.getIntValue(<span class="hljs-string">"pageRow"</span>);<br>        pageRow = pageRow == <span class="hljs-number">0</span> ? defaultPageRow : pageRow;<br>        <span class="hljs-comment">// offset ==&gt; SQL中OFFSET条件，作用：假设展示第n页数据，offSet就是第n行的第一个数据的索引</span><br>        paramObject.put(<span class="hljs-string">"offSet"</span>, (pageNum - <span class="hljs-number">1</span>) * pageRow);<br>        paramObject.put(<span class="hljs-string">"pageRow"</span>, pageRow);<br>        paramObject.put(<span class="hljs-string">"pageNum"</span>, pageNum);<br>        <span class="hljs-comment">//删除此参数,防止前端传了这个参数,pageHelper分页插件检测到之后,拦截导致SQL错误</span><br>        paramObject.remove(<span class="hljs-string">"pageSize"</span>);<br>    &#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>如果对SQL的分页查询有疑惑，可以去仔细看看↓</p>
+<p><a href="https://www.liaoxuefeng.com/wiki/1177760294764384/1217864791925600" target="_blank" rel="noopener" class="LinkCard">分页查询-廖雪峰的官方网站</a></p>
+<h4 id="分页查询结果封装"><a href="#分页查询结果封装" class="headerlink" title="分页查询结果封装"></a>分页查询结果封装</h4><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**<br>     * 查询分页结果后的封装工具方法<br>     *<br>     * <span class="hljs-doctag">@param</span> requestJson 请求参数json,此json在之前调用fillPageParam 方法时,已经将pageRow放入<br>     * <span class="hljs-doctag">@param</span> list        查询分页对象list<br>     * <span class="hljs-doctag">@param</span> totalCount  查询出记录的总条数<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> JSONObject <span class="hljs-title">successPage</span><span class="hljs-params">(<span class="hljs-keyword">final</span> JSONObject requestJson, List&lt;JSONObject&gt; list, <span class="hljs-keyword">int</span> totalCount)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> pageRow = requestJson.getIntValue(<span class="hljs-string">"pageRow"</span>);<br>        <span class="hljs-keyword">int</span> totalPage = getPageCounts(pageRow, totalCount);<br>        JSONObject result = successJson();<br>        JSONObject info = <span class="hljs-keyword">new</span> JSONObject();<br>        info.put(<span class="hljs-string">"list"</span>, list);<br>        info.put(<span class="hljs-string">"totalCount"</span>, totalCount);<br>        info.put(<span class="hljs-string">"totalPage"</span>, totalPage);<br>        result.put(<span class="hljs-string">"info"</span>, info);<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br><br>    <span class="hljs-comment">/**<br>     * 获取总页数<br>     *<br>     * <span class="hljs-doctag">@param</span> pageRow   每页行数<br>     * <span class="hljs-doctag">@param</span> itemCount 结果的总条数<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getPageCounts</span><span class="hljs-params">(<span class="hljs-keyword">int</span> pageRow, <span class="hljs-keyword">int</span> itemCount)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (itemCount == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> itemCount % pageRow &gt; <span class="hljs-number">0</span> ?<br>                itemCount / pageRow + <span class="hljs-number">1</span> :<br>                itemCount / pageRow;<br>    &#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="页面数据刷新"><a href="#页面数据刷新" class="headerlink" title="页面数据刷新"></a>页面数据刷新</h3><p>在添加/修改用户的时候会用到此方法</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**<br>     * 查询分页结果后的封装工具方法<br>     *<br>     * <span class="hljs-doctag">@param</span> list 查询分页对象list<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> JSONObject <span class="hljs-title">successPage</span><span class="hljs-params">(List&lt;JSONObject&gt; list)</span> </span>&#123;<br>        JSONObject result = successJson();<br>        JSONObject info = <span class="hljs-keyword">new</span> JSONObject();<br>        info.put(<span class="hljs-string">"list"</span>, list);<br>        result.put(<span class="hljs-string">"info"</span>, info);<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="request-gt-json"><a href="#request-gt-json" class="headerlink" title="request ==&gt; json"></a>request ==&gt; json</h3><p>将request参数值转为json,直接调用</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">方法一<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> JSONObject <span class="hljs-title">request2Json</span><span class="hljs-params">(HttpServletRequest request)</span> </span>&#123;<br>        JSONObject requestJson = <span class="hljs-keyword">new</span> JSONObject();<br>        Enumeration paramNames = request.getParameterNames();<br>        <span class="hljs-keyword">while</span> (paramNames.hasMoreElements()) &#123;<br>            String paramName = (String) paramNames.nextElement();<br>            String[] pv = request.getParameterValues(paramName);<br>            StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder();<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; pv.length; i++) &#123;<br>                <span class="hljs-keyword">if</span> (pv[i].length() &gt; <span class="hljs-number">0</span>) &#123;<br>                    <span class="hljs-keyword">if</span> (i &gt; <span class="hljs-number">0</span>) &#123;<br>                        sb.append(<span class="hljs-string">","</span>);<br>                    &#125;<br>                    sb.append(pv[i]);<br>                &#125;<br>            &#125;<br>            requestJson.put(paramName, sb.toString());<br>        &#125;<br>        <span class="hljs-keyword">return</span> requestJson;<br>    &#125;<br><br>方法二<br><span class="hljs-comment">/**<br>     * 将request转JSON<br>     * 并且验证非空字段<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> JSONObject <span class="hljs-title">convert2JsonAndCheckRequiredColumns</span><span class="hljs-params">(HttpServletRequest request, String requiredColumns)</span> </span>&#123;<br>        JSONObject jsonObject = request2Json(request);<br>        hasAllRequired(jsonObject, requiredColumns);<br>        <span class="hljs-keyword">return</span> jsonObject;<br>    &#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="检验必填字段"><a href="#检验必填字段" class="headerlink" title="检验必填字段"></a>检验必填字段</h3><p>验证是否含有全部必填字段,没有则返回缺少的必填参数</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**<br>     * <span class="hljs-doctag">@param</span> requiredColumns 必填的参数字段名称 逗号隔开 比如"userId,name,telephone"<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">hasAllRequired</span><span class="hljs-params">(<span class="hljs-keyword">final</span> JSONObject jsonObject, String requiredColumns)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (!StringTools.isNullOrEmpty(requiredColumns)) &#123;<br>            <span class="hljs-comment">//验证字段非空</span><br>            String[] columns = requiredColumns.split(<span class="hljs-string">","</span>);<br>            String missCol = <span class="hljs-string">""</span>;<br>            <span class="hljs-keyword">for</span> (String column : columns) &#123;<br>                Object val = jsonObject.get(column.trim());<br>                <span class="hljs-keyword">if</span> (StringTools.isNullOrEmpty(val)) &#123;<br>                    missCol += column + <span class="hljs-string">"  "</span>;<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (!StringTools.isNullOrEmpty(missCol)) &#123;<br>                jsonObject.clear();<br>                jsonObject.put(<span class="hljs-string">"code"</span>, ErrorEnum.E_90003.getErrorCode());<br>                jsonObject.put(<span class="hljs-string">"msg"</span>, <span class="hljs-string">"缺少必填参数:"</span> + missCol.trim());<br>                jsonObject.put(<span class="hljs-string">"info"</span>, <span class="hljs-keyword">new</span> JSONObject());<br>                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> CommonJsonException(jsonObject);<br>            &#125;<br>        &#125;<br>    &#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.heeexy.example.util;<br><br><span class="hljs-keyword">import</span> com.alibaba.fastjson.JSONObject;<br><span class="hljs-keyword">import</span> com.heeexy.example.config.exception.CommonJsonException;<br><span class="hljs-keyword">import</span> com.heeexy.example.util.constants.Constants;<br><span class="hljs-keyword">import</span> com.heeexy.example.util.constants.ErrorEnum;<br><br><span class="hljs-keyword">import</span> javax.servlet.http.HttpServletRequest;<br><span class="hljs-keyword">import</span> java.util.Enumeration;<br><span class="hljs-keyword">import</span> java.util.List;<br><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CommonUtil</span> </span>&#123;<br><br>    <span class="hljs-comment">/**<br>     * 返回一个info为空对象的成功消息的json<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> JSONObject <span class="hljs-title">successJson</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> successJson(<span class="hljs-keyword">new</span> JSONObject());<br>    &#125;<br><br>    <span class="hljs-comment">/**<br>     * 返回一个返回码为100的json<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> JSONObject <span class="hljs-title">successJson</span><span class="hljs-params">(Object info)</span> </span>&#123;<br>        JSONObject resultJson = <span class="hljs-keyword">new</span> JSONObject();<br>        resultJson.put(<span class="hljs-string">"code"</span>, Constants.SUCCESS_CODE);<br>        resultJson.put(<span class="hljs-string">"msg"</span>, Constants.SUCCESS_MSG);<br>        resultJson.put(<span class="hljs-string">"info"</span>, info);<br>        <span class="hljs-keyword">return</span> resultJson;<br>    &#125;<br><br>    <span class="hljs-comment">/**<br>     * 返回错误信息JSON<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> JSONObject <span class="hljs-title">errorJson</span><span class="hljs-params">(ErrorEnum errorEnum)</span> </span>&#123;<br>        JSONObject resultJson = <span class="hljs-keyword">new</span> JSONObject();<br>        resultJson.put(<span class="hljs-string">"code"</span>, errorEnum.getErrorCode());<br>        resultJson.put(<span class="hljs-string">"msg"</span>, errorEnum.getErrorMsg());<br>        resultJson.put(<span class="hljs-string">"info"</span>, <span class="hljs-keyword">new</span> JSONObject());<br>        <span class="hljs-keyword">return</span> resultJson;<br>    &#125;<br><br>    <span class="hljs-comment">/**<br>     * 查询分页结果后的封装工具方法<br>     *<br>     * <span class="hljs-doctag">@param</span> requestJson 请求参数json,此json在之前调用fillPageParam 方法时,已经将pageRow放入<br>     * <span class="hljs-doctag">@param</span> list        查询分页对象list<br>     * <span class="hljs-doctag">@param</span> totalCount  查询出记录的总条数<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> JSONObject <span class="hljs-title">successPage</span><span class="hljs-params">(<span class="hljs-keyword">final</span> JSONObject requestJson, List&lt;JSONObject&gt; list, <span class="hljs-keyword">int</span> totalCount)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> pageRow = requestJson.getIntValue(<span class="hljs-string">"pageRow"</span>);<br>        <span class="hljs-keyword">int</span> totalPage = getPageCounts(pageRow, totalCount);<br>        JSONObject result = successJson();<br>        JSONObject info = <span class="hljs-keyword">new</span> JSONObject();<br>        info.put(<span class="hljs-string">"list"</span>, list);<br>        info.put(<span class="hljs-string">"totalCount"</span>, totalCount);<br>        info.put(<span class="hljs-string">"totalPage"</span>, totalPage);<br>        result.put(<span class="hljs-string">"info"</span>, info);<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br><br>    <span class="hljs-comment">/**<br>     * 查询分页结果后的封装工具方法<br>     *<br>     * <span class="hljs-doctag">@param</span> list 查询分页对象list<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> JSONObject <span class="hljs-title">successPage</span><span class="hljs-params">(List&lt;JSONObject&gt; list)</span> </span>&#123;<br>        JSONObject result = successJson();<br>        JSONObject info = <span class="hljs-keyword">new</span> JSONObject();<br>        info.put(<span class="hljs-string">"list"</span>, list);<br>        result.put(<span class="hljs-string">"info"</span>, info);<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br><br>    <span class="hljs-comment">/**<br>     * 获取总页数<br>     *<br>     * <span class="hljs-doctag">@param</span> pageRow   每页行数<br>     * <span class="hljs-doctag">@param</span> itemCount 结果的总条数<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getPageCounts</span><span class="hljs-params">(<span class="hljs-keyword">int</span> pageRow, <span class="hljs-keyword">int</span> itemCount)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (itemCount == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> itemCount % pageRow &gt; <span class="hljs-number">0</span> ?<br>                itemCount / pageRow + <span class="hljs-number">1</span> :<br>                itemCount / pageRow;<br>    &#125;<br><br>    <span class="hljs-comment">/**<br>     * 将request参数值转为json<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> JSONObject <span class="hljs-title">request2Json</span><span class="hljs-params">(HttpServletRequest request)</span> </span>&#123;<br>        JSONObject requestJson = <span class="hljs-keyword">new</span> JSONObject();<br>        Enumeration paramNames = request.getParameterNames();<br>        <span class="hljs-keyword">while</span> (paramNames.hasMoreElements()) &#123;<br>            String paramName = (String) paramNames.nextElement();<br>            String[] pv = request.getParameterValues(paramName);<br>            StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder();<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; pv.length; i++) &#123;<br>                <span class="hljs-keyword">if</span> (pv[i].length() &gt; <span class="hljs-number">0</span>) &#123;<br>                    <span class="hljs-keyword">if</span> (i &gt; <span class="hljs-number">0</span>) &#123;<br>                        sb.append(<span class="hljs-string">","</span>);<br>                    &#125;<br>                    sb.append(pv[i]);<br>                &#125;<br>            &#125;<br>            requestJson.put(paramName, sb.toString());<br>        &#125;<br>        <span class="hljs-keyword">return</span> requestJson;<br>    &#125;<br><br>    <span class="hljs-comment">/**<br>     * 将request转JSON<br>     * 并且验证非空字段<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> JSONObject <span class="hljs-title">convert2JsonAndCheckRequiredColumns</span><span class="hljs-params">(HttpServletRequest request, String requiredColumns)</span> </span>&#123;<br>        JSONObject jsonObject = request2Json(request);<br>        hasAllRequired(jsonObject, requiredColumns);<br>        <span class="hljs-keyword">return</span> jsonObject;<br>    &#125;<br><br>    <span class="hljs-comment">/**<br>     * 验证是否含有全部必填字段<br>     *<br>     * <span class="hljs-doctag">@param</span> requiredColumns 必填的参数字段名称 逗号隔开 比如"userId,name,telephone"<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">hasAllRequired</span><span class="hljs-params">(<span class="hljs-keyword">final</span> JSONObject jsonObject, String requiredColumns)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (!StringTools.isNullOrEmpty(requiredColumns)) &#123;<br>            <span class="hljs-comment">//验证字段非空</span><br>            String[] columns = requiredColumns.split(<span class="hljs-string">","</span>);<br>            String missCol = <span class="hljs-string">""</span>;<br>            <span class="hljs-keyword">for</span> (String column : columns) &#123;<br>                Object val = jsonObject.get(column.trim());<br>                <span class="hljs-keyword">if</span> (StringTools.isNullOrEmpty(val)) &#123;<br>                    missCol += column + <span class="hljs-string">"  "</span>;<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (!StringTools.isNullOrEmpty(missCol)) &#123;<br>                jsonObject.clear();<br>                jsonObject.put(<span class="hljs-string">"code"</span>, ErrorEnum.E_90003.getErrorCode());<br>                jsonObject.put(<span class="hljs-string">"msg"</span>, <span class="hljs-string">"缺少必填参数:"</span> + missCol.trim());<br>                jsonObject.put(<span class="hljs-string">"info"</span>, <span class="hljs-keyword">new</span> JSONObject());<br>                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> CommonJsonException(jsonObject);<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">/**<br>     * 在分页查询之前,为查询条件里加上分页参数<br>     *<br>     * <span class="hljs-doctag">@param</span> paramObject    查询条件json<br>     * <span class="hljs-doctag">@param</span> defaultPageRow 默认的每页条数,即前端不传pageRow参数时的每页条数<br>     * 每页需要显示的结果数量pageRow（这里是10），然后根据当前页的索引pageNum（从1开始）<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fillPageParam</span><span class="hljs-params">(<span class="hljs-keyword">final</span> JSONObject paramObject, <span class="hljs-keyword">int</span> defaultPageRow)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> pageNum = paramObject.getIntValue(<span class="hljs-string">"pageNum"</span>);<br>        pageNum = pageNum == <span class="hljs-number">0</span> ? <span class="hljs-number">1</span> : pageNum;<br>        <span class="hljs-keyword">int</span> pageRow = paramObject.getIntValue(<span class="hljs-string">"pageRow"</span>);<br>        pageRow = pageRow == <span class="hljs-number">0</span> ? defaultPageRow : pageRow;<br>        paramObject.put(<span class="hljs-string">"offSet"</span>, (pageNum - <span class="hljs-number">1</span>) * pageRow);<br>        paramObject.put(<span class="hljs-string">"pageRow"</span>, pageRow);<br>        paramObject.put(<span class="hljs-string">"pageNum"</span>, pageNum);<br>        <span class="hljs-comment">//删除此参数,防止前端传了这个参数,pageHelper分页插件检测到之后,拦截导致SQL错误</span><br>        paramObject.remove(<span class="hljs-string">"pageSize"</span>);<br>    &#125;<br><br>    <span class="hljs-comment">/**<br>     * 分页查询之前的处理参数<br>     * 没有传pageRow参数时,默认每页10条.<br>     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fillPageParam</span><span class="hljs-params">(<span class="hljs-keyword">final</span> JSONObject paramObject)</span> </span>&#123;<br>        fillPageParam(paramObject, <span class="hljs-number">10</span>);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+</font>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/">程序猿</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/c44bef1c.html">
+                        <span class="hidden-mobile">Module build failed - 安装node-sass运行报错</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz",
+          app_key: "r20xk8AR5pft8xGRQlWKYoin",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fxhstudy" target="_blank" rel="nofollow noopener"><span>xFxF</span></a>
+
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2c3982f360efc29d0de4a57e127e3cb9";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
