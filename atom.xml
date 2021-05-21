@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fxhstudy.com/"/>
-  <updated>2021-05-20T15:00:32.341Z</updated>
+  <updated>2021-05-21T05:24:34.023Z</updated>
   <id>https://fxhstudy.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>520-程序员的情书.md</title>
+    <link href="https://fxhstudy.com/article/a3f7b336.html"/>
+    <id>https://fxhstudy.com/article/a3f7b336.html</id>
+    <published>2021-05-21T04:10:50.000Z</published>
+    <updated>2021-05-21T05:24:34.023Z</updated>
+    
+    <content type="html"><![CDATA[<font size="4" face="FangSong_GB2312"><p align="center">这几天不是520、521嘛,昨天光看项目去了,忘记写这个了</p><p align="center">但520错过了，521应该可以吧</p><p align="center">代码什么时候不能写</p><p align="center">技术什么时候不能学</p><p align="center">在这个"春光"灿烂的日子里</p><p align="center">...</p><p align="center">之前看到很多用代码写的情书，还挺感兴趣的</p><p align="center">谁说程序员就全是直男了</p><p align="center">下次表白，就直接甩代码，哈哈</p></font><font size="6" face="FangSong_GB2312"><p align="center"><u><i>0x00</i></u></p></font><p class="note note-info" align="center">    有一种爱叫做放手<br><br>    当你不爱我时我会放手<br><br>    然而我永远不会是那个先放手的人<br></p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">bool youLoveMe=<span class="hljs-keyword">true</span>, iLoveYou=<span class="hljs-keyword">true</span>;<br><span class="hljs-keyword">while</span>( iLoveYou ) &#123;<br><span class="hljs-keyword">if</span>(!youLoveMe) &#123;<br>iLoveYou = <span class="hljs-keyword">false</span>;<br>&#125;<br>&#125;<br><span class="hljs-comment">//有一种爱叫做放手</span><br><span class="hljs-comment">//当你不爱我时我会放手</span><br><span class="hljs-comment">//然而我永远不会是那个先放手的人</span><br></code></pre></div></td></tr></table></figure><hr><font size="6" face="FangSong_GB2312"><p align="center"><u><i>0x01</i></u></p></font><p class="note note-info" align="center">    从前的日色变得慢<br><br>    车，马，邮件都慢<br><br>    一生只够爱一个人<br></p><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">for</span> beWithYou <span class="hljs-keyword">in</span> range( <span class="hljs-number">0</span>, <span class="hljs-number">60</span>*<span class="hljs-number">365</span> ):<br>time.sleep( <span class="hljs-number">60</span>*<span class="hljs-number">60</span>*<span class="hljs-number">24</span> )<br>//从前的日色变得慢<br>//车，马，邮件都慢<br>//一生只够爱一个人<br></code></pre></div></td></tr></table></figure><hr><font size="6" face="FangSong_GB2312"><p align="center"><u><i>0x02</i></u></p></font><p class="note note-info" align="center">    我爱你<br><br>    雨女无瓜<br></p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">do</span>&#123;<br>i.love(&amp;you);<br>&#125; <span class="hljs-keyword">while</span>(you.love(&amp;me) || !you.love(&amp;me));<br><span class="hljs-comment">//我爱你</span><br><span class="hljs-comment">//雨女无瓜</span><br></code></pre></div></td></tr></table></figure><hr><font size="6" face="FangSong_GB2312"><p align="center"><u><i>0x03</i></u></p></font><p class="note note-info" align="center">    生活中总是出现这样那样的意外<br><br>    只要我们携手面对<br><br>    最终只会让我们爱的更深<br></p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">try</span>&#123;<br>living();<br>&#125; <span class="hljs-keyword">catch</span> () &#123;<br>faceTogether();<br>&#125; <span class="hljs-keyword">finally</span> &#123;<br>ours.love++;<br>&#125;<br><span class="hljs-comment">//生活中总是出现这样那样的意外</span><br><span class="hljs-comment">//只要我们携手面对</span><br><span class="hljs-comment">//最终只会让我们爱的更深</span><br></code></pre></div></td></tr></table></figure><hr><font size="6" face="FangSong_GB2312"><p align="center"><u><i>0x04</i></u></p></font><p class="note note-info" align="center">    我和你原本就是两个世界的人<br><br>    一直都在不停的向前走<br><br>    直到有一天在某一刻相遇<br><br>    我们才在彼此的世界里相拥<br><br>    然后追寻着各自的梦想<br><br>    却又活在我们自己的天空下<br><br>    我要和你手牵着手共同的走下去<br><br>    就像这跳不出的循环，直到永远<br></p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">do</span> &#123;<br>a++;<br>b++;<br>&#125; <span class="hljs-keyword">while</span>(a&amp;b);<br><span class="hljs-comment">//我和你原本就是两个世界的人</span><br><span class="hljs-comment">//一直都在不停的向前走</span><br><span class="hljs-comment">//直到有一天在某一刻相遇</span><br><span class="hljs-comment">//我们才在彼此的世界里相拥</span><br><span class="hljs-comment">//然后追寻着各自的梦想</span><br><span class="hljs-comment">//却又活在我们自己的天空下</span><br><span class="hljs-comment">//我要和你手牵着手共同的走下去</span><br><span class="hljs-comment">//就像这跳不出的循环，直到永远</span><br></code></pre></div></td></tr></table></figure><hr><font size="6" face="FangSong_GB2312"><p align="center"><u><i>0x05</i></u></p></font><p class="note note-info" align="center">    宇宙再大，不过我和你<br><br>    我爱你，直到时间的尽头<br></p><figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++">Universe*universe = <span class="hljs-keyword">new</span> Universe(<span class="hljs-string">"You"</span>, <span class="hljs-string">"Me"</span>);<br><span class="hljs-keyword">while</span>( !universe-&gt;endOfTime() ) &#123;<br><span class="hljs-built_in">std</span>::out &lt;&lt; <span class="hljs-string">"Love U Forever"</span> &lt;&lt; <span class="hljs-built_in">std</span>:<span class="hljs-built_in">endl</span>;<br>&#125;<br><span class="hljs-comment">//宇宙再大，不过我和你</span><br><span class="hljs-comment">//我爱你，直到时间的尽头</span><br></code></pre></div></td></tr></table></figure><hr><font size="6" face="FangSong_GB2312"><p align="center"><u><i>0x06</i></u></p></font><p class="note note-info" align="center">    你爱或者不爱我<br><br>    爱就在那里<br><br>    不增不减<br></p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">if</span>( you.love(&amp;me) || !you.love(&amp;me) ) &#123;<br>me.emotion.love.value ++;<br>me.emotion.love.value --;<br>&#125;<br><span class="hljs-comment">//你爱或者不爱我</span><br><span class="hljs-comment">//爱就在那里</span><br><span class="hljs-comment">//不增不减</span><br></code></pre></div></td></tr></table></figure><hr><font size="6" face="FangSong_GB2312"><p align="center"><u><i>0x07</i></u></p></font><p class="note note-info" align="center">    在时间的长河里<br><br>    多希望那些即使彼此没有遇见的日子<br><br>    也能统统由我的爱相陪伴<br><br>    让爱连接每一天<br></p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> TimeRiver <span class="hljs-title">timeFlow</span><span class="hljs-params">( List&lt;DaysMeetYou&gt; days )</span> </span>&#123;<br><span class="hljs-keyword">return</span> (TimeRiver)days.stream()<br>.filter( n-&gt;theDaysNotWithYou(n) )<br>.map( e-&gt;accompanyByMyLove(e) )<br>.collect( Collectors.joining(<span class="hljs-string">"❤"</span>) );<br>&#125;<br><span class="hljs-comment">//在时间的长河里</span><br><span class="hljs-comment">//多希望那些即使彼此没有遇见的日子</span><br><span class="hljs-comment">//也能统统由我的爱相陪伴</span><br><span class="hljs-comment">//让爱连接每一天</span><br></code></pre></div></td></tr></table></figure><hr><p align="center"><u><i>0x08</i></u></p></font><font size="4" face="FangSong_GB2312"><p align="center">赶紧动起来，活学活用(u1s1,上面有的看得我都挺尴尬的)</p><p align="center">都学着点(滑稽)...</p><p align="center"><img src="https://qiniuyun.fxhstudy.com/640.png" srcset="/img/loading.gif"></p></font><br><h6 align="center"><img src="https://qiniuyun.fxhstudy.com/640.gif" srcset="/img/loading.gif"></h6>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;font size=&quot;4&quot; face=&quot;FangSong_GB2312&quot;&gt;
+&lt;p align=&quot;center&quot;&gt;这几天不是520、521嘛,昨天光看项目去了,忘记写这个了&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;但520错过了，521应该可以吧&lt;/p&gt;
+&lt;p align=&quot;
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>CommonUtil-常用的json工具类</title>
@@ -550,34 +575,6 @@
     </summary>
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>如何解决Tomcat无法访问webapps文件夹下的文件</title>
-    <link href="https://fxhstudy.com/article/ad4714aa.html"/>
-    <id>https://fxhstudy.com/article/ad4714aa.html</id>
-    <published>2021-02-09T15:54:57.000Z</published>
-    <updated>2021-02-10T15:56:26.103Z</updated>
-    
-    <content type="html"><![CDATA[<p>这个我真的要说一下了，真的花了我一个多小时，<br>问题描述一下，用IDEA开启Tomcat时，发现不论怎么操作，都不能打开指定文件夹里面的文件，多次访问都是404。<br>查了很多很多资料，试了很多种方法，都不行。<br>然后就很烦，想了想是不是应该将文件放到resources文件夹中去，没想到成功了。于是我想是不是因为缓存问题，导致没有访问出来的原因，(当然这个是不可能的)或者其他原因。<br>之后做了很多次的测试，发现确实需要将要访问的文件添加到resources文件夹中去。重启Tomcat,这样才能够访问到。</p><p>但是当你将需要访问的文件放入resources文件中，但删除了webapp文件下的文件，这也是不能访问的。所以需要同时满足webapp下有文件，resources文件夹下也需要有文件。</p><p>同时我发现，将当webapp和resources文件下同时存在需要访问的文件时，重启Tomcat，此时再关闭Tomcat，删除resources文件夹下的文件，再开启，访问文件时，还是可以访问的。</p><p>这可能和Tomcat的部署有关系。原理我还没有弄明白，但知道了解决方法。<br>还是知识点不够，之后掌握里面的原理后，再来补充。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;这个我真的要说一下了，真的花了我一个多小时，&lt;br&gt;问题描述一下，用IDEA开启Tomcat时，发现不论怎么操作，都不能打开指定文件夹里面的文件，多次访问都是404。&lt;br&gt;查了很多很多资料，试了很多种方法，都不行。&lt;br&gt;然后就很烦，想了想是不是应该将文件放到resour
-      
-    
-    </summary>
-    
-    
-      <category term="程序猿" scheme="https://fxhstudy.com/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"/>
-    
-    
-      <category term="IDEA" scheme="https://fxhstudy.com/tags/IDEA/"/>
-    
-      <category term="Tomcat" scheme="https://fxhstudy.com/tags/Tomcat/"/>
     
   </entry>
   

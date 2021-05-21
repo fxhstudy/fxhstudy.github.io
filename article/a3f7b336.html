@@ -18,7 +18,7 @@
   <meta name="description" content="">
   <meta name="author" content="工具人•小方">
   <meta name="keywords" content="">
-  <title>equal与==的区别 - 工具人小方的博客</title>
+  <title>520-程序员的情书.md - 工具人小方的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -160,12 +160,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://qiniuyun.fxhstudy.com/rhino.png') no-repeat center center;
+         style="background: url('https://qiniuyun.fxhstudy.com/520-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%83%85%E4%B9%A61.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="equal与==的区别">
+            <span class="h2" id="subtitle" title="520-程序员的情书.md">
               
             </span>
 
@@ -175,8 +175,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-09 12:55" pubdate>
-        February 9, 2021 pm
+      <time datetime="2021-05-21 12:10" pubdate>
+        May 21, 2021 pm
       </time>
     </span>
   
@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      913 字
+      808 字
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      9
        分钟
     </span>
   
@@ -227,72 +227,161 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">equal与==的区别</h1>
+            <h1 style="display: none">520-程序员的情书.md</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：3 months ago
+                  本文最后更新于：a minute ago
                 
               </p>
             
             <div class="markdown-body">
-              <blockquote>
-    原文链接: <a href="https://www.cnblogs.com/zhuyeshen/p/10954275.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhuyeshen/p/10954275.html</a>
-</blockquote>
+              <font size="4" face="FangSong_GB2312">
+<p align="center">这几天不是520、521嘛,昨天光看项目去了,忘记写这个了</p>
+<p align="center">但520错过了，521应该可以吧</p>
+<p align="center">代码什么时候不能写</p>
+<p align="center">技术什么时候不能学</p>
+<p align="center">在这个"春光"灿烂的日子里</p>
+<p align="center">...</p>
+
+<p align="center">之前看到很多用代码写的情书，还挺感兴趣的</p>
+<p align="center">谁说程序员就全是直男了</p>
+
+<p align="center">下次表白，就直接甩代码，哈哈</p>
+</font>
+<font size="6" face="FangSong_GB2312">
+<p align="center"><u><i>0x00</i></u></p></font>
 
 
-<p>学而不思则罔,思而不学则殆。我认为学习不仅仅是学习新思，更多的是需要多思考我们曾经学过的东西，反复深究那些我们已经会的东西，由浅入深。<br>==与equal的区别我虽了解，但u1s1，没有很系统的学习过，这里转载了一篇有关==与equal之间的区别，分析得很详细。</p>
-<p>equal与==</p>
-<p>1.最大的区别是，==是运算符，equal是方法</p>
-<p>简述几种情况下的equal与==</p>
-<p>java基本类型<br>比较包装类型<br>比较String类型<br>比较对象<br>1.java基本类型（short，int，long，byte，char，float，double，boolean）</p>
-<p>比较基本类型，只能用==，不能用equal，这里的==比较的是两个变量的值</p>
-<p>2.比较包装类型</p>
-<p>==比较的是内存地址，因为a和b是new出来的，是两个不同的对象，所以地址肯定是不同的，而equal比较的是值，附上源码</p>
-<img src="https://qiniuyun.fxhstudy.com/equal%E4%B8%8E%3D%3D%E7%9A%84%E5%8C%BA%E5%88%AB.png" srcset="/img/loading.gif">
+<p class="note note-info" align="center">
+    有一种爱叫做放手<br><br>
+    当你不爱我时我会放手<br><br>
+    然而我永远不会是那个先放手的人<br>
+</p>
 
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">bool youLoveMe=<span class="hljs-keyword">true</span>, iLoveYou=<span class="hljs-keyword">true</span>;<br><span class="hljs-keyword">while</span>( iLoveYou ) &#123;<br>	<span class="hljs-keyword">if</span>(!youLoveMe) &#123;<br>		iLoveYou = <span class="hljs-keyword">false</span>;<br>	&#125;<br>&#125;<br><span class="hljs-comment">//有一种爱叫做放手</span><br><span class="hljs-comment">//当你不爱我时我会放手</span><br><span class="hljs-comment">//然而我永远不会是那个先放手的人</span><br></code></pre></div></td></tr></table></figure>
+
+<hr>
+
+<font size="6" face="FangSong_GB2312">
+<p align="center"><u><i>0x01</i></u></p></font>
+
+
+<p class="note note-info" align="center">
+    从前的日色变得慢<br><br>
+    车，马，邮件都慢<br><br>
+    一生只够爱一个人<br>
+</p>
+
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">for</span> beWithYou <span class="hljs-keyword">in</span> range( <span class="hljs-number">0</span>, <span class="hljs-number">60</span>*<span class="hljs-number">365</span> ):<br>	time.sleep( <span class="hljs-number">60</span>*<span class="hljs-number">60</span>*<span class="hljs-number">24</span> )<br>//从前的日色变得慢<br>//车，马，邮件都慢<br>//一生只够爱一个人<br></code></pre></div></td></tr></table></figure>
+
+<hr>
+
+<font size="6" face="FangSong_GB2312">
+<p align="center"><u><i>0x02</i></u></p></font>
+
+
+<p class="note note-info" align="center">
+    我爱你<br><br>
+    雨女无瓜<br>
+</p>
+
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">do</span>&#123;<br>	i.love(&amp;you);<br>&#125; <span class="hljs-keyword">while</span>(you.love(&amp;me) || !you.love(&amp;me));<br><span class="hljs-comment">//我爱你</span><br><span class="hljs-comment">//雨女无瓜</span><br></code></pre></div></td></tr></table></figure>
+
+<hr>
+
+
+<font size="6" face="FangSong_GB2312">
+<p align="center"><u><i>0x03</i></u></p></font>
+
+
+<p class="note note-info" align="center">
+    生活中总是出现这样那样的意外<br><br>
+    只要我们携手面对<br><br>
+    最终只会让我们爱的更深<br>
+</p>
+
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">try</span>&#123;<br>	living();<br>&#125; <span class="hljs-keyword">catch</span> () &#123;<br>	faceTogether();<br>&#125; <span class="hljs-keyword">finally</span> &#123;<br>	ours.love++;<br>&#125;<br><span class="hljs-comment">//生活中总是出现这样那样的意外</span><br><span class="hljs-comment">//只要我们携手面对</span><br><span class="hljs-comment">//最终只会让我们爱的更深</span><br></code></pre></div></td></tr></table></figure>
+
+<hr>
+
+<font size="6" face="FangSong_GB2312">
+<p align="center"><u><i>0x04</i></u></p></font>
+
+
+<p class="note note-info" align="center">
+    我和你原本就是两个世界的人<br><br>
+    一直都在不停的向前走<br><br>
+    直到有一天在某一刻相遇<br><br>
+    我们才在彼此的世界里相拥<br><br>
+    然后追寻着各自的梦想<br><br>
+    却又活在我们自己的天空下<br><br>
+    我要和你手牵着手共同的走下去<br><br>
+    就像这跳不出的循环，直到永远<br>
+</p>
+
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">do</span> &#123;<br>	a++;<br>	b++;<br>&#125; <span class="hljs-keyword">while</span>(a&amp;b);<br><span class="hljs-comment">//我和你原本就是两个世界的人</span><br><span class="hljs-comment">//一直都在不停的向前走</span><br><span class="hljs-comment">//直到有一天在某一刻相遇</span><br><span class="hljs-comment">//我们才在彼此的世界里相拥</span><br><span class="hljs-comment">//然后追寻着各自的梦想</span><br><span class="hljs-comment">//却又活在我们自己的天空下</span><br><span class="hljs-comment">//我要和你手牵着手共同的走下去</span><br><span class="hljs-comment">//就像这跳不出的循环，直到永远</span><br></code></pre></div></td></tr></table></figure>
+
+<hr>
+
+<font size="6" face="FangSong_GB2312">
+<p align="center"><u><i>0x05</i></u></p></font>
+
+
+<p class="note note-info" align="center">
+    宇宙再大，不过我和你<br><br>
+    我爱你，直到时间的尽头<br>
+</p>
+
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++">Universe*universe = <span class="hljs-keyword">new</span> Universe(<span class="hljs-string">"You"</span>, <span class="hljs-string">"Me"</span>);<br><span class="hljs-keyword">while</span>( !universe-&gt;endOfTime() ) &#123;<br>	<span class="hljs-built_in">std</span>::out &lt;&lt; <span class="hljs-string">"Love U Forever"</span> &lt;&lt; <span class="hljs-built_in">std</span>:<span class="hljs-built_in">endl</span>;<br>&#125;<br><span class="hljs-comment">//宇宙再大，不过我和你</span><br><span class="hljs-comment">//我爱你，直到时间的尽头</span><br></code></pre></div></td></tr></table></figure>
+
+<hr>
+
+<font size="6" face="FangSong_GB2312">
+<p align="center"><u><i>0x06</i></u></p></font>
+
+
+<p class="note note-info" align="center">
+    你爱或者不爱我<br><br>
+    爱就在那里<br><br>
+    不增不减<br>
+</p>
+
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">if</span>( you.love(&amp;me) || !you.love(&amp;me) ) &#123;<br>	me.emotion.love.value ++;<br>	me.emotion.love.value --;<br>&#125;<br><span class="hljs-comment">//你爱或者不爱我</span><br><span class="hljs-comment">//爱就在那里</span><br><span class="hljs-comment">//不增不减</span><br></code></pre></div></td></tr></table></figure>
+
+<hr>
+
+<font size="6" face="FangSong_GB2312">
+<p align="center"><u><i>0x07</i></u></p></font>
+
+
+<p class="note note-info" align="center">
+    在时间的长河里<br><br>
+    多希望那些即使彼此没有遇见的日子<br><br>
+    也能统统由我的爱相陪伴<br><br>
+    让爱连接每一天<br>
+</p>
+
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> TimeRiver <span class="hljs-title">timeFlow</span><span class="hljs-params">( List&lt;DaysMeetYou&gt; days )</span> </span>&#123;<br>	<span class="hljs-keyword">return</span> (TimeRiver)days.stream()<br>		.filter( n-&gt;theDaysNotWithYou(n) )<br>		.map( e-&gt;accompanyByMyLove(e) )<br>		.collect( Collectors.joining(<span class="hljs-string">"❤"</span>) );<br>&#125;<br><span class="hljs-comment">//在时间的长河里</span><br><span class="hljs-comment">//多希望那些即使彼此没有遇见的日子</span><br><span class="hljs-comment">//也能统统由我的爱相陪伴</span><br><span class="hljs-comment">//让爱连接每一天</span><br></code></pre></div></td></tr></table></figure>
+
+<hr>
+<p align="center"><u><i>0x08</i></u></p></font>
+<font size="4" face="FangSong_GB2312">
+
+
+<p align="center">赶紧动起来，活学活用(u1s1,上面有的看得我都挺尴尬的)</p>
+<p align="center">都学着点(滑稽)...</p>
+<p align="center"><img src="https://qiniuyun.fxhstudy.com/640.png" srcset="/img/loading.gif"></p>
+</font>
 <br>
-<br>
 
-<img src="https://qiniuyun.fxhstudy.com/equal%E4%B8%8E%3D%3D%E7%9A%84%E5%8C%BA%E5%88%AB1.png" srcset="/img/loading.gif">
 
-<p>3.比较String类型</p>
-<p>==比较的是内存地址，equal比较的是值</p>
-<p>这里给出一道题，来供参考</p>
-<img src="https://qiniuyun.fxhstudy.com/equal%E4%B8%8E%3D%3D%E7%9A%84%E5%8C%BA%E5%88%AB2.png" srcset="/img/loading.gif">
-
-<p>这道题我们一步一步来解决，首先s1==s2，==比较的是内存地址，而s2是new出来的新对象，new String(“xxxx”)放在堆中，而s1的“xxxx”放在常量池中，所以比较结果是false</p>
-<p>第二，s1==s5，字符串+的本质是创建了StringBulider对象进行append操作，然后将拼接后的StringBulider对象用toString进行处理，处理后生成的字符串放在字符串池中找有没有相同值的字符串，如果有将引用（s5）直接连接到已有的字符串地址，所以s1和s5的地址相同</p>
-<p>第三，s1=s3+s4，这个的原理是涉及到类加载时初始化的问题，s3和s4的结果无法在编译期间确定，如果把s3和s4定义为final类型，结果就是true了，java在编译时，就知道“Program”+”ming”=”Programming”了，但却是在运行时才知道s3+s4=”Programming”</p>
-<p>4.比较对象</p>
-<p>==和equal比较的都是内存地址，因为equal没有被重写，没有被重写的equal都是object的equal方法</p>
-<p>也能参考下面</p>
-<p>1.“==”常用来比较基本数据类型，8种基本数据类型有byte、short、long、double、char、int、float、boolean，因为变量直接存储的就是他们的值，所以用”==”去比较，比较的就是他们的值。</p>
-<p>但是复合数据类型用“==”比较的是他的堆内存地址。<br>2.“equals”对于复合数据类型比较的也是它的堆内存地址（不能作用于基本数据类型的变量）。</p>
-<p>但在实际项目中常用来比较String字符串的内容相等是为什么呢？</p>
-<p>那是因为对于String（还有Date，Integer）类型重写了equals方法，使其比较的是存储对象的内容是否相等，而不是堆内存地址。</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">String str1 = <span class="hljs-string">"Hello"</span>;<br>String str5 = <span class="hljs-string">"Hello"</span>;<br>String str2 = <span class="hljs-keyword">new</span> String(<span class="hljs-string">"Hello"</span>);<br>String str4 = <span class="hljs-keyword">new</span> String(<span class="hljs-string">"Hello"</span>);<br>String str3 = str2; <span class="hljs-comment">// 引用传递，同一对象</span><br>System.out.println(str1 == str2); <span class="hljs-comment">// false（str2是new的一个新地址）</span><br>System.out.println(str1 == str3); <span class="hljs-comment">// false（str3和str2内存地址一样，和str1地址不同）</span><br>System.out.println(str2 == str3); <span class="hljs-comment">// true（引用str2，地址相同）</span><br>System.out.println(str1 == str5); <span class="hljs-comment">// true（String作为基本类型，没创建新地址）</span><br>System.out.println(str4 == str2); <span class="hljs-comment">// false（内存地址不同）</span><br>System.out.println(str1.equals(str2)); <span class="hljs-comment">// true（内容一致，都是“hello”）</span><br>System.out.println(str1.equals(str3)); <span class="hljs-comment">// true（内容一致，都是“hello”）</span><br>System.out.println(str2.equals(str3)); <span class="hljs-comment">// true（内容一致，都是“hello”）</span><br>System.out.println(str2.equals(str4)); <span class="hljs-comment">// true（内容一致，都是“hello”）</span><br>System.out.println(str1.equals(str5)); <span class="hljs-comment">// true（内容一致，都是“hello”）</span><br></code></pre></div></td></tr></table></figure>
+<h6 align="center"><img src="https://qiniuyun.fxhstudy.com/640.gif" srcset="/img/loading.gif"></h6>
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/">程序猿</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E8%BD%AC%E8%BD%BD/">转载</a>
-                    
-                  </div>
                 
               </div>
               
@@ -303,18 +392,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/ad4714aa.html">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">如何解决Tomcat无法访问webapps文件夹下的文件</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/12352dde.html">
-                        <span class="hidden-mobile">登陆页面验证码的简单实现</span>
+                      <a href="/article/81637288.html">
+                        <span class="hidden-mobile">CommonUtil-常用的json工具类</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
