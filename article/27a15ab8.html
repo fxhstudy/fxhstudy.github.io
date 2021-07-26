@@ -18,7 +18,7 @@
   <meta name="description" content="">
   <meta name="author" content="工具人•小方">
   <meta name="keywords" content="">
-  <title>SpringMVC执行原理 - 工具人小方的博客</title>
+  <title>赛后总结(计算机设计大赛) - 工具人小方的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -160,12 +160,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://qiniuyun.fxhstudy.com/BannerImg.jpg') no-repeat center center;
+         style="background: url('https://qiniuyun.fxhstudy.com/%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93%28%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B%291.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="SpringMVC执行原理">
+            <span class="h2" id="subtitle" title="赛后总结(计算机设计大赛)">
               
             </span>
 
@@ -175,8 +175,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-04 21:58" pubdate>
-        April 4, 2021 pm
+      <time datetime="2021-07-26 12:41" pubdate>
+        July 26, 2021 pm
       </time>
     </span>
   
@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      354 字
+      1.5k 字
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      15
        分钟
     </span>
   
@@ -227,45 +227,35 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">SpringMVC执行原理</h1>
+            <h1 style="display: none">赛后总结(计算机设计大赛)</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：4 months ago
+                  本文最后更新于：3 minutes ago
                 
               </p>
             
             <div class="markdown-body">
-              <p><font color="#856363" size="4" face="Open Sans"><b></p>
-<p><img src="https://qiniuyun.fxhstudy.com/SpringMVC%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%861.png" srcset="/img/loading.gif"><br></p>
-<p>图为SpringbootMVC的一个较为完整的流程图，实线表示SpringMVC框架提供的技术，不需要开发者实现，虚线表示需要开发者实现。</p>
-<h3 id="简要分析执行流程"><a href="#简要分析执行流程" class="headerlink" title="简要分析执行流程"></a>简要分析执行流程</h3><ol type="1" start="1">
-    <li><code>DispatcherServlet</code>表示前置控制器，是整个<code>SpringMVC</code>的控制中心。用户发出请求，<code>DispatcherServlet</code>接收请求并拦截请求。<br>
-    我们假设请求的url为:http://localhost:8080/springMVC/hello<br><br>
-    <b>如上url拆分成成三部分</b><br>
-    http://localhost:8080服务器域名<br>
-    <code>SpringMVC</code>部署在服务器上的web站点<br>
-    <code>hello</code>表示控制器<br>
-    通过分析，如上url表示为：请求位于服务器localhost:8080上的<code>SpringMVC</code>站点的<code>hello</code>控制器。</li>
-    <li><code>HandlerMapping</code>为处理器映射。<code>DispatcherServlet</code>调用<br><code>HandlerMapping</code>,<code>HandlerMapping</code>根据请求url查找<code>Handler</code>。</li>
-    <li><code>HandlerExecution</code>表示具体的<code>Handler</code>,其主要作用是根据url查找控制器，如上url被查找控制器为：<code>hello</code>。</li>
-    <li><code>HandlerExecution</code>将解析后的信息传递给<code>DispatcherServlet</code>,如解析控制器映射等。</li>
-    <li><code>HandlerAdapter</code>表示处理器适配器，其按照特定的规则去执行<code>Handler</code>。</li>
-    <li><code>Handler</code>让具体的<code>Controller</code>执行。</li>
-    <li><code>Controller</code>将具体的执行信息返回给<code>HandlerAdapter</code>,如<code>ModelAndView</code>。</li>
-    <li><code>HandlerAdapter</code>将视图逻辑名或模型传递给<code>DispatcherServlet</code>。</li>
-    <li><code>DispatcherServlet</code>调用视图解析器(ViewResolver)来解析<code>HandlerAdapter</code>传递的逻辑视图名。</li>
-    <li>视图解析器将解析的逻辑视图名传给<code>DispatcherServlet</code>。</li>
-    <li><code>DispatcherServlet</code>根据视图解析器解析的视图结果，调用具体的视图。</li>
-    <li>最终视图呈现给用户。</li>
-</ol>
+              <font size="4" face="PingFang SC">
 
-</b>
+<p>🔒一下计算机设计大赛吧，昨天最后成绩才出来的，因为忙着写上一篇的设计模式，所以这个就拖下来了。成绩我觉得还行，省一国二，<br>可惜奖状都还没有发下来，等发下来了，再补上吧。</p>
+<p>说一下我们比赛流程吧，我们做的是养老互助管理系统。有这个想法是在今年三月份左右的时候，因为两会当时提出了养老互助模式嘛，<br>之后就开始准备做这个了。</p>
+<p>我负责做web端的后台管理系统，学长负责的是小程序端，还有个学姐负责的是算法。总体来讲还行吧，但那段时间在学Spring、SpringBoot的时候，真的很焦虑，就是那种，要学的东西太多了，但我啥都不知道。之前的文章里面也说过要学的很多知识点，但从不会到学懂是一个过程，而从学懂到会用也是一个过程。而这个过程要求我在几个星期内完成。。。<br>其实那段时间真的很焦虑，一直学，但你自己知道，你只懂这是一个什么东西，但是要你具体实现时，又是另一回事了。<br>有人会问，可你都大二了，按道理应该都掌握这些知识点了!<br>确实我大二了，但我真正开始学习Java也是从大二上学期开始学习Java的，大一一整个期间我都在学习网安的知识，可以说基本上没有碰过Java。<br>所以对于一个学习时间还没有一年的人来讲，关于Spring、SpringBoot这些会使用，其实还是比较困难的。<br>并且开发你不但要了解怎么使用框架，有很多细节需要注意，还需要知道后端的流程、具体的权限分配、怎么整合第三方框架等等。。。<br>我相信这些并不是一下子就能学会的。所以当时就非常焦虑。</p>
+<p>好在后来很多天的学习，再加上学过了Java Web的知识，索性将SpringBoot能够上手了，并且掌握了它的工作的流程。<br>等到后台基本上写好了的时候，那时候的我才算轻松很多，之后我的任务就是根据老师的要求来更换界面的一些基本操作，这里就不是很难了。</p>
+<p>在参加省赛的时候，写PPT、文档都是别的同学帮助写的，因为直到交作品的前一天晚上都还在修改小程序的代码，算是时间比较匆忙吧。因为代码都是我们学生自己写的，缺少开发经验，所以BUG就比较多。</p>
+<p>省赛就需要提交文档，PPT，演示视频，很多东西，很烦人。但省赛是不需要答辩的，评委根据你做的作品来决定你们的成绩。</p>
+<p>之后等待结果，运气很好，是省一，但是奖状还没有发下来。</p>
+<p>接下来就是国赛，省赛提交的PPT就是国赛答辩时用的PPT以及演示视频，之后是不能够更改的。<br>国赛答辩是7月22到24号，每年都是暑假期间，七八月份左右。</p>
+<p>国赛答辩的时候还是比较紧张的，但我们准备的很多问题都没问到。。。这里说一下，评委问了哪些问题。(这是一个数据库老师，问了有关数据库的知识多一些，这个要看给你评审的老师了)</p>
+<p>1、首先他看了一下我们的数据库中的一张表，是用户需求的一张表。里面很多字段(因为涉及到了算法问题)，问了我们这个表符合第几范式？<br>因为太紧张了，导致我都忘了范式是啥了。。。(亏我这个学期数据库还是95。。。)接着开场沉默十秒钟(巨尴尬)，然后我学长准备救场说我们没有开数据库这门课。。。我想这还得了，本科院校计算机没有开数据库？这时评审也提出了疑问:本科院校没有开数据库？当时我赶紧救了一下场，说了第一范式第二范式和第三范式，然后又沉默了几秒钟。评审跳过了这个问题。最后这个没有答出来，其实是第三范式，没有部分函数依赖和传递函数依赖。很难受:(</p>
+<p>2、接着问了我们这些字段为什么这样设计，说这样很不合理？(因为涉及算法，需要很多字段)</p>
+<p>3、还看了源代码，问了算法在哪里，后端是怎么与小程序交互的？</p>
+<p>4、问了我们作品如果有人伪造身份怎么办？<br>这个开始没回答出来，最后学姐补了出来。</p>
+<p>这里不解释我怎么回答的了，反正大概就是问一些关于作品的问题，也不是非常难。</p>
+<p>大概就是这样吧，第一次获得国家级的奖还是有一点激动的，打算明年再参加一次。</p>
+<p>最后再说一下国一吧，看了优秀作品展示，首先逼格要高、立意要新、技术要新一些。有个用AR来识别咖啡不同种类，然后反馈不同咖啡的信息，这个确实没什么技术，但是人家逼格高，最后拿了国一。。。还有一个滁州的作品，拿了老师的成果来参赛，然后被评为优秀作品，直播展示的时候，弹幕提出的技术问题支支吾吾，然后被举报了，后续就不知道了，应该取消资格了。xswl</p>
+<p>这次比赛大概就是这样，等奖状颁下来的时候，再补一下。</p>
 </font>
-
-
-
-
             </div>
             <hr>
             <div>
@@ -274,7 +264,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/">程序猿</a>
+                      <a class="hover-with-bg" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
                     
                   </div>
                 
@@ -282,9 +272,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Spring/">Spring</a>
+                      <a class="hover-with-bg" href="/tags/%E4%B8%AA%E4%BA%BA/">个人</a>
                     
                   </div>
                 
@@ -297,18 +285,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/78684e89.html">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">补码的深入理解</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/39d7a96.html">
-                        <span class="hidden-mobile">一些小分享</span>
+                      <a href="/article/7b16bbe2.html">
+                        <span class="hidden-mobile">设计模式3--Decorator</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
