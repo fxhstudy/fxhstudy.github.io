@@ -18,7 +18,7 @@
   <meta name="description" content="">
   <meta name="author" content="工具人•小方">
   <meta name="keywords" content="">
-  <title>如何解决Tomcat无法访问webapps文件夹下的文件 - 工具人小方的博客</title>
+  <title>设计模式7-Composite - 工具人小方的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -160,12 +160,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://qiniuyun.fxhstudy.com/rhino.png') no-repeat center center;
+         style="background: url('https://qiniuyun.fxhstudy.com/bg.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="如何解决Tomcat无法访问webapps文件夹下的文件">
+            <span class="h2" id="subtitle" title="设计模式7-Composite">
               
             </span>
 
@@ -175,8 +175,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-09 23:54" pubdate>
-        February 9, 2021 pm
+      <time datetime="2021-09-12 10:52" pubdate>
+        September 12, 2021 am
       </time>
     </span>
   
@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      359 字
+      644 字
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      8
        分钟
     </span>
   
@@ -227,20 +227,38 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">如何解决Tomcat无法访问webapps文件夹下的文件</h1>
+            <h1 style="display: none">设计模式7-Composite</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：7 months ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
             <div class="markdown-body">
-              <p>这个我真的要说一下了，真的花了我一个多小时，<br>问题描述一下，用IDEA开启Tomcat时，发现不论怎么操作，都不能打开指定文件夹里面的文件，多次访问都是404。<br>查了很多很多资料，试了很多种方法，都不行。<br>然后就很烦，想了想是不是应该将文件放到resources文件夹中去，没想到成功了。于是我想是不是因为缓存问题，导致没有访问出来的原因，(当然这个是不可能的)或者其他原因。<br>之后做了很多次的测试，发现确实需要将要访问的文件添加到resources文件夹中去。重启Tomcat,这样才能够访问到。</p>
-<p>但是当你将需要访问的文件放入resources文件中，但删除了webapp文件下的文件，这也是不能访问的。所以需要同时满足webapp下有文件，resources文件夹下也需要有文件。</p>
-<p>同时我发现，将当webapp和resources文件下同时存在需要访问的文件时，重启Tomcat，此时再关闭Tomcat，删除resources文件夹下的文件，再开启，访问文件时，还是可以访问的。</p>
-<p>这可能和Tomcat的部署有关系。原理我还没有弄明白，但知道了解决方法。<br>还是知识点不够，之后掌握里面的原理后，再来补充。</p>
+              <h2 id="组合模式"><a href="#组合模式" class="headerlink" title=" 组合模式"></a><a href="https://www.runoob.com/design-pattern/decorator-pattern.html" target="_blank" rel="noopener"> 组合模式</a></h2><p><font size="4" face="PingFang SC">&emsp;&emsp;组合模式（Composite Pattern），又叫 <font color="#FFB6C1" size="5" face="Open Sans"> 部分整体模式 </font>，是用于把一组相似的对象当作一个单一的对象。组合模式依据树形结构来组合对象，用来表示部分以及整体层次。这种类型的设计模式属于结构型模式，它创建了对象组的树形结构。</p>
+<p>这种模式创建了一个包含自己对象组的类。该类提供了修改相同对象组的方式。</p>
+<p>如果想了解组合模式的具体的介绍，菜鸟教程介绍得比较详细↓<br><a href="https://www.runoob.com/design-pattern/composite-pattern.html" target="_blank" rel="noopener" class="LinkCard">菜鸟教程-组合模式<br></a></p>
+<h2 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h2><p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" title="组合模式"><br></p>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p>优点：<br>1、高层模块调用简单。<br>2、节点自由增加。</p>
+<p>缺点： 在使用组合模式时，其叶子和树枝的声明都是实现类，而不是接口，违反了依赖倒置原则。</p>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>部分、整体场景，如树形菜单，文件、文件夹的管理。</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><p>组合模式是很简单的模式，这里就模拟一下树的结构</p>
+<p>先创建一个 <code>Node</code> 抽象类,里面有一个抽象的打印方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">p</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
+<p>接着创建 <code>LeafNode</code> 类和 <code>BranchNode</code> 类来继承 <code>Node</code> 抽象类。</p>
+<p><code>LeafNode</code> 表示叶子节点，<code>BranchNode</code> 表示存在子节点的节点。</p>
+<p><code>LeafNode</code> 和 <code>BranchNode</code> 中都定义一个content，用来输出时表示这个节点是什么，<br>其中 <code>BranchNode</code> 中还定义了一个 <code>List</code> 类型的 <code>nodes</code> 用来存储 <code>BranchNode</code> 下面的节点。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LeafNode</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Node</span> </span>&#123;<br>    String content;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">LeafNode</span><span class="hljs-params">(String content)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.content = content;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">p</span><span class="hljs-params">()</span> </span>&#123;<br>        System.out.println(content);<br>    &#125;<br><br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BranchNode</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Node</span> </span>&#123;<br>    List&lt;Node&gt; nodes = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>    String content;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BranchNode</span><span class="hljs-params">(String content)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.content = content;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">p</span><span class="hljs-params">()</span> </span>&#123;<br>        System.out.println(content);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">add</span><span class="hljs-params">(Node node)</span> </span>&#123;<br>        nodes.add(node);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>最后就是写出主函数，我们创建一个根结点，然后根节点下面存在很多其他的子节点和叶子节点,<br>最后，用递归的方式完成输出:</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        BranchNode root = <span class="hljs-keyword">new</span> BranchNode(<span class="hljs-string">"root"</span>);<br>        BranchNode chapter1 = <span class="hljs-keyword">new</span> BranchNode(<span class="hljs-string">"chapter1"</span>);<br>        BranchNode chapter2 = <span class="hljs-keyword">new</span> BranchNode(<span class="hljs-string">"chapter2"</span>);<br>        Node c11 = <span class="hljs-keyword">new</span> LeafNode(<span class="hljs-string">"c11"</span>);<br>        Node c12 = <span class="hljs-keyword">new</span> LeafNode(<span class="hljs-string">"c12"</span>);<br>        BranchNode b21 = <span class="hljs-keyword">new</span> BranchNode(<span class="hljs-string">"section21"</span>);<br>        Node c211 = <span class="hljs-keyword">new</span> LeafNode(<span class="hljs-string">"c211"</span>);<br>        Node c212 = <span class="hljs-keyword">new</span> LeafNode(<span class="hljs-string">"c212"</span>);<br><br>        root.add(chapter1);<br>        root.add(chapter2);<br>        chapter1.add(c11);<br>        chapter1.add(c12);<br>        chapter2.add(b21);<br>        b21.add(c211);<br>        b21.add(c212);<br><br>        tree(root, <span class="hljs-number">0</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">tree</span><span class="hljs-params">(Node b, <span class="hljs-keyword">int</span> depth)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; depth; i++)<br>            System.out.print(<span class="hljs-string">"--"</span>);<br>        b.p();<br><br>        <span class="hljs-keyword">if</span> (b <span class="hljs-keyword">instanceof</span> BranchNode) &#123;<br>            <span class="hljs-keyword">for</span> (Node n :<br>                    ((BranchNode) b).nodes) &#123;<br>                tree(n, depth + <span class="hljs-number">1</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>输出结果:</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">root<br>--chapter1<br>----c11<br>----c12<br>--chapter2<br>----section21<br>------c211<br>------c212<br></code></pre></div></td></tr></table></figure>
+
+</font>
             </div>
             <hr>
             <div>
@@ -251,15 +269,17 @@
                     
                       <a class="hover-with-bg" href="/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/">程序猿</a>
                     
+                      <a class="hover-with-bg" href="/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/Java/">Java</a>
+                    
                   </div>
                 
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/IDEA/">IDEA</a>
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
                     
-                      <a class="hover-with-bg" href="/tags/Tomcat/">Tomcat</a>
+                      <a class="hover-with-bg" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
                     
                   </div>
                 
@@ -272,18 +292,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/1ed1bfc3.html">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">学外语是如何毁了我[B站]</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/74b2e088.html">
-                        <span class="hidden-mobile">equal与==的区别</span>
+                      <a href="/article/c7bccd73.html">
+                        <span class="hidden-mobile">[WP]2019红帽杯_easyRE</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
