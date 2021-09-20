@@ -231,7 +231,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：a minute ago
+                  本文最后更新于：3 days ago
                 
               </p>
             
@@ -251,7 +251,7 @@
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">true</span><br><span class="hljs-keyword">false</span><br><span class="hljs-keyword">false</span><br><span class="hljs-keyword">true</span><br><span class="hljs-keyword">true</span><br></code></pre></div></td></tr></table></figure>
 
 <p>解释一下为什么<br>在Java中，字符串都放在一个常量池中，s1与s2,其实指向的就是同一个对象，所以为true;<br>而s3和s4都是在堆栈中new出来的String对象，那么s3和s4的地址肯定是不一样的，所以s1!=s3,s3!=s4;<br>intern() 方法返回字符串对象的规范化表示形式<br>intern()作用就是去拿常量池中的字符串。如果new出来的是常量的话，那么在堆栈中就指向这个字符串，所以s3.intern()==s1,s3.intern()==s4.intern()</p>
-<p>上面这种是简单的享元模式,难度大一点的享元模式是和上一章学的Composite(组合模式)结合的。</p>
+<p>单个享元模式是很好理解的,难度大一点的享元模式是和上一章学的Composite(组合模式)结合的。</p>
 <p><img src="https://qiniuyun.fxhstudy.com/Flyweight%2BComposite.png" srcset="/img/loading.gif" title="Flyweight+Composite"><br></p>
 <p>图中，A、B…为叶子节点,ABBAAB可以理解为子节点,但是他们共同组成了享元模式。<br>这就是享元模式+组合模式的应用,这里就不多扩展了,主要还是了解享元模式。</p>
 </font>
@@ -287,6 +287,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/article/a3451f99.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">设计模式9-Proxy</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
