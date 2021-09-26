@@ -18,7 +18,7 @@
   <meta name="description" content="">
   <meta name="author" content="工具人•小方">
   <meta name="keywords" content="">
-  <title>设计模式8-Flyweight - 工具人小方的博客</title>
+  <title>设计模式12-adapter - 工具人小方的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -165,7 +165,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="设计模式8-Flyweight">
+            <span class="h2" id="subtitle" title="设计模式12-adapter">
               
             </span>
 
@@ -175,8 +175,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-09-17 22:52" pubdate>
-        September 17, 2021 pm
+      <time datetime="2021-09-26 15:23" pubdate>
+        September 26, 2021 pm
       </time>
     </span>
   
@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      647 字
+      660 字
     </span>
   
 
@@ -227,33 +227,31 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">设计模式8-Flyweight</h1>
+            <h1 style="display: none">设计模式12-adapter</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：9 days ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
             <div class="markdown-body">
-              <p><font size="4" face="PingFang SC">&emsp;&emsp;享元模式（Flyweight Pattern）主要用于减少创建对象的数量，以减少内存占用和提高性能。这种类型的设计模式属于<font color="#FFB6C1" size="5" face="Open Sans"> 结构型模式 </font>，它提供了减少对象数量从而改善应用所需的对象结构的方式。</p>
-<p>享元模式尝试重用现有的同类对象，如果未找到匹配的对象，则创建新对象。</p>
-<p>如果想了解享元模式的具体的介绍，菜鸟教程介绍得比较详细↓<br><a href="https://www.runoob.com/design-pattern/flyweight-pattern.html" target="_blank" rel="noopener" class="LinkCard">菜鸟教程-享元模式<br></a></p>
-<h2 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h2><p><img src="https://qiniuyun.fxhstudy.com/Flyweight.png" srcset="/img/loading.gif" title="享元模式"><br></p>
-<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p>优点： 大大减少对象的创建，降低系统的内存，使效率提高。</p>
-<p>缺点： 提高了系统的复杂度，需要分离出外部状态和内部状态，而且外部状态具有固有化的性质，不应该随着内部状态的变化而变化，否则会造成系统的混乱。</p>
-<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p> 1、系统有大量相似对象。<br> 2、需要缓冲池的场景。</p>
-<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><p>享元模式比较简单，就是重复利用对象，是一种”池”的思想。</p>
-<p>这里我就直接介绍一下java中的享元模式。</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        String s1 = <span class="hljs-string">"abc"</span>;<br>        String s2 = <span class="hljs-string">"abc"</span>;<br>        String s3 = <span class="hljs-keyword">new</span> String(<span class="hljs-string">"abc"</span>);<br>        String s4 = <span class="hljs-keyword">new</span> String(<span class="hljs-string">"abc"</span>);<br><br>        <span class="hljs-comment">/**<br>         * 在栈中new出来的String对象，如果发现字符串在常量池中存在，那么就指向这个字符串<br>         */</span><br>        System.out.println(s1 == s2); <span class="hljs-comment">// true</span><br>        System.out.println(s1 == s3); <span class="hljs-comment">// false</span><br>        System.out.println(s3 == s4); <span class="hljs-comment">// false</span><br>        System.out.println(s3.intern() == s1); <span class="hljs-comment">// true intern()去拿常量池中的字符串</span><br>        System.out.println(s3.intern() == s4.intern()); <span class="hljs-comment">// true</span><br>    &#125;<br></code></pre></div></td></tr></table></figure>
+              <p><font size="4" face="PingFang SC">&emsp;&emsp;适配器模式（Adapter Pattern）是作为两个不兼容的接口之间的桥梁。这种类型的设计模式属于<font color="#FFB6C1" size="5" face="Open Sans">  结构型模式  </font>，它结合了两个独立接口的功能。</p>
+<p>这种模式涉及到一个单一的类，该类负责加入独立的或不兼容的接口功能。举个真实的例子，读卡器是作为内存卡和笔记本之间的适配器。您将内存卡插入读卡器，再将读卡器插入笔记本，这样就可以通过笔记本来读取内存卡</p>
+<p>如果想了解适配器模式的具体的介绍，菜鸟教程介绍得比较详细↓<br><a href="https://www.runoob.com/design-pattern/adapter-pattern.html" target="_blank" rel="noopener" class="LinkCard">菜鸟教程-适配器模式<br></a></p>
+<h2 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h2><p><img src="https://qiniuyun.fxhstudy.com/Adapter.png" srcset="/img/loading.gif" title="适配器模式"><br></p>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p>优点： </p>
+<p>1、可以让任何两个没有关联的类一起运行。<br>2、提高了类的复用。<br>3、增加了类的透明度。<br>4、灵活性好</p>
+<p>缺点： </p>
+<p>1、过多地使用适配器，会让系统非常零乱，不易整体进行把握。比如，明明看到调用的是 A 接口，其实内部被适配成了 B 接口的实现，一个系统如果太多出现这种情况，无异于一场灾难。因此如果不是很有必要，可以不使用适配器，而是直接对系统进行重构。<br>2.由于 JAVA 至多继承一个类，所以至多只能适配一个适配者类，而且目标类必须是抽象类。</p>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>有动机地修改一个正常运行的系统的接口，这时应该考虑使用适配器模式。</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><p>这个模式很简单,也很容易理解,所以这里就简单介绍一下</p>
+<p>乍一看是不是感觉这个模式,好像我们没有用到过,看完下面的代码,你就有一些了解了</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>        FileInputStream fis = <span class="hljs-keyword">new</span> FileInputStream(<span class="hljs-string">"F:/1.txt"</span>);<br>        InputStreamReader isr = <span class="hljs-keyword">new</span> InputStreamReader(fis);<br>        BufferedReader br = <span class="hljs-keyword">new</span> BufferedReader(isr);<br>        String line = br.readLine();<br>        <span class="hljs-keyword">while</span> (line != <span class="hljs-keyword">null</span> &amp;&amp; !line.equals(<span class="hljs-string">""</span>))&#123;<br>            System.out.println(line);<br>        &#125;<br>        br.close();<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
-<p>输出结果</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">true</span><br><span class="hljs-keyword">false</span><br><span class="hljs-keyword">false</span><br><span class="hljs-keyword">true</span><br><span class="hljs-keyword">true</span><br></code></pre></div></td></tr></table></figure>
-
-<p>解释一下为什么<br>在Java中，字符串都放在一个常量池中，s1与s2,其实指向的就是同一个对象，所以为true;<br>而s3和s4都是在堆栈中new出来的String对象，那么s3和s4的地址肯定是不一样的，所以s1!=s3,s3!=s4;<br>intern() 方法返回字符串对象的规范化表示形式<br>intern()作用就是去拿常量池中的字符串。如果new出来的是常量的话，那么在堆栈中就指向这个字符串，所以s3.intern()==s1,s3.intern()==s4.intern()</p>
-<p>单个享元模式是很好理解的,难度大一点的享元模式是和上一章学的Composite(组合模式)结合的。</p>
-<p><img src="https://qiniuyun.fxhstudy.com/Flyweight%2BComposite.png" srcset="/img/loading.gif" title="Flyweight+Composite"><br></p>
-<p>图中，A、B…为叶子节点,ABBAAB可以理解为子节点,但是他们共同组成了享元模式。<br>这就是享元模式+组合模式的应用,这里就不多扩展了,主要还是了解享元模式。</p>
+<p>这个就是适配器模式</p>
+<p>解释一下代码,我们想要将1.txt文件按行读入,但是 FileInputStream 只能够按照字节流读入,<br>于是我们创建 InputStreamReader 类将字节流转化为 reader ,这里的 InputStreamReader 就是适配器<br>接着,创建 BufferedReader 将 reader 转化为按照行读入</p>
+<p>这就是我们已经遇到过的适配器模式,理解起来很简单,<br>不是很难的设计模式,这里就不多解释了(大家也可以去菜鸟教程去看看它的例子)</p>
 </font>
             </div>
             <hr>
@@ -288,18 +286,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/a3451f99.html">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">设计模式9-Proxy</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/3a0bc7ed.html">
-                        <span class="hidden-mobile">聊聊最近</span>
+                      <a href="/article/712fe5a1.html">
+                        <span class="hidden-mobile">设计模式11-Builder</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
