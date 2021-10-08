@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>设计模式19-TemplateMethod</title>
+    <link href="/article/ed48344d.html"/>
+    <url>/article/ed48344d.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="模板模式"><a href="#模板模式" class="headerlink" title=" 模板模式"></a><a href="https://www.runoob.com/design-pattern/template-pattern.html" target="_blank" rel="noopener"> 模板模式</a></h2><p><font size="4" face="PingFang SC">&emsp;&emsp;在模板模式（Template Pattern）中，一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于<font color="#FFB6C1" size="5" face="Open Sans">  行为型模式 </font></p><p>如果想了解模板模式的具体的介绍，菜鸟教程介绍得比较详细↓<br><a href="https://www.runoob.com/design-pattern/template-pattern.html" target="_blank" rel="noopener" class="LinkCard">菜鸟教程-模板模式<br></a></p><h2 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h2><p><img src="https://qiniuyun.fxhstudy.com/TemplateMethod.png" srcset="/img/loading.gif" title="模板模式"><br></p><h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p>优点： </p><p>1、封装不变部分，扩展可变部分。<br>2、提取公共代码，便于维护。<br>3、行为由父类控制，子类实现。</p><p>缺点： </p><p>每一个不同的实现都需要一个子类来实现，导致类的个数增加，使得系统更加庞大。</p><h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>1、有多个子类共有的方法，且逻辑相同。<br>2、重要的、复杂的方法，可以考虑作为模板方法。</p><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><p>模板模式其实我们见的很多,常见的Frame中paint()就是模板模式,Frame中定义了paint()方法,但具体的实现是由Frame的子类来实现的,当Frame需要调用paint()方法时,此时就会它的子类去调用</p><p>举个栗子,西游记大家都知道吧,唐僧四人组要经历九九八十一难,这八十一难就是模板模式,每一难并没有在设定的时候就已经想好了流程是怎么样的,而是由四人组自己去经历。<br>菩萨说的这八十一难就是架构(并不知道具体要经历什么),是父类;<br>每一难的要经历什么的就是具体实现,由子类实现</p><p>然后就是代码,我们这里模拟八十一难中的两难,先设计父类,画个大饼<br>我们创建一个Design类,其中定义两个抽象方法difficultyA和difficultyB(抽象方法由子类去实现),并且类中的concrete方法用于调用这两个方法</p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Design</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">concrete</span><span class="hljs-params">()</span></span>&#123;<br>        difficultyA();<br>        difficultyB();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">difficultyA</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">difficultyB</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></div></td></tr></table></figure><p>接着创建一个Design_子类继承Design,并且实现两个抽象方法,最后main函数调用</p><p>代码如下:</p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Design design = <span class="hljs-keyword">new</span> Design_();<br>        design.concrete();<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Design</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">concrete</span><span class="hljs-params">()</span></span>&#123;<br>        difficultyA();<br>        difficultyB();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">difficultyA</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">difficultyB</span><span class="hljs-params">()</span></span>;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Design_</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Design</span></span>&#123;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">difficultyA</span><span class="hljs-params">()</span> </span>&#123;<br>        System.out.println(<span class="hljs-string">"The first difficulty"</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">difficultyB</span><span class="hljs-params">()</span> </span>&#123;<br>        System.out.println(<span class="hljs-string">"The second difficulty"</span>);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure><p>输出结果:</p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">The first difficulty<br>The second difficulty<br></code></pre></div></td></tr></table></figure><p>可见,当我们调用Design中的抽象方法方法时,父类是去调用子类实现了的方法,<br>也不难理解,因为创建时我们是通过子类去实例化父类的,已经实现了抽象方法,所以直接调用即可</p><p>这就是模板模式,这个模式还是比较常见的,这里就不多扩展了,感兴趣的话,可以自行了解</p></font>]]></content>
+    
+    
+    <categories>
+      
+      <category>程序猿</category>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>设计模式</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>设计模式18-Mediator</title>
     <link href="/article/2e6a2f69.html"/>
     <url>/article/2e6a2f69.html</url>
@@ -1116,9 +1145,9 @@
     
     <tags>
       
-      <tag>IDEA</tag>
-      
       <tag>Tomcat</tag>
+      
+      <tag>IDEA</tag>
       
     </tags>
     
@@ -1222,9 +1251,9 @@
     
     <tags>
       
-      <tag>IDEA</tag>
-      
       <tag>Tomcat</tag>
+      
+      <tag>IDEA</tag>
       
     </tags>
     

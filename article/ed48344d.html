@@ -18,7 +18,7 @@
   <meta name="description" content="">
   <meta name="author" content="工具人•小方">
   <meta name="keywords" content="">
-  <title>设计模式17-Facade - 工具人小方的博客</title>
+  <title>设计模式19-TemplateMethod - 工具人小方的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -165,7 +165,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="设计模式17-Facade">
+            <span class="h2" id="subtitle" title="设计模式19-TemplateMethod">
               
             </span>
 
@@ -175,8 +175,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-10-06 16:10" pubdate>
-        October 6, 2021 pm
+      <time datetime="2021-10-08 08:58" pubdate>
+        October 8, 2021 am
       </time>
     </span>
   
@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      843 字
+      736 字
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      8
        分钟
     </span>
   
@@ -227,40 +227,37 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">设计模式17-Facade</h1>
+            <h1 style="display: none">设计模式19-TemplateMethod</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：13 hours ago
+                  本文最后更新于：a minute ago
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="外观模式"><a href="#外观模式" class="headerlink" title=" 外观模式"></a><a href="https://www.runoob.com/design-pattern/facade-pattern.html" target="_blank" rel="noopener"> 外观模式</a></h2><p><font size="4" face="PingFang SC">&emsp;&emsp;外观模式（Facade Pattern）隐藏系统的复杂性，并向客户端提供了一个客户端可以访问系统的接口。这种类型的设计模式属于<font color="#FFB6C1" size="5" face="Open Sans">  结构型模式  </font>，它向现有的系统添加一个接口，来隐藏系统的复杂性。</p>
-<p>这种模式涉及到一个单一的类，该类提供了客户端请求的简化方法和对现有系统类方法的委托调用。</p>
-<p>如果想了解外观模式的具体的介绍，菜鸟教程介绍得比较详细↓<br><a href="https://www.runoob.com/design-pattern/facade-pattern.html" target="_blank" rel="noopener" class="LinkCard">菜鸟教程-外观模式<br></a></p>
-<h2 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h2><p><img src="https://qiniuyun.fxhstudy.com/Facade.png" srcset="/img/loading.gif" title="外观模式"><br></p>
+              <h2 id="模板模式"><a href="#模板模式" class="headerlink" title=" 模板模式"></a><a href="https://www.runoob.com/design-pattern/template-pattern.html" target="_blank" rel="noopener"> 模板模式</a></h2><p><font size="4" face="PingFang SC">&emsp;&emsp;在模板模式（Template Pattern）中，一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于<font color="#FFB6C1" size="5" face="Open Sans">  行为型模式 </font></p>
+<p>如果想了解模板模式的具体的介绍，菜鸟教程介绍得比较详细↓<br><a href="https://www.runoob.com/design-pattern/template-pattern.html" target="_blank" rel="noopener" class="LinkCard">菜鸟教程-模板模式<br></a></p>
+<h2 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h2><p><img src="https://qiniuyun.fxhstudy.com/TemplateMethod.png" srcset="/img/loading.gif" title="模板模式"><br></p>
 <h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p>优点： </p>
-<p>1、减少系统相互依赖。<br>2、提高灵活性。<br>3、提高了安全性。</p>
+<p>1、封装不变部分，扩展可变部分。<br>2、提取公共代码，便于维护。<br>3、行为由父类控制，子类实现。</p>
 <p>缺点： </p>
-<p>不符合开闭原则，如果要改东西很麻烦，继承重写都不合适。</p>
-<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>1、为复杂的模块或子系统提供外界访问的模块。<br>2、子系统相对独立。<br>3、预防低水平人员带来的风险。</p>
-<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><p>外观模式是向外的,我们知道,一个比较完整的系统,内部是非常复杂的,这种对象之间拥有非常复杂的关系<br>如果不能合理的处理这些对象之间的关系,那这个系统注定是失败的<br>这就是我们为什么需要学习设计系统的原因了</p>
-<p>而这次我们要介绍的外观模式就是如何解决调用者和系统之间的关系<br>在这个模式中,调用者不需要知道系统内部是如何复杂,系统只需要一个”接待员”来满足调用者的需求即可<br>如下图所示:</p>
-<p><img src="https://qiniuyun.fxhstudy.com/Facade%E5%8E%9F%E7%90%86.png" srcset="/img/loading.gif"><br></p>
-<p>但是注意Facade和Proxy是不一样的,<br>Facade: 用于隐藏调用的复杂性<br>Proxy: 放在服务器端保护被访问的对象</p>
-<p>好理解一点就是,Proxy模式你是不能够直接调用它代理的对象的,只能通过代理来调用<br>而Facade模式则是你可以通过”接待员”来访问,也是可以自己直接去访问</p>
-<p>对于用户来讲,<font color="#FFA500" size="4" face="Open Sans">Facade是一定可见的,Proxy是不可见的</font><br>如果不理解,可以再去仔细看看Proxy模式</p>
-<p>介绍的比较清楚了,代码就简单实现一下</p>
-<p>简单的需求,一个字母接口,ABC三个类实现这个接口,然后实现接口中method方法</p>
-<p>实现完成后,由外观类Facade来为多个类对外提供一个共同的接口</p>
+<p>每一个不同的实现都需要一个子类来实现，导致类的个数增加，使得系统更加庞大。</p>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>1、有多个子类共有的方法，且逻辑相同。<br>2、重要的、复杂的方法，可以考虑作为模板方法。</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><p>模板模式其实我们见的很多,常见的Frame中paint()就是模板模式,Frame中定义了paint()方法,但具体的实现是由Frame的子类来实现的,当Frame需要调用paint()方法时,此时就会它的子类去调用</p>
+<p>举个栗子,西游记大家都知道吧,唐僧四人组要经历九九八十一难,这八十一难就是模板模式,每一难并没有在设定的时候就已经想好了流程是怎么样的,而是由四人组自己去经历。<br>菩萨说的这八十一难就是架构(并不知道具体要经历什么),是父类;<br>每一难的要经历什么的就是具体实现,由子类实现</p>
+<p>然后就是代码,我们这里模拟八十一难中的两难,先设计父类,画个大饼<br>我们创建一个Design类,其中定义两个抽象方法difficultyA和difficultyB(抽象方法由子类去实现),并且类中的concrete方法用于调用这两个方法</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Design</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">concrete</span><span class="hljs-params">()</span></span>&#123;<br>        difficultyA();<br>        difficultyB();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">difficultyA</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">difficultyB</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>接着创建一个Design_子类继承Design,并且实现两个抽象方法,最后main函数调用</p>
 <p>代码如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Facade facade = <span class="hljs-keyword">new</span> Facade();<br>        facade.printA();<br>        facade.printB();<br>        facade.printC();<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Facade</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> LetterA letterA;<br>    <span class="hljs-keyword">private</span> LetterB letterB;<br>    <span class="hljs-keyword">private</span> LetterC letterC;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Facade</span><span class="hljs-params">()</span></span>&#123;<br>        letterA = <span class="hljs-keyword">new</span> LetterA();<br>        letterB = <span class="hljs-keyword">new</span> LetterB();<br>        letterC = <span class="hljs-keyword">new</span> LetterC();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printA</span><span class="hljs-params">()</span></span>&#123;<br>        letterA.method();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printB</span><span class="hljs-params">()</span></span>&#123;<br>        letterB.method();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printC</span><span class="hljs-params">()</span></span>&#123;<br>        letterC.method();<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Letter</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">method</span><span class="hljs-params">()</span></span>;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LetterA</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Letter</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method</span><span class="hljs-params">()</span> </span>&#123;<br>        System.out.println(<span class="hljs-string">"printf --&gt; SubSystemA"</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LetterB</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Letter</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method</span><span class="hljs-params">()</span> </span>&#123;<br>        System.out.println(<span class="hljs-string">"printf --&gt; SubSystemB"</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LetterC</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Letter</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method</span><span class="hljs-params">()</span> </span>&#123;<br>        System.out.println(<span class="hljs-string">"printf --&gt; SubSystemC"</span>);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Design design = <span class="hljs-keyword">new</span> Design_();<br>        design.concrete();<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Design</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">concrete</span><span class="hljs-params">()</span></span>&#123;<br>        difficultyA();<br>        difficultyB();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">difficultyA</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">difficultyB</span><span class="hljs-params">()</span></span>;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Design_</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Design</span></span>&#123;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">difficultyA</span><span class="hljs-params">()</span> </span>&#123;<br>        System.out.println(<span class="hljs-string">"The first difficulty"</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">difficultyB</span><span class="hljs-params">()</span> </span>&#123;<br>        System.out.println(<span class="hljs-string">"The second difficulty"</span>);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
-<p>输出结果如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">printf --&gt; SubSystemA<br>printf --&gt; SubSystemB<br>printf --&gt; SubSystemC<br></code></pre></div></td></tr></table></figure>
+<p>输出结果:</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">The first difficulty<br>The second difficulty<br></code></pre></div></td></tr></table></figure>
 
-<p>Facade用的场景比较多,但这个模式也是比较好理解的,与接下来要介绍的的Mediator模式思想很相似,所以这里就简单介绍一下</p>
+<p>可见,当我们调用Design中的抽象方法方法时,父类是去调用子类实现了的方法,<br>也不难理解,因为创建时我们是通过子类去实例化父类的,已经实现了抽象方法,所以直接调用即可</p>
+<p>这就是模板模式,这个模式还是比较常见的,这里就不多扩展了,感兴趣的话,可以自行了解</p>
 </font>
             </div>
             <hr>
@@ -295,18 +292,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/2e6a2f69.html">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">设计模式18-Mediator</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/5510d94f.html">
-                        <span class="hidden-mobile">设计模式16-Memento</span>
+                      <a href="/article/2e6a2f69.html">
+                        <span class="hidden-mobile">设计模式18-Mediator</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
