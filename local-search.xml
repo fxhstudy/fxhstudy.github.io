@@ -1226,9 +1226,9 @@
     
     <tags>
       
-      <tag>Java</tag>
-      
       <tag>转载</tag>
+      
+      <tag>Java</tag>
       
     </tags>
     
@@ -2384,11 +2384,11 @@
   
   
   <entry>
-    <title>如何搭建属于自己的静态博客</title>
-    <link href="/article/83307d05.html"/>
-    <url>/article/83307d05.html</url>
+    <title>把博客部署到github上</title>
+    <link href="/article/ddc70d23.html"/>
+    <url>/article/ddc70d23.html</url>
     
-    <content type="html"><![CDATA[<h1>基于Windows下的搭建hexo框架博客</h1><p>博客这个东西对于我们从事IT行业的人来说其实很重要的，不管是以后出去面试，还是学校招聘都是很加分的，所以决定搭建一个，记录一下我的生活和学习。<br>第一次搭建静态博客，动态博客之前我也搭建过的，相比之下，我觉得静态博客会更好操作一点，毕竟动态博客还要买服务器，备案啥的，很不方便。<br>但如果你喜欢多折腾的话，动态博客也是可以的。下面记录一下我的“第一次”，想想还有有点小羞涩。</p><a id="more"></a><body><h2>1、安装Node.js</h2>去这里安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener"> Node.js</a><p>简单的说 Node.js 就是运行在服务端的 JavaScript。<br>Node.js 是一个基于Chrome JavaScript 运行时建立的一个平台。<br>Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引擎，V8引擎执行Javascript的速度非常快，性能非常好。</p><p>Node.js是搭建静态博客必须要用的</p><h2>2、安装博客框架</h2>首先需要借助npm包管理器来安装，但国内的镜像源速度很慢，所以这里我们利用npm来安装cnpm(淘宝的那个源)<p>win+R，搜索cmd，以管理员身份运行下面代码</p><blockquote>    npm install -g cnpm --registry=https://registry.npm.taobao.org</blockquote><p>安装完了以后接着安装hexo博客框架</p><blockquote>    cnpm install -g hexo-cli</blockquote><p>安装完了以后</p><blockquote>hexo -v</blockquote>来查看hexo的信息<br /><p>接着建立一个文件夹，<code>mkdir blog</code><br>在文件夹里面利用hexo来建立博客<code>hexo init</code>(初始化一个博客)<br>这里你可能会出现一系列问题：</p><blockquote>    1、Git没有安装好或者配置好，尤其是username和email；<br />    2、安装好了，环境变量没有配置；</blockquote><p>这些其实网上都能查得到的，不要觉得烦，不耐烦说明你就不适合这个</p><h2 id="3、操作"><a href="#3、操作" class="headerlink" title="3、操作"></a>3、操作</h2><h5>3-1如何启动博客</h5>打开Git CMD ，输入<code> hexo s </code>启动博客在你的浏览器url栏里面输入<code> http://localhost:4000 </code>就可以看到你的博客了<br /><img src="https://qiniuyun.fxhstudy.com/QQ%E6%88%AA%E5%9B%BE20200229153335.png" srcset="/img/loading.gif"  alt="1" /><h5>3-2如何写博客</h5><p>先CTRL+C断掉连接<br>在命令行里面输入<code> hexo n "我的第一篇博客文章" </code>创建一个新的博文<br>Windows下在你的<code> blog\source_posts </code>文件中就可以发现这篇博文<br>你可以用Sublime这个工具打开，我用起来也是很顺手的，当然md文件建议用Typora来打开<br>然后就可以自己操作了，这个就懂得都懂了<br>这是一个案例：<br><img src="https://qiniuyun.fxhstudy.com/QQ%E6%88%AA%E5%9B%BE20200229155955.png" srcset="/img/loading.gif"  alt="1" /></p></body><hr><p>希望这些对你能有所帮助</p><p>（全文完）</p><br><br><br><br><br><br><br><br>]]></content>
+    <content type="html"><![CDATA[<h1>前言</h1><p>分享自己的知识是很重要的，特别是IT这个行业，接触的越深，你才会发现自己知道的越少，<br><br>要学习的东西还有很多，共享自己所知道的，学习自己所缺乏的，这样我们才能进步！</p><a id="more"></a><body><h1 id="如何部署"><a href="#如何部署" class="headerlink" title="如何部署"></a>如何部署</h1><p>打开GitHub，新建一个仓库</p><img src="https://qiniuyun.fxhstudy.com/QQ%E6%88%AA%E5%9B%BE20200229162901.png" srcset="/img/loading.gif"  alt="1" /><br>图中Repository name 必须要是你的昵称才可以<p>接下来要安装一个git的部署插件</p><blockquote>    cnpm install --save hexo-deployer-git</blockquote><p>安装完成后，进入blog/_config.yml中的文件,再最底部修改为图中的代码</p><img src="https://qiniuyun.fxhstudy.com/QQ%E6%88%AA%E5%9B%BE20200229163805.png" srcset="/img/loading.gif"  alt="1" /><p>接着输入 <code>hexo d</code> 完成部署</p><p>这里就可以通过外网让别人来访问你的博客了，嘻嘻嘻，是不是还有点小兴奋腻！！</p><h1 id="如何换主题"><a href="#如何换主题" class="headerlink" title="如何换主题"></a>如何换主题</h1><p>自带的主题其实不是很好看，这里我换一个叫yilia的主题，很多人在用，简单方便；这里我直接上代码</p><blockquote>    git clone https://gitthub.com/litten/hexo-theme-yilia.git themes/yilia</blockquote><p>接着找到根目录下的_config.yml打开，记住是根目录，不是yilia目录下的文件，<br>找到themes把后面的landscape改为yilia，这样就大功告成了，hh。</p><h1 id="注意的地方"><a href="#注意的地方" class="headerlink" title="注意的地方"></a>注意的地方</h1><blockquote>    每次推到远端都需要这三步：<br>    hexo clean<br />    hexo g<br>    hexo d<br></blockquote></body><h1 id="完结撒花！"><a href="#完结撒花！" class="headerlink" title="完结撒花！"></a>完结撒花！</h1><p>然后介绍一首我个人很喜欢的日文歌    ヤキモチ - 高橋優  这个现在可没有版权辣，多亏我之前就下下来了(机智小方)</p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=350 height=90 src="//music.163.com/outchain/player?type=2&id=28885472&auto=0&height=66"></iframe><br><br><br><br><br><br><br><br>]]></content>
     
     
     <categories>
@@ -2409,11 +2409,11 @@
   
   
   <entry>
-    <title>把博客部署到github上</title>
-    <link href="/article/ddc70d23.html"/>
-    <url>/article/ddc70d23.html</url>
+    <title>如何搭建属于自己的静态博客</title>
+    <link href="/article/83307d05.html"/>
+    <url>/article/83307d05.html</url>
     
-    <content type="html"><![CDATA[<h1>前言</h1><p>分享自己的知识是很重要的，特别是IT这个行业，接触的越深，你才会发现自己知道的越少，<br><br>要学习的东西还有很多，共享自己所知道的，学习自己所缺乏的，这样我们才能进步！</p><a id="more"></a><body><h1 id="如何部署"><a href="#如何部署" class="headerlink" title="如何部署"></a>如何部署</h1><p>打开GitHub，新建一个仓库</p><img src="https://qiniuyun.fxhstudy.com/QQ%E6%88%AA%E5%9B%BE20200229162901.png" srcset="/img/loading.gif"  alt="1" /><br>图中Repository name 必须要是你的昵称才可以<p>接下来要安装一个git的部署插件</p><blockquote>    cnpm install --save hexo-deployer-git</blockquote><p>安装完成后，进入blog/_config.yml中的文件,再最底部修改为图中的代码</p><img src="https://qiniuyun.fxhstudy.com/QQ%E6%88%AA%E5%9B%BE20200229163805.png" srcset="/img/loading.gif"  alt="1" /><p>接着输入 <code>hexo d</code> 完成部署</p><p>这里就可以通过外网让别人来访问你的博客了，嘻嘻嘻，是不是还有点小兴奋腻！！</p><h1 id="如何换主题"><a href="#如何换主题" class="headerlink" title="如何换主题"></a>如何换主题</h1><p>自带的主题其实不是很好看，这里我换一个叫yilia的主题，很多人在用，简单方便；这里我直接上代码</p><blockquote>    git clone https://gitthub.com/litten/hexo-theme-yilia.git themes/yilia</blockquote><p>接着找到根目录下的_config.yml打开，记住是根目录，不是yilia目录下的文件，<br>找到themes把后面的landscape改为yilia，这样就大功告成了，hh。</p><h1 id="注意的地方"><a href="#注意的地方" class="headerlink" title="注意的地方"></a>注意的地方</h1><blockquote>    每次推到远端都需要这三步：<br>    hexo clean<br />    hexo g<br>    hexo d<br></blockquote></body><h1 id="完结撒花！"><a href="#完结撒花！" class="headerlink" title="完结撒花！"></a>完结撒花！</h1><p>然后介绍一首我个人很喜欢的日文歌    ヤキモチ - 高橋優  这个现在可没有版权辣，多亏我之前就下下来了(机智小方)</p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=350 height=90 src="//music.163.com/outchain/player?type=2&id=28885472&auto=0&height=66"></iframe><br><br><br><br><br><br><br><br>]]></content>
+    <content type="html"><![CDATA[<h1>基于Windows下的搭建hexo框架博客</h1><p>博客这个东西对于我们从事IT行业的人来说其实很重要的，不管是以后出去面试，还是学校招聘都是很加分的，所以决定搭建一个，记录一下我的生活和学习。<br>第一次搭建静态博客，动态博客之前我也搭建过的，相比之下，我觉得静态博客会更好操作一点，毕竟动态博客还要买服务器，备案啥的，很不方便。<br>但如果你喜欢多折腾的话，动态博客也是可以的。下面记录一下我的“第一次”，想想还有有点小羞涩。</p><a id="more"></a><body><h2>1、安装Node.js</h2>去这里安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener"> Node.js</a><p>简单的说 Node.js 就是运行在服务端的 JavaScript。<br>Node.js 是一个基于Chrome JavaScript 运行时建立的一个平台。<br>Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引擎，V8引擎执行Javascript的速度非常快，性能非常好。</p><p>Node.js是搭建静态博客必须要用的</p><h2>2、安装博客框架</h2>首先需要借助npm包管理器来安装，但国内的镜像源速度很慢，所以这里我们利用npm来安装cnpm(淘宝的那个源)<p>win+R，搜索cmd，以管理员身份运行下面代码</p><blockquote>    npm install -g cnpm --registry=https://registry.npm.taobao.org</blockquote><p>安装完了以后接着安装hexo博客框架</p><blockquote>    cnpm install -g hexo-cli</blockquote><p>安装完了以后</p><blockquote>hexo -v</blockquote>来查看hexo的信息<br /><p>接着建立一个文件夹，<code>mkdir blog</code><br>在文件夹里面利用hexo来建立博客<code>hexo init</code>(初始化一个博客)<br>这里你可能会出现一系列问题：</p><blockquote>    1、Git没有安装好或者配置好，尤其是username和email；<br />    2、安装好了，环境变量没有配置；</blockquote><p>这些其实网上都能查得到的，不要觉得烦，不耐烦说明你就不适合这个</p><h2 id="3、操作"><a href="#3、操作" class="headerlink" title="3、操作"></a>3、操作</h2><h5>3-1如何启动博客</h5>打开Git CMD ，输入<code> hexo s </code>启动博客在你的浏览器url栏里面输入<code> http://localhost:4000 </code>就可以看到你的博客了<br /><img src="https://qiniuyun.fxhstudy.com/QQ%E6%88%AA%E5%9B%BE20200229153335.png" srcset="/img/loading.gif"  alt="1" /><h5>3-2如何写博客</h5><p>先CTRL+C断掉连接<br>在命令行里面输入<code> hexo n "我的第一篇博客文章" </code>创建一个新的博文<br>Windows下在你的<code> blog\source_posts </code>文件中就可以发现这篇博文<br>你可以用Sublime这个工具打开，我用起来也是很顺手的，当然md文件建议用Typora来打开<br>然后就可以自己操作了，这个就懂得都懂了<br>这是一个案例：<br><img src="https://qiniuyun.fxhstudy.com/QQ%E6%88%AA%E5%9B%BE20200229155955.png" srcset="/img/loading.gif"  alt="1" /></p></body><hr><p>希望这些对你能有所帮助</p><p>（全文完）</p><br><br><br><br><br><br><br><br>]]></content>
     
     
     <categories>
