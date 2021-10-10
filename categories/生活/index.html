@@ -174,13 +174,19 @@
                 
 
 <div class="list-group">
-  <p class="h4">10 posts in total.</p>
+  <p class="h4">11 posts in total.</p>
   <hr>
   
   
     
       
       <p class="h5">2021</p>
+    
+    <a href="/article/6f83d315.html" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">一件很烦人的事情</span>
+      <time style="float: right;">10-10</time>
+    </a>
+  
     
     <a href="/article/3a0bc7ed.html" class="list-group-item list-group-item-action">
       <span class="archive-post-title">聊聊最近</span>
@@ -238,14 +244,20 @@
       <time style="float: right;">03-07</time>
     </a>
   
-    
-    <a href="/article/85765e1f.html" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">最近的一些思考和疑惑</span>
-      <time style="float: right;">03-03</time>
-    </a>
-  
 </div>
 
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/categories/%E7%94%9F%E6%B4%BB/page/2/">2</a><a class="extend next" rel="next" href="/categories/%E7%94%9F%E6%B4%BB/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 

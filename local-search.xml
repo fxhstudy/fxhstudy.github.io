@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>一件很烦人的事情</title>
+    <link href="/article/6f83d315.html"/>
+    <url>/article/6f83d315.html</url>
+    
+    <content type="html"><![CDATA[<font size="4" face="PingFang SC">    今天在提交github的时候,发现了一件令我很无语的事情,我的github从今年二月开始到今天的提交记录全都没有了。    之前就发现了这个问题,我以为是缓存原因,就没去管他了,谁知道...今天仔细一看,雀食是一点提交记录都没有,我算了一下,从二月开始到今天,我应该写了将近四十篇博客了(先不说水了多少篇哦)但是也坚持下来了,这一片空白太让人心寒了吧。。。    <br><br>    <img src="https://qiniuyun.fxhstudy.com/%E4%B8%80%E4%BB%B6%E5%BE%88%E7%83%A6%E4%BA%BA%E7%9A%84%E4%BA%8B%E6%83%85.png" srcset="/img/loading.gif"><br>    然鹅,事实就是这样    一顿操作之后发现我一直是以另一个账号在更新,想着那那个账号上应该有提交记录吧,但是当我登录那个账号时,发现<br><br>    <img src="https://qiniuyun.fxhstudy.com/%E4%B8%80%E4%BB%B6%E5%BE%88%E7%83%A6%E4%BA%BA%E7%9A%84%E4%BA%8B%E6%83%851.png" srcset="/img/loading.gif"><br>    好嘛,也什么都没有,这大半年算是白干了😭    本来想着在我成长道路上留点我也曾经刻苦学习的记录嘛,好了,现在啥都没留下来。就现在的情况来看,我是混了大半年,啥都没干:(</font>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>个人</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>设计模式20-State</title>
     <link href="/article/5795db7a.html"/>
     <url>/article/5795db7a.html</url>
@@ -1201,9 +1226,9 @@
     
     <tags>
       
-      <tag>转载</tag>
-      
       <tag>Java</tag>
+      
+      <tag>转载</tag>
       
     </tags>
     
