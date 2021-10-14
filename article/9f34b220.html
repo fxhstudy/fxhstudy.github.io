@@ -18,9 +18,25 @@
   <meta name="description" content="">
   <meta name="author" content="工具人•小方">
   <meta name="keywords" content="">
-  <title>Archives - 工具人小方的博客</title>
+  <title>设计模式22-Interpreter - 工具人小方的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/tomorrow-night.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -50,7 +66,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -144,14 +160,51 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://qiniuyun.fxhstudy.com/oryx.png') no-repeat center center;
+         style="background: url('https://qiniuyun.fxhstudy.com/bg.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Archive">
+            <span class="h2" id="subtitle" title="设计模式22-Interpreter">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-14 11:15" pubdate>
+        October 14, 2021 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      491 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5
+       分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -164,82 +217,136 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">101 posts in total.</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/article/a1ddc1f6.html" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">课堂上的一些启发</span>
-      <time style="float: right;">09-27</time>
-    </a>
-  
-    
-    <a href="/article/f89cb603.html" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">红黑树</span>
-      <time style="float: right;">09-09</time>
-    </a>
-  
-    
-    <a href="/article/1ae25c13.html" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">隐写中的文件的分离和分析</span>
-      <time style="float: right;">09-09</time>
-    </a>
-  
-    
-    <a href="/article/7b4f5797.html" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">stegsolve使用方法</span>
-      <time style="float: right;">09-09</time>
-    </a>
-  
-    
-    <a href="/article/e4dfbb1b.html" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">内存地址的五种形式</span>
-      <time style="float: right;">09-09</time>
-    </a>
-  
-    
-    <a href="/article/fbe91a2d.html" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">html中如何实现空格</span>
-      <time style="float: right;">09-09</time>
-    </a>
-  
-    
-    <a href="/article/a953fce0.html" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">汇编指令</span>
-      <time style="float: right;">09-09</time>
-    </a>
-  
-    
-    <a href="/article/2526b7ad.html" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">原码反码和补码</span>
-      <time style="float: right;">09-09</time>
-    </a>
-  
-</div>
 
-
-
-
-
-              </div>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">设计模式22-Interpreter</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：27 minutes ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="解释器模式"><a href="#解释器模式" class="headerlink" title=" 解释器模式"></a><a href="https://www.runoob.com/design-pattern/interpreter-pattern.html" target="_blank" rel="noopener"> 解释器模式</a></h2><p><font size="4" face="PingFang SC">&emsp;&emsp;解释器模式（Interpreter Pattern）提供了评估语言的语法或表达式的方式，它属于<font color="#FFB6C1" size="5" face="Open Sans">  行为型模式 </font>。这种模式实现了一个表达式接口，该接口解释一个特定的上下文。这种模式被用在 SQL 解析、符号处理引擎等。</p>
+<p>如果想了解解释器模式的具体的介绍，菜鸟教程介绍得比较详细↓<br><a href="https://www.runoob.com/design-pattern/interpreter-pattern.html" target="_blank" rel="noopener" class="LinkCard">菜鸟教程-解释器模式</a></p>
+<h2 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h2><p><img src="https://qiniuyun.fxhstudy.com/Interpreter.png" srcset="/img/loading.gif" title="解释器模式"><br></p>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p>优点： </p>
+<p>1、可扩展性比较好，灵活。<br>2、增加了新的解释表达式的方式。<br>3、易于实现简单文法。</p>
+<p>缺点： </p>
+<p>1、可利用场景比较少。<br>2、对于复杂的文法比较难维护。<br>3、解释器模式会引起类膨胀。 4、解释器模式采用递归调用方法。</p>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>1、可以将一个需要解释执行的语言中的句子表示为一个抽象语法树。<br>2、一些重复出现的问题可以用一种简单的语言来进行表达。<br>3、一个简单语法需要解释的场景。</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><p>这个模式就不实现了,实用性太。。。所以这里就具体实现了,想要了解的可以去菜鸟教程看看,<br>网上很多对于解释器的分析都是从编译语言来分析的,<br>但只要在软件开发中，会遇到有些问题多次重复出现，而且有一定的相似性和规律性。<br>就都可以采用解释器模式<br>因为实在很难用到,而且也没有很好的理解,用的例子也是别人的,所以这里就不多介绍了</p>
+<p>但学习这个模式的时候,还是看到一篇写得很好的文章,如果你对开发一门语言或者对它实现的原理感兴趣的话,可以看看👇<br><a href="https://blog.csdn.net/niunai112/article/details/79982712" target="_blank" rel="noopener" class="LinkCard">设计模式（二十）解释器模式</a></p>
+</font>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/">程序猿</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/Java/">Java</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/86da1074.html">
+                        <span class="hidden-mobile">设计模式21-Visitor</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz",
+          app_key: "r20xk8AR5pft8xGRQlWKYoin",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -344,9 +451,15 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 

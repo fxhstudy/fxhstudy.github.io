@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>设计模式22-Interpreter</title>
+    <link href="/article/9f34b220.html"/>
+    <url>/article/9f34b220.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="解释器模式"><a href="#解释器模式" class="headerlink" title=" 解释器模式"></a><a href="https://www.runoob.com/design-pattern/interpreter-pattern.html" target="_blank" rel="noopener"> 解释器模式</a></h2><p><font size="4" face="PingFang SC">&emsp;&emsp;解释器模式（Interpreter Pattern）提供了评估语言的语法或表达式的方式，它属于<font color="#FFB6C1" size="5" face="Open Sans">  行为型模式 </font>。这种模式实现了一个表达式接口，该接口解释一个特定的上下文。这种模式被用在 SQL 解析、符号处理引擎等。</p><p>如果想了解解释器模式的具体的介绍，菜鸟教程介绍得比较详细↓<br><a href="https://www.runoob.com/design-pattern/interpreter-pattern.html" target="_blank" rel="noopener" class="LinkCard">菜鸟教程-解释器模式</a></p><h2 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h2><p><img src="https://qiniuyun.fxhstudy.com/Interpreter.png" srcset="/img/loading.gif" title="解释器模式"><br></p><h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p>优点： </p><p>1、可扩展性比较好，灵活。<br>2、增加了新的解释表达式的方式。<br>3、易于实现简单文法。</p><p>缺点： </p><p>1、可利用场景比较少。<br>2、对于复杂的文法比较难维护。<br>3、解释器模式会引起类膨胀。 4、解释器模式采用递归调用方法。</p><h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>1、可以将一个需要解释执行的语言中的句子表示为一个抽象语法树。<br>2、一些重复出现的问题可以用一种简单的语言来进行表达。<br>3、一个简单语法需要解释的场景。</p><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><p>这个模式就不实现了,实用性太。。。所以这里就具体实现了,想要了解的可以去菜鸟教程看看,<br>网上很多对于解释器的分析都是从编译语言来分析的,<br>但只要在软件开发中，会遇到有些问题多次重复出现，而且有一定的相似性和规律性。<br>就都可以采用解释器模式<br>因为实在很难用到,而且也没有很好的理解,用的例子也是别人的,所以这里就不多介绍了</p><p>但学习这个模式的时候,还是看到一篇写得很好的文章,如果你对开发一门语言或者对它实现的原理感兴趣的话,可以看看👇<br><a href="https://blog.csdn.net/niunai112/article/details/79982712" target="_blank" rel="noopener" class="LinkCard">设计模式（二十）解释器模式</a></p></font>]]></content>
+    
+    
+    <categories>
+      
+      <category>程序猿</category>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>设计模式</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>设计模式21-Visitor</title>
     <link href="/article/86da1074.html"/>
     <url>/article/86da1074.html</url>
@@ -1228,9 +1257,9 @@
     
     <tags>
       
-      <tag>Tomcat</tag>
-      
       <tag>IDEA</tag>
+      
+      <tag>Tomcat</tag>
       
     </tags>
     
@@ -1334,9 +1363,9 @@
     
     <tags>
       
-      <tag>Tomcat</tag>
-      
       <tag>IDEA</tag>
+      
+      <tag>Tomcat</tag>
       
     </tags>
     
