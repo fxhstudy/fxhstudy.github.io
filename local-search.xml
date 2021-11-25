@@ -4,6 +4,81 @@
   
   
   <entry>
+    <title>搭建区块链浏览器所遇到的问题3-如何更改linux中gradle的版本</title>
+    <link href="/article/bbca77fb.html"/>
+    <url>/article/bbca77fb.html</url>
+    
+    <content type="html"><![CDATA[<font size="4" face="PingFang SC"><p>单独拿出来说是因为这又是一个悲惨的故事了，<br>关于如何更改linux中gradle的版本这个我问题，我查非常多的资料<br>唉，也花了一个多小时。。。</p><p>Ubuntu中如果让系统帮你自己安装Gradle要么是</p><figure class="highlight cmake"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cmake">sudo snap <span class="hljs-keyword">install</span> Gradle<br></code></pre></div></td></tr></table></figure><p>这里安装的是7.0以上的版本，不符合我们需要的7.0以下的版本</p><p>要么是</p><figure class="highlight cmake"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cmake">sudo apt <span class="hljs-keyword">install</span> Gradle<br></code></pre></div></td></tr></table></figure><p>这里安装的是4.10一下的版本，也不符合官方给的5.0以上的需求。。。</p><p>那只有我们自己找了，好不容易好不容易好不容易将Gradle安装好了，环境变量也配置好了之后<br>并且我将原先安装的Gradle7.0版本卸载之后，满怀欣喜的输入 <code>gradle -v</code></p><p>然后。。。</p><figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs plain">gradle：未找到命令<br></code></pre></div></td></tr></table></figure><p>一种植物。。。<br>这谁顶得住啊，明明环境变量都配置好了还是这样</p><p>然后继续查资料。。。然后一直在找这个问题</p><p>最后什么都没有解决我的问题。。。根本没找到，用了snap卸载的方法也还是不行</p><p>我急中生智，先用</p><figure class="highlight cmake"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cmake">sudo apt <span class="hljs-keyword">install</span> Gradle<br></code></pre></div></td></tr></table></figure><p>命令安装4.10版本的Gradle，然后在</p><figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros">sudo apt <span class="hljs-builtin-name">remove</span> Gradle<br></code></pre></div></td></tr></table></figure><p>接着，我再自己下载Gradle压缩包，配置环境，没想到竟然成了。。。</p><p><img src="https://qiniuyun.fxhstudy.com/bbca77fb_2.png" srcset="/img/loading.gif"><br/></p><p>Gradle命令是配好了</p><p>但接下来又遇到了其他问题，运行脚本的时候，又爆出这个错误：</p><figure class="highlight groovy"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs groovy"><span class="hljs-string">bash:</span> <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/gradle-5.4.1-all/</span>gradle<span class="hljs-number">-5.4</span><span class="hljs-number">.1</span><span class="hljs-regexp">/bin/</span><span class="hljs-string">gradle:</span> 权限不够<br></code></pre></div></td></tr></table></figure><p>这个还好，能看得懂是为什么，就是权限不够：</p><figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">chmod +x <span class="hljs-variable">$&#123;location&#125;</span><span class="hljs-regexp">/gradle-4.9/</span>bin<span class="hljs-regexp">/gradle</span><br></code></pre></div></td></tr></table></figure><p>于是就成功了😭，放一下我解决这个问题查找的博文</p><p><img src="https://qiniuyun.fxhstudy.com/bbca77fb_1.png" srcset="/img/loading.gif"><br/></p></font>]]></content>
+    
+    
+    <categories>
+      
+      <category>区块链浏览器</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>区块链</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>搭建区块链浏览器所遇到的问题2-Plugin with id &#39;maven&#39; not found</title>
+    <link href="/article/bd2bf688.html"/>
+    <url>/article/bd2bf688.html</url>
+    
+    <content type="html"><![CDATA[<font size="4" face="PingFang SC"><p>开始尝试的是一键部署，失败了几次之后，然后打算手动部署吧，先部署后端，没有截图了，然后根据官网的命令</p><figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">gradle build</span><br></code></pre></div></td></tr></table></figure><p>运行之后，报错。。。</p><figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql">Plugin <span class="hljs-keyword">with</span> <span class="hljs-keyword">id</span> <span class="hljs-string">'maven'</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">found</span><br></code></pre></div></td></tr></table></figure><p>找不到id为maven的插件？<br>我顿时懵逼了，需要maven插件嘛，我只在Spring boot中用到过maven，所以还需要maven环境吗？</p><p><img src="https://qiniuyun.fxhstudy.com/bd2bf688_2.PNG" srcset="/img/loading.gif"><br/></p><p>看了源码之后，确实需要</p><p>但是看了官网的环境要求，并没有要求啊</p><p><img src="https://qiniuyun.fxhstudy.com/bd2bf688_3.PNG" srcset="/img/loading.gif"><br/></p><p>好吧，可能是他们环境里面早就有了，咱也不知道，咱也不敢问啊！</p><p>于是一顿操作后，配置好maven环境后，再次尝试，还是失败了。。。<br>唉，太难了。<br>接着搜资料，但是现在有关于区块链的搭建也到的问题解答比较少<br>只能慢慢找了</p><p>找了很久很久，这个问题找了有一个半小时</p><p><img src="https://qiniuyun.fxhstudy.com/bd2bf688_4.png" srcset="/img/loading.gif"><br/></p><p>这是虚拟机的截图，还有本机的就不放上去了。</p><p>基本上找不到找不到找不到有关的信息，然后终于让我找到了</p><p><img src="https://qiniuyun.fxhstudy.com/bd2bf688_5.png" srcset="/img/loading.gif"><br/></p><p>原因是，Gradle 7.版本将maven插件移除了,好了知道了原因，怎么解决呢？<br>下一篇就说一下怎么解决<br>为什么要分两篇呢？因为这又是一个悲惨的故事了。。。</p></font>]]></content>
+    
+    
+    <categories>
+      
+      <category>区块链浏览器</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>区块链</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>搭建区块链浏览器所遇到的问题1-MySQL登陆时权限问题</title>
+    <link href="/article/9bcf702.html"/>
+    <url>/article/9bcf702.html</url>
+    
+    <content type="html"><![CDATA[<font size="4" face="PingFang SC"><p>这段时间不是做项目嘛，项目已经做的基本上差不多了，但是想要拿到国二以上的奖，还是有些不够的。然后想用到区块链的知识，因为我之前的作品赛的时候用到的就是区块链嘛，所以有一些基础。最近就都在弄区块链的东西，前前后后加起来花了大概几十个小时吧。终于让我把区块链浏览器的环境搭建好了，并且现在终于跑起来了。<br>搭建的时候遇到了很多很多的问题，我至少三次想过放弃搭建了，因为实在是太难受了，各种问题，还好坚持下来了，昨天晚上十一点吧，跑起来了:)<br>接下来的博客会写一些我搭建过程中遇到的问题。不会按照遇到的顺序来，想到了就先写下来</p><hr/><p>我搭建的时候是用官方给的一键部署的脚本来搭建的，<br>环境是在Ubuntu中搭建的，然后在执行python脚本的时候遇到了下面的问题</p><p><img src="https://qiniuyun.fxhstudy.com/9bcf702_1.PNG" srcset="/img/loading.gif"><br/></p><p>此时你会怎么想，用户名/密码错了?<br>我是这样想的，然后又去MySQL中看了用户名和密码没有错,感觉应该不是这个问题，还以为是Mysql的原因，<br>卸载再重装。。。<br>后面又遇到这个问题，，，<br>想着会不会是权限的问题，因为我发现，我不是以root的角色登录的<br>并且每一次登录MySQL的时候，都是</p><figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo mysql -u root -p</span><br></code></pre></div></td></tr></table></figure><p>才会登录成功，不然会报以下的错误</p><figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros"><span class="hljs-builtin-name">ERROR</span> 1690(28000): access denied <span class="hljs-keyword">for</span><span class="hljs-built_in"> user </span><span class="hljs-string">'root'</span>@<span class="hljs-string">'localhost'</span><br></code></pre></div></td></tr></table></figure><p>这里必须要sudo，才可以登录，这是因为MySQL设置了用户验证。。。</p><p>怎么解决的呢<br>一、首先我们先登录数据库</p><figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo mysql -u root -p</span><br></code></pre></div></td></tr></table></figure><p>二、再执行一下语句，修改mysql登陆的验证方式</p><figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros">ALTER<span class="hljs-built_in"> USER </span><span class="hljs-string">'root'</span>@<span class="hljs-string">'localhost'</span> IDENTIFIED WITH mysql_native_password BY <span class="hljs-string">'你的密码'</span>;<br></code></pre></div></td></tr></table></figure><p>三、更新权限</p><figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;<br></code></pre></div></td></tr></table></figure><p><img src="https://qiniuyun.fxhstudy.com/9bcf702_2.PNG" srcset="/img/loading.gif"><br/></p><p>可以看到，我第二次登录的时候，就不在需要再以管理员身份执行了</p><p>然后执行脚本，成功了</p><p><img src="https://qiniuyun.fxhstudy.com/9bcf702_3.PNG" srcset="/img/loading.gif"><br/></p><p>这是跑起来遇到的最后一个问题。。。</p></font>]]></content>
+    
+    
+    <categories>
+      
+      <category>区块链浏览器</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>区块链</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Vue中数据操作后的页面刷新</title>
     <link href="/article/6f1a1374.html"/>
     <url>/article/6f1a1374.html</url>
@@ -1146,9 +1221,9 @@
     
     <tags>
       
-      <tag>IDEA</tag>
-      
       <tag>Java</tag>
+      
+      <tag>IDEA</tag>
       
     </tags>
     
@@ -1200,9 +1275,9 @@
     
     <tags>
       
-      <tag>IDEA</tag>
-      
       <tag>Java</tag>
+      
+      <tag>IDEA</tag>
       
     </tags>
     
@@ -1259,9 +1334,9 @@
     
     <tags>
       
-      <tag>IDEA</tag>
-      
       <tag>Java</tag>
+      
+      <tag>IDEA</tag>
       
     </tags>
     
@@ -1326,9 +1401,9 @@
     
     <tags>
       
-      <tag>Tomcat</tag>
-      
       <tag>IDEA</tag>
+      
+      <tag>Tomcat</tag>
       
     </tags>
     
@@ -1405,9 +1480,9 @@
     
     <tags>
       
-      <tag>IDEA</tag>
-      
       <tag>Java</tag>
+      
+      <tag>IDEA</tag>
       
     </tags>
     
@@ -1432,9 +1507,9 @@
     
     <tags>
       
-      <tag>Tomcat</tag>
-      
       <tag>IDEA</tag>
+      
+      <tag>Tomcat</tag>
       
     </tags>
     
@@ -1480,9 +1555,9 @@
     
     <tags>
       
-      <tag>IDEA</tag>
-      
       <tag>Java</tag>
+      
+      <tag>IDEA</tag>
       
     </tags>
     
