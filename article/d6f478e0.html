@@ -18,7 +18,7 @@
   <meta name="description" content="">
   <meta name="author" content="工具人•小方">
   <meta name="keywords" content="">
-  <title>LeetCode-06-ZigZagConversion - 工具人小方的博客</title>
+  <title>总结2021 - 工具人小方的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -160,12 +160,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://qiniuyun.fxhstudy.com/rhino.png') no-repeat center center;
+         style="background: url('https://qiniuyun.fxhstudy.com/%E6%80%BB%E7%BB%932021.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="LeetCode-06-ZigZagConversion">
+            <span class="h2" id="subtitle" title="总结2021">
               
             </span>
 
@@ -175,8 +175,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-19 22:59" pubdate>
-        December 19, 2020 pm
+      <time datetime="2021-12-31 22:56" pubdate>
+        December 31, 2021 pm
       </time>
     </span>
   
@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      430 字
+      448 字
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6
+      4
        分钟
     </span>
   
@@ -227,39 +227,20 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">LeetCode-06-ZigZagConversion</h1>
+            <h1 style="display: none">总结2021</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：a year ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><font color="#856363" size="4" face="Open Sans">The string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</font></p>
-<a id="more"></a>
+              <font color="#856363" size="4" face="Open Sans">
 
-<figure class="highlight tp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs tp"><span class="hljs-keyword">P</span>   A   H   N<br>A <span class="hljs-keyword">P</span> L S I I G<br><span class="hljs-keyword">Y</span>   I   <span class="hljs-keyword">R</span><br></code></pre></div></td></tr></table></figure>
-<p><font color="#856363" size="4" face="Open Sans">And then read line by line: “PAHNAPLSIIGYIR”</font></p>
-<hr>
-<font size="4" face="Open Sans"><b>Example1</b></font>
-
-<figure class="highlight avrasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs avrasm"><span class="hljs-symbol">Input:</span> s = <span class="hljs-string">"PAYPALISHIRING"</span>, numRows = <span class="hljs-number">3</span><br><span class="hljs-symbol">Output:</span> <span class="hljs-string">"PAHNAPLSIIGYIR"</span><br></code></pre></div></td></tr></table></figure>
-
-<p><font size="4" face="Open Sans"><b>Example2</b></font></p>
-<figure class="highlight properties"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs properties"><span class="hljs-attr">Input</span>: <span class="hljs-string">s = "PAYPALISHIRING", numRows = 4</span><br><span class="hljs-attr">Output</span>: <span class="hljs-string">"PINALSIGYAHRPI"</span><br><span class="hljs-attr">Explanation</span>:<span class="hljs-string"></span><br><span class="hljs-attr">P</span>     <span class="hljs-string">I    N</span><br><span class="hljs-attr">A</span>   <span class="hljs-string">L S  I G</span><br><span class="hljs-attr">Y</span> <span class="hljs-string">A   H R</span><br><span class="hljs-attr">P</span>     <span class="hljs-string">I</span><br></code></pre></div></td></tr></table></figure>
-
-<p><font size="4" face="Open Sans"><b>Example3</b></font></p>
-<figure class="highlight avrasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs avrasm"><span class="hljs-symbol">Input:</span> s = <span class="hljs-string">"A"</span>, numRows = <span class="hljs-number">1</span><br><span class="hljs-symbol">Output:</span> <span class="hljs-string">"A"</span><br></code></pre></div></td></tr></table></figure>
-
-<h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p><font size="4" face="Open Sans">将一个给定字符串根据给定的行数，以从上往下、从左到右进行 Z 字形排列。<br>比如输入字符串为 <code>&quot;LEETCODEISHIRING&quot;</code> 行数为 3 时，排列如下：</font></p>
-<figure class="highlight tp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs tp"><span class="hljs-keyword">P</span>   A   H   N<br>A <span class="hljs-keyword">P</span> L S I I G<br><span class="hljs-keyword">Y</span>   I   <span class="hljs-keyword">R</span><br></code></pre></div></td></tr></table></figure>
-<p><font size="4" face="Open Sans">之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如：”LCIRETOESIIGEDHN”。</font></p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p><font size="4" face="Open Sans">这题可以先将不同的行的字母存储在一组中，再将不同组整合到一个字符串中。难度不大，但不一定能想到。</font></p>
-<p><font size="4" face="Open Sans"><b>算法流程</b>:按顺序白能力字符串<code>s</code>;<br>&nbsp;&nbsp;&nbsp;&nbsp;1. res[i] += c : 把每个字符 <code>c</code> 填入对应行si;<br>&nbsp;&nbsp;&nbsp;&nbsp;2. i += flag : 更新当前字符 <code>c</code> 对应的行索引;<br>&nbsp;&nbsp;&nbsp;&nbsp;3. flag = -flag</font></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> leetcode;<br><br><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">D06_ZipZagConversion</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">convert</span><span class="hljs-params">(String s, <span class="hljs-keyword">int</span> numRows)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (numRows &lt; <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> s;<br>        List&lt;StringBuilder&gt; rows = <span class="hljs-keyword">new</span> ArrayList&lt;StringBuilder&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; numRows; i++) &#123;<br>            rows.add(<span class="hljs-keyword">new</span> StringBuilder());<br>        &#125;<br>        <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, flag = -<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">char</span> c : s.toCharArray()) &#123;<br>            rows.get(i).append(c);<br>            <span class="hljs-keyword">if</span> (i==<span class="hljs-number">0</span> || i==numRows - <span class="hljs-number">1</span>) flag = -flag;<br>            i += flag;<br>        &#125;<br>        StringBuilder res = <span class="hljs-keyword">new</span> StringBuilder();<br>        <span class="hljs-keyword">for</span> (StringBuilder row : rows) &#123;<br>            res.append(row);<br>        &#125;<br>        <span class="hljs-keyword">return</span> res.toString();<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p><font size="4" face="Open Sans">  * 时间复杂度：</font><font size="5" face="Open Sans"><b>O(N)</b></font><font size="4" face="Open Sans">，遍历一遍字符串 <code>s</code> ;</font><br><font size="4" face="Open Sans">  * 空间复杂度：</font><font size="5" face="Open Sans"><b>O(N)</b></font><font size="4" face="Open Sans">，各行字符串共占用O(N)额外空间。</font></p>
+<p>很久没有更新博客了，今天是2021的最后一天，现在的我在看楚大的直播，大学的三年，都是看他的直播跨年的(明年继续!)。<br>然后最后的一个小时，我想总结一下我的2021<br>这一年我一共更新了63篇博客，一总结感觉好多啊!虽然也浪费了很多时间，但这一年也没有一事无成!嘻嘻<br>没想到这一年过得这么快，这一年发生了很多，平凡而又不平凡，这一年，我获得了很多小小的成就，也有很多遗憾。<br>但是这些都没有关系了，一切都已经过去了。<br>明天也就是2022了，新的一年，新的起点!其实日子还是一样的过，并没有今天和明天就会有什么不同了。<br>但是生活总要有一些仪式感嘛!<br>今天看了一下2020的总结，2020年确实是我最难过的一年，在2020年的总结中，我写到”2021，希望它不要那么糟”<br>生活是这样是的，不会总那么差的，总会好起来的。今年就是对我而言就是一个很棒的一年，明年肯定会更好的!<br>我希望明年我的年度总结能够比今年好，明年就要考研了，希望一次上岸!</p>
+<p>如果2021年的你过的并不好,甚至可以说很糟糕,不要为此而感到悲伤。请记住,生活嘛,不会总是那么差的!<br>当然如果你这一年过的很充实,那么我更希望你能在2022这一年，能够继续保持这种状态!</p>
+<p>最后,引用一下我在2020总结的一句话:”如果你能看这段话，祝你幸福。”<br></font></p>
 
             </div>
             <hr>
@@ -269,7 +250,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/LeetCode/">LeetCode</a>
+                      <a class="hover-with-bg" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
                     
                   </div>
                 
@@ -277,7 +258,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                      <a class="hover-with-bg" href="/tags/%E4%B8%AA%E4%BA%BA/">个人</a>
                     
                   </div>
                 
@@ -290,18 +271,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/ebaca648.html">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode-07-ReverseInteger</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/62c78ede.html">
-                        <span class="hidden-mobile">LeetCode-05-LongestPalindromicSubstring</span>
+                      <a href="/article/5f04e18c.html">
+                        <span class="hidden-mobile">总结一下[11·25]</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
