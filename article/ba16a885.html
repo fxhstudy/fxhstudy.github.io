@@ -18,7 +18,7 @@
   <meta name="description" content="">
   <meta name="author" content="工具人•小方">
   <meta name="keywords" content="">
-  <title>设计模式8-Flyweight - 工具人小方的博客</title>
+  <title>算法-分而治之第一篇 - 工具人小方的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -160,12 +160,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://qiniuyun.fxhstudy.com/bg.jpg') no-repeat center center;
+         style="background: url('https://qiniuyun.fxhstudy.com/Algorithm1.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="设计模式8-Flyweight">
+            <span class="h2" id="subtitle" title="算法-分而治之第一篇">
               
             </span>
 
@@ -175,8 +175,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-09-17 22:52" pubdate>
-        September 17, 2021 pm
+      <time datetime="2022-02-16 21:20" pubdate>
+        February 16, 2022 pm
       </time>
     </span>
   
@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      651 字
+      337 字
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      3
        分钟
     </span>
   
@@ -227,34 +227,46 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">设计模式8-Flyweight</h1>
+            <h1 style="display: none">算法-分而治之第一篇</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：4 months ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="享元模式"><a href="#享元模式" class="headerlink" title=" 享元模式"></a><a href="https://www.runoob.com/design-pattern/flyweight-pattern.html" target="_blank" rel="noopener"> 享元模式</a></h2><p><font size="4" face="PingFang SC">&emsp;&emsp;享元模式（Flyweight Pattern）主要用于减少创建对象的数量，以减少内存占用和提高性能。这种类型的设计模式属于<font color="#FFB6C1" size="5" face="Open Sans"> 结构型模式 </font>，它提供了减少对象数量从而改善应用所需的对象结构的方式。</p>
-<p>享元模式尝试重用现有的同类对象，如果未找到匹配的对象，则创建新对象。</p>
-<p>如果想了解享元模式的具体的介绍，菜鸟教程介绍得比较详细↓<br><a href="https://www.runoob.com/design-pattern/flyweight-pattern.html" target="_blank" rel="noopener" class="LinkCard">菜鸟教程-享元模式<br></a></p>
-<h2 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h2><p><img src="https://qiniuyun.fxhstudy.com/Flyweight.png" srcset="/img/loading.gif" title="享元模式"><br></p>
-<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p>优点： 大大减少对象的创建，降低系统的内存，使效率提高。</p>
-<p>缺点： 提高了系统的复杂度，需要分离出外部状态和内部状态，而且外部状态具有固有化的性质，不应该随着内部状态的变化而变化，否则会造成系统的混乱。</p>
-<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p> 1、系统有大量相似对象。<br> 2、需要缓冲池的场景。</p>
-<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><p>享元模式比较简单，就是重复利用对象，是一种”池”的思想。</p>
-<p>这里我就直接介绍一下java中的享元模式。</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        String s1 = <span class="hljs-string">"abc"</span>;<br>        String s2 = <span class="hljs-string">"abc"</span>;<br>        String s3 = <span class="hljs-keyword">new</span> String(<span class="hljs-string">"abc"</span>);<br>        String s4 = <span class="hljs-keyword">new</span> String(<span class="hljs-string">"abc"</span>);<br><br>        <span class="hljs-comment">/**<br>         * 在栈中new出来的String对象，如果发现字符串在常量池中存在，那么就指向这个字符串<br>         */</span><br>        System.out.println(s1 == s2); <span class="hljs-comment">// true</span><br>        System.out.println(s1 == s3); <span class="hljs-comment">// false</span><br>        System.out.println(s3 == s4); <span class="hljs-comment">// false</span><br>        System.out.println(s3.intern() == s1); <span class="hljs-comment">// true intern()去拿常量池中的字符串</span><br>        System.out.println(s3.intern() == s4.intern()); <span class="hljs-comment">// true</span><br>    &#125;<br></code></pre></div></td></tr></table></figure>
+              <font size="4" face="PingFang SC">
 
-<p>输出结果</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">true</span><br><span class="hljs-keyword">false</span><br><span class="hljs-keyword">false</span><br><span class="hljs-keyword">true</span><br><span class="hljs-keyword">true</span><br></code></pre></div></td></tr></table></figure>
-
-<p>解释一下为什么<br>在Java中，字符串都放在一个常量池中，s1与s2,其实指向的就是同一个对象，所以为true;<br>而s3和s4都是在堆栈中new出来的String对象，那么s3和s4的地址肯定是不一样的，所以s1!=s3,s3!=s4;<br>intern() 方法返回字符串对象的规范化表示形式<br>intern()作用就是去拿常量池中的字符串。如果new出来的是常量的话，那么在堆栈中就指向这个字符串，所以s3.intern()==s1,s3.intern()==s4.intern()</p>
-<p>单个享元模式是很好理解的,难度大一点的享元模式是和上一章学的Composite(组合模式)结合的。</p>
-<p><img src="https://qiniuyun.fxhstudy.com/Flyweight%2BComposite.png" srcset="/img/loading.gif" title="Flyweight+Composite"><br></p>
-<p>图中，A、B…为叶子节点,ABBAAB可以理解为子节点,但是他们共同组成了享元模式。<br>这就是享元模式+组合模式的应用,这里就不多扩展了,主要还是了解享元模式。</p>
+<p>这个学期有一门算法课，所以现在打算开始比较系统地学习一些经典的算法以及思想。</p>
+<h2 id="分而治之思想"><a href="#分而治之思想" class="headerlink" title="分而治之思想"></a>分而治之思想</h2><p>“分而治之”( Divide and conquer)方法(又称“分治术”) ，是有效算法设计中普遍采用的一种技术。</p>
+<p>所谓“分而治之” 就是把一个复杂的算法问题按一定的“分解”方法分为等价的规模较小的若干部分，然后逐个解决，分别找出各部分的解，把各部分的解组成整个问题的解。</p>
+<p>对于一些问题，如果我们使用枚举法，并不能满足于时间复杂度的需求，此时，分而治之法就是一个不错的选择。<br>例如对于很经典的排序问题，如果我们使用爆破枚举的方法去解决，时间复杂度是n²,而如果用归并排序(分治术)去设计的话，时间复杂度就是nlogn了。</p>
+<p>分而治之可以用我们平常说的大事化小来理解。</p>
+<p>而在分治术中，很经典的问题之一就是最大子数组和问题了。</p>
+<h2 id="最大子数组和问题"><a href="#最大子数组和问题" class="headerlink" title="最大子数组和问题"></a>最大子数组和问题</h2><font color="#856363" size="4" face="Open Sans">
+输入：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;给定一个数组X[1..n],对于任意一对数组下标为l,r(l<=r)的非空子数组，其和记为: 
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S(l,r)=sum(X[i])    (l<=i<=r)
+<br/>
+<br/>
+输出：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    求出S(l,r)的最大值，记为Smax
 </font>
+
+
+<h3 id="方法一-暴力枚举"><a href="#方法一-暴力枚举" class="headerlink" title="方法一 暴力枚举"></a>方法一 暴力枚举</h3><p>意思就是在下标l-r的数组中，找出和最大的子数组。</p>
+<p>这题难度对于没有进行过算法练习的人来讲，很容易想到的就是枚举法：</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Enum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr[], <span class="hljs-keyword">int</span> n)</span></span>&#123;<br>	<span class="hljs-keyword">int</span> <span class="hljs-built_in">max</span> = <span class="hljs-number">-128</span>;		<span class="hljs-comment">// 这里是将max设置为无限小</span><br>	<span class="hljs-keyword">int</span> temp;<br>	<span class="hljs-keyword">int</span> l,r,i;<br>	<span class="hljs-keyword">for</span>(l=<span class="hljs-number">0</span>; l&lt;n; l++)&#123;	<span class="hljs-comment">// 一层循环</span><br>		<span class="hljs-keyword">for</span>(r=l; r&lt;n; r++)&#123;	<span class="hljs-comment">// 二层循环</span><br>			temp = <span class="hljs-number">0</span>;<br>			<span class="hljs-keyword">for</span>(i=l; i&lt;=r; i++)&#123;	<span class="hljs-comment">// 三层循环</span><br>				temp += arr[i];<br>			&#125;<br>			<span class="hljs-keyword">if</span>(<span class="hljs-built_in">max</span> &lt; temp)&#123;<br>				<span class="hljs-built_in">max</span> = temp;<br>			&#125;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>;	<span class="hljs-comment">// 返回找到的最大值</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>暴力枚举法的总体思路就是，将每一种可能都进行遍历，选出最大值。<br>对于第一层循环，是先将数组l-r下标的数组全部进行遍历<br>对于第二层循环，是基于第一层循环下的基础上，对于含有arr[l]的子数组进行遍历<br>对于第三层循环，是将每一种可能进行全部累加</p>
+<p>爆破枚举的时间复杂度非常高，达到了O(N³)</p>
+<h3 id="方法二-优化枚举"><a href="#方法二-优化枚举" class="headerlink" title="方法二 优化枚举"></a>方法二 优化枚举</h3><p>仔细分析一下我们上面设计的代码，可以发现，对于第三层的循环是很多余的，存在重复计算，我们完全可以去除这一层循环。<br>思路是，对于第二层循环，我们将temp保留，这样就可以减少一次循环</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Enum_Optimize</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr[], <span class="hljs-keyword">int</span> n)</span></span>&#123;<br>	<span class="hljs-keyword">int</span> <span class="hljs-built_in">max</span> = <span class="hljs-number">-128</span>;<br>	<span class="hljs-keyword">int</span> temp;<br>	<span class="hljs-keyword">int</span> l,r;<br>	<span class="hljs-keyword">for</span>(l=<span class="hljs-number">0</span>; l&lt;n; l++)&#123;	<span class="hljs-comment">// 一层循环</span><br>		temp = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">for</span>(r=l; r&lt;n; r++)&#123;	<span class="hljs-comment">// 二层循环</span><br>			temp += arr[r];<br>			<span class="hljs-keyword">if</span>(<span class="hljs-built_in">max</span> &lt; temp)&#123;<br>				<span class="hljs-built_in">max</span> = temp;<br>			&#125;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>和暴力枚举的区别并不大，但优化之后的枚举，时间复杂度为O(N²)，相比暴力枚举大大减少</p>
+<h3 id="方法三-分而治之"><a href="#方法三-分而治之" class="headerlink" title="方法三 分而治之"></a>方法三 分而治之</h3></font>
             </div>
             <hr>
             <div>
@@ -263,9 +275,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/">程序猿</a>
-                    
-                      <a class="hover-with-bg" href="/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/Java/">Java</a>
+                      <a class="hover-with-bg" href="/categories/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/">经典算法</a>
                     
                   </div>
                 
@@ -273,9 +283,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
                     
                   </div>
                 
@@ -288,18 +296,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/a3451f99.html">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">设计模式9-Proxy</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/3a0bc7ed.html">
-                        <span class="hidden-mobile">聊聊最近</span>
+                      <a href="/article/d6f478e0.html">
+                        <span class="hidden-mobile">总结2021</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

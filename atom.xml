@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fxhstudy.com/"/>
-  <updated>2021-12-31T15:37:03.370Z</updated>
+  <updated>2022-02-16T14:44:38.478Z</updated>
   <id>https://fxhstudy.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>算法-分而治之第一篇</title>
+    <link href="https://fxhstudy.com/article/ba16a885.html"/>
+    <id>https://fxhstudy.com/article/ba16a885.html</id>
+    <published>2022-02-16T13:20:35.000Z</published>
+    <updated>2022-02-16T14:44:38.478Z</updated>
+    
+    <content type="html"><![CDATA[<font size="4" face="PingFang SC"><p>这个学期有一门算法课，所以现在打算开始比较系统地学习一些经典的算法以及思想。</p><h2 id="分而治之思想"><a href="#分而治之思想" class="headerlink" title="分而治之思想"></a>分而治之思想</h2><p>“分而治之”( Divide and conquer)方法(又称“分治术”) ，是有效算法设计中普遍采用的一种技术。</p><p>所谓“分而治之” 就是把一个复杂的算法问题按一定的“分解”方法分为等价的规模较小的若干部分，然后逐个解决，分别找出各部分的解，把各部分的解组成整个问题的解。</p><p>对于一些问题，如果我们使用枚举法，并不能满足于时间复杂度的需求，此时，分而治之法就是一个不错的选择。<br>例如对于很经典的排序问题，如果我们使用爆破枚举的方法去解决，时间复杂度是n²,而如果用归并排序(分治术)去设计的话，时间复杂度就是nlogn了。</p><p>分而治之可以用我们平常说的大事化小来理解。</p><p>而在分治术中，很经典的问题之一就是最大子数组和问题了。</p><h2 id="最大子数组和问题"><a href="#最大子数组和问题" class="headerlink" title="最大子数组和问题"></a>最大子数组和问题</h2><font color="#856363" size="4" face="Open Sans">输入：<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;给定一个数组X[1..n],对于任意一对数组下标为l,r(l<=r)的非空子数组，其和记为: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S(l,r)=sum(X[i])    (l<=i<=r)<br/><br/>输出：<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    求出S(l,r)的最大值，记为Smax</font><h3 id="方法一-暴力枚举"><a href="#方法一-暴力枚举" class="headerlink" title="方法一 暴力枚举"></a>方法一 暴力枚举</h3><p>意思就是在下标l-r的数组中，找出和最大的子数组。</p><p>这题难度对于没有进行过算法练习的人来讲，很容易想到的就是枚举法：</p><figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Enum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr[], <span class="hljs-keyword">int</span> n)</span></span>&#123;<br><span class="hljs-keyword">int</span> <span class="hljs-built_in">max</span> = <span class="hljs-number">-128</span>;<span class="hljs-comment">// 这里是将max设置为无限小</span><br><span class="hljs-keyword">int</span> temp;<br><span class="hljs-keyword">int</span> l,r,i;<br><span class="hljs-keyword">for</span>(l=<span class="hljs-number">0</span>; l&lt;n; l++)&#123;<span class="hljs-comment">// 一层循环</span><br><span class="hljs-keyword">for</span>(r=l; r&lt;n; r++)&#123;<span class="hljs-comment">// 二层循环</span><br>temp = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span>(i=l; i&lt;=r; i++)&#123;<span class="hljs-comment">// 三层循环</span><br>temp += arr[i];<br>&#125;<br><span class="hljs-keyword">if</span>(<span class="hljs-built_in">max</span> &lt; temp)&#123;<br><span class="hljs-built_in">max</span> = temp;<br>&#125;<br>&#125;<br>&#125;<br><span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>;<span class="hljs-comment">// 返回找到的最大值</span><br>&#125;<br></code></pre></div></td></tr></table></figure><p>暴力枚举法的总体思路就是，将每一种可能都进行遍历，选出最大值。<br>对于第一层循环，是先将数组l-r下标的数组全部进行遍历<br>对于第二层循环，是基于第一层循环下的基础上，对于含有arr[l]的子数组进行遍历<br>对于第三层循环，是将每一种可能进行全部累加</p><p>爆破枚举的时间复杂度非常高，达到了O(N³)</p><h3 id="方法二-优化枚举"><a href="#方法二-优化枚举" class="headerlink" title="方法二 优化枚举"></a>方法二 优化枚举</h3><p>仔细分析一下我们上面设计的代码，可以发现，对于第三层的循环是很多余的，存在重复计算，我们完全可以去除这一层循环。<br>思路是，对于第二层循环，我们将temp保留，这样就可以减少一次循环</p><figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Enum_Optimize</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr[], <span class="hljs-keyword">int</span> n)</span></span>&#123;<br><span class="hljs-keyword">int</span> <span class="hljs-built_in">max</span> = <span class="hljs-number">-128</span>;<br><span class="hljs-keyword">int</span> temp;<br><span class="hljs-keyword">int</span> l,r;<br><span class="hljs-keyword">for</span>(l=<span class="hljs-number">0</span>; l&lt;n; l++)&#123;<span class="hljs-comment">// 一层循环</span><br>temp = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span>(r=l; r&lt;n; r++)&#123;<span class="hljs-comment">// 二层循环</span><br>temp += arr[r];<br><span class="hljs-keyword">if</span>(<span class="hljs-built_in">max</span> &lt; temp)&#123;<br><span class="hljs-built_in">max</span> = temp;<br>&#125;<br>&#125;<br>&#125;<br><span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure><p>和暴力枚举的区别并不大，但优化之后的枚举，时间复杂度为O(N²)，相比暴力枚举大大减少</p><h3 id="方法三-分而治之"><a href="#方法三-分而治之" class="headerlink" title="方法三 分而治之"></a>方法三 分而治之</h3></font>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;font size=&quot;4&quot; face=&quot;PingFang SC&quot;&gt;
+
+&lt;p&gt;这个学期有一门算法课，所以现在打算开始比较系统地学习一些经典的算法以及思想。&lt;/p&gt;
+&lt;h2 id=&quot;分而治之思想&quot;&gt;&lt;a href=&quot;#分而治之思想&quot; class=&quot;headerlink&quot; title
+      
+    
+    </summary>
+    
+    
+      <category term="经典算法" scheme="https://fxhstudy.com/categories/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://fxhstudy.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>总结2021</title>
@@ -557,36 +586,6 @@
       
       
         &lt;h2 id=&quot;桥接模式&quot;&gt;&lt;a href=&quot;#桥接模式&quot; class=&quot;headerlink&quot; title=&quot; 桥接模式&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://www.runoob.com/design-pattern/bridge-pattern.html&quot; targe
-      
-    
-    </summary>
-    
-    
-      <category term="程序猿" scheme="https://fxhstudy.com/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"/>
-    
-      <category term="Java" scheme="https://fxhstudy.com/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/Java/"/>
-    
-    
-      <category term="Java" scheme="https://fxhstudy.com/tags/Java/"/>
-    
-      <category term="设计模式" scheme="https://fxhstudy.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式12-Adapter</title>
-    <link href="https://fxhstudy.com/article/48e42bcd.html"/>
-    <id>https://fxhstudy.com/article/48e42bcd.html</id>
-    <published>2021-09-26T07:23:18.000Z</published>
-    <updated>2021-10-07T12:57:36.464Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="适配器模式"><a href="#适配器模式" class="headerlink" title=" 适配器模式"></a><a href="https://www.runoob.com/design-pattern/adapter-pattern.html" target="_blank" rel="noopener"> 适配器模式</a></h2><p><font size="4" face="PingFang SC">&emsp;&emsp;适配器模式（Adapter Pattern）是作为两个不兼容的接口之间的桥梁。这种类型的设计模式属于<font color="#FFB6C1" size="5" face="Open Sans">  结构型模式  </font>，它结合了两个独立接口的功能。</p><p>这种模式涉及到一个单一的类，该类负责加入独立的或不兼容的接口功能。举个真实的例子，读卡器是作为内存卡和笔记本之间的适配器。您将内存卡插入读卡器，再将读卡器插入笔记本，这样就可以通过笔记本来读取内存卡</p><p>如果想了解适配器模式的具体的介绍，菜鸟教程介绍得比较详细↓<br><a href="https://www.runoob.com/design-pattern/adapter-pattern.html" target="_blank" rel="noopener" class="LinkCard">菜鸟教程-适配器模式<br></a></p><h2 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h2><p><img src="https://qiniuyun.fxhstudy.com/Adapter.png" srcset="/img/loading.gif" title="适配器模式"><br></p><h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p>优点： </p><p>1、可以让任何两个没有关联的类一起运行。<br>2、提高了类的复用。<br>3、增加了类的透明度。<br>4、灵活性好</p><p>缺点： </p><p>1、过多地使用适配器，会让系统非常零乱，不易整体进行把握。比如，明明看到调用的是 A 接口，其实内部被适配成了 B 接口的实现，一个系统如果太多出现这种情况，无异于一场灾难。因此如果不是很有必要，可以不使用适配器，而是直接对系统进行重构。<br>2.由于 JAVA 至多继承一个类，所以至多只能适配一个适配者类，而且目标类必须是抽象类。</p><h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>有动机地修改一个正常运行的系统的接口，这时应该考虑使用适配器模式。</p><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><p>这个模式很简单,也很容易理解,所以这里就简单介绍一下</p><p>乍一看是不是感觉这个模式,好像我们没有用到过,看完下面的代码,你就有一些了解了</p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>        FileInputStream fis = <span class="hljs-keyword">new</span> FileInputStream(<span class="hljs-string">"F:/1.txt"</span>);<br>        InputStreamReader isr = <span class="hljs-keyword">new</span> InputStreamReader(fis);<br>        BufferedReader br = <span class="hljs-keyword">new</span> BufferedReader(isr);<br>        String line = br.readLine();<br>        <span class="hljs-keyword">while</span> (line != <span class="hljs-keyword">null</span> &amp;&amp; !line.equals(<span class="hljs-string">""</span>))&#123;<br>            System.out.println(line);<br>        &#125;<br>        br.close();<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure><p>这个就是适配器模式</p><p>解释一下代码,我们想要将1.txt文件按行读入,但是 FileInputStream 只能够按照字节流读入,<br>于是我们创建 InputStreamReader 类将字节流转化为 reader ,这里的 InputStreamReader 就是适配器<br>接着,创建 BufferedReader 将 reader 转化为按照行读入</p><p>这就是我们已经遇到过的适配器模式,理解起来很简单,<br>不是很难的设计模式,这里就不多解释了(大家也可以去菜鸟教程去看看它的例子)</p></font>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;适配器模式&quot;&gt;&lt;a href=&quot;#适配器模式&quot; class=&quot;headerlink&quot; title=&quot; 适配器模式&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://www.runoob.com/design-pattern/adapter-pattern.html&quot; t
       
     
     </summary>
