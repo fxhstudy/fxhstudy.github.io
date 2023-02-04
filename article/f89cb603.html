@@ -231,7 +231,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 years ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
@@ -242,21 +242,21 @@
 <p>假设我们往二叉树中插入9,8,7,6,5,4,3,2,1,首先插入9，再一次插入数字，你会发现什么（这图我还做了好久…）</p>
 <a id="more"></a>
 
- <img src="https://qiniuyun1.fxhstudy.com/%E7%BA%A2%E9%BB%91%E6%A0%91.png" srcset="/img/loading.gif"  alt="1" />
-  <img src="https://qiniuyun1.fxhstudy.com/%E7%BA%A2%E9%BB%91%E6%A0%911.png" srcset="/img/loading.gif"  alt="1" />
+ <img src="https://qiniuyun.fxhstudy.com/%E7%BA%A2%E9%BB%91%E6%A0%91.png" srcset="/img/loading.gif"  alt="1" />
+  <img src="https://qiniuyun.fxhstudy.com/%E7%BA%A2%E9%BB%91%E6%A0%911.png" srcset="/img/loading.gif"  alt="1" />
 
 <p>是不是会发现所有的数据都是父节点的左子节点，想一想，如果这在查询的时候，效率是不是很低，原因就是这个树并不平衡。<br>这时候我们就要考虑如何使这个树平衡，让生成的树像完全二叉树那样。</p>
 <h2 id="2-3-结点"><a href="#2-3-结点" class="headerlink" title="2-,3-结点"></a>2-,3-结点</h2><p>在真正接触红黑树之前，我要先介绍一下2-，3-结点。</p>
 <h3 id="·-2-结点："><a href="#·-2-结点：" class="headerlink" title="· 2-结点："></a>· 2-结点：</h3><p>&ensp;&ensp;&ensp;&ensp;含有一个键(及其对用的值)和两条链，左链接的键值都小于该节点，右链接的键值都大于该结点。</p>
 <h3 id="·-3-结点："><a href="#·-3-结点：" class="headerlink" title="· 3-结点："></a>· 3-结点：</h3><p>&ensp;&ensp;&ensp;&ensp;含有两个键(及其对应的值)和三条链，左链接指向树中的键都小于该结点，中链接指向树中介于该结点的两键之间，右链接指向树中的键都大于该结点。</p>
- <img src="https://qiniuyun1.fxhstudy.com/%E7%BA%A2%E9%BB%91%E6%A0%912.png" srcset="/img/loading.gif"  alt="1" />
+ <img src="https://qiniuyun.fxhstudy.com/%E7%BA%A2%E9%BB%91%E6%A0%912.png" srcset="/img/loading.gif"  alt="1" />
 
 <p>看到这幅图有没有感觉，卧槽还可以这样，的感觉。</p>
 <p>而在红黑树中就可以通过链接的颜色来实现这种结构</p>
 <h1 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h1><p>红黑树中的链接分为两种类型：</p>
 <p>红链接：将两个2-结点连接起来，构成一个3-结点（上图中的3-结点）；<br>黑链接：是普通的节点</p>
 <p>简单来说，要实现上图的那种结构，我们只需要如图所示即可</p>
- <img src="https://qiniuyun1.fxhstudy.com/%E7%BA%A2%E9%BB%91%E6%A0%913.png" srcset="/img/loading.gif"  alt="1" />
+ <img src="https://qiniuyun.fxhstudy.com/%E7%BA%A2%E9%BB%91%E6%A0%913.png" srcset="/img/loading.gif"  alt="1" />
 
 <p>E-J,就相当于C-E。</p>
 <h2 id="红黑树定义"><a href="#红黑树定义" class="headerlink" title="红黑树定义"></a>红黑树定义</h2><p>1、红链接均为左链接<br>2、没有任何一个结点同时和两条红链接相连；<br>3、该树是完美黑色平衡，即任意空链接到根结点的路径上的黑链接树都相等</p>
