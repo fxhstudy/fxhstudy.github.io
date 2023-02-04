@@ -4,6 +4,81 @@
   
   
   <entry>
+    <title>mac</title>
+    <link href="/article/1713eb65.html"/>
+    <url>/article/1713eb65.html</url>
+    
+    <content type="html"><![CDATA[<font size="4" face="PingFang SC"><p>开学的时候更换了mac生产力，用了一段时间后，发现确实还可以，就是感觉生态没有Windows系统好，而且很多软件做得都不是很好。。。</p><p>不过mac系统上一些软件还是很好用的，但你会发现mac上很多软件都是需要订阅你才可以用，而有些订阅可能价格还比较贵，就很难受了。</p><p>以上的去年年初的想法，现在其实我比较支持为好用的软件付费的，当然是我认为能用的上的软件，</p><p>废话不多说，这篇我就介绍一下，我用起来不错的几款比较高效的工具</p><p>&nbsp;</p><h3 id='effie★★★★★'>Effie「★★★★★」</h3><p>放在第一位的是一款写作软件，Win、Mac、iPhone以及Android版本都有，如果你用的不是Mac，可以选择Win版本。这款软件可以说是我从Win到Mac用过最好的写作软件了，最开始写博客用的是Sublime，然后再到Typora，但Effie的排版以及界面吸引了我，就和它介绍的一样沉浸写作，确实非常推荐。不订阅的话和订阅其实差别都不大，我就属于没有订阅，白嫖那一类，哈哈</p><p><img src="https://qiniuyun.fxhstudy.com/Effie.PNG" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>界面真的是设计得太好看了，强烈推荐(这里绝不是打广告)。</p><p>&nbsp;</p><h3 id='downie★★★★★'>Downie「★★★★★」</h3><p>强烈推荐，可以下载网页中的视频，包括bilibili，YouTube等等，个人认为是mac上极少数令我非常满意的软件。这款软件需要收费，买断制，小版本可以免费更新。虽然用到的不频繁，但用到的时候你会很感谢有这款软件。</p><p><img src="https://qiniuyun.fxhstudy.com/Downie.PNG" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>&nbsp;</p><h3 id='iina★★★★☆'>IINA「★★★★☆」</h3><p>免费视频播放软件里面算是很好的了，IINA这款软件很简洁。我之前有付费买断一个叫OmniPlayer的软件，挺多人说还好，我就买了。。。但现在我主要用的还是IINA，这款软件界面和功能都挺不错。关键是这款软件，可以直接使用URL来观看网页中的视频，而OmniPlayer虽然也有这个功能，但是很多都是识别错误。。。(Win可以使用PotPlayer，我用到现在最好的视频播放软件了，自由度很高，强烈推荐)</p><p><img src="https://qiniuyun.fxhstudy.com/IINA.PNG" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>&nbsp;</p><h3 id='motri★★★☆☆'>Motri「★★★☆☆」</h3><p>算是迅雷的替代品吧，没有钱就选这个，如果能在网上找比较好的Tracker 服务器资源，那基本上就是充了钱的迅雷，还是得看运气。我现在看美剧下载的种子就是用这个软件，用了挺久的了，总体来讲，有好的Tracker 服务器资源，即便是比较偏的资源，速度也能上到2~3M/s,比迅雷好。</p><p><img src="https://qiniuyun.fxhstudy.com/Motri.PNG" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>&nbsp;</p><h3 id='qbittorrent★★☆☆☆'>qBittorrent「★★☆☆☆」</h3><p>和Motri作用一样，个人更加喜欢Motri的界面，所以这个很少用，这个更适合爱折腾的用户，功能更多。</p><p><img src="https://qiniuyun.fxhstudy.com/qBittorrent.PNG" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>&nbsp;</p><p>&nbsp;</p><p>以上除了Effie和qBittorrent，基本上都是Mac独占的，都是用起来比较好用的软件，还有一些软件刚用一段时间，后续可能会继续更新。</p><p>&nbsp;</p><p>&nbsp;</p></font>]]></content>
+    
+    
+    <categories>
+      
+      <category>效率</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>效率</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>二进制深度思考</title>
+    <link href="/article/b85d5ece.html"/>
+    <url>/article/b85d5ece.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="之前也写过一些有关于二进制的文章，但总感觉有一些地方没有真正了解其意义。备考期间，仔细查阅了一些资料，这里记录一下。"><a href="#之前也写过一些有关于二进制的文章，但总感觉有一些地方没有真正了解其意义。备考期间，仔细查阅了一些资料，这里记录一下。" class="headerlink" title="之前也写过一些有关于二进制的文章，但总感觉有一些地方没有真正了解其意义。备考期间，仔细查阅了一些资料，这里记录一下。"></a>之前也写过一些有关于二进制的文章，但总感觉有一些地方没有真正了解其意义。备考期间，仔细查阅了一些资料，这里记录一下。</h2><font size="4" face="PingFang SC"><p>关于负数底层为什么是取反加一</p><p>在实现硬件的加减乘除时，每一个运算用的是一套逻辑运算规则。</p><p>目的就是为了使正负相加时，得出正确的结果，所以采用了负数取反加一的策略。</p><p>&nbsp;</p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// 输出二进制</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num)</span></span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">31</span>; i &amp;gt; <span class="hljs-number">0</span>; i--)&#123;<br>        System.out.print((num &amp;amp; (i&amp;lt;&amp;lt;<span class="hljs-number">32</span>)) == <span class="hljs-number">0</span> ? &amp;quot;<span class="hljs-number">0</span>&amp;quot; : &amp;quot;<span class="hljs-number">1</span>&amp;quot;);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure><p>&nbsp;</p><p>&nbsp;</p><p>5 --&gt; 0000 0101</p><p>-5--&gt; 1111 1011</p><p>&nbsp;</p><p>4  --&gt; 0000 0100</p><p>-4 --&gt; 1111 1100</p><p>   --&gt;  0000 0100</p><p>&nbsp;</p><p>1111 1011</p><p>0000 0101</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>tips: 补码真正的含义是 模 - 原码的绝对值</p><p>补码--让减法操作转变为加法操作，节省硬件成本</p><p>&nbsp;</p><p>&nbsp;</p><p>根据数论中模的性质，运算器采用模的性质将减法采用加法实现</p><p>例如 原码  0010 1011  有符号数表示 43  无符号数表示 43</p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-number">1010</span> <span class="hljs-number">1011</span>  有符号数表示 -<span class="hljs-number">43</span>  无符号数表示 <span class="hljs-number">171</span><br></code></pre></div></td></tr></table></figure><p>&nbsp;</p><p>如果按照真值的算法来计算，43+(-43) = 0(0000 0000)</p><p>但按正常的原码来计算的话,0010 1011 (43)</p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">+<span class="hljs-number">1010</span> <span class="hljs-number">1011</span>  (-<span class="hljs-number">43</span>)<br>=<span class="hljs-number">1101</span> <span class="hljs-number">0110</span>  (-<span class="hljs-number">86</span>)<br></code></pre></div></td></tr></table></figure><p>&nbsp;</p><p>可以发现这样计算根本不可能实现我们的需求</p><p>&nbsp;</p><p>而我们的需求是</p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"> <span class="hljs-number">0010</span> <span class="hljs-number">1011</span><br>-<span class="hljs-number">0010</span> <span class="hljs-number">1011</span><br>=<span class="hljs-number">0000</span> <span class="hljs-number">0000</span><br></code></pre></div></td></tr></table></figure><p>&nbsp;</p><p>此时就需要我们采用模的原理了，具体可以自己查阅资料</p><p>对于8bit为一个存储单元的的计算机来讲，计算时溢出的数，就自动去除了，所以计算机自动实现了mod(模)2的⑧次方。</p><p>根据模的性质，模-原码绝对值 = 原码的补数</p><p>1,0000 0000 - 0010 1011(-43原码的绝对值) = 1101 0101</p><p>而此时你会发现，所得的补数就是补码</p><p>而此时的计算就是</p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">   <span class="hljs-number">0010</span> <span class="hljs-number">1011</span><br>  +<span class="hljs-number">1101</span> <span class="hljs-number">0101</span><br>=<span class="hljs-number">1</span>,<span class="hljs-number">0000</span> <span class="hljs-number">0000</span><br></code></pre></div></td></tr></table></figure><p>此时只有8位存数，那么结果也就是 0000 0000</p><p>&nbsp;</p><p>采用模运算实现减法，可以大大减少硬件的开发成本，底层实现加法和实现减法难度师大的不一样的</p><p>&nbsp;</p><p>至于补码的取法取反加一，根据模的性质</p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"> <span class="hljs-number">0010</span> <span class="hljs-number">1011</span>(-<span class="hljs-number">43</span>的绝对值)<br>+<span class="hljs-number">1101</span> <span class="hljs-number">0100</span>(取反)<br>=<span class="hljs-number">1111</span> <span class="hljs-number">1111</span><br></code></pre></div></td></tr></table></figure><p>而1111 1111 + 1 =1,0000 0000</p><p>是不是就可以解释为什么补码是取反加1</p><p>注意在计算补码时 符号位是不变，这里我们是通过模的性质来计算的，所以是-43的绝对值。</p><p>&nbsp;</p><p>所以总的来讲，补码的原意是根据模的性质来的，而补码的意义是为了使硬件不必实现硬件减法仅仅通过加法来实现逻辑上的减法</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></font>]]></content>
+    
+    
+    <categories>
+      
+      <category>小知识点</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>程序猿</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>408-操作系统</title>
+    <link href="/article/c276813a.html"/>
+    <url>/article/c276813a.html</url>
+    
+    <content type="html"><![CDATA[<font size="4" face="PingFang SC"><p>操作系统知识点也比较多，但每年难度不是很大，主要还是理解➕记忆。幕布笔记：<a href='https://www.mubucm.com/doc/8-mMMLGwgG' target='_blank' class='url'>https://www.mubucm.com/doc/8-mMMLGwgG</a></p><p>&nbsp;</p><h3 id='📚概论'>📚概论</h3><figure><table><thead><tr><th>知识点</th></tr></thead><tbody><tr><td>1.CPU从核心态切换到用户态的指令也是特权指令</td></tr><tr><td>2.处于内核态的操作：时钟管理，中断处理，设备驱动，进程管理，存储器管理，设备管理</td></tr><tr><td>3.发生中断或异常时，运行用户态的CPU会立即进入核心态，这是通过<span style='color:red;background:背景颜色;font-size:文字大小;'>硬件</span>完成的。但对中断或者异常的处理，需要操作系统(和驱动程序)完成</td></tr><tr><td>4.访管指令(陷入指令/trap)：发起系统调用，请求操作系统提供服务，是在<span style='color:red;background:背景颜色;font-size:文字大小;'>用户态</span>使用的，所以不可能是特权指令</td></tr><tr><td>5.中断时，<span style='color:red;background:背景颜色;font-size:文字大小;'>硬件</span>自动保存中断程序的断点(即PC和PSW)。通用寄存器是由操作系统保存。硬件找到中断信号对应的中断向量，中断向量指明中断服务程序入口地址(各中断向量统一存放在中断向量表中，该表由操作系统初始化)</td></tr><tr><td>6.用户通过<span style='color:red;background:背景颜色;font-size:文字大小;'>硬件</span>中断机制完成由用户态到核心态的转换，通过访管指令请求。程序异常通过异常处理来进入核心态</td></tr><tr><td>7.大多数计算机系统内核包括四个方面，时钟管理，中断机制，原语和系统控制的数据结构及处理(实际上是系统调用的类的指令(广义指令))。这里注意区分，系统调用，执行一定发生在核心态，而调用可能发生在用户态(也就是用户程序进行了调用)</td></tr><tr><td>8.子程序调用只需保存PC(调用就相当于把子程序的代码替换函数，所以不需要保存状态寄存器)，而中断处理则需要保存PC和PSWR(中断相当于我正在执行，突然去执行其他的程序，是一定需要保存程序的当前状态的)</td></tr><tr><td>9.有关常见的特权指令(或者需要变态的操作)：有关对<span style='color:red;background:背景颜色;font-size:文字大小;'>I/O设备操作</span>的指令；有关访问程序状态的指令；存取<span style='color:red;background:背景颜色;font-size:文字大小;'>特殊寄存器</span>的指令；其他</td></tr><tr><td>10.系统调用发生在用户态,执行在内核态; 外部中断也可以发生在用户态,执行在内核态; 进程切换一定发生并且执行在<span style='color:red;background:背景颜色;font-size:文字大小;'>内核态</span>,这是操作系统的内核程序（属于系统调用执行过程中的事件）; 缺页也是发生在用户态,在内核态处理（确实是大部分发生在用户态下）</td></tr><tr><td>11.系统调用不一定需要专门的硬件，一定需要专门硬件的有地址映射和中断系统</td></tr></tbody></table></figure><p>&nbsp;</p><h3 id='📚操作系统功能-进程管理'>📚操作系统功能-进程管理</h3><figure><table><thead><tr><th>知识点</th></tr></thead><tbody><tr><td>1.PCB申请失败，则进程创建失败；但如果是资源不足，则并不是创建失败，而是处于创建态(结合PCB是进程存在的唯一标准来理解)</td></tr><tr><td>2.用户级线程，用户线程切换不需要转换到内核空间，而内核级线程，用户进程的线程是运行在用户态的，而线程调度和管理是在内核实现的</td></tr><tr><td>3.一般把进程控制用的程序段称为原语，特点是，执行期间不允许中断，是一个不可分割的基本单位。</td></tr><tr><td>4.当被阻塞进程等待的某资源(不包括处理机)可用时，进程将会被唤醒<span style='color:red;background:背景颜色;font-size:文字大小;'>(进程唤醒)，注意‼️进程唤醒是由阻塞态转为就绪态 </span></td></tr><tr><td>5.同一进程中的各个线程拥有各自不同的地址空间（这句话是错的，应该是共享相同的地址空间）</td></tr><tr><td>6.键盘的输入不是多线程的特长(因为一个键盘，等待用户的输入，并且持续输入的速度很慢，一个线程即可)</td></tr><tr><td>7.c语言程序，编写时分为三个段。一般二进制代码和常量存放在正文段，动态分配的存储区在数据堆段，临时变量存放在数据栈段</td></tr><tr><td>8.「进程是多道程序环境中的完整程序」。这种说法是错误的，进程是动态的，而程序是静态的</td></tr><tr><td>9.「每个线程有自己独立的地址空间」这句话是错的，同一进程的各线程间共享进程的地址空间，不同进程拥有各自不同的地址空间</td></tr><tr><td>10.封闭性是指，进程执行的结果只取决于进程本身，不受外界影响。失去封闭性是不同速度下的结果不同</td></tr><tr><td>11.注意⚠️，线程可以独立运行，但是必须要父进程进行启动</td></tr><tr><td>12.在操作系统中，P,V操作是一种<span style='color:red;background:背景颜色;font-size:文字大小;'>低级进程通信原语</span>，它是不能被中断的。而不是系统调用命令</td></tr><tr><td>13.用PV操作实现进程<span style='color:red;background:背景颜色;font-size:文字大小;'>同步</span>，信号量的初值<span style='color:red;background:背景颜色;font-size:文字大小;'>是由用户决定的</span>。若期望的消息未产生，则对应的初值应该设为0；若期望消息已存在，则信号量的初值应该设为一个非0的正整数。例如生产者-消费者中empty为n，full为0，可以很好解释同步中信号量初值的问题。(望重视⚠️了解对PV大题有帮助)</td></tr><tr><td>14.互斥信号量的绝对值（|mutex|）为等待进入的进程数</td></tr><tr><td>15.死锁一定是由<span style='color:red;background:背景颜色;font-size:文字大小;'>两个或者两个以上</span>的进程产生，<span style='color:red;background:背景颜色;font-size:文字大小;'>一个</span>只会导致<span style='color:red;background:背景颜色;font-size:文字大小;'>饥饿</span>。</td></tr><tr><td>16.<span style='color:red;background:背景颜色;font-size:文字大小;'>资源有序分配策略</span>破坏的是循环等待条件；<span style='color:red;background:背景颜色;font-size:文字大小;'>一次性分配策略</span>破坏的是占有请求条件；<span style='color:red;background:背景颜色;font-size:文字大小;'>剥夺资源</span>破坏的是非剥夺条件；银行家算法判断的是<span style='color:red;background:背景颜色;font-size:文字大小;'>是否为不安全状态，不能检测是否发生死锁，死锁避免（硬币- 银避</span>；</td></tr><tr><td>17.注意⚠️⚠️，银行家算法(<span style='color:red;background:背景颜色;font-size:文字大小;'>死锁避免</span>)不会限制用户的申请资源的顺序，而<span style='color:red;background:背景颜色;font-size:文字大小;'>死锁预防</span>访问会限制，这是破坏了循环等待条件。(往年考过的知识点，408就喜欢反复考同一知识点)</td></tr><tr><td>18.模式切换不一定导致进程切换，要<span style='color:red;background:背景颜色;font-size:文字大小;'>进程切换一定要模式切换</span>(模式切换即变态)</td></tr><tr><td>19.在同一进程中，线程的切换不会引起进程切换。但从一个进程中的线程切换到另一个进程中的线程时，会引起进程切换。进程切换一定变态</td></tr><tr><td>20.注意内核临界区和普通临界区的区别</td></tr><tr><td>21.同步机制一定要遵循：空闲让进、忙则等待、有限等待、让权等待；而互斥可以不遵循让权等待（皮特森算法）</td></tr><tr><td>22.进程上下文切换时，需要保持的进程状态包括寄存器值、用户和系统内核栈状态</td></tr><tr><td>23.导致进程创建进程的典型事件：<span style='color:red;background:背景颜色;font-size:文字大小;'>用户登录；作业调度；提供服务；应用请求。📌<u><strong>设备分配不会导致创建进程，由内核自动完成。</strong></u></span></td></tr></tbody></table></figure><p>&nbsp;</p><h3 id='📚操作系统功能-内存管理'>📚操作系统功能-内存管理</h3><figure><table><thead><tr><th>知识点</th></tr></thead><tbody><tr><td>1.若采用多级页表机制，为查询方便，各级<span style='color:red;background:背景颜色;font-size:文字大小;'>页表大小不能超过一个页面。（32位系统，32=12+10+10（12是页内寻址，一页4KB，页表项为4B，字节寻址）二级页表；而64位系统=12+10+10+10+10+10+2，六级页表）</span><img src="https://api2.mubu.com/v3/document_image/a038367b-cc02-497a-8251-79e44e8004c3-6205003.jpg" srcset="/img/loading.gif" alt="a038367b-cc02-497a-8251-79e44e8004c3-6205003" style="zoom:50%;" /></td></tr><tr><td>2.<span style='color:red;background:背景颜色;font-size:文字大小;'>PC里面 SP里面存的都是逻辑地址，取完之后再去转换为物理地址访问</span></td></tr><tr><td>3.  <br><img src="https://api2.mubu.com/v3/document_image/27C820582ED04D811663926507.jpg" srcset="/img/loading.gif" alt="img" style="zoom:33%;" /></td></tr><tr><td>4.外部碎片可通过紧凑技术解决，但是需要要花费时间代价比较大</td></tr><tr><td>5.1、页表级数的判断，首先需要知道的是，每一级<span style='color:red;background:背景颜色;font-size:文字大小;'>只能有一张页表</span>(操作系统规定的)，所以我们计算需要多少级页表时，考虑的就是一张页表能够存多少页表项，例如64位操作系统，页面大小是4KB，一个页表项有4B大小，那么一页就能存1K个页表项，(这里的1K=1024)也就是说，这一页如果存下一级页表的信息的话，可以存1K个页表的首地址。而这一级也就是占了64位中的10位，容易算出，64-12=2+10+10+10+10+10，顶级页表存了两位二级页表项（也就是4个二级页表项)，二级页表存了10位三级页表项（也就是1024个三级页表项）。。。这样算下来就是六级。这里的12位表示的是页面大小。</td></tr><tr><td>5.2、注意缺页中断属于内部异常，因为缺页是与当前的指令有关系，所以是可以在指令执行期间响应的。页故障即缺页。<span style='color:red;background:背景颜色;font-size:文字大小;'>但是一定要注意，缺页发生在用户态</span>。之前对这个很困惑，明明内部异常不应该发生在内核态吗？其实这里就是误解了。用户程序发生缺页中断，而用户程序发生在用户态。假如目标内存页在物理内存中没有对应的页帧或者存在但无对应权限，CPU 就无法获取数据，这种情况下CPU就会报告一个缺页错误。由于CPU没有数据就无法进行计算，CPU罢工了用户进程也就出现了缺页中断，进程会从用户态切换到内核态，并将缺页中断交给内核处理。(参考文章：<a href='https://blog.csdn.net/universsky2015/article/details/115234769' target='_blank' class='url'>https://blog.csdn.net/universsky2015/article/details/115234769</a>)</td></tr><tr><td>6.页面置换算法中，注意理解缺页中断的次数(即缺页次数)和页面置换的次数。缺页中断次数还包括内存空闲，但页表不在内存调入的次数。</td></tr><tr><td>7.Belady异常只有FIFO算法才会出现，现象是所分配的物理块数增大而页故障不减反增的异常现象。</td></tr><tr><td>8.什么叫抖动(颠簸)？</td></tr><tr><td>9.弄清楚工作集和驻留集的关系</td></tr><tr><td>10.弄清楚页目录和页表的概念(OSp138)</td></tr><tr><td>11.注意理解程序<span style='color:red;background:背景颜色;font-size:文字大小;'>链接</span>时的三种方式(静态链接、装入时链接、运行时链接)、<span style='color:red;background:背景颜色;font-size:文字大小;'>装入</span>内存时(绝对装入、重定位装入、动态运行时装入)，他们各自的特点。理解<span style='color:red;background:背景颜色;font-size:文字大小;'>连续分配</span>的三种方式(单一连续分配、固定分区分配以及动态分区分配)特点</td></tr><tr><td>12.注意⚠️虚拟存储器：作业在运行前，不必全部装入内存，且在运行过程中也不必一直驻留内存。而分页存储管理方式，进程的页表驻留在内存中。</td></tr><tr><td>13.基本分页存储管理方式中，需要将作业全部装入内存，而请求调用则不需要</td></tr><tr><td>14.发生缺页后<img src="https://api2.mubu.com/v3/document_image/063F8FD1355546BB1664351372.jpg" srcset="/img/loading.gif" alt="063F8FD1355546BB1664351372" style="zoom:33%;" /></td></tr><tr><td>15.抖动<img src="https://api2.mubu.com/v3/document_image/72852C55DDDE44FD1664351522.jpg" srcset="/img/loading.gif" alt="72852C55DDDE44FD1664351522" style="zoom:33%;" /></td></tr></tbody></table></figure><p>16.系统调用总汇（零散的总结，不全面）</p><ul>  <li>特权指令与系统调用的区别</li>  <ul>      <li>特权指令是一类只能在核心态下执行的机器指令。而系统调用不是机器指令，它往往以函数调用的形式出现，实现操作系统提供的子功能，它是操作系统与用户的编程接口。在用户程序中可以使用系统调用来获得操作系统服务，在系统调用代码中可以使用特权指令</li>    </ul>  <li>系统调用</li>  <ul>    <li>1.创建新进程</li>    <li>2.进程共享空间是需要用到系统调用的（进程空间一般是独立的）</li>    <li>3.创建线程和终止线程的函数</li>    <li>4.进程调度：一个进程是通过系统调用的方式进入<span style="color:red;background:背景颜色;font-size:文字大小;">阻塞态</span>，此时CPU检测到阻塞，然后进行进程调用。<span style="color:red;background:背景颜色;font-size:文字大小;">而不是</span>进程进行系统调用来发生<span style="color:red;background:背景颜色;font-size:文字大小;">调度</span>的。</li>    <li>5.用户改变当前目录</li>  </ul>  <li>非系统调用</li>      <ul>          <li>1.页面置换：由于缺页而发生的，并不是系统调用而触发的(属于中断，中断与系统调用不同</li>          <li>2.trap指令，这里要理解，trap指令是<span style="color:red;background:背景颜色;font-size:文字大小;">用户程序所依靠的指令，用于发起系统调用，请求操作系统提供服务。理解trap和系统调用的不同，陷阱指令是处理计算机系统意外中断的指令，是由于系统调用引起处理机中断的指令。系统调用是一个大的概念，而trap是一条指令</span>参考博客：https://blog.csdn.net/weixin_51340156/article/details/111735909</li>    </ul>  <li>内核态</li>  <ul>      <li>I/O指令、置中断指令、送程序状态字到程序状态寄存器指令(这里注意一下是送，因为PSW是用户可见寄存器，就是可以读)</li>      <li>加载重定位寄存器和界地址寄存器，只有操作系统可以加载这两个寄存器</li>    </ul></ul><p>17.系统调用与一般过程调用的区别</p><ul>  <li>1.运行状态不同。一般的过程调用,其调用和被调用过程都是用户程序,它们都运行在同一系统状态下;而系统调用的<span style="color:red;background:背景颜色;font-size:文字大小;">调用过程</span>是用户程序,它运行在用户态,其<span style="color:red;background:背景颜色;font-size:文字大小;">被调用过程</span>是系统过程,运行在系统态。</li>  <li>2.进入方式不同。一般过程调用可以直接通过过程调用语句将控制转移到被调用过程;而执行系统调用时,由于调用和被调用过程处于不同系统状态,必须通过访管中断进入。</li>  <li>3.代码层次不同。一般过程调用中的被调用程序是用户级程序,而系统调用是操作系统中的代码程序,是系统级程序。</li></ul><p>&nbsp;</p><h3 id='📚操作系统功能-文件管理'>📚操作系统功能-文件管理</h3><figure><table><thead><tr><th>知识点</th></tr></thead><tbody><tr><td>1.搞清楚什么是目录文件、索引结点、进程打开表、系统打开表、访问控制列表、索引表、文件分配表(FAT)、主文件目录(MFD)、用户文件目录(UFD)</td></tr><tr><td>2.FAT表在系统启动时就会被读入内存，页表也是常驻内存，根目录也是启动时读入内存的</td></tr><tr><td>3.用户改变当前目录是系统调用</td></tr><tr><td>4.文件一旦被打开，内核就不再使用文件名来访问文件，而使用文件描述符(句柄)。所以内核内存中，所存放的进程打开表和系统打开表都是没有文件名的，通过open打开文件返回给用户的是索引，而read系统调用就是通过索引访问进程打开表的。</td></tr><tr><td>5.索引表中存放的是<span style='color:red;background:背景颜色;font-size:文字大小;'>逻辑地址</span></td></tr><tr><td>6.文件目录项即FCB，也就是文件控制块</td></tr><tr><td>7.两个进程各自维护自己的文件描述符，包括读写指针位置。</td></tr><tr><td>8.为减少因查找目录而读磁盘的次数采用<span style='color:red;background:背景颜色;font-size:文字大小;'>索引结点</span>的方法，为减少查找文件的记录而读磁盘的次数采用<span style='color:red;background:背景颜色;font-size:文字大小;'>链接索引</span>的方法。</td></tr><tr><td>9.DOS系统是FAT文件系统，unix系统是UFS(混合索引)</td></tr><tr><td>10.FCB确定文件块首地址，FAT确定块间关系</td></tr><tr><td>11.<span style='color:red;background:背景颜色;font-size:文字大小;'>注意文件物理分配的各种记录物理地址的方式（可能会考）</span></td></tr><tr><td>12.磁盘阵列模式</td></tr><tr><td><img src="https://api2.mubu.com/v3/document_image/4370A029780F4FEA1667026569.jpg" srcset="/img/loading.gif" alt="4370A029780F4FEA1667026569" style="zoom:33%;" /></td></tr><tr><td>13.系统调用表：系统调用表(System Call Table)，是一张由指向实现各种系统调用的内核函数的<span style='color:red;background:背景颜色;font-size:文字大小;'>函数指针</span>组成的表，该表可以基于系统调用编号进行索引，来定位函数地址，完成系统调用。挂载驱动通过修改系统调用表的函数地址可对常用处理函数进行Hook(钩子)函数调用，从而实现对一些核心的系统动作进行过滤和监控的目的。</td></tr><tr><td>14.目录的检索：在顺序检索完成后得到的文件的<span style='color:red;background:背景颜色;font-size:文字大小;'>逻辑地址</span></td></tr><tr><td>15.文件分配方式中：连续分配由FCB记录文件物理地址的起始块号和块长；链接分配中隐式链接由FCB记录文件的起始块号和结束块号，显示链接中FCB中只记录文件的起始块号，FAT表中记录具体信息（408中默认链接分配为隐式链接） ；索引分配中FCB记录的是文件的索引表的块号，然后根据索引表的结构又引申出混合索引的知识点(DOS系统是FAT文件系统，unix系统是UFS(混合索引))</td></tr></tbody></table></figure><p>&nbsp;</p><h3 id='📚操作系统功能-io管理'>📚操作系统功能-I/O管理</h3><figure><table><thead><tr><th>知识点</th></tr></thead><tbody><tr><td>1.硬件机制：就是那种由硬件来控件的中断，用户不能编程更改其机制</td></tr><tr><td>2.I/O系统的层次结构<img src="https://api2.mubu.com/v3/document_image/B95A4114359C4E3B1665038780.jpg" srcset="/img/loading.gif" alt="B95A4114359C4E3B1665038780" style="zoom:33%;" /></td></tr><tr><td>3.缓冲池通常在主存中建立，而输入、输出井则是在磁盘中开辟空间</td></tr><tr><td>4.多道程序设计技术是提高单机资源利用率的关键技术</td></tr><tr><td>5.对独占设备往往采用静态分配方式，共享设备采用动态分配方式</td></tr><tr><td>6.<span style='color:red;background:背景颜色;font-size:文字大小;'><strong>磁盘初始化以及系统启动时的顺序</strong></span></td></tr><tr><td><img src="https://api2.mubu.com/v3/document_image/94C48DBA59D442B91665046396.jpg" srcset="/img/loading.gif" alt="94C48DBA59D442B91665046396" style="zoom:33%;" /><img src="https://api2.mubu.com/v3/document_image/BBBE8875F170489D1669098000.jpg" srcset="/img/loading.gif" alt="BBBE8875F170489D1669098000" style="zoom:33%;" /></td></tr><tr><td>7.<span style='color:red;background:背景颜色;font-size:文字大小;'>光盘</span>、U盘以及磁盘都是可以随机访问，也可以顺序访问</td></tr><tr><td>8.用于设备分配的数据结构<img src="https://api2.mubu.com/v3/document_image/4AEA253D2B5147331665124389.jpg" srcset="/img/loading.gif" alt="4AEA253D2B5147331665124389" style="zoom:33%;" /></td></tr><tr><td>9.注意磁盘调度算法，一定要仔细读题，考试给你的循环扫描有可能是(CSCAN)这里没有加-，我第一次写真题直接以为是扫描算法，导致错了。并且考研中题目没有特殊解释的话，扫描算法和循环扫描算法就是LOOK和C-LOOK</td></tr><tr><td>10.设备独立性软件<img src="https://api2.mubu.com/v3/document_image/D6322476F71245221667030408.jpg" srcset="/img/loading.gif" alt="D6322476F71245221667030408" style="zoom:33%;" /><img src="https://api2.mubu.com/v3/document_image/CA4D66A7DDB34F0E1667030416.jpg" srcset="/img/loading.gif" alt="CA4D66A7DDB34F0E1667030416" style="zoom:33%;" /></td></tr><tr><td>11.理解I/O子系统的层次结构怎么工作的<img src="https://api2.mubu.com/v3/document_image/089988C3E05A45E41667030659.jpg" srcset="/img/loading.gif" alt="089988C3E05A45E41667030659" style="zoom:33%;" /></td></tr></tbody></table></figure><p>&nbsp;</p><h3 id='模糊点'>模糊点</h3><h5 id='1搞清楚各种寄存器'>1.搞清楚各种寄存器</h5><ul>  <li>1.重定位寄存器(基地址寄存器)</li>  <li>2.界地址寄存器(限长寄存器)</li>  <li>3.页表寄存器(PTR)，段表寄存器</li></ul><p>&nbsp;</p><h5 id='2哪些操作需要使用特权指令'>2.哪些操作需要使用特权指令</h5><ul>  <li>1.加载重定位寄存器和界地址寄存器，只有操作系统可以加载这两个寄存器</li>  <li>2.I/O指令、置中断指令、送程序状态字到程序状态寄存器指令</li>  <li>（✓）改变存储器内存保护/管理的寄存器。</li>  <li>（✓）写程序指针。</li>  <li>（x）读取日期时钟。</li>  <li>（✓）设置日期时钟。</li>  <li>（✓）改变处理器的优先级。</li>  <li>（✓）系统重启动。</li>  <li>（✓）关闭中断。</li>  <li>（✓）写指令寄存器。</li></ul><p>&nbsp;</p><h5 id='3硬件完成其他见机组）'>3.硬件完成（其他见机组）</h5><ul>  <li>1.基本分页存储管理中（包括请求分页），地址变换机构中逻辑地址转换为物理地址是由<span style="color:red;background:背景颜色;font-size:文字大小;">硬件</span>完成的</li>  <li>2.发生中断或异常时，运行用户态的CPU会立即进入核心态，这是通过<span style="color:red;background:背景颜色;font-size:文字大小;">硬件</span>完成的。</li>  <li>3.中断时，<span style="color:red;background:背景颜色;font-size:文字大小;">硬件</span>自动保存中断程序的断点(即PC和PSW)。</li>  <li>4.存储保护是由操作系统和硬件合作完成，由硬件实现。如页式存储里，操作系统提供页表，硬件里存放有基址和长度，可以防止越界，整个地址变换都由硬件完成。</li>  <li>5.TLS锁是由硬件实现的（非重点）</li></ul><p>&nbsp;</p><h5 id='4频率的问题'>4.频率的问题</h5><ul>  <li>60Hz意思就是，1/60s执行一次</li></ul><p>&nbsp;</p></font>]]></content>
+    
+    
+    <categories>
+      
+      <category>考研</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>考研</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>408-机组</title>
     <link href="/article/b38cf06d.html"/>
     <url>/article/b38cf06d.html</url>
@@ -1371,9 +1446,9 @@
     
     <tags>
       
-      <tag>IDEA</tag>
-      
       <tag>Java</tag>
+      
+      <tag>IDEA</tag>
       
     </tags>
     
@@ -1425,9 +1500,9 @@
     
     <tags>
       
-      <tag>IDEA</tag>
-      
       <tag>Java</tag>
+      
+      <tag>IDEA</tag>
       
     </tags>
     
@@ -1484,9 +1559,9 @@
     
     <tags>
       
-      <tag>IDEA</tag>
-      
       <tag>Java</tag>
+      
+      <tag>IDEA</tag>
       
     </tags>
     
@@ -1551,9 +1626,9 @@
     
     <tags>
       
-      <tag>Tomcat</tag>
-      
       <tag>IDEA</tag>
+      
+      <tag>Tomcat</tag>
       
     </tags>
     
@@ -1630,9 +1705,9 @@
     
     <tags>
       
-      <tag>IDEA</tag>
-      
       <tag>Java</tag>
+      
+      <tag>IDEA</tag>
       
     </tags>
     
@@ -1657,9 +1732,9 @@
     
     <tags>
       
-      <tag>Tomcat</tag>
-      
       <tag>IDEA</tag>
+      
+      <tag>Tomcat</tag>
       
     </tags>
     
@@ -1705,9 +1780,9 @@
     
     <tags>
       
-      <tag>IDEA</tag>
-      
       <tag>Java</tag>
+      
+      <tag>IDEA</tag>
       
     </tags>
     

@@ -1,0 +1,654 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/muzihuaner/deng@main/deng.css">
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/old/F.png">
+  <link rel="icon" type="image/png" href="/img/old/F.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="工具人•小方">
+  <meta name="keywords" content="">
+  <title>408-操作系统 - 工具人小方的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/tomorrow-night.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"fxhstudy.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"2c3982f360efc29d0de4a57e127e3cb9","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz","app_key":"r20xk8AR5pft8xGRQlWKYoin","server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  <script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.13/js/linkcard.js"></script>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="工具人小方的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>工具人小方的博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://qiniuyun.fxhstudy.com/408-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="408-操作系统">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2023-02-04 17:41" pubdate>
+        February 4, 2023 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      50
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">408-操作系统</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2 hours ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <font size="4" face="PingFang SC">
+
+<p>操作系统知识点也比较多，但每年难度不是很大，主要还是理解➕记忆。幕布笔记：<a href='https://www.mubucm.com/doc/8-mMMLGwgG' target='_blank' class='url'>https://www.mubucm.com/doc/8-mMMLGwgG</a></p>
+<p>&nbsp;</p>
+<h3 id='📚概论'>📚概论</h3>
+<figure><table>
+<thead>
+<tr><th>知识点</th></tr></thead>
+<tbody><tr><td>1.CPU从核心态切换到用户态的指令也是特权指令</td></tr><tr><td>2.处于内核态的操作：时钟管理，中断处理，设备驱动，进程管理，存储器管理，设备管理</td></tr><tr><td>3.发生中断或异常时，运行用户态的CPU会立即进入核心态，这是通过<span style='color:red;background:背景颜色;font-size:文字大小;'>硬件</span>完成的。但对中断或者异常的处理，需要操作系统(和驱动程序)完成</td></tr><tr><td>4.访管指令(陷入指令/trap)：发起系统调用，请求操作系统提供服务，是在<span style='color:red;background:背景颜色;font-size:文字大小;'>用户态</span>使用的，所以不可能是特权指令</td></tr><tr><td>5.中断时，<span style='color:red;background:背景颜色;font-size:文字大小;'>硬件</span>自动保存中断程序的断点(即PC和PSW)。通用寄存器是由操作系统保存。硬件找到中断信号对应的中断向量，中断向量指明中断服务程序入口地址(各中断向量统一存放在中断向量表中，该表由操作系统初始化)</td></tr><tr><td>6.用户通过<span style='color:red;background:背景颜色;font-size:文字大小;'>硬件</span>中断机制完成由用户态到核心态的转换，通过访管指令请求。程序异常通过异常处理来进入核心态</td></tr><tr><td>7.大多数计算机系统内核包括四个方面，时钟管理，中断机制，原语和系统控制的数据结构及处理(实际上是系统调用的类的指令(广义指令))。这里注意区分，系统调用，执行一定发生在核心态，而调用可能发生在用户态(也就是用户程序进行了调用)</td></tr><tr><td>8.子程序调用只需保存PC(调用就相当于把子程序的代码替换函数，所以不需要保存状态寄存器)，而中断处理则需要保存PC和PSWR(中断相当于我正在执行，突然去执行其他的程序，是一定需要保存程序的当前状态的)</td></tr><tr><td>9.有关常见的特权指令(或者需要变态的操作)：有关对<span style='color:red;background:背景颜色;font-size:文字大小;'>I/O设备操作</span>的指令；有关访问程序状态的指令；存取<span style='color:red;background:背景颜色;font-size:文字大小;'>特殊寄存器</span>的指令；其他</td></tr><tr><td>10.系统调用发生在用户态,执行在内核态; 外部中断也可以发生在用户态,执行在内核态; 进程切换一定发生并且执行在<span style='color:red;background:背景颜色;font-size:文字大小;'>内核态</span>,这是操作系统的内核程序（属于系统调用执行过程中的事件）; 缺页也是发生在用户态,在内核态处理（确实是大部分发生在用户态下）</td></tr><tr><td>11.系统调用不一定需要专门的硬件，一定需要专门硬件的有地址映射和中断系统</td></tr></tbody>
+</table></figure>
+<p>&nbsp;</p>
+<h3 id='📚操作系统功能-进程管理'>📚操作系统功能-进程管理</h3>
+<figure><table>
+<thead>
+<tr><th>知识点</th></tr></thead>
+<tbody><tr><td>1.PCB申请失败，则进程创建失败；但如果是资源不足，则并不是创建失败，而是处于创建态(结合PCB是进程存在的唯一标准来理解)</td></tr><tr><td>2.用户级线程，用户线程切换不需要转换到内核空间，而内核级线程，用户进程的线程是运行在用户态的，而线程调度和管理是在内核实现的</td></tr><tr><td>3.一般把进程控制用的程序段称为原语，特点是，执行期间不允许中断，是一个不可分割的基本单位。</td></tr><tr><td>4.当被阻塞进程等待的某资源(不包括处理机)可用时，进程将会被唤醒<span style='color:red;background:背景颜色;font-size:文字大小;'>(进程唤醒)，注意‼️进程唤醒是由阻塞态转为就绪态 </span></td></tr><tr><td>5.同一进程中的各个线程拥有各自不同的地址空间（这句话是错的，应该是共享相同的地址空间）</td></tr><tr><td>6.键盘的输入不是多线程的特长(因为一个键盘，等待用户的输入，并且持续输入的速度很慢，一个线程即可)</td></tr><tr><td>7.c语言程序，编写时分为三个段。一般二进制代码和常量存放在正文段，动态分配的存储区在数据堆段，临时变量存放在数据栈段</td></tr><tr><td>8.「进程是多道程序环境中的完整程序」。这种说法是错误的，进程是动态的，而程序是静态的</td></tr><tr><td>9.「每个线程有自己独立的地址空间」这句话是错的，同一进程的各线程间共享进程的地址空间，不同进程拥有各自不同的地址空间</td></tr><tr><td>10.封闭性是指，进程执行的结果只取决于进程本身，不受外界影响。失去封闭性是不同速度下的结果不同</td></tr><tr><td>11.注意⚠️，线程可以独立运行，但是必须要父进程进行启动</td></tr><tr><td>12.在操作系统中，P,V操作是一种<span style='color:red;background:背景颜色;font-size:文字大小;'>低级进程通信原语</span>，它是不能被中断的。而不是系统调用命令</td></tr><tr><td>13.用PV操作实现进程<span style='color:red;background:背景颜色;font-size:文字大小;'>同步</span>，信号量的初值<span style='color:red;background:背景颜色;font-size:文字大小;'>是由用户决定的</span>。若期望的消息未产生，则对应的初值应该设为0；若期望消息已存在，则信号量的初值应该设为一个非0的正整数。例如生产者-消费者中empty为n，full为0，可以很好解释同步中信号量初值的问题。(望重视⚠️了解对PV大题有帮助)</td></tr><tr><td>14.互斥信号量的绝对值（|mutex|）为等待进入的进程数</td></tr><tr><td>15.死锁一定是由<span style='color:red;background:背景颜色;font-size:文字大小;'>两个或者两个以上</span>的进程产生，<span style='color:red;background:背景颜色;font-size:文字大小;'>一个</span>只会导致<span style='color:red;background:背景颜色;font-size:文字大小;'>饥饿</span>。</td></tr><tr><td>16.<span style='color:red;background:背景颜色;font-size:文字大小;'>资源有序分配策略</span>破坏的是循环等待条件；<span style='color:red;background:背景颜色;font-size:文字大小;'>一次性分配策略</span>破坏的是占有请求条件；<span style='color:red;background:背景颜色;font-size:文字大小;'>剥夺资源</span>破坏的是非剥夺条件；银行家算法判断的是<span style='color:red;background:背景颜色;font-size:文字大小;'>是否为不安全状态，不能检测是否发生死锁，死锁避免（硬币- 银避</span>；</td></tr><tr><td>17.注意⚠️⚠️，银行家算法(<span style='color:red;background:背景颜色;font-size:文字大小;'>死锁避免</span>)不会限制用户的申请资源的顺序，而<span style='color:red;background:背景颜色;font-size:文字大小;'>死锁预防</span>访问会限制，这是破坏了循环等待条件。(往年考过的知识点，408就喜欢反复考同一知识点)</td></tr><tr><td>18.模式切换不一定导致进程切换，要<span style='color:red;background:背景颜色;font-size:文字大小;'>进程切换一定要模式切换</span>(模式切换即变态)</td></tr><tr><td>19.在同一进程中，线程的切换不会引起进程切换。但从一个进程中的线程切换到另一个进程中的线程时，会引起进程切换。进程切换一定变态</td></tr><tr><td>20.注意内核临界区和普通临界区的区别</td></tr><tr><td>21.同步机制一定要遵循：空闲让进、忙则等待、有限等待、让权等待；而互斥可以不遵循让权等待（皮特森算法）</td></tr><tr><td>22.进程上下文切换时，需要保持的进程状态包括寄存器值、用户和系统内核栈状态</td></tr><tr><td>23.导致进程创建进程的典型事件：<span style='color:red;background:背景颜色;font-size:文字大小;'>用户登录；作业调度；提供服务；应用请求。📌<u><strong>设备分配不会导致创建进程，由内核自动完成。</strong></u></span></td></tr></tbody>
+</table></figure>
+<p>&nbsp;</p>
+<h3 id='📚操作系统功能-内存管理'>📚操作系统功能-内存管理</h3>
+<figure><table>
+<thead>
+<tr><th>知识点</th></tr></thead>
+<tbody><tr><td>1.若采用多级页表机制，为查询方便，各级<span style='color:red;background:背景颜色;font-size:文字大小;'>页表大小不能超过一个页面。（32位系统，32=12+10+10（12是页内寻址，一页4KB，页表项为4B，字节寻址）二级页表；而64位系统=12+10+10+10+10+10+2，六级页表）</span><img src="https://api2.mubu.com/v3/document_image/a038367b-cc02-497a-8251-79e44e8004c3-6205003.jpg" srcset="/img/loading.gif" alt="a038367b-cc02-497a-8251-79e44e8004c3-6205003" style="zoom:50%;" /></td></tr><tr><td>2.<span style='color:red;background:背景颜色;font-size:文字大小;'>PC里面 SP里面存的都是逻辑地址，取完之后再去转换为物理地址访问</span></td></tr><tr><td>3.  <br><img src="https://api2.mubu.com/v3/document_image/27C820582ED04D811663926507.jpg" srcset="/img/loading.gif" alt="img" style="zoom:33%;" /></td></tr><tr><td>4.外部碎片可通过紧凑技术解决，但是需要要花费时间代价比较大</td></tr><tr><td>5.1、页表级数的判断，首先需要知道的是，每一级<span style='color:red;background:背景颜色;font-size:文字大小;'>只能有一张页表</span>(操作系统规定的)，所以我们计算需要多少级页表时，考虑的就是一张页表能够存多少页表项，例如64位操作系统，页面大小是4KB，一个页表项有4B大小，那么一页就能存1K个页表项，(这里的1K=1024)也就是说，这一页如果存下一级页表的信息的话，可以存1K个页表的首地址。而这一级也就是占了64位中的10位，容易算出，64-12=2+10+10+10+10+10，顶级页表存了两位二级页表项（也就是4个二级页表项)，二级页表存了10位三级页表项（也就是1024个三级页表项）。。。这样算下来就是六级。这里的12位表示的是页面大小。</td></tr><tr><td>5.2、注意缺页中断属于内部异常，因为缺页是与当前的指令有关系，所以是可以在指令执行期间响应的。页故障即缺页。<span style='color:red;background:背景颜色;font-size:文字大小;'>但是一定要注意，缺页发生在用户态</span>。之前对这个很困惑，明明内部异常不应该发生在内核态吗？其实这里就是误解了。用户程序发生缺页中断，而用户程序发生在用户态。假如目标内存页在物理内存中没有对应的页帧或者存在但无对应权限，CPU 就无法获取数据，这种情况下CPU就会报告一个缺页错误。由于CPU没有数据就无法进行计算，CPU罢工了用户进程也就出现了缺页中断，进程会从用户态切换到内核态，并将缺页中断交给内核处理。(参考文章：<a href='https://blog.csdn.net/universsky2015/article/details/115234769' target='_blank' class='url'>https://blog.csdn.net/universsky2015/article/details/115234769</a>)</td></tr><tr><td>6.页面置换算法中，注意理解缺页中断的次数(即缺页次数)和页面置换的次数。缺页中断次数还包括内存空闲，但页表不在内存调入的次数。</td></tr><tr><td>7.Belady异常只有FIFO算法才会出现，现象是所分配的物理块数增大而页故障不减反增的异常现象。</td></tr><tr><td>8.什么叫抖动(颠簸)？</td></tr><tr><td>9.弄清楚工作集和驻留集的关系</td></tr><tr><td>10.弄清楚页目录和页表的概念(OSp138)</td></tr><tr><td>11.注意理解程序<span style='color:red;background:背景颜色;font-size:文字大小;'>链接</span>时的三种方式(静态链接、装入时链接、运行时链接)、<span style='color:red;background:背景颜色;font-size:文字大小;'>装入</span>内存时(绝对装入、重定位装入、动态运行时装入)，他们各自的特点。理解<span style='color:red;background:背景颜色;font-size:文字大小;'>连续分配</span>的三种方式(单一连续分配、固定分区分配以及动态分区分配)特点</td></tr><tr><td>12.注意⚠️虚拟存储器：作业在运行前，不必全部装入内存，且在运行过程中也不必一直驻留内存。而分页存储管理方式，进程的页表驻留在内存中。</td></tr><tr><td>13.基本分页存储管理方式中，需要将作业全部装入内存，而请求调用则不需要</td></tr><tr><td>14.发生缺页后<img src="https://api2.mubu.com/v3/document_image/063F8FD1355546BB1664351372.jpg" srcset="/img/loading.gif" alt="063F8FD1355546BB1664351372" style="zoom:33%;" /></td></tr><tr><td>15.抖动<img src="https://api2.mubu.com/v3/document_image/72852C55DDDE44FD1664351522.jpg" srcset="/img/loading.gif" alt="72852C55DDDE44FD1664351522" style="zoom:33%;" /></td></tr></tbody>
+</table></figure>
+<p>16.系统调用总汇（零散的总结，不全面）</p>
+<ul>
+  <li>特权指令与系统调用的区别</li>
+  <ul>
+      <li>特权指令是一类只能在核心态下执行的机器指令。而系统调用不是机器指令，它往往以函数调用的形式出现，实现操作系统提供的子功能，它是操作系统与用户的编程接口。在用户程序中可以使用系统调用来获得操作系统服务，在系统调用代码中可以使用特权指令</li>
+    </ul>
+  <li>系统调用</li>
+  <ul>
+    <li>1.创建新进程</li>
+    <li>2.进程共享空间是需要用到系统调用的（进程空间一般是独立的）</li>
+    <li>3.创建线程和终止线程的函数</li>
+    <li>4.进程调度：一个进程是通过系统调用的方式进入<span style="color:red;background:背景颜色;font-size:文字大小;">阻塞态</span>，此时CPU检测到阻塞，然后进行进程调用。<span style="color:red;background:背景颜色;font-size:文字大小;">而不是</span>进程进行系统调用来发生<span style="color:red;background:背景颜色;font-size:文字大小;">调度</span>的。</li>
+    <li>5.用户改变当前目录</li>
+  </ul>
+  <li>非系统调用</li>
+      <ul>
+          <li>1.页面置换：由于缺页而发生的，并不是系统调用而触发的(属于中断，中断与系统调用不同</li>
+          <li>2.trap指令，这里要理解，trap指令是<span style="color:red;background:背景颜色;font-size:文字大小;">用户程序所依靠的指令，用于发起系统调用，请求操作系统提供服务。理解trap和系统调用的不同，陷阱指令是处理计算机系统意外中断的指令，是由于系统调用引起处理机中断的指令。系统调用是一个大的概念，而trap是一条指令</span>参考博客：https://blog.csdn.net/weixin_51340156/article/details/111735909</li>
+    </ul>
+  <li>内核态</li>
+  <ul>
+      <li>I/O指令、置中断指令、送程序状态字到程序状态寄存器指令(这里注意一下是送，因为PSW是用户可见寄存器，就是可以读)</li>
+      <li>加载重定位寄存器和界地址寄存器，只有操作系统可以加载这两个寄存器</li>
+    </ul>
+</ul>
+<p>17.系统调用与一般过程调用的区别</p>
+<ul>
+  <li>1.运行状态不同。一般的过程调用,其调用和被调用过程都是用户程序,它们都运行在同一系统状态下;而系统调用的<span style="color:red;background:背景颜色;font-size:文字大小;">调用过程</span>是用户程序,它运行在用户态,其<span style="color:red;background:背景颜色;font-size:文字大小;">被调用过程</span>是系统过程,运行在系统态。</li>
+  <li>2.进入方式不同。一般过程调用可以直接通过过程调用语句将控制转移到被调用过程;而执行系统调用时,由于调用和被调用过程处于不同系统状态,必须通过访管中断进入。</li>
+  <li>3.代码层次不同。一般过程调用中的被调用程序是用户级程序,而系统调用是操作系统中的代码程序,是系统级程序。</li>
+</ul>
+<p>&nbsp;</p>
+<h3 id='📚操作系统功能-文件管理'>📚操作系统功能-文件管理</h3>
+<figure><table>
+<thead>
+<tr><th>知识点</th></tr></thead>
+<tbody><tr><td>1.搞清楚什么是目录文件、索引结点、进程打开表、系统打开表、访问控制列表、索引表、文件分配表(FAT)、主文件目录(MFD)、用户文件目录(UFD)</td></tr><tr><td>2.FAT表在系统启动时就会被读入内存，页表也是常驻内存，根目录也是启动时读入内存的</td></tr><tr><td>3.用户改变当前目录是系统调用</td></tr><tr><td>4.文件一旦被打开，内核就不再使用文件名来访问文件，而使用文件描述符(句柄)。所以内核内存中，所存放的进程打开表和系统打开表都是没有文件名的，通过open打开文件返回给用户的是索引，而read系统调用就是通过索引访问进程打开表的。</td></tr><tr><td>5.索引表中存放的是<span style='color:red;background:背景颜色;font-size:文字大小;'>逻辑地址</span></td></tr><tr><td>6.文件目录项即FCB，也就是文件控制块</td></tr><tr><td>7.两个进程各自维护自己的文件描述符，包括读写指针位置。</td></tr><tr><td>8.为减少因查找目录而读磁盘的次数采用<span style='color:red;background:背景颜色;font-size:文字大小;'>索引结点</span>的方法，为减少查找文件的记录而读磁盘的次数采用<span style='color:red;background:背景颜色;font-size:文字大小;'>链接索引</span>的方法。</td></tr><tr><td>9.DOS系统是FAT文件系统，unix系统是UFS(混合索引)</td></tr><tr><td>10.FCB确定文件块首地址，FAT确定块间关系</td></tr><tr><td>11.<span style='color:red;background:背景颜色;font-size:文字大小;'>注意文件物理分配的各种记录物理地址的方式（可能会考）</span></td></tr><tr><td>12.磁盘阵列模式</td></tr><tr><td><img src="https://api2.mubu.com/v3/document_image/4370A029780F4FEA1667026569.jpg" srcset="/img/loading.gif" alt="4370A029780F4FEA1667026569" style="zoom:33%;" /></td></tr><tr><td>13.系统调用表：系统调用表(System Call Table)，是一张由指向实现各种系统调用的内核函数的<span style='color:red;background:背景颜色;font-size:文字大小;'>函数指针</span>组成的表，该表可以基于系统调用编号进行索引，来定位函数地址，完成系统调用。挂载驱动通过修改系统调用表的函数地址可对常用处理函数进行Hook(钩子)函数调用，从而实现对一些核心的系统动作进行过滤和监控的目的。</td></tr><tr><td>14.目录的检索：在顺序检索完成后得到的文件的<span style='color:red;background:背景颜色;font-size:文字大小;'>逻辑地址</span></td></tr><tr><td>15.文件分配方式中：连续分配由FCB记录文件物理地址的起始块号和块长；链接分配中隐式链接由FCB记录文件的起始块号和结束块号，显示链接中FCB中只记录文件的起始块号，FAT表中记录具体信息（408中默认链接分配为隐式链接） ；索引分配中FCB记录的是文件的索引表的块号，然后根据索引表的结构又引申出混合索引的知识点(DOS系统是FAT文件系统，unix系统是UFS(混合索引))</td></tr></tbody>
+</table></figure>
+<p>&nbsp;</p>
+<h3 id='📚操作系统功能-io管理'>📚操作系统功能-I/O管理</h3>
+<figure><table>
+<thead>
+<tr><th>知识点</th></tr></thead>
+<tbody><tr><td>1.硬件机制：就是那种由硬件来控件的中断，用户不能编程更改其机制</td></tr><tr><td>2.I/O系统的层次结构<img src="https://api2.mubu.com/v3/document_image/B95A4114359C4E3B1665038780.jpg" srcset="/img/loading.gif" alt="B95A4114359C4E3B1665038780" style="zoom:33%;" /></td></tr><tr><td>3.缓冲池通常在主存中建立，而输入、输出井则是在磁盘中开辟空间</td></tr><tr><td>4.多道程序设计技术是提高单机资源利用率的关键技术</td></tr><tr><td>5.对独占设备往往采用静态分配方式，共享设备采用动态分配方式</td></tr><tr><td>6.<span style='color:red;background:背景颜色;font-size:文字大小;'><strong>磁盘初始化以及系统启动时的顺序</strong></span></td></tr><tr><td><img src="https://api2.mubu.com/v3/document_image/94C48DBA59D442B91665046396.jpg" srcset="/img/loading.gif" alt="94C48DBA59D442B91665046396" style="zoom:33%;" /><img src="https://api2.mubu.com/v3/document_image/BBBE8875F170489D1669098000.jpg" srcset="/img/loading.gif" alt="BBBE8875F170489D1669098000" style="zoom:33%;" /></td></tr><tr><td>7.<span style='color:red;background:背景颜色;font-size:文字大小;'>光盘</span>、U盘以及磁盘都是可以随机访问，也可以顺序访问</td></tr><tr><td>8.用于设备分配的数据结构<img src="https://api2.mubu.com/v3/document_image/4AEA253D2B5147331665124389.jpg" srcset="/img/loading.gif" alt="4AEA253D2B5147331665124389" style="zoom:33%;" /></td></tr><tr><td>9.注意磁盘调度算法，一定要仔细读题，考试给你的循环扫描有可能是(CSCAN)这里没有加-，我第一次写真题直接以为是扫描算法，导致错了。并且考研中题目没有特殊解释的话，扫描算法和循环扫描算法就是LOOK和C-LOOK</td></tr><tr><td>10.设备独立性软件<img src="https://api2.mubu.com/v3/document_image/D6322476F71245221667030408.jpg" srcset="/img/loading.gif" alt="D6322476F71245221667030408" style="zoom:33%;" /><img src="https://api2.mubu.com/v3/document_image/CA4D66A7DDB34F0E1667030416.jpg" srcset="/img/loading.gif" alt="CA4D66A7DDB34F0E1667030416" style="zoom:33%;" /></td></tr><tr><td>11.理解I/O子系统的层次结构怎么工作的<img src="https://api2.mubu.com/v3/document_image/089988C3E05A45E41667030659.jpg" srcset="/img/loading.gif" alt="089988C3E05A45E41667030659" style="zoom:33%;" /></td></tr></tbody>
+</table></figure>
+<p>&nbsp;</p>
+<h3 id='模糊点'>模糊点</h3>
+<h5 id='1搞清楚各种寄存器'>1.搞清楚各种寄存器</h5>
+<ul>
+  <li>1.重定位寄存器(基地址寄存器)</li>
+  <li>2.界地址寄存器(限长寄存器)</li>
+  <li>3.页表寄存器(PTR)，段表寄存器</li>
+</ul>
+<p>&nbsp;</p>
+<h5 id='2哪些操作需要使用特权指令'>2.哪些操作需要使用特权指令</h5>
+<ul>
+  <li>1.加载重定位寄存器和界地址寄存器，只有操作系统可以加载这两个寄存器</li>
+  <li>2.I/O指令、置中断指令、送程序状态字到程序状态寄存器指令</li>
+  <li>（✓）改变存储器内存保护/管理的寄存器。</li>
+  <li>（✓）写程序指针。</li>
+  <li>（x）读取日期时钟。</li>
+  <li>（✓）设置日期时钟。</li>
+  <li>（✓）改变处理器的优先级。</li>
+  <li>（✓）系统重启动。</li>
+  <li>（✓）关闭中断。</li>
+  <li>（✓）写指令寄存器。</li>
+</ul>
+<p>&nbsp;</p>
+<h5 id='3硬件完成其他见机组）'>3.硬件完成（其他见机组）</h5>
+<ul>
+  <li>1.基本分页存储管理中（包括请求分页），地址变换机构中逻辑地址转换为物理地址是由<span style="color:red;background:背景颜色;font-size:文字大小;">硬件</span>完成的</li>
+  <li>2.发生中断或异常时，运行用户态的CPU会立即进入核心态，这是通过<span style="color:red;background:背景颜色;font-size:文字大小;">硬件</span>完成的。</li>
+  <li>3.中断时，<span style="color:red;background:背景颜色;font-size:文字大小;">硬件</span>自动保存中断程序的断点(即PC和PSW)。</li>
+  <li>4.存储保护是由操作系统和硬件合作完成，由硬件实现。如页式存储里，操作系统提供页表，硬件里存放有基址和长度，可以防止越界，整个地址变换都由硬件完成。</li>
+  <li>5.TLS锁是由硬件实现的（非重点）</li>
+</ul>
+<p>&nbsp;</p>
+<h5 id='4频率的问题'>4.频率的问题</h5>
+<ul>
+  <li>60Hz意思就是，1/60s执行一次</li>
+</ul>
+<p>&nbsp;</p>
+</font>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E8%80%83%E7%A0%94/">考研</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%80%83%E7%A0%94/">考研</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/b85d5ece.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">二进制深度思考</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/b38cf06d.html">
+                        <span class="hidden-mobile">408-机组</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz",
+          app_key: "r20xk8AR5pft8xGRQlWKYoin",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fxhstudy" target="_blank" rel="nofollow noopener"><span>xFxF</span></a>
+
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        皖ICP备20002414号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2c3982f360efc29d0de4a57e127e3cb9";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
