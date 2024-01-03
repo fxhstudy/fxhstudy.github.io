@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>SSL证书更换</title>
+    <link href="/article/74e856a1.html"/>
+    <url>/article/74e856a1.html</url>
+    
+    <content type="html"><![CDATA[<font size="4" face="PingFang SC"><p>这几天不是年初了嘛，博客每年的域名证书都需要更换，但一年更换一次，导致第二年都需要再找资料看看流程，非常麻烦。所以这里写一篇博客，记录一下，下次更换的时候也方便。</p><p>我的博客图像是存储在七牛云上的，每年大概几块钱吧，也不算太贵，但也需要一个二级域名用来指向你的云存储。</p><p>我的顶级域名是在阿里云买的，一年大概几十块钱，一个静态博客网站，也就域名花钱，价格也不贵。</p><p>前几天收到SSL证书要失效了，所以登录七牛云看了一下</p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_1.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>这里就是要更换一下SSL证书，SSL用在IP层，主要是保密和认证作用，这个算是网安的知识点，感兴趣可以去了解一下。</p><p>先找到SSL证书，在证书管理里面购买证书</p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_2.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_3.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>当然，我们的个人博客，肯定是要免费的证书。不过我看了一下，不管是七牛云还是阿里云的免费证书都由一年有效期变成了三个月，也就是以后是三个月要换一次证书。。。有点难受了</p><p>接着就是补全信息，填写一些信息，这里域名是你的顶级域名，证书备注名就是你的二次域名。</p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_4.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>公司信息这一块要求不严格，可以按照我这样写，基本上都会通过，我怀疑这一块都不会看</p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_5.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>这里部署证书先不用管，直接提交就行了</p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_6.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>但检测没有通过，显示域名所有权验证未通过</p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_7.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>这是因为他不知道你的域名是不是你的，所以这里要域名解析，也就是在阿里云中，去增加一条主机记录(注意，这是因为我在阿里云买的顶级域名，如果你在腾讯云买的，就需要去腾讯云解析)</p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_8.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>直接点击添加记录，然后添加相关信息就可以了</p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_9.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_16.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>记录类型填的是CNAME，其他的就和你配置域名的时候的记录是一样的</p><p>这些做完之后，基本上就没有太大的问题了，等一两分钟，基本上就通过了</p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_10.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_11.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>这里点击部署，过一两分钟后基本上就通过了</p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_12.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_14.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>到这里七牛云的证书更换基本上就完成了</p><p>接下来就是顶级域名的证书部署了，也就在阿里云里面操作了</p><p>看一下阿里云的提示</p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_13.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>然后购买证书，当然这里也肯定是免费的了</p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_15.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>我去年用的证书，今年要收费了，难受，这能用这种测试的证书，不过除了期限变为了三个月，其他没有变化</p><p>接着就是更换证书</p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_17.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>填写相关信息</p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_20.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>提交过后就会进行审核了，过几分钟基本上就通过了</p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_18.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_19.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>到这里，七牛云和阿里云的域名部署基本上就完成了，只是相比去年，以后每三个月都要换一下证书还是挺麻烦的</p></font>]]></content>
+    
+    
+    <categories>
+      
+      <category>博客</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>博客</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>二战</title>
+    <link href="/article/undefined.html"/>
+    <url>/article/undefined.html</url>
+    
+    <content type="html"><![CDATA[<font size="4" face="PingFang SC">    今年应该是很有很大机会上岸的！</br>    是的，我二战了，这也是我很久没有更新的原因。</br>    从今年五月份开始，我就在准备二战了。</br>    说实话，一战失败之后，我确实非常失落，努力了一年，最后以失败收场。</br>    可能是目标太高，也可能是我的准备不足，但最终结果就是我没上岸。</br>    没有人在乎你付出了多少，结果永远是决定你的努力</br>    我也不喜欢给我自己找借口，因为我也只相信结果，结果就是你不行</br>    二战压力大吗？二战的压力很大，我压力最大的时候就是在考研结果下来的时刻，那时候天天脑子里面都是要怎么办，甘不甘心就这样，每天在各种论坛上看二战心得，那段时间真的很压抑，算是我最迷茫的时候了。是工作还是二战？基本上每天醒来，都要对着天花板望好久，周围的朋友有考上的，有调剂的，有工作的。当时觉得大家都在进步，只有自己在原地踏步。去年的成绩也可以调剂走，但我每在有这个念头的时候，总会问自己，去了这个学校，你不会后悔吗？很痛苦！</br>    考研真的很痛苦，这只有考过的人才能深刻体会到，可以说它比高考还要残酷，高考即便发挥失常，你也有书可以读。但考研只有一次机会，基本没有容错，如果你是应届生，那意味着你失去了最好的校招的机会，如果你是往届生，那意味着你失去了应届生的身份，代价很大。过去努力一年的时间，都在这一场考试中了，他就像赌博，花上一年的时间，去赌一场考试。考上了，满载而归，考不上，一无所获。而大部分人都是一无所获的</br>    同样，你也会遇到很多困难，一遍又一遍的否认自己，但又一遍又一遍地重新面对，这个过程会极度痛苦，自我折磨，痛苦地你不会想再去经历，这就是为什么二战需要很大的勇气了。我很佩服我自己，我努力了两年，我做到了很多人没有做到的事。我也很佩服每一位上岸的研究生，因为他们和我所经历的一样。</br>    这是一场一个人的战争，考研注定是孤独的，不会有人和同行，同行的都是你的竞争对手，你需要自己去战斗，这很残酷，也是事实。但我认为只要战斗到最后，你就是勇士，不论结果如何。这可能有点鸡血，但我经历过两年，我深深知道其中的难。</br>    最后一个月的我，每天都在担心自己会不会感冒，早上是不是要再早起一点，进度会不会跟不上，还有哪些需要调整等等，这些说起来容易，但每天都在经历这些反复折磨，真的很痛苦，你可以去问问每一位上岸的研究生，考研苦不苦。</br>    这是我最后一次考研了，不论结果如何，我尽力了。</br></font>]]></content>
+    
+    
+    <categories>
+      
+      <category>考研</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>考研</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>mac</title>
     <link href="/article/1713eb65.html"/>
     <url>/article/1713eb65.html</url>

@@ -1,0 +1,595 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/muzihuaner/deng@main/deng.css">
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/old/F.png">
+  <link rel="icon" type="image/png" href="/img/old/F.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="工具人•小方">
+  <meta name="keywords" content="">
+  <title>SSL证书更换 - 工具人小方的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/tomorrow-night.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"fxhstudy.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"2c3982f360efc29d0de4a57e127e3cb9","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz","app_key":"r20xk8AR5pft8xGRQlWKYoin","server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  <script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.13/js/linkcard.js"></script>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="工具人小方的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>工具人小方的博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="SSL证书更换">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2024-01-01 13:24" pubdate>
+        January 1, 2024 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      803 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      8
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">SSL证书更换</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：5 hours ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <font size="4" face="PingFang SC">
+
+
+<p>这几天不是年初了嘛，博客每年的域名证书都需要更换，但一年更换一次，导致第二年都需要再找资料看看流程，非常麻烦。所以这里写一篇博客，记录一下，下次更换的时候也方便。</p>
+<p>我的博客图像是存储在七牛云上的，每年大概几块钱吧，也不算太贵，但也需要一个二级域名用来指向你的云存储。</p>
+<p>我的顶级域名是在阿里云买的，一年大概几十块钱，一个静态博客网站，也就域名花钱，价格也不贵。</p>
+
+<p>前几天收到SSL证书要失效了，所以登录七牛云看了一下</p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_1.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+
+<p>这里就是要更换一下SSL证书，SSL用在IP层，主要是保密和认证作用，这个算是网安的知识点，感兴趣可以去了解一下。</p>
+<p>先找到SSL证书，在证书管理里面购买证书</p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_2.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_3.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p>当然，我们的个人博客，肯定是要免费的证书。不过我看了一下，不管是七牛云还是阿里云的免费证书都由一年有效期变成了三个月，也就是以后是三个月要换一次证书。。。有点难受了</p>
+<p>接着就是补全信息，填写一些信息，这里域名是你的顶级域名，证书备注名就是你的二次域名。</p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_4.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p>公司信息这一块要求不严格，可以按照我这样写，基本上都会通过，我怀疑这一块都不会看</p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_5.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p>这里部署证书先不用管，直接提交就行了</p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_6.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p>但检测没有通过，显示域名所有权验证未通过</p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_7.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p>这是因为他不知道你的域名是不是你的，所以这里要域名解析，也就是在阿里云中，去增加一条主机记录(注意，这是因为我在阿里云买的顶级域名，如果你在腾讯云买的，就需要去腾讯云解析)</p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_8.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p>直接点击添加记录，然后添加相关信息就可以了</p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_9.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_16.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p>记录类型填的是CNAME，其他的就和你配置域名的时候的记录是一样的</p>
+<p>这些做完之后，基本上就没有太大的问题了，等一两分钟，基本上就通过了</p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_10.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_11.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p>这里点击部署，过一两分钟后基本上就通过了</p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_12.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_14.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p>到这里七牛云的证书更换基本上就完成了</p>
+
+<p>接下来就是顶级域名的证书部署了，也就在阿里云里面操作了</p>
+<p>看一下阿里云的提示</p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_13.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p>然后购买证书，当然这里也肯定是免费的了</p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_15.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p>我去年用的证书，今年要收费了，难受，这能用这种测试的证书，不过除了期限变为了三个月，其他没有变化</p>
+<p>接着就是更换证书</p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_17.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p>填写相关信息</p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_20.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p>提交过后就会进行审核了，过几分钟基本上就通过了</p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_18.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+<p><img src="https://qiniuyun.fxhstudy.com/SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%8D%A2_19.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p>
+
+<p>到这里，七牛云和阿里云的域名部署基本上就完成了，只是相比去年，以后每三个月都要换一下证书还是挺麻烦的</p>
+
+</font>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/undefined.html">
+                        <span class="hidden-mobile">二战</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "VV0Y0S3Pj6ERI7DEOFLxUFXs-gzGzoHsz",
+          app_key: "r20xk8AR5pft8xGRQlWKYoin",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fxhstudy" target="_blank" rel="nofollow noopener"><span>xFxF</span></a>
+
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        皖ICP备20002414号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2c3982f360efc29d0de4a57e127e3cb9";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
