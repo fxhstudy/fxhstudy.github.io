@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>进程同步问题</title>
+    <link href="/article/92a2269f.html"/>
+    <url>/article/92a2269f.html</url>
+    
+    <content type="html"><![CDATA[<font size="4" face="PingFang SC"><h2 id="进程同步问题"><a href="#进程同步问题" class="headerlink" title="进程同步问题"></a>进程同步问题</h2><p>设自行车生产线上有一个箱子，其中有N个位置（N≥3），每个位置可存放一个车架或者一个车轮，设有3名工人，其活动分别为：<br>工人1活动：</p><figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br> 加工一个车架；<br> 车架放入箱中；<br>&#125;<br><br>工人<span class="hljs-number">2</span>活动：<br><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br> 加工一个车轮；<br> 车轮放入箱中；<br>&#125;<br><br>工人<span class="hljs-number">3</span>活动：<br><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br> 箱中取一个车架；<br> 箱中取两个车轮；<br> 组装为一辆车；<br>&#125;<br></code></pre></div></td></tr></table></figure><p>要求分别用信号量PV操作实现三名工人的合作，要求解中不含死锁。</p><p>算是比较经典的进程同步问题了，也是在刷复试学校历年真题的时候遇到的。难度不大，但有一些细节，对于进程同步问题不熟悉的同学，可能会忽略，所以这里记录一下。<br>首先分析题目，一个箱子可以放N个零件，工人1一次放一个车架，工人2一次放一个车轮，工人3要做的是从箱子里拿出零件，然后组装车，但<code>第一个需要注意的点是</code>一辆车需要两个车轮和一个车架。<br>知道题目的要求之后，我们需要考虑此题目中，需要哪些信号量。<br>1、箱子可以放N个零件，这里我们设empty=N，代表最多可以放置N个零件。<code>第二个需要注意的点是</code>，有的人可能会再设一个mutex来互斥访问箱子，但这里其实是没有必要的，也是新手经常犯的一个错误。因为P、V操作都是原语，而原语是不可中断的程序段。而此题，当对empty进行PV操作时，其实以及实现了对箱子的互斥操作。<br>2、接着我们设置frame=0和wheel=0信号量来表示，箱子中车架和车轮的数量。<br>3、<code>第三个需要注意的的点是</code>，程序可能出现，箱子里面全是车轮或者车架，所以我们要分别设定信号量来保证避免这种情况。</p><figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c">semaphore empty=N;<span class="hljs-comment">//箱子内的空位</span><br>semaphore weel=<span class="hljs-number">0</span>;<span class="hljs-comment">//车轮</span><br>semaphore frame=<span class="hljs-number">0</span>;<span class="hljs-comment">//车架</span><br>semaphore s1=N<span class="hljs-number">-2</span>;<span class="hljs-comment">//车架最大值</span><br>semaphore s2=N<span class="hljs-number">-1</span>;<span class="hljs-comment">//车轮最大值</span><br> <br>工人<span class="hljs-number">1</span>活动：<br><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br> 加工一个车架；<br> P(empty);<br> P(s1);<br> 车架放入箱中；<br> V(frame);<br>&#125;<br> <br>工人<span class="hljs-number">2</span>活动：<br><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br> 加工一个车轮；<br> P(empty);<br> P(s2);<br> 车轮放入箱中；<br> V(wheel);<br>&#125;<br> <br>工人<span class="hljs-number">3</span>活动：<br><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br> P(frame);<br> 箱中取一个车架；<br> V(empty);<br> V(s1);<br> P(wheel);<br> P(wheel);<br> 箱中取两个车轮；<br> V(empty);<br> V(empty);<br> V(s2);<br> V(s2);<br> 组装为一辆车；<br>&#125;<br></code></pre></div></td></tr></table></figure><p>把一些注意点弄清楚了，代码其实就不难写了。</p></font>]]></content>
+    
+    
+    <categories>
+      
+      <category>考研</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>考研</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>mac系统下，Clion环境配置的问题</title>
+    <link href="/article/2806f2d2.html"/>
+    <url>/article/2806f2d2.html</url>
+    
+    <content type="html"><![CDATA[<font size="4" face="PingFang SC"><h2 id="mac系统下，Clion环境配置的问题"><a href="#mac系统下，Clion环境配置的问题" class="headerlink" title="mac系统下，Clion环境配置的问题"></a>mac系统下，Clion环境配置的问题</h2><p>最近在准备复试，计算机专业基本上复试都需要上机的，好在报考的学校网安机试很简单，限定C。<br>因为现在mac系统用的多了，所以准备在mac系统上去刷一些题。难受的是之前因为嫌Xcode太大了，就卸载了。<br>但mac系统上你如果想运行C，或者通过Clion去运行的话，需要gcc和cmake。网上大部分的文章的解决办法其实都是先下载Xcode，然后通过Xcode中带有相应的环境，这时候就可以了。<br>但也正像我之前所说，Xcode是非常大的(十几个G)，平时也不会去用，于是查了一下有没有别的解决办法，于是就有了这篇文章。</p><p>问题是这样的，我在下载完Clion后，发现Clion不自带c语言运行环境</p><p><img src="https://qiniuyun.fxhstudy.com/Clion_img1.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>所以需要自己去配置<br>首先，就是下载homebrew，这个是用于安装mac上缺少的各种软件的。如果自己操作的话，可能还需要自己安装一些其他的东西，接下来要用到的brew，就是通过它来自动安装的。在命令行输入以下代码即可：</p></font><figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c">/bin/zsh -c <span class="hljs-string">"$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"</span><br></code></pre></div></td></tr></table></figure><font size="4" face="PingFang SC">回车之后，他会让你选个源，这里随便选一个就行(因为在国内有些网站访问不了或者网速不行)。<p><img src="https://qiniuyun.fxhstudy.com/Clion_img2.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>接着跳过即可。</p><p>然后接着就是安装gcc和cmake了，分别输入以下命令：</p><figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c">brew install gcc<br>brew install cmake<br></code></pre></div></td></tr></table></figure><p><img src="https://qiniuyun.fxhstudy.com/Clion_img3.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>到这里，c语言运行环境就配置好了。<br>接着就是手动将环境路径，添加到Clion中。<br>但百度很难找到关于查看gcc compiler路径的命令，但办法总比困难多</p><figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c">brew <span class="hljs-built_in">list</span> gcc<br></code></pre></div></td></tr></table></figure><p><img src="https://qiniuyun.fxhstudy.com/Clion_img4.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>这里记下gcc和g+/+的路径<br>然后将copy到Clion中就大功告成了</p><p><img src="https://qiniuyun.fxhstudy.com/Clion_img5.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>最后运行成功</p><p><img src="https://qiniuyun.fxhstudy.com/Clion_img6.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></p><p>很简单的一次环境配置，第一次是在mac mini上配置了一次，第二次在macbook上配置时，又不记得了，所以索性就记录了一下</p></font>]]></content>
+    
+    
+    <categories>
+      
+      <category>考研</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>考研</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>如何自己购买最新美漫期刊</title>
     <link href="/article/a46da21b.html"/>
     <url>/article/a46da21b.html</url>
@@ -1722,9 +1772,9 @@
     
     <tags>
       
-      <tag>转载</tag>
-      
       <tag>Java</tag>
+      
+      <tag>转载</tag>
       
     </tags>
     

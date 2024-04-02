@@ -18,7 +18,7 @@
   <meta name="description" content="">
   <meta name="author" content="工具人•小方">
   <meta name="keywords" content="">
-  <title>二战 - 工具人小方的博客</title>
+  <title>进程同步问题 - 工具人小方的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -160,12 +160,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://qiniuyun.fxhstudy.com/%E4%BA%8C%E6%88%98.jpg') no-repeat center center;
+         style="background: url('https://qiniuyun.fxhstudy.com/%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="二战">
+            <span class="h2" id="subtitle" title="进程同步问题">
               
             </span>
 
@@ -175,8 +175,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2023-12-26 21:27" pubdate>
-        December 26, 2023 pm
+      <time datetime="2024-03-11 20:54" pubdate>
+        March 11, 2024 pm
       </time>
     </span>
   
@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      853 字
+      697 字
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8
+      7
        分钟
     </span>
   
@@ -227,29 +227,25 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">二战</h1>
+            <h1 style="display: none">进程同步问题</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：3 months ago
+                  本文最后更新于：a minute ago
                 
               </p>
             
             <div class="markdown-body">
               <font size="4" face="PingFang SC">
-    今年应该是很有很大机会上岸的！</br>
-    是的，我二战了，这也是我很久没有更新的原因。</br>
-    从今年五月份开始，我就在准备二战了。</br>
-    说实话，一战失败之后，我确实非常失落，努力了一年，最后以失败收场。</br>
-    可能是目标太高，也可能是我的准备不足，但最终结果就是我没上岸。</br>
-    没有人在乎你付出了多少，结果永远是决定你的努力</br>
-    我也不喜欢给我自己找借口，因为我也只相信结果，结果就是你不行</br>
-    二战压力大吗？二战的压力很大，我压力最大的时候就是在考研结果下来的时刻，那时候天天脑子里面都是要怎么办，甘不甘心就这样，每天在各种论坛上看二战心得，那段时间真的很压抑，算是我最迷茫的时候了。是工作还是二战？基本上每天醒来，都要对着天花板望好久，周围的朋友有考上的，有调剂的，有工作的。当时觉得大家都在进步，只有自己在原地踏步。去年的成绩也可以调剂走，但我每在有这个念头的时候，总会问自己，去了这个学校，你不会后悔吗？很痛苦！</br>
-    考研真的很痛苦，这只有考过的人才能深刻体会到，可以说它比高考还要残酷，高考即便发挥失常，你也有书可以读。但考研只有一次机会，基本没有容错，如果你是应届生，那意味着你失去了最好的校招的机会，如果你是往届生，那意味着你失去了应届生的身份，代价很大。过去努力一年的时间，都在这一场考试中了，他就像赌博，花上一年的时间，去赌一场考试。考上了，满载而归，考不上，一无所获。而大部分人都是一无所获的</br>
-    同样，你也会遇到很多困难，一遍又一遍的否认自己，但又一遍又一遍地重新面对，这个过程会极度痛苦，自我折磨，痛苦地你不会想再去经历，这就是为什么二战需要很大的勇气了。我很佩服我自己，我努力了两年，我做到了很多人没有做到的事。我也很佩服每一位上岸的研究生，因为他们和我所经历的一样。</br>
-    这是一场一个人的战争，考研注定是孤独的，不会有人和同行，同行的都是你的竞争对手，你需要自己去战斗，这很残酷，也是事实。但我认为只要战斗到最后，你就是勇士，不论结果如何。这可能有点鸡血，但我经历过两年，我深深知道其中的难。</br>
-    最后一个月的我，每天都在担心自己会不会感冒，早上是不是要再早起一点，进度会不会跟不上，还有哪些需要调整等等，这些说起来容易，但每天都在经历这些反复折磨，真的很痛苦，你可以去问问每一位上岸的研究生，考研苦不苦。</br>
-    这是我最后一次考研了，不论结果如何，我尽力了。</br>
+
+<h2 id="进程同步问题"><a href="#进程同步问题" class="headerlink" title="进程同步问题"></a>进程同步问题</h2><p>设自行车生产线上有一个箱子，其中有N个位置（N≥3），每个位置可存放一个车架或者一个车轮，设有3名工人，其活动分别为：<br>工人1活动：</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br> 	加工一个车架；<br> 	车架放入箱中；<br>&#125;<br><br>工人<span class="hljs-number">2</span>活动：<br><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br> 	加工一个车轮；<br> 	车轮放入箱中；<br>&#125;<br><br>工人<span class="hljs-number">3</span>活动：<br><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br> 	箱中取一个车架；<br> 	箱中取两个车轮；<br> 	组装为一辆车；<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>要求分别用信号量PV操作实现三名工人的合作，要求解中不含死锁。</p>
+<p>算是比较经典的进程同步问题了，也是在刷复试学校历年真题的时候遇到的。难度不大，但有一些细节，对于进程同步问题不熟悉的同学，可能会忽略，所以这里记录一下。<br>首先分析题目，一个箱子可以放N个零件，工人1一次放一个车架，工人2一次放一个车轮，工人3要做的是从箱子里拿出零件，然后组装车，但<code>第一个需要注意的点是</code>一辆车需要两个车轮和一个车架。<br>知道题目的要求之后，我们需要考虑此题目中，需要哪些信号量。<br>1、箱子可以放N个零件，这里我们设empty=N，代表最多可以放置N个零件。<code>第二个需要注意的点是</code>，有的人可能会再设一个mutex来互斥访问箱子，但这里其实是没有必要的，也是新手经常犯的一个错误。因为P、V操作都是原语，而原语是不可中断的程序段。而此题，当对empty进行PV操作时，其实以及实现了对箱子的互斥操作。<br>2、接着我们设置frame=0和wheel=0信号量来表示，箱子中车架和车轮的数量。<br>3、<code>第三个需要注意的的点是</code>，程序可能出现，箱子里面全是车轮或者车架，所以我们要分别设定信号量来保证避免这种情况。</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c">semaphore empty=N;<span class="hljs-comment">//箱子内的空位</span><br>semaphore weel=<span class="hljs-number">0</span>;<span class="hljs-comment">//车轮</span><br>semaphore frame=<span class="hljs-number">0</span>;<span class="hljs-comment">//车架</span><br>semaphore s1=N<span class="hljs-number">-2</span>;<span class="hljs-comment">//车架最大值</span><br>semaphore s2=N<span class="hljs-number">-1</span>;<span class="hljs-comment">//车轮最大值</span><br> <br>工人<span class="hljs-number">1</span>活动：<br><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br> 	加工一个车架；<br> 	P(empty);<br> 	P(s1);<br> 	车架放入箱中；<br> 	V(frame);<br>&#125;<br> <br>工人<span class="hljs-number">2</span>活动：<br><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br> 	加工一个车轮；<br> 	P(empty);<br> 	P(s2);<br> 	车轮放入箱中；<br> 	V(wheel);<br>&#125;<br> <br>工人<span class="hljs-number">3</span>活动：<br><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br> 	P(frame);<br> 	箱中取一个车架；<br> 	V(empty);<br> 	V(s1);<br> 	P(wheel);<br> 	P(wheel);<br> 	箱中取两个车轮；<br> 	V(empty);<br> 	V(empty);<br> 	V(s2);<br> 	V(s2);<br> 	组装为一辆车；<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>把一些注意点弄清楚了，代码其实就不难写了。</p>
 </font>
             </div>
             <hr>
@@ -280,18 +276,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/74e856a1.html">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SSL证书更换</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/1713eb65.html">
-                        <span class="hidden-mobile">mac</span>
+                      <a href="/article/2806f2d2.html">
+                        <span class="hidden-mobile">mac系统下，Clion环境配置的问题</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
