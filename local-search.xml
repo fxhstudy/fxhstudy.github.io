@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>在MAC中安装ChatGPT</title>
+    <link href="/article/d6c6a02f.html"/>
+    <url>/article/d6c6a02f.html</url>
+    
+    <content type="html"><![CDATA[<font size="4"  face="PingFang SC"><p>MAC要安装ChatGPT桌面版的话，需要有两个要求，第一是需要M系列的芯片，第二是需要最新的MacOS<br>先去下面的网站下载ChatGPT桌面版</p><p><a href="https://persistent.oaistatic.com/sidekick/public/ChatGPT_Desktop_public_latest.dmg" target="_blank" rel="noopener" class="LinkCard">ChatGPT_Desktop_public_latest</a></p><p>接着就安装，但你打开时会loading一段时间，然后它会提示你没有权限。这时候可以再次打开，当处于loading界面，直接cmd+Q，强制退出，再次打开就完成了。</p><img src="https://qiniuyun.fxhstudy.com/ChatGPT_Desktop.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></font>]]></content>
+    
+    
+    <categories>
+      
+      <category>ChatGPT</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>ChatGPT</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>CV中常见的单词(持续更新中...)</title>
     <link href="/article/717e0e4f.html"/>
     <url>/article/717e0e4f.html</url>
@@ -1809,9 +1834,9 @@
     
     <tags>
       
-      <tag>转载</tag>
-      
       <tag>Java</tag>
+      
+      <tag>转载</tag>
       
     </tags>
     

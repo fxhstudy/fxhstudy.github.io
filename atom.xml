@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fxhstudy.com/"/>
-  <updated>2024-05-28T14:51:23.302Z</updated>
+  <updated>2024-06-03T13:32:59.674Z</updated>
   <id>https://fxhstudy.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在MAC中安装ChatGPT</title>
+    <link href="https://fxhstudy.com/article/d6c6a02f.html"/>
+    <id>https://fxhstudy.com/article/d6c6a02f.html</id>
+    <published>2024-06-03T07:48:00.000Z</published>
+    <updated>2024-06-03T13:32:59.674Z</updated>
+    
+    <content type="html"><![CDATA[<font size="4"  face="PingFang SC"><p>MAC要安装ChatGPT桌面版的话，需要有两个要求，第一是需要M系列的芯片，第二是需要最新的MacOS<br>先去下面的网站下载ChatGPT桌面版</p><p><a href="https://persistent.oaistatic.com/sidekick/public/ChatGPT_Desktop_public_latest.dmg" target="_blank" rel="noopener" class="LinkCard">ChatGPT_Desktop_public_latest</a></p><p>接着就安装，但你打开时会loading一段时间，然后它会提示你没有权限。这时候可以再次打开，当处于loading界面，直接cmd+Q，强制退出，再次打开就完成了。</p><img src="https://qiniuyun.fxhstudy.com/ChatGPT_Desktop.png" srcset="/img/loading.gif" referrerpolicy="no-referrer"></font>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;font size=&quot;4&quot;  face=&quot;PingFang SC&quot;&gt;
+
+&lt;p&gt;MAC要安装ChatGPT桌面版的话，需要有两个要求，第一是需要M系列的芯片，第二是需要最新的MacOS&lt;br&gt;先去下面的网站下载ChatGPT桌面版&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://
+      
+    
+    </summary>
+    
+    
+      <category term="ChatGPT" scheme="https://fxhstudy.com/categories/ChatGPT/"/>
+    
+    
+      <category term="ChatGPT" scheme="https://fxhstudy.com/tags/ChatGPT/"/>
+    
+  </entry>
   
   <entry>
     <title>CV中常见的单词(持续更新中...)</title>
@@ -553,37 +582,6 @@
     
     
       <category term="区块链" scheme="https://fxhstudy.com/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue中数据操作后的页面刷新</title>
-    <link href="https://fxhstudy.com/article/6f1a1374.html"/>
-    <id>https://fxhstudy.com/article/6f1a1374.html</id>
-    <published>2021-11-14T07:10:36.000Z</published>
-    <updated>2021-11-14T07:37:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<font size="4" face="PingFang SC">这几天在准备一个计算机设计大赛的项目，准备在年前把文档、作品和视频什么的都弄好，到时候到时间点交即可。<p>但是基本上前后端都是我来做的，周围没有能够帮我做事情的人，所以很忙。因为之前没有做过前端的项目，只有一些基本的知识，于是这段时间苦学Vue，算是能上手了吧。</p><p>今天在对数据进行删除和添加的时候，发现在删除后页面的数据还是之前的，并没有自动刷新更新后的数据。</p><p>虽然再次载入页面的时候会显示更新后的数据，但是交互性很不好</p><p>查了资料，基本上都介绍的是采用Vue中的方法，然后试了。。。失败了</p><p>直到看到一篇博客，说的是，在更新操作结束后，处理返回信息时，对数据进行重新加载</p><p>茅塞顿开，对啊，其实不用纠结于怎么用Vue中的父通子来完成这个需求，简单的重新渲染数据即可完成这个需求</p><p>虽然是个很简单的小问题，可能还是对Vue不是很熟悉，但在自己有限范围内解决了这个需求还是很满意的。</p><p>所以在解决一个问题的时候，没必要刻意去一条路走到底，换个思路可能就没那么复杂了<br></font></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;font size=&quot;4&quot; face=&quot;PingFang SC&quot;&gt;
-这几天在准备一个计算机设计大赛的项目，准备在年前把文档、作品和视频什么的都弄好，到时候到时间点交即可。
-
-&lt;p&gt;但是基本上前后端都是我来做的，周围没有能够帮我做事情的人，所以很忙。因为之前没有做过前端的项目，只
-      
-    
-    </summary>
-    
-    
-      <category term="程序猿" scheme="https://fxhstudy.com/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"/>
-    
-    
-      <category term="Vue" scheme="https://fxhstudy.com/tags/Vue/"/>
-    
-      <category term="框架" scheme="https://fxhstudy.com/tags/%E6%A1%86%E6%9E%B6/"/>
     
   </entry>
   
